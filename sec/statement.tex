@@ -1,0 +1,75 @@
+% !TEX root = ../axiomatic.tex
+
+\section{Statement}
+
+Let $\Sigma_2$ be the group with one non-identity element $T$ and let
+\[
+\begin{tikzcd} [column sep = 20pt]
+W = \big( \F[\Sigma_2] & \F[\Sigma_2]  \arrow[l, "\ 1+T"'] & \arrow[l, "\ 1+T"'] \cdots \big)
+\end{tikzcd}
+\]
+be the minimal resolution of $\F$ by free $\F[\Sigma_2]$-modules. We denote the preferred element in degree $i$ by $e_i$.
+
+A \textbf{cup-$i$ structure} on a chain complex $A$ is a chain map
+\[
+W \tensor_{\F[\Sigma_2]} A^{\tensor 2} \to A
+\]
+where $T$ acts by multiplication on $W$ and by transposition on $A^{\otimes 2}$. We denote the image of $[e_i \tensor \alpha \tensor \beta]$ by $\alpha \smallsmile_i \beta$.
+
+A \textbf{cup-$i$ construction} is a cup-$i$ structure on $N^*(X)$ for every simplicial set $X$ that is natural with respect to simplicial maps.
+
+An \textbf{isomorphism} of cup-$i$ constructions is an automorphism $\phi$ of $W$ making the diagram
+\begin{center}
+	\begin{tikzcd}[column sep = tiny]
+	W \displaytensor_{\F[\Sigma_2]} N^*(X) \arrow[dr, in=180, out=-90] \arrow[rr, "\phi \tensor \id"] & & W \displaytensor_{\F[\Sigma_2]} N^*(X) \arrow[dl, in=0, out=-90] \\
+	& N^*(X) &
+	\end{tikzcd}
+\end{center}
+commute for every simplicial set $X$.
+
+The first axiom alluded to in the introduction, naturality, has been explicitly absorbed into our definition of cup-$i$ construction; whereas the second, minimality, is manifested in the definition of cup-$i$ structure via the use of $W$. A cup-$i$ construction is \textbf{non-degenerate} if $\smallsmile_i$ is not the $0$ map for some $i$, and it is \textbf{free} if for any pair of basis elements $\delta_V^\ast \in \cochains(\simplex^n)_{k_1}$ and $\delta_W^\ast \in \cochains(\simplex^n)_{k_2}$
+\[
+\boxed{\delta_V^* \smallsmile_{i} \delta_W^\ast = \delta_W^* \smallsmile_{i} \delta_V^\ast}\ \Longrightarrow\
+\boxed{\delta_V^* \smallsmile_{i} \delta_W^\ast = 0}
+\]
+whenever $i \neq k_1$ or $i \neq k_2$.
+
+We now give a new description of Steenrod's original cup-$i$ construction. Our description is in a sense dual to his and the equivalence of both is stated as Proposition \ref{proposition: steenrod's equals ours}. For any positive integer $q$ let $\P_q$ be the collection of cardinality $q$ subsets of non-negative integers and
+\[
+\P_q(n) = \{ U \in \P_q\ |\ \forall u \in U, u \leq n\}.
+\]
+ For $U = \{u_1 < \cdots < u_q\} \in \P_q$ let
+\[
+d_U : \chains(X) \to \chains(X)
+\]
+be the linear map defined on a basis element $x \in X_n$ by
+\[
+d_U (x) = d_{u_1} \cdots \, d_{u_q} (x)
+\]
+with the convention that $d_U(x) = 0$ if $n < u_q$. For each $u_r \in U$ define the \textbf{index of $u_r$ in $U$} as
+\[
+\ind_U(u_r) = u_r + r
+\]
+denoting $U^-$ (resp. $U^+$) the subset of $U$ containing all elements whose index in $U$ is odd (resp. even). Either of these sets could be empty and we declare $d_\emptyset = \id$ and $\P_0 = \{\emptyset\}$.
+
+\begin{definition} \label{definition: our cup-i products}
+	For any simplicial set $X$ and cochains $\alpha, \beta \in \cochains(X)$ define for any $c \in \chains(X)_n$
+	\[
+	(\alpha \smallsmile_i \beta)(c) =
+	(\alpha \tensor \beta) \sum_{U\in\P_{n-i}} d_{U^-}(c) \tensor d_{U^+}(c)
+	\]
+	if  $i \leq n$ and to be $0$ otherwise.
+\end{definition}
+
+\begin{theorem} \label{theorem: main}
+	Up to isomorphism, the only free non-degenerate cup-$i$ construction is presented in \mbox{Definition \ref{definition: our cup-i products}}.
+\end{theorem}
+
+\begin{remark}
+	Steenrod squares were axiomatized soon after their introduction with the Cartan formula being the least obvious of the axioms. We think of Theorem \ref{theorem: main} as a continuation of this efforts and remark that in \cite{medina2020cartan} an effective cochain level proof of the Cartan formula is given.
+	ADEM
+\end{remark}
+
+\begin{remark}
+	The formulae in Definition \ref{definition: our cup-i products} have been used to provide new algorithms for the computation of Steenrod squares and cup-$i$ products on finite simplicial complexes. See \cite{medina2018persistence} for a discussion of these algorithms and their incorporation into the field of topological data analysis. IMPLEMENTATIONS IN MY WEBSITE
+\end{remark}
