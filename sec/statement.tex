@@ -14,7 +14,7 @@ A \textbf{cup-$i$ structure} on a chain complex $A$ is a chain map
 \[
 W \tensor_{\F[\Sigma_2]} A^{\tensor 2} \to A
 \]
-where $T$ acts by multiplication on $W$ and by transposition on $A^{\otimes 2}$. We denote the image of $[e_i \tensor \alpha \tensor \beta]$ by $\alpha \smallsmile_i \beta$.
+where $T$ acts by multiplication on $W$ and by transposition on $A^{\otimes 2}$. We denote the image of $[e_i \tensor \alpha \tensor \beta]$ by $\alpha \cup_i \beta$.
 
 A \textbf{cup-$i$ construction} is a cup-$i$ structure on $N^*(X)$ for every simplicial set $X$ that is natural with respect to simplicial maps.
 
@@ -27,10 +27,10 @@ An \textbf{isomorphism} of cup-$i$ constructions is an automorphism $\phi$ of $W
 \end{center}
 commute for every simplicial set $X$.
 
-The first axiom alluded to in the introduction, naturality, has been explicitly absorbed into our definition of cup-$i$ construction; whereas the second, minimality, is manifested in the definition of cup-$i$ structure via the use of $W$. A cup-$i$ construction is \textbf{non-degenerate} if $\smallsmile_i$ is not the $0$ map for some $i$, and it is \textbf{free} if for any pair of basis elements $\delta_V^\ast \in \cochains(\simplex^n)_{k_1}$ and $\delta_W^\ast \in \cochains(\simplex^n)_{k_2}$
+The first axiom alluded to in the introduction, naturality, has been explicitly absorbed into our definition of cup-$i$ construction; whereas the second, minimality, is manifested in the definition of cup-$i$ structure via the use of $W$. A cup-$i$ construction is \textbf{non-degenerate} if $\cup_i$ is not the $0$ map for some $i$, and it is \textbf{free} if for any pair of basis elements $\delta_V^\ast \in \cochains(\simplex^n)_{k_1}$ and $\delta_W^\ast \in \cochains(\simplex^n)_{k_2}$
 \[
-\boxed{\delta_V^* \smallsmile_{i} \delta_W^\ast = \delta_W^* \smallsmile_{i} \delta_V^\ast}\ \Longrightarrow\
-\boxed{\delta_V^* \smallsmile_{i} \delta_W^\ast = 0}
+\boxed{\delta_V^* \cup_{i} \delta_W^\ast = \delta_W^* \cup_{i} \delta_V^\ast}\ \Longrightarrow\
+\boxed{\delta_V^* \cup_{i} \delta_W^\ast = 0}
 \]
 whenever $i \neq k_1$ or $i \neq k_2$.
 
@@ -55,7 +55,7 @@ denoting $U^-$ (resp. $U^+$) the subset of $U$ containing all elements whose ind
 \begin{definition} \label{definition: our cup-i products}
 	For any simplicial set $X$ and cochains $\alpha, \beta \in \cochains(X)$ define for any $c \in \chains(X)_n$
 	\[
-	(\alpha \smallsmile_i \beta)(c) =
+	(\alpha \cup_i \beta)(c) =
 	(\alpha \tensor \beta) \sum_{U\in\P_{n-i}} d_{U^-}(c) \tensor d_{U^+}(c)
 	\]
 	if  $i \leq n$ and to be $0$ otherwise.
