@@ -1,0 +1,174 @@
+\subsection{Boundaries and coproducts}
+
+%\begin{notation}
+%	Given $\xi : \P_{n-i}(n) \to \{-, +\}$ we denote by $\bar{\xi}$ the function with the same domain and range satisfying $\xi \neq \bar{\xi}$ pointwise, and simplify the notation $U^{\xi(U)}$ and $U^{\bar{\xi}(U)}$ to $U^\xi$ and $U^{\bar{\xi}}$ respectively.
+%\end{notation}
+
+%A direct consequence of Lemma \ref{lemma: (1+T) triangle = 0 implies triangle = 0} is the following
+
+\begin{lemma} \label{lemma: (1+T) triangle = (1+T) sum implies triangle = sum}
+    If
+    \[
+    (1 + T) \triangle_i (\id_{[n]}) =
+    (1 + T) \sum_{\P_{n-i}(n)} \delta_{U^-} \otimes \delta_{U^+}
+    \]
+    for some $i < n$, then there exists $\xi : \P_{n-i}(n) \to \{-, +\}$  such that
+    \[
+    \triangle_i (\id_{[n]})\ =\! \sum_{\P_{n-i}(n)} \delta_{U^{\xi}} \otimes \delta_{U^{\bar{\xi}}}.
+    \]
+\end{lemma}
+
+%\begin{notation}
+%    For $U \in \P_{n-i}(n)$ we write $u \notin U$ if $u \in \{0 < \cdots< n\} \setminus U$. If $u \notin U$ define $u.U = \{u\} \union U \in \P_{n-i+1}(n)$ and if $u \in U$ define $U \setminus u = U \setminus \{u\} \in \P_{n-i-1}(n)$.
+%\end{notation}
+
+\begin{lemma} \label{lemma: boundary of triangle}
+	If for some $i < n$ there exists $\xi : \P_{n-i}(n) \to \{-, +\}$ such that
+	\[
+	\triangle_i(\id_{[n]})\ =\! \sum_{\P_{n-i}(n)} \delta_{U^{\xi}} \otimes \delta_{U^{{\bar{\xi}}}}
+	\]
+	then
+	\begin{align}
+	\label{equation: boundary of triangle}
+	\partial \triangle_i(\id_{[n]})\ = &
+	\sum_{\P_{n-i}(n)} \left( \, \sum_{u \in U^{\bar{\xi}}} \delta_{u.U^\xi} \tensor \delta_{U^{\bar{\xi}}} \ +
+	\sum_{u \in U^\xi} \delta_{U^\xi} \tensor \delta_{u.U^{\bar{\xi}}} \right) \\ + &
+	\sum_{\P_{n-i}(n)} \sum_{x \notin U} \left( \delta_{x.U^-} \tensor \delta_{U^+}\ +\ \delta_{U^-} \tensor \delta_{x.U^+} \right).
+	\end{align}
+\end{lemma}
+
+%\begin{proof}
+%	We use the cosimplicial identity $\delta_q \delta_p = \delta_{p-1} \delta_q$ for $p \geq q$ to establish
+%	\begin{equation} \label{equation: partial of d over P}
+%	\partial \! \sum_{\P_{n-i}(n)} \delta_{U}\ =\ \sum_{k = 0}^{i} \sum_{\P_{n-i}(n)} \delta_{U} \delta_k \ = \sum_{\P_{n-i}(n)} \sum_{u \not\in U} \delta_{u.U}
+%	\end{equation}
+%	from which identity \eqref{equation: boundary of triangle} follows directly.
+%\end{proof}
+
+\begin{lemma} \label{lemma: boundary of triangle}
+	If for some $i \leq n$
+	\[
+	\triangle_i(\id_{[n-1]})\ =\! \sum_{\P_{n-i-1}(n)} \delta_{U^-} \otimes \delta_{U^+}
+	\]
+	then
+	\begin{align}
+	\label{equation: triangle of boundary}
+	\triangle_i (\partial \, \id_{[n]}) \ =\! \sum_{\P_{n-i}(n)} \left( \,
+	\sum_{u \in U^+} \delta_{u.U^-} \tensor \delta_{U^+} \ +
+	\sum_{u \in U^-} \delta_{U^-} \tensor \delta_{u.U^+} \right).
+	\end{align}
+\end{lemma}
+
+%\begin{proof}
+%	Let
+%	\begin{align*}
+%	& S_1 = \big\{(u, V)\ |\ V \in \P_{n-1-i}(n-1) \text{ and }  u \in \{0, \dots, n \} \big\}, \\
+%	& S_2 = \big\{(w, W)\ |\ W \in \P_{q}(n) \text{ and } w \in W \big\}
+%	\end{align*}
+%	and notice that identity \eqref{equation: triangle of boundary} is equivalent to
+%	\begin{equation} \label{equation: triangle of partial recasted}
+%	\sum_{(u, V) \in S_1} \delta_{V^\xi}\delta_u \otimes \delta_{V^{\bar{\xi}}}\delta_u \ \, =
+%	\sum_{\substack{(w, W) \in S_2 \\ w \in W^{\bar{\xi}}}} \delta_{w.W^\xi} \tensor \delta_{W^{\bar{\xi}}} \ + \!
+%	\sum_{\substack{(w, W) \in S_2 \\ w \in W^\xi}} \delta_{W^\xi} \tensor \delta_{w.W^{\bar{\xi}}.}
+%	\end{equation}
+%	Define $S_1 \to S_2$ by sending $\big(u, \, \{v_1 < \cdots < v_{q-1}\} \big)$ to $\big(u,\, \{w_1 < \cdots < w_{q}\} \big)$ with
+%	\[
+%	w_i =
+%	\begin{cases}
+%	v_i & \text{ if } v_i < u \\
+%	u & \text{ if } v_i < u \leq v_{i+1} \\
+%	v_{i-1}+1 & \text{ if } v_i < u.
+%	\end{cases}
+%	\]
+%	This function is a bijection since it is injective and both sets have the same cardinality. To establishes \eqref{equation: triangle of partial recasted} we use the simplicial identities to notice that
+%	\[
+%	\delta_{V^\xi} \delta_u \otimes \delta_{V^{\bar{\xi}}} \delta_u =
+%	\begin{cases}
+%	\delta_{w.W^\xi} \tensor \delta_{W^{\bar{\xi}}} & \text{ if } w \in W^{\bar{\xi}}, \\
+%	\delta_{W^\xi} \tensor \delta_{w.W^{\bar{\xi}}} & \text{ if } w \in W^\xi.
+%	\end{cases}
+%	\]
+%	if $(u, V) \mapsto (w, W)$.
+%\end{proof}
+
+\begin{lemma} \label{lemma: boundary gives the lower case}
+	For $i \leq n$
+	\begin{equation} \label{lemma4: existence: eq1}
+	\sum_{U \in \P_{n-i}(n)} \sum_{x \notin U} (\delta_{x.U^-} \tensor \delta_{U^+}\ +\ \delta_{U^-} \tensor \delta_{x.U^+})\ = \
+	(1+T) \!\! \sum_{\P_{n-i+1}(n)} \delta_{U^-} \tensor \delta_{U^+.}
+	\end{equation}
+\end{lemma}
+
+%\begin{proof}
+%	For $U = (u_1, \dots, u_{n-i}) \in \P_{n-i}(n)$ and $x \notin U$ define when possible:
+%	\begin{align*}
+%	V_{U,x} = x.U \setminus l_{U, x} & \ \text{ with } l_{U,x} = \max\{u\in U\ |\ x>u\}, \\
+%	W_{U,x} = x.U \setminus r_{U, x} & \ \text{ with } r_{U,x} = \max\{u \in U\ |\ x>u\}.
+%	\end{align*}
+%	Notice that $(l_{U,x}).V_{U,x} = x.U = (r_{U,x}).W_{U,x}$ and that for any $u \in U \setminus \{l_{U,x}, r_{U,x}\}$ we have $\ind_{V_{U,x}}(u) = \ind_{U}(u) = \ind_{W_{U,x}}(u)$.
+%
+%	We introduce the following sets using tabbing to represent inclusion:
+%
+%	\vspace*{5pt}
+%	$L = \{x.U^- \tensor U^+\ | \ U \in \P_{n-i}(n),\ x \notin U\}$
+%	\vspace*{1pt}
+%	\begin{tab}
+%		$L^{e} = \{x.U^- \tensor U^+ \in L\ | \ \ind_{x.U}(x) \text{ even}\}$
+%		\begin{tab}
+%			$L_{min}^{e} = \{x.U^- \tensor U^+ \in L^e\ | \ x < u_1 \}$ \par
+%			$\overline{L}_{min}^{e} = L^{e} \setminus L_{min}^{e}$
+%			\begin{tab}
+%				$\overline{L}_{min}^{e,e} = \{ x.U^- \tensor U^+ \in \overline{L}_{min}^{e}\ | \ \ind_{x.U}(l_{U,x}) \text{ even} \}$ \par
+%				$\overline{L}_{min}^{e,o} = \{ x.U^- \tensor U^+ \in \overline{L}_{min}^{e}\ | \ \ind_{x.U}(l_{U,x}) \text{ odd} \}$
+%				\vspace*{7pt}
+%			\end{tab}
+%		\end{tab}
+%		$L^{o} = \{x.U^- \tensor U^+\ | \ \ind_{x.U}(x) \text{ odd}\}$ \par
+%		\begin{tab}
+%			$L_{max}^{o} = \{x.U^- \tensor U^+ \in L^o\ | \ u_q < x \}$ \par
+%			$\overline{L}_{max}^{o} = L^{o}\setminus L_{max}^{o}$.
+%			\begin{tab}
+%				$\overline{L}_{max}^{o,e} = \{ x.U^- \tensor U^+ \in \overline{L}_{max}^{o}\ | \ \ind_{x.U}(r_{U,x}) \text{ even} \}$ \par
+%				$\overline{L}_{max}^{o,o} = \{ x.U^- \tensor U^+ \in \overline{L}_{max}^{o}\ | \ \ind_{x.U}(r_{U,x}) \text{ odd} \}$.
+%			\end{tab}
+%		\end{tab}
+%	\end{tab}
+%
+%	\vspace*{5pt}
+%	Similar subsets of $R = \{U^-\tensor x.U^+\ | \ U \in \P_{n-i}(n),\ x \in \overline{U}\}$ are defined analogously, and we claim the following four identities:
+%	\begin{equation}\label{lemma4: existence: eq2}
+%	\overline{R}_{min}^{o,o} = \overline{L}_{max}^{o,o}\ , \qquad \overline{R}_{min}^{o,e} = \overline{R}_{max}^{e,o}\ , \qquad
+%	\overline{L}_{min}^{e,o} = \overline{L}_{max}^{o,e}\ , \qquad \overline{L}_{min}^{e,e} = \overline{R}_{max}^{e,e}.
+%	\end{equation}
+%	We show only the proof of the first one. The other three are proven analogously.
+%	\begin{alignat*}{2}
+%	&\boxed{x.U^-\tensor U^+ \in \overline{L}_{max}^{o,o}}\ &\Longrightarrow\ &\boxed{x.U^-\tensor U^+ =\, W_U(x)^-\tensor r_{U,x}.W_{U,x}^+ \in \overline{R}_{min}^{o,o} \! } \\
+%	&\boxed{U^-\tensor x.U^+ \in \overline{R}_{min}^{o,o}}\ &\Longrightarrow\ &\boxed{U^-\tensor x.U^+ =\, l_{U,x}.V_U(x)^-\tensor V_{U,x}^+ \in \overline{L}_{max}^{o,o} \ \ }
+%	\end{alignat*}
+%	The identities in (\ref{lemma4: existence: eq2}) imply
+%	\begin{equation} \label{lemma4: existence: eq3}
+%	\sum_{\overline{L}_{max}^{o},\, \overline{L}_{min}^{e}} d_{x.U^-} \tensor d_{U^+}\ \ +
+%	\sum_{\overline{R}_{max}^{e},\, \overline{R}_{min}^{o}} d_{U^-} \tensor d_{x.U^+}\ =\ 0.
+%	\end{equation}
+%	Let us now consider the right hand side of (\ref{lemma4: existence: eq1})
+%	\[
+%	(1+T) \sum_{U \in \P_{n-i+1}(n)} \delta_{U^-} \tensor \delta_{U^+} \, = \!\!
+%	\sum_{L^0_{max},\, L^r_{min}} \delta_{x.U^-} \tensor \delta_{U^+}\ + \!
+%	\sum_{R^e_{max}, \, R^o_{min}} \delta_{U^-} \tensor \delta_{x.U^+,}
+%	\]
+%	Thanks to (\ref{lemma4: existence: eq3}), the above expression is equivalent to
+%	\[
+%	(1+T) \sum_{U \in \P_{n-i+1}(n)} \delta_{U^-} \tensor \delta_{U^+} \, = \
+%	\sum_{L} \delta_{x.U^-} \tensor \delta_{U^+}\ + \
+%	\sum_{R} \delta_{U^-} \tensor \delta_{x.U^+.}
+%	\]
+%	as claimed.
+%\end{proof}
+
+%\begin{corollary}
+%	The map $\Delta \colon W \to \mathcal Z(2)$ is a free, non-degenerate Steenrod construction.
+%\end{corollary}
+%
+%\begin{proof}
+%	...
+%\end{proof}

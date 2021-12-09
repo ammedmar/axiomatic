@@ -73,3 +73,25 @@ denoting $U^-$ (resp. $U^+$) the subset of $U$ containing all elements whose ind
 \begin{remark}
 	The formulae in Definition \ref{definition: our cup-i products} have been used to provide new algorithms for the computation of Steenrod squares and cup-$i$ products on finite simplicial complexes. See \cite{medina2018persistence} for a discussion of these algorithms and their incorporation into the field of topological data analysis. IMPLEMENTATIONS IN MY WEBSITE
 \end{remark}
+
+\anibal{Counterexample:}
+
+Every pair $\triangle_{i,n} = \Delta_{i,n}$ except for a fixed $i^\prime$ and $n^\prime$ with
+\[
+\triangle_{i^\prime+1, n} =
+T \Delta_{i^\prime, n}, \quad n \geq n^\prime,
+\]
+and
+\[
+\triangle_{i^\prime, n} = \begin{cases}
+T \Delta_{i^\prime, n} & n < n^\prime, \\
+\Delta_{i^\prime, n} + \Delta_{i+1, n-1} \circ \bd_n & n = n^\prime,
+\end{cases}
+\]
+
+For example, to $\Delta_0([0123])$ this adds
+\[
+\begin{split}
+[1,2,3] \otimes [1,2] + [1,3] \otimes [1,2,3] + [1,2,3] \otimes [2,3] + \\ [0,2,3] \otimes [0,2] + [0,3] \otimes [0,2,3] + [0,2,3] \otimes [2,3] + \\ [0,1,3] \otimes [0,1] + [0,3] \otimes [0,1,3] + [0,1,3] \otimes [1,3] + \\ [0,1,2] \otimes [0,1] + [0,2] \otimes [0,1,2] + [0,1,2] \otimes [1,2] \phantom{+}
+\end{split}
+\]

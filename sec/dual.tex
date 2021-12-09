@@ -1,0 +1,74 @@
+\subsection{Dual version}
+
+\begin{lemma} \label{lemma: cup-i constructions and diagonals are the same}
+	Let $C^* = \Hom_{\F}(C_*, \F)$ with $C_*$ a finite dimensional chain complex. The linear duality functor induces a bijection between cup-$i$ structures on $C^*$ and $\F[\Sigma_2]$-linear chain maps $W \to \Hom_{\F}(C_*, C_*^{\tensor 2})$.
+\end{lemma}
+
+\begin{proof}
+    Since $C_\ast$ is finite dimensional, we have
+    \[
+    \Hom_{\F}(C_\ast, C_\ast^{\otimes 2}) \cong \Hom_{\F}((C^\ast)^{\otimes 2}, C^\ast).
+    \]
+    Therefore, the hom-tensor adjunction gives
+    \begin{align*}
+    \Hom_{\F[\Sigma_2]}\big(W, \Hom_{\F}(C_\ast, C_\ast^{\otimes 2}) \big) & \cong
+    \Hom_{\F[\Sigma_2]}\big(W, \Hom_{\F}((C^\ast)^{\otimes 2}, C^\ast) \big) \\ & \cong
+    \Hom_{\F} \big(W \otimes_{\F[\Sigma_2]} (C^\ast)^{\otimes 2}, C^\ast \big)
+    \end{align*}
+    as chain complexes of $\F$-modules.
+\end{proof}
+
+\begin{definition}
+	Let $\mathcal Z(2)$ be the universal chain complex of $\F[\Sigma_2]$-modules together with a natural $\F[\Sigma_2]$-linear chain maps
+	\[
+	\mathcal Z(2) \to \Hom_{\F}\big( N_\bullet(X), N_\bullet(X)^{\otimes 2} \big)
+	\]
+	for every simplicial set $X$.
+\end{definition}
+
+According to Lemma \ref{lemma: cup-i constructions and diagonals are the same} a cup-$i$ construction is equivalent to a natural collection of $\F[\Sigma_2]$-linear chain maps
+\[
+W \to \Hom_{\F}\big( N_\bullet(X), N_\bullet(X)^{\otimes 2} \big)
+\]
+which, by the universality of $\mathcal Z(2)$, is equivalent to an $\F[\Sigma_2]$-linear chain map
+\[
+W \to \mathcal Z(2).
+\]
+We will reference a cup-$i$ construction and to its associated $\F[\Sigma_2]$-linear chain map $\triangle \colon W \to \mathcal Z(2)$ interchangeably, denoting $\triangle(e_i)$ simply by $\triangle_i$.
+
+We can give a more explicit description of $\mathcal Z(2)$ by noticing that a natural transformation
+\[
+f_X \colon N_\bullet(X) \to N_\bullet(X)^{\otimes 2}
+\]
+is determined by the images, for each $n \in \N$, of the elements $\id_{[n]} \in N_\bullet(\simplex^n)$, and, conversely, that a set containing an element $f(\id_{[n]})$ in $N_\bullet(\simplex^n)^{\otimes 2}$ for each $n \in \N$ defines a natural transformation $f_X$ if and only if the induced maps $f_{\simplex^n}$ satisfy
+\[
+\begin{tikzcd}
+N_\bullet(\simplex^n) \arrow[r, "f_{\simplex^n}"] \arrow[d, "(s_j)_\ast"] & N_\bullet(\simplex^n)^{\otimes 2} \arrow[d, "(s_j)_\ast^{\otimes 2}"] \\
+N_\bullet(\simplex^{n-1}) \arrow[r, "f_{\simplex^{n-1}}"] & N_\bullet(\simplex^{n-1})^{\otimes 2}
+\end{tikzcd}
+\]
+for each $j = 0, \dots, n$. That is to say, if
+\begin{equation} \label{equation: naturality and degeneracy}
+(s_j)_\ast^{\otimes 2} \big( f(\id_{[n]}) \big) = 0
+\end{equation}
+for each $j = 0, \dots, n$. We record the following direct consequence for later reference:
+
+\begin{lemma} \label{lemma: condition to be in the kernel of s}
+	A basis element $\delta_V \otimes \delta_W$ is in the kernel of $(s_j)^{\otimes 2}_\ast$ if and only if both $j$ and $j+1$ are missing from either $V$ or $W$.
+\end{lemma}
+
+\begin{definition}
+	Let $\Delta \colon W \to \mathcal Z(2)$ be the $\F[\Sigma_2]$-linear map defined by
+	\[
+	\Delta_i(\id_{[n]}) = \sum_{\P_{n-i}(n)} \delta_{U^{-}} \otimes \delta_{U^{+}}
+	\]
+	for $i \leq n$ and $\Delta_i(\id_{[n]}) = 0$ otherwise.
+\end{definition}
+
+We now state an equivalent formulation of Theorem \ref{theorem: main}
+
+\begin{theorem} \label{theorem: main reformulated}
+	If $\triangle : W \to \mathcal{Z}(2)$ is a free non-degenerate cup-$i$ construction, then, for every $i \geq 0$, either $\triangle_i = \Delta_i$ or $\triangle_i = T \Delta_i$.
+\end{theorem}
+
+For the rest of Section \ref{sec: proof} we take $\triangle$ to be a free and non-degenerate cup-$i$ construction.
