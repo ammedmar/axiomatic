@@ -1,0 +1,106 @@
+% !TEX root = ../axiomatic.tex
+
+\subsection{Pre-dual version}
+
+We will now use the functors $\chains$ and $\chains \ot \chains$ from $\sSet$ to $\Ch$ to present an alternative definition of the notion of cup-$i$ construction, and use it to state an equivalent version of \cref{t:main}.
+
+\begin{lemma} \label{l:cup-i construction coalgebra}
+	A cup-$i$ construction is canonically equivalent to a collection of natural linear maps
+	\[
+	\triangle_i \colon \chains \to \chains \ot \chains
+	\]
+	for $i \in \N$ with $\Delta_0$ a chain map and
+	\[
+	\bd \circ \triangle_i + \triangle_i \circ \bd =
+	(1+T) \triangle_{i-1}
+	\]
+	for $i > 0$.
+\end{lemma}
+
+\begin{proof}
+	By naturality, a cup-$i$ construction is determined by its restriction to representable simplicial sets.
+
+	Let $C^\vee = \Hom(C, \F)$ with $C$ a finite dimensional chain complex.
+	The relevant case for us is $C = \chains \simplex^n$ for $n \in \N$.
+	Using the hom-tensor adjunction and the finite dimensionality of $C$ we have
+	\begin{align*}
+	\Hom \big(W \ot_{\F[\Sym_2]} (C^\vee)^{\ot 2}, C^\vee \big) & \cong
+	\Hom_{\F[\Sym_2]} \big( W, \Hom((C^\vee)^{\ot 2}, C^\vee) \big) \\ & \cong
+	\Hom_{\F[\Sym_2]} \big( W, \Hom(C, C^{\ot 2}) \big)
+	\end{align*}
+	as chain complexes of $\F$-modules.
+	In other words, the linear duality functor induces a bijection between symmetric products on $C^\vee$ and $\F[\Sym_2]$-linear chain maps $\triangle \colon W \to \Hom(C, C^{\tensor 2})$.
+	The latter are equivalent to linear maps $\triangle_i = \triangle(e_i)$ with $\triangle_0$ a chain map and satisfying
+	\[
+	\bd \circ \triangle_i + \triangle_i \circ \bd =
+	(1+T) \triangle_{i-1}
+	\]
+	for all $i > 0$ since
+	\begin{align*}
+	\bd \triangle (e_i) + \triangle \bd(e_i) &=
+	\bd \triangle (e_i) + \triangle (1+T) (e_{i-1}) \\ &=
+	\bd \circ \triangle_i + \triangle_i \circ \bd \ +\ (1+T) \triangle_{i-1}.
+	\end{align*}
+\end{proof}
+
+We will refer to a cup-$i$ construction and to its associated collection of natural linear maps $\triangle_i \colon \chains \to \chains \ot \chains$ interchangeably.
+
+\begin{remark}
+	For any two cochains $\alpha$ and $\beta$ we have after unraveling the isomorphisms in the proof above that $\alpha \cup_i \beta = (\alpha \ot \beta) \triangle_i(-)$.
+\end{remark}
+
+\begin{lemma}
+	A natural linear map $f \colon \chains \to \chains \ot \chains$ is canonically equivalent to a collection of elements
+	\[
+	f[n] \in \chains \simplex^n \ot \chains \simplex^n
+	\]
+	for $n \in \N$ such that
+	\[
+	(\chains \sigma_j \ot \chains \sigma_j) f[n] = 0
+	\]
+	for each codegeneracy map $\sigma_j \colon [n] \to [n-1]$.
+\end{lemma}
+
+\begin{proof}
+	By naturality $f$ is determined by its restriction to $\chains \simplex^n$ for $n \in \N$.
+	Furthermore, for any non-degenerate simplex $(x \colon [m] \to [n]) \in \simplex^n_m$ we have
+	\[
+	f(x) = f \big( x \circ [m] \big) =
+	(f \circ \chains x) [m] =
+	(\chains x \ot \chains x) f [m],
+	\]
+	so the elements $f[m]$ with $m \in \N$ determine $f$.
+	Here $[m]$ denotes the identity of the object $[m]$ and we are using $x$ to also denote the simplicial map $\simplex^m \to \simplex^n$ defined by $y \mapsto x \circ y$.
+
+	The simplex associated to a codegeneracy map $\sigma_j \colon [n] \to [n-1]$ is degenerate in $\simplex^{n-1}$ so it is $0$ in $\chains \simplex^{n-1}$.
+	Therefore,
+	\[
+	0 = f(0) = f(\sigma_j) =
+	f \big( \sigma_j \circ [n] \big) =
+	(f \circ \chains \sigma_j) [n] =
+	(\chains \sigma_j \ot \chains \sigma_j) f [n]
+	\]
+	as claimed.
+\end{proof}
+
+We record the following direct consequence for later reference:
+
+\begin{lemma} \label{l:condition to be in the kernel of s}
+	A basis element $\delta_V \ot \delta_W$ is in the kernel of $(s_j)^{\ot 2}$ if and only if both $j$ and $j+1$ are missing from either $V$ or $W$.
+\end{lemma}
+
+\begin{definition}
+	Let $\Delta_i$ be the natural linear map defined by the elements
+	\[
+	\Delta_i [n] =
+	\sum_{U \in \P_{n-i}(n)} \delta_{U^0} \ot \delta_{U^1}
+	\]
+	in $\chains \simplex^n \ot \chains \simplex^n$
+	for $i \leq n$ and $\Delta_i [n] = 0$ otherwise.
+\end{definition}
+
+We now state an equivalent formulation of Theorem \ref{t:main}
+
+\begin{theorem} \label{t:main reformulated}
+	If $\triangle$ is a free non-degenerate irreducible cup-$i$ construction, then, for every $i \in \N$, either $\triangle_i = \Delta_i$ or $\triangle_i = T \Delta_i$.
+\end{theorem}

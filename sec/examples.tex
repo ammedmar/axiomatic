@@ -5,15 +5,15 @@
 \begin{lemma} \label{lemma: free and non-deg in coproduct}
 	A cup-$i$ construction $\triangle$ is free if and only if for $i < n$
 	\[
-	\triangle_i (\id_{[n]}) = \sum_{\Lambda} \sigma^1_\lambda \otimes \sigma^2_\lambda
+	\triangle_i [n] = \sum_{\Lambda} \sigma^1_\lambda \ot \sigma^2_\lambda
 	\]
-	is such that $\sigma^1_\lambda \otimes \sigma^2_\lambda \neq \sigma^2_\mu \otimes \sigma^1_\mu$ for every $\lambda, \mu \in \Lambda$.
+	is such that $\sigma^1_\lambda \ot \sigma^2_\lambda \neq \sigma^2_\mu \ot \sigma^1_\mu$ for every $\lambda, \mu \in \Lambda$.
 \end{lemma}
 
 We now review Steenrod's original cup-$i$ construction \cite{steenrod1947products} pag.  293, see also \cite{mcclure2003multivariable} pag. 682, and prove that it is free and non-degenerate.
 
 \begin{definition}
-	\textbf{Steenrod's cup-$i$ construction} $\Delta^{St} : W \to \mathcal{Z}(2)$ is defined by letting $\Delta_i^{St} \big( \id_{[n]} \big)$ be the sum over all sequences
+	\textbf{Steenrod's cup-$i$ construction} $\Delta^{St} \colon W \to \mathcal{Z}(2)$ is defined by letting $\Delta_i^{St} \big( \id_{[n]} \big)$ be the sum over all sequences
 	\[
 	0 < p_1 < \cdots < p_{i+1} < n
 	\]
@@ -42,7 +42,7 @@ We now review Steenrod's original cup-$i$ construction \cite{steenrod1947product
 \end{proposition}
 
 \begin{proof}
-	Steenrod's cup-$i$ construction if non-degenerate since $\Delta_0\big([0]\big) = [0] \otimes [0]$. To prove it is free let us assume $i$ is odd with $i < n$. The $i$ even case is done analogously. Using Lemma \ref{lemma: free and non-deg in coproduct} in a proof by contradiction we can assume that there exist at least two distinct sequences
+	Steenrod's cup-$i$ construction if non-degenerate since $\Delta_0\big([0]\big) = [0] \ot [0]$. To prove it is free let us assume $i$ is odd with $i < n$. The $i$ even case is done analogously. Using Lemma \ref{lemma: free and non-deg in coproduct} in a proof by contradiction we can assume that there exist at least two distinct sequences
 	\begin{align*}
 	\begin{split}
 	0 &= p_0 < p_1   < \cdots < p_{i+1} < p_{i+2} = n \\

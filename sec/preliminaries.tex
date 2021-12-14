@@ -2,20 +2,22 @@
 
 \section{Preliminaries}
 
-We are interested in the cochains with $\F$-coefficients of spaces. As is usually done, we represent spaces as simplicial sets and take advantage of the fact that all natural construction on simplicial sets, like their cochains and cup-$i$ products, need only be defined on the standard simplicial sets.
+We are interested in the cochains with $\F$-coefficients of spaces.
+As is usually done, we represent spaces as simplicial sets and take advantage of the fact that all natural construction on simplicial sets, like their cochains and cup-$i$ products, need only be defined on the standard simplicial sets $\simplex^n$.
 
 The \textbf{simplex category} is defined to have an object $[d] = \{0, \dots, d\}$ for every $d \in \N$ and a morphism $[n] \to [d]$ for each order-preserving function from $[n]$ to $[d]$.
 
-The morphisms $\delta_i : [d-1] \to [d]$ and $\sigma_i : [d+1] \to [d]$ defined for $0 \leq i \leq d$ by
-\begin{equation*}
+The morphisms $\delta_i \colon [d-1] \to [d]$ and $\sigma_i \colon [d+1] \to [d]$ defined for $0 \leq i \leq d$ by
+\[
 \delta_i(k) =
 \begin{cases} k & k < i \\ k+1 & i \leq k \end{cases}
 \quad \text{ and } \quad
 \sigma_i(k) =
 \begin{cases} k & k \leq i \\ k-1 & i < k, \end{cases}
-\end{equation*}
-generate all morphisms in the simplex category. These generators satisfy the so called \textbf{cosimplicial identities}
-\begin{equation*}
+\]
+generate all morphisms in the simplex category.
+These generators satisfy the so called \textbf{cosimplicial identities}
+\[
 \begin{split}
 \delta_j \, \delta_i &= \delta_i \, \delta_{j-1} \hspace*{18.5pt} i < j \\
 \sigma_j \, \sigma_i &= \sigma_i \, \sigma_{j+1} \hspace*{15.5pt} i \leq j \\
@@ -26,43 +28,47 @@ generate all morphisms in the simplex category. These generators satisfy the so 
 \delta_{i-1} \, \sigma_{j} & i > j + 1.
 \end{cases}
 \end{split}
-\end{equation*}
+\]
 We notice that any morphism in the simplex category can be uniquely written as
-\begin{equation*}
+\[
 \delta_{u_{p}} \cdots\, \delta_{u_1}\, \sigma_{v_1} \cdots\, \sigma_{v_q}
-\end{equation*}
-for some sets of non-negative integers $U = \{u_1 < \cdots < u_{p}\}$ and $V = \{v_1 < \cdots < v_{q}\}$. We simplify notation and write this morphism simply as $\delta_U\, \sigma_V$.
+\]
+for some sets of non-negative integers $U = \{u_1 < \cdots < u_{p}\}$ and $V = \{v_1 < \cdots < v_{q}\}$.
+We simplify notation and write this morphism simply as $\delta_U\, \sigma_V$.
 
-A \textbf{simplicial set} $X$ is a contravariant functor from the simplex category to the category of sets and a simplicial map is a natural transformation between two simplicial sets. As is customary we use the notation
-\begin{equation*}
-X\big( [n] \big) = X_n \qquad X(\delta_i) = d_i \qquad X(\sigma_i) = s_i
-\end{equation*}
+A \textbf{simplicial set} $X$ is a contravariant functor from the simplex category to the category of sets and a simplicial map is a natural transformation between two simplicial sets.
+As is customary we use the notation
+\[
+X [n] = X_n \qquad X(\delta_i) = d_i \qquad X(\sigma_i) = s_i
+\]
 and refer to simplices in the image of any $s_i$ as \textit{degenerate}.
 
 For each $n \in \N$, the simplicial set $\simplex^n$ is defined by
-\begin{equation*}
-\simplex^n_k  = \Hom_{\simplex} \big( [k], [n] \big) \qquad
+\[
+\simplex^n_k = \simplex \big( [k], [n] \big) \qquad
 d_i(\delta_U\, \sigma_V) = \delta_U\, \sigma_V \, \delta_i \qquad
 s_i(\delta_U\, \sigma_V) = \delta_U\, \sigma_V \, \sigma_i.
-\end{equation*}
+\]
 
-We will work with homologically graded chain complexes of $\F$-modules, regarding, in the usual way, the set of linear maps between them and their tensor product as chain complexes
-\begin{equation*}
-\Hom_{\F}(C, C')_n = \big\{f \ |\ c\in C_m \Rightarrow f(c) \in C'_{m+n} \big\}
+We will work with homologically graded chain complexes of $\F$-modules, regarding, in the usual way, the set of linear maps between them and their tensor product as chain complexes:
+\begin{gather*}
+\Hom(C, C')_n = \big\{f \ |\ c\in C_m \Rightarrow f(c) \in C'_{m+n} \big\},
 \qquad
-\partial f = \partial \circ f + f \circ \partial
-\end{equation*}
-\begin{equation*}
-(C \otimes C^\prime)_n = \bigoplus_{p + q = n} C_p \otimes C^\prime_q \qquad \partial (c \otimes c^\prime) = \partial c \otimes c^\prime + c \otimes \partial c^\prime.
-\end{equation*}
+\bd f = \bd \circ f + f \circ \bd, \\
+(C \ot C^\prime)_n = \bigoplus_{p + q = n} C_p \ot C^\prime_q \,,
+\qquad
+\bd (c \ot c^\prime) = \bd c \ot c^\prime + c \ot \bd c^\prime.
+\end{gather*}
 
 The functor of \textbf{normalized chains} (with $\F$-coefficients) is defined as follows:
-\begin{equation*}
+\[
 N_*(X)_n = \frac{\F \{ X_n \}}{\F \{ s(X_{n-1}) \}}
-\end{equation*}
-where $s(X_{n-1}) = \bigcup_{i=0}^{n-1} s_i(X_{n-1})$, and $\partial_n : N_*(X)_n \to N_*(X)_{n-1}$ is given by
-\begin{equation*}
-\partial_n = \sum_{i = 0}^{n} d_{i}.
-\end{equation*}
+\]
+where $s(X_{n-1}) = \bigcup_{i=0}^{n-1} s_i(X_{n-1})$, and $\bd_n \colon N_*(X)_n \to N_*(X)_{n-1}$ is given by
+\[
+\bd_n = \sum_{i = 0}^{n} d_{i}.
+\]
 
-The functor of \textbf{normalized cochains} $\cochains$ is defined by composing $\chains$ with the linear duality functor $\Hom_{\F}(-, \F)$. Notice that in this definition $\cochains(X)$ is concentrated in non-positive degrees. If $x$ is a basis element in $\chains(X)_n$ we denote its dual basis element in $\cochains(X)_{-n}$ by $x^*$.
+The functor of \textbf{normalized cochains} $\cochains$ is defined by composing $\chains$ with the linear duality functor $\Hom_{\F}(-, \F)$.
+Notice that in this definition $\cochains(X)$ is concentrated in non-positive degrees.
+If $x$ is a basis element in $\chains(X)_n$ we denote its dual basis element in $\cochains(X)_{-n}$ by $x^*$.

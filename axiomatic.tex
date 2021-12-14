@@ -1,5 +1,5 @@
 \documentclass{amsart}
-\usepackage{aux/style}  % add packages to style.sty
+\input{aux/style}  % add packages to style.sty
 \input{aux/commands} % new commands to commands.tex
 \addbibresource{aux/bibliography.bib} % add references to bibliography.bib
 \addbibresource{aux/usualpapers.bib}
@@ -16,14 +16,15 @@
 \keywords{.}
 
 \begin{document}
-%	\input{sec/abstract}
-%	\maketitle
-%	\input{sec/introduction}
+	\input{sec/abstract}
+	\maketitle
+	\input{sec/introduction}
 	\input{sec/preliminaries}
-%	\input{sec/acknowledgment}
+	\input{sec/acknowledgment}
 	\input{sec/statement}
+	\input{sec/coalgebra}
 	\input{sec/proof}
-%	\input{sec/examples}
-%	\sloppy
-%	\printbibliography
+	\input{sec/examples}
+	\sloppy
+	\printbibliography
 \end{document}

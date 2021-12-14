@@ -3,7 +3,7 @@
 %In this subsection we prove Theorem \ref{theorem: main reformulated} for all pairs of integers satisfying $i > n-2$.
 
 \begin{lemma}
-	If $i > n$ then $\triangle_i(\id_{[n]}) = 0$.
+	If $i > n$ then $\triangle_i [n] = 0$.
 \end{lemma}
 
 %\begin{proof}
@@ -13,59 +13,59 @@
 \begin{lemma} \label{lemma: triangle_n of n = n x n}
     For any $n \in \N$
     \[
-    \triangle_n(\id_{[n]}) = \id_{[n]} \otimes \id_{[n]}.
+    \triangle_n [n] = \id_{[n]} \otimes \id_{[n]}.
     \]
 \end{lemma}
 
 %\begin{proof}
-%	For any $n \in \N$, the vector space $\chains(\simplex^n)^{\otimes 2}_n$ is one dimensional and either $\triangle_n(\id_{[n]}) = 0$ or $\triangle_n(\id_{[n]}) = \id_{[n]} \otimes \id_{[n]}$. If the desired conclusion does not hold, there exists $n \in \N$ smallest such that $\triangle_n (\id_{[n]}) = 0$. If $n > 0$ then
+%	For any $n \in \N$, the vector space $\chains(\simplex^n)^{\otimes 2}_n$ is one dimensional and either $\triangle_n [n] = 0$ or $\triangle_n [n] = \id_{[n]} \otimes \id_{[n]}$. If the desired conclusion does not hold, there exists $n \in \N$ smallest such that $\triangle_n  [n] = 0$. If $n > 0$ then
 %    \begin{align*}
-%    (1 + T) \triangle_{n-1}(\id_{[n]}) =
-%    \partial \triangle_{n}(\id_{[n]}) + \triangle_{n}(\partial\, \id_{[n]}) =
+%    (1 + T) \triangle_{n-1} [n] =
+%    \partial \triangle_{n} [n] + \triangle_{n}(\partial\, \id_{[n]}) =
 %    0,
 %    \end{align*}
-%    and Lemma \ref{lemma: (1+T) triangle = 0 implies triangle = 0} implies $\triangle_{n-1}(\id_{[n]}) = 0$. From this and the assumption
+%    and Lemma \ref{lemma: (1+T) triangle = 0 implies triangle = 0} implies $\triangle_{n-1} [n] = 0$. From this and the assumption
 %    \[
 %    \triangle_{n-1} (\id_{[n-1]}) = \id_{[n-1]} \otimes \id_{[n-1]}
 %    \]
 %    we obtain
 %    \begin{equation}
 %    \begin{split}
-%    (1+T)\triangle_{n-2}(\id_{[n]}) =
-%    \partial \triangle_{n-1}(\id_{[n]}) + \triangle_{n-1}(\partial \id_{[n]}) =
+%    (1+T)\triangle_{n-2} [n] =
+%    \partial \triangle_{n-1} [n] + \triangle_{n-1}(\partial \id_{[n]}) =
 %    \sum_{u = 0}^n \delta_u \otimes \delta_u,
 %    \end{split}
 %    \end{equation}
 % 	which is a contradiction since $\sum \delta_u \otimes \delta_u$ is not in the image of $(1+T)$.
 %
-%    The previous argument shows that $\triangle_n(\id_{[n]}) = 0$ for every $n \in \N$. This serves as the base case of an induction argument in $n-i$ proving that $\triangle_i(\id_{[n]}) = 0$ for every $i, n \in \N$. For the induction step, consider
+%    The previous argument shows that $\triangle_n [n] = 0$ for every $n \in \N$. This serves as the base case of an induction argument in $n-i$ proving that $\triangle_i [n] = 0$ for every $i, n \in \N$. For the induction step, consider
 %    \begin{align*}
-%    (1+T) \triangle_{i-1}(\id_{[n]}) =
-%    \partial \triangle_{i}(\id_{[n]}) + \triangle_{i}(\partial\, \id_{[n]}) =
+%    (1+T) \triangle_{i-1} [n] =
+%    \partial \triangle_{i} [n] + \triangle_{i}(\partial\, \id_{[n]}) =
 %    0,
 %    \end{align*}
-%    which, by Lemma \ref{lemma: (1+T) triangle = 0 implies triangle = 0}, implies $\triangle_{i-1} (\id_{[n]}) = 0$.
+%    which, by Lemma \ref{lemma: (1+T) triangle = 0 implies triangle = 0}, implies $\triangle_{i-1}  [n] = 0$.
 %\end{proof}
 
 \begin{lemma}
-	For $n \geq 1$, either $\triangle_{n-1}(\id_{[n]})$ or $T \triangle_{n-1}(\id_{[n]})$ is equal to
+	For $n \geq 1$, either $\triangle_{n-1} [n]$ or $T \triangle_{n-1} [n]$ is equal to
 	\[
 	\sum_{\substack{u \leq n \\ u \text{ odd }}} \delta_u \otimes \id_{[n]} \ + \sum_{\substack{u \leq n \\ u \text{ even }}} \id_{[n]} \otimes \delta_u.
 	\]
 \end{lemma}
 
 %\begin{proof}
-%	Since $\triangle_{n}(\id_{[n]}) = \id_{[n]} \otimes \id_{[n]}$ and $\triangle_{n}(\partial\, \id_{[n]}) = 0$ we have
+%	Since $\triangle_{n} [n] = \id_{[n]} \otimes \id_{[n]}$ and $\triangle_{n}(\partial\, \id_{[n]}) = 0$ we have
 %	\[
-%	(1+T) \triangle_{n-1}(\id_{[n]}) = (1 + T) \sum_{k = 0}^n \delta_u \otimes \id_{[n]}
+%	(1+T) \triangle_{n-1} [n] = (1 + T) \sum_{k = 0}^n \delta_u \otimes \id_{[n]}
 %	\]
 %	and we need to show that the partition provided by Lemma \ref{lemma: (1+T) triangle = 0 implies triangle = 0} is that of even and odd non-negative integers less than $n$. Let us argue by contradiction and assume some $j$ and $j+1$ belong to the same subset in the partition. With out loss of generality we have
 %	\[
-%	\triangle_{n-1}(\id_{[n]}) = (\delta_j + \delta_{j+1}) \otimes \id_{[n]} + O(j, j+1)
+%	\triangle_{n-1} [n] = (\delta_j + \delta_{j+1}) \otimes \id_{[n]} + O(j, j+1)
 %	\]
 %	where $O(j, j+1)$ is an element in the span of basis elements missing both $\delta_j$ and $\delta_{j+1}$ from both of its tensor factors. Since $\triangle_{n-1}(\partial\, \id_{[n-1]}) = \sum_{k=0}^n \delta_k \otimes \delta_k$,
 %	\[
-%	(1+T) \triangle_{n-2}(\id_{[n]}) = (1+T)(\delta_j \otimes \delta_{j+1}) + P(j, j+1)
+%	(1+T) \triangle_{n-2} [n] = (1+T)(\delta_j \otimes \delta_{j+1}) + P(j, j+1)
 %	\]
 %	where $P(j, j=1)$ is an element in the span of basis elements with $j$ and $j+1$ missing from at least one of its tensor factors. Using Lemma \ref{lemma: (1+T) triangle = 0 implies triangle = 0} and Lemma \ref{lemma: condition to be in the kernel of s} we get a contradiction since $\delta_j \otimes \delta_{j+1}$ is not in the kernel of $(s_j)_\ast^{\otimes 2}$.
 %\end{proof}

@@ -9,12 +9,12 @@
 \begin{lemma} \label{lemma: (1+T) triangle = (1+T) sum implies triangle = sum}
     If
     \[
-    (1 + T) \triangle_i (\id_{[n]}) =
-    (1 + T) \sum_{\P_{n-i}(n)} \delta_{U^-} \otimes \delta_{U^+}
+    (1 + T) \triangle_i  [n] =
+    (1 + T) \sum_{\P_{n-i}(n)} \delta_{U^-} \ot \delta_{U^+}
     \]
     for some $i < n$, then there exists $\xi : \P_{n-i}(n) \to \{-, +\}$  such that
     \[
-    \triangle_i (\id_{[n]})\ =\! \sum_{\P_{n-i}(n)} \delta_{U^{\xi}} \otimes \delta_{U^{\bar{\xi}}}.
+    \triangle_i  [n]\ =\! \sum_{\P_{n-i}(n)} \delta_{U^{\xi}} \ot \delta_{U^{\bar{\xi}}}.
     \]
 \end{lemma}
 
@@ -25,12 +25,12 @@
 \begin{lemma} \label{lemma: boundary of triangle}
 	If for some $i < n$ there exists $\xi : \P_{n-i}(n) \to \{-, +\}$ such that
 	\[
-	\triangle_i(\id_{[n]})\ =\! \sum_{\P_{n-i}(n)} \delta_{U^{\xi}} \otimes \delta_{U^{{\bar{\xi}}}}
+	\triangle_i [n]\ =\! \sum_{\P_{n-i}(n)} \delta_{U^{\xi}} \ot \delta_{U^{{\bar{\xi}}}}
 	\]
 	then
 	\begin{align}
 	\label{equation: boundary of triangle}
-	\partial \triangle_i(\id_{[n]})\ = &
+	\partial \triangle_i [n]\ = &
 	\sum_{\P_{n-i}(n)} \left( \, \sum_{u \in U^{\bar{\xi}}} \delta_{u.U^\xi} \tensor \delta_{U^{\bar{\xi}}} \ +
 	\sum_{u \in U^\xi} \delta_{U^\xi} \tensor \delta_{u.U^{\bar{\xi}}} \right) \\ + &
 	\sum_{\P_{n-i}(n)} \sum_{x \notin U} \left( \delta_{x.U^-} \tensor \delta_{U^+}\ +\ \delta_{U^-} \tensor \delta_{x.U^+} \right).
@@ -48,12 +48,13 @@
 \begin{lemma} \label{lemma: boundary of triangle}
 	If for some $i \leq n$
 	\[
-	\triangle_i(\id_{[n-1]})\ =\! \sum_{\P_{n-i-1}(n)} \delta_{U^-} \otimes \delta_{U^+}
+	\triangle_i [n-1]\ =\!
+	\sum_{\P_{n-i-1}(n)} \delta_{U^-} \ot \delta_{U^+}
 	\]
 	then
 	\begin{align}
 	\label{equation: triangle of boundary}
-	\triangle_i (\partial \, \id_{[n]}) \ =\! \sum_{\P_{n-i}(n)} \left( \,
+	\triangle_i \partial [n] \ =\! \sum_{\P_{n-i}(n)} \left( \,
 	\sum_{u \in U^+} \delta_{u.U^-} \tensor \delta_{U^+} \ +
 	\sum_{u \in U^-} \delta_{U^-} \tensor \delta_{u.U^+} \right).
 	\end{align}
@@ -67,7 +68,7 @@
 %	\end{align*}
 %	and notice that identity \eqref{equation: triangle of boundary} is equivalent to
 %	\begin{equation} \label{equation: triangle of partial recasted}
-%	\sum_{(u, V) \in S_1} \delta_{V^\xi}\delta_u \otimes \delta_{V^{\bar{\xi}}}\delta_u \ \, =
+%	\sum_{(u, V) \in S_1} \delta_{V^\xi}\delta_u \ot \delta_{V^{\bar{\xi}}}\delta_u \ \, =
 %	\sum_{\substack{(w, W) \in S_2 \\ w \in W^{\bar{\xi}}}} \delta_{w.W^\xi} \tensor \delta_{W^{\bar{\xi}}} \ + \!
 %	\sum_{\substack{(w, W) \in S_2 \\ w \in W^\xi}} \delta_{W^\xi} \tensor \delta_{w.W^{\bar{\xi}}.}
 %	\end{equation}
@@ -82,7 +83,7 @@
 %	\]
 %	This function is a bijection since it is injective and both sets have the same cardinality. To establishes \eqref{equation: triangle of partial recasted} we use the simplicial identities to notice that
 %	\[
-%	\delta_{V^\xi} \delta_u \otimes \delta_{V^{\bar{\xi}}} \delta_u =
+%	\delta_{V^\xi} \delta_u \ot \delta_{V^{\bar{\xi}}} \delta_u =
 %	\begin{cases}
 %	\delta_{w.W^\xi} \tensor \delta_{W^{\bar{\xi}}} & \text{ if } w \in W^{\bar{\xi}}, \\
 %	\delta_{W^\xi} \tensor \delta_{w.W^{\bar{\xi}}} & \text{ if } w \in W^\xi.
