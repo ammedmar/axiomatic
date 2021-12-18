@@ -1,14 +1,10 @@
 \subsection{}
 
-In this subsection we establish \cref{t:main reformulated} in the special case $i \geq n-1 \geq 0$.
+For the rest of the section we assume $\triangle$ is a free non-degenerate and irreducible cup-$i$ construction.
+Most of the lemmas below hold with fewer assumptions but we have no use for these.
 
 \begin{lemma}
-	If $\triangle$ is a free non-degenerate cup-$i$ construction then, in $\cP[n] \ot \cP[n]$,
-	\[
-	\triangle_n[n] = \emptyset \ot \emptyset
-	\]
-	and
-	$\triangle_i [n] = 0$ if $i > n$.
+	In $\cP[n] \ot \cP[n]$,	$\triangle_n[n] = \emptyset \ot \emptyset$ and $\triangle_i [n] = 0$ if $i > n$.
 \end{lemma}
 
 \begin{proof}
@@ -17,7 +13,7 @@ In this subsection we establish \cref{t:main reformulated} in the special case $
 	If the desired conclusion does not hold, there exists $n \in \N$ smallest such that $\triangle_n  [n] = 0$.
 	If $n > 0$ then
     \begin{align*}
-    (1 + T) \triangle_{n-1} [n] =
+    (1+T) \triangle_{n-1} [n] =
     \bd \triangle_{n} [n] + \triangle_{n} \bd \, [n] = 0,
     \end{align*}
     and Lemma \ref{l:(1+T) triangle = 0 implies triangle = 0} implies $\triangle_{n-1} [n] = 0$.
@@ -58,7 +54,7 @@ In this subsection we establish \cref{t:main reformulated} in the special case $
 
 \begin{lemma}
 	Let $n \geq 1$.
-	If $\triangle$ is a free non-degenerate cup-$i$ construction then, in $\cP[n] \ot \cP[n]$, either $\triangle_{n-1} [n]$ or $T \triangle_{n-1} [n]$ is equal to
+	In $\cP[n] \ot \cP[n]$, either $\triangle_{n-1} [n]$ or $T \triangle_{n-1} [n]$ is equal to
 	\[
 	\sum_{\substack{u \leq n \\ u \text{ odd }}} \{u\} \ot \emptyset \ +
 	\sum_{\substack{u \leq n \\ u \text{ even }}} \emptyset \ot \{u\}.
