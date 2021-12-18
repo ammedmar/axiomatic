@@ -1,11 +1,11 @@
 % !TEX root = ../axiomatic.tex
 
-\subsection{Pre-dual version}
+\subsection{}
 
-We will now use the functors $\chains$ and $\chains \ot \chains$ from $\sSet$ to $\Ch$ to present an alternative definition of the notion of cup-$i$ construction, and use it to state an equivalent version of \cref{t:main}.
+We will now use the functors $\chains$ and $\chains \ot \chains$ from $\sSet$ to $\Ch$ to present an alternative definition of the notion of cup-$i$ structure.
 
 \begin{lemma} \label{l:cup-i construction coalgebra}
-	A cup-$i$ construction is canonically equivalent to a collection of natural linear maps
+	A cup-$i$ structure is canonically equivalent to a collection of natural linear maps
 	\[
 	\triangle_i \colon \chains \to \chains \ot \chains
 	\]
@@ -18,7 +18,7 @@ We will now use the functors $\chains$ and $\chains \ot \chains$ from $\sSet$ to
 \end{lemma}
 
 \begin{proof}
-	By naturality, a cup-$i$ construction is determined by its restriction to representable simplicial sets.
+	By naturality, a cup-$i$ structure is determined by its restriction to representable simplicial sets.
 
 	Let $C^\vee = \Hom(C, \F)$ with $C$ a finite dimensional chain complex.
 	The relevant case for us is $C = \chains \simplex^n$ for $n \in \N$.
@@ -30,7 +30,7 @@ We will now use the functors $\chains$ and $\chains \ot \chains$ from $\sSet$ to
 	\end{align*}
 	as chain complexes of $\F$-modules.
 	In other words, the linear duality functor induces a bijection between symmetric products on $C^\vee$ and $\F[\Sym_2]$-linear chain maps $\triangle \colon W \to \Hom(C, C^{\tensor 2})$.
-	The latter are equivalent to linear maps $\triangle_i = \triangle(e_i)$ with $\triangle_0$ a chain map and satisfying
+	The latter are equivalent to linear maps $\triangle_i = \triangle(e_i)$ satisfying that $\triangle_0$ is a chain map and
 	\[
 	\bd \circ \triangle_i + \triangle_i \circ \bd =
 	(1+T) \triangle_{i-1}
@@ -43,13 +43,13 @@ We will now use the functors $\chains$ and $\chains \ot \chains$ from $\sSet$ to
 	\end{align*}
 \end{proof}
 
-We will refer to a cup-$i$ construction and to its associated collection of natural linear maps $\triangle_i \colon \chains \to \chains \ot \chains$ interchangeably.
+We will refer to a cup-$i$ structure and to its associated collection of natural linear maps $\triangle_i \colon \chains \to \chains \ot \chains$ interchangeably.
 
 \begin{remark}
 	For any two cochains $\alpha$ and $\beta$ we have after unraveling the isomorphisms in the proof above that $\alpha \cup_i \beta = (\alpha \ot \beta) \triangle_i(-)$.
 \end{remark}
 
-\begin{lemma}
+\begin{lemma} \label{l:natural linear map}
 	A natural linear map $f \colon \chains \to \chains \ot \chains$ is canonically equivalent to a collection of elements
 	\[
 	f[n] \in \chains \simplex^n \ot \chains \simplex^n
@@ -83,24 +83,58 @@ We will refer to a cup-$i$ construction and to its associated collection of natu
 	as claimed.
 \end{proof}
 
-We record the following direct consequence for later reference:
+\subsection{}
 
-\begin{lemma} \label{l:condition to be in the kernel of s}
-	A basis element $\delta_V \ot \delta_W$ is in the kernel of $(s_j)^{\ot 2}$ if and only if both $j$ and $j+1$ are missing from either $V$ or $W$.
-\end{lemma}
+The chain complex $\chains \simplex^n$ is isomorphic to the following:
 
 \begin{definition}
-	Let $\Delta_i$ be the natural linear map defined by the elements
+	Let $\P_{n-m}[n]$ be the set of subsets of $\{0, \dots, n\}$ whose cardinality is $n-m$.
+	Define the degree $m$ part of a chain complex $\cP[n]$ by
 	\[
-	\Delta_i [n] =
-	\sum_{U \in \P_{n-i}(n)} \delta_{U^0} \ot \delta_{U^1}
+	\cP[n]_m = \begin{cases}
+	\F\{\P_{n-m}[n]\} & \text{if } 0 \leq m \leq n, \\
+	\hfil 0 & \text{otherwise},
+	\end{cases}
 	\]
-	in $\chains \simplex^n \ot \chains \simplex^n$
-	for $i \leq n$ and $\Delta_i [n] = 0$ otherwise.
+	and its differential by
+	\[
+	\bd U = \sum_{\bar u \notin U} \{\bar u\} \union U.
+	\]
 \end{definition}
 
-We now state an equivalent formulation of Theorem \ref{t:main}
+\begin{lemma}
+	For every $n \in \N$ the graded linear map $\cP[n] \to \chains \simplex^n$ defined by sending a basis element $\{u_1 < \dots < u_{n-m}\}$ to $\big( {u_{n-m}} \circ \dots \circ \, {u_1} \colon [m] \to [n] \big)$ is an isomorphism.
+\end{lemma}
+
+We can use this isomorphisms to regard $\cP$ as a functor $\simplex \to \Ch$ that is naturally isomorphic to $\chains$.
+
+\begin{definition}
+	For any $U = \{u_1 < \dots < u_{m-n}\} \in \P_{m-n}(n)$ the \textbf{index function} is defined by
+	\[
+	\begin{split}
+	\ind_U \colon U &\to \F \\
+	u_j &\mapsto u_j + j \mod 2,
+	\end{split}
+	\]
+	and the \textbf{index splitting} of $U$ is the ordered partition $U = U^0 \sqcup U^1$ with
+	\[
+	U^\varepsilon = \ind_U^{-1}(\varepsilon).
+	\]
+\end{definition}
+
+\begin{definition}
+	For $n, i \in \N$ we introduce the following elements of $\cP[n] \ot \cP[n]$:
+	\[
+	\Delta_i [n] \ =
+	\sum_{U \in \P_{n-i}(n)} {U^0} \ot {U^1}
+	\]
+	if $i \leq \{0, \dots, n\}$ and $\Delta_i [n] = 0$ if not.
+\end{definition}
+
+As proven in \cite{medina2021newformulas} these elements define a cup-$i$ construction which is non-degenerate by direct inspection.
+
+We now state a stronger formulation of Theorem \ref{t:main}
 
 \begin{theorem} \label{t:main reformulated}
-	If $\triangle$ is a free non-degenerate irreducible cup-$i$ construction, then, for every $i \in \N$, either $\triangle_i = \Delta_i$ or $\triangle_i = T \Delta_i$.
+	If $\triangle$ is a free non-degenerate irreducible cup-$i$ structure, then, for every $i \in \N$, either $\triangle_i = \Delta_i$ or $\triangle_i = T \Delta_i$.
 \end{theorem}

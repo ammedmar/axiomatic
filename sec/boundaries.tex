@@ -1,10 +1,10 @@
 \subsection{Boundaries and coproducts}
 
-%\begin{notation}
-%	Given $\xi : \P_{n-i}(n) \to \{-, +\}$ we denote by $\bar{\xi}$ the function with the same domain and range satisfying $\xi \neq \bar{\xi}$ pointwise, and simplify the notation $U^{\xi(U)}$ and $U^{\bar{\xi}(U)}$ to $U^\xi$ and $U^{\bar{\xi}}$ respectively.
-%\end{notation}
+\begin{notation}
+	Given $\xi \colon \P_{n-i}(n) \to \{-, +\}$ we denote by $\bar{\xi}$ the function with the same domain and range satisfying $\xi \neq \bar{\xi}$ pointwise, and simplify the notation $U^{\xi(U)}$ and $U^{\bar{\xi}(U)}$ to $U^\xi$ and $U^{\bar{\xi}}$ respectively.
+\end{notation}
 
-%A direct consequence of Lemma \ref{lemma: (1+T) triangle = 0 implies triangle = 0} is the following
+A direct consequence of Lemma \ref{l:(1+T) triangle = 0 implies triangle = 0} is the following.
 
 \begin{lemma} \label{lemma: (1+T) triangle = (1+T) sum implies triangle = sum}
     If
@@ -12,7 +12,7 @@
     (1 + T) \triangle_i  [n] =
     (1 + T) \sum_{\P_{n-i}(n)} \delta_{U^-} \ot \delta_{U^+}
     \]
-    for some $i < n$, then there exists $\xi : \P_{n-i}(n) \to \{-, +\}$  such that
+    for some $i < n$, then there exists $\xi \colon \P_{n-i}(n) \to \{-, +\}$  such that
     \[
     \triangle_i  [n]\ =\! \sum_{\P_{n-i}(n)} \delta_{U^{\xi}} \ot \delta_{U^{\bar{\xi}}}.
     \]
@@ -23,14 +23,14 @@
 %\end{notation}
 
 \begin{lemma} \label{lemma: boundary of triangle}
-	If for some $i < n$ there exists $\xi : \P_{n-i}(n) \to \{-, +\}$ such that
+	If for some $i < n$ there exists $\xi \colon \P_{n-i}(n) \to \{-, +\}$ such that
 	\[
 	\triangle_i [n]\ =\! \sum_{\P_{n-i}(n)} \delta_{U^{\xi}} \ot \delta_{U^{{\bar{\xi}}}}
 	\]
 	then
 	\begin{align}
 	\label{equation: boundary of triangle}
-	\partial \triangle_i [n]\ = &
+	\bd \triangle_i [n]\ = &
 	\sum_{\P_{n-i}(n)} \left( \, \sum_{u \in U^{\bar{\xi}}} \delta_{u.U^\xi} \tensor \delta_{U^{\bar{\xi}}} \ +
 	\sum_{u \in U^\xi} \delta_{U^\xi} \tensor \delta_{u.U^{\bar{\xi}}} \right) \\ + &
 	\sum_{\P_{n-i}(n)} \sum_{x \notin U} \left( \delta_{x.U^-} \tensor \delta_{U^+}\ +\ \delta_{U^-} \tensor \delta_{x.U^+} \right).
@@ -40,7 +40,7 @@
 %\begin{proof}
 %	We use the cosimplicial identity $\delta_q \delta_p = \delta_{p-1} \delta_q$ for $p \geq q$ to establish
 %	\begin{equation} \label{equation: partial of d over P}
-%	\partial \! \sum_{\P_{n-i}(n)} \delta_{U}\ =\ \sum_{k = 0}^{i} \sum_{\P_{n-i}(n)} \delta_{U} \delta_k \ = \sum_{\P_{n-i}(n)} \sum_{u \not\in U} \delta_{u.U}
+%	\bd \! \sum_{\P_{n-i}(n)} \delta_{U}\ =\ \sum_{k = 0}^{i} \sum_{\P_{n-i}(n)} \delta_{U} \delta_k \ = \sum_{\P_{n-i}(n)} \sum_{u \not\in U} \delta_{u.U}
 %	\end{equation}
 %	from which identity \eqref{equation: boundary of triangle} follows directly.
 %\end{proof}
@@ -54,7 +54,7 @@
 	then
 	\begin{align}
 	\label{equation: triangle of boundary}
-	\triangle_i \partial [n] \ =\! \sum_{\P_{n-i}(n)} \left( \,
+	\triangle_i \bd [n] \ =\! \sum_{\P_{n-i}(n)} \left( \,
 	\sum_{u \in U^+} \delta_{u.U^-} \tensor \delta_{U^+} \ +
 	\sum_{u \in U^-} \delta_{U^-} \tensor \delta_{u.U^+} \right).
 	\end{align}

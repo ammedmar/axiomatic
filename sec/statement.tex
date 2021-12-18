@@ -13,17 +13,18 @@ W = \big(
 \]
 be the minimal resolution of $\F$ by free $\F[\Sym_2]$-modules.
 
+\subsection{Cup-$i$ structures on cochains}
+
 A \textbf{symmetric product} on a chain complex $A$ is a chain map
 \[
 W \ot_{\F[\Sym_2]} A^{\ot 2} \to A
 \]
 where $T$ acts by transposition on $A^{\ot 2}$.
 We denote the image of $[e_i \ot \alpha \ot \beta]$ by $\alpha \cup_i \beta$.
+The name of this structure is motivated by the fact that a chain map $\F \ot_{\F[\Sym_2]} A^{\ot 2} \to A$ defines a commutative product on $A$.
 
-\anibal{compare to commutative}
-
-A \textbf{cup-$i$ construction} is a symmetric product on $\cochains(X)$ for every simplicial set $X$ that is natural with respect to simplicial maps.
-An \textbf{isomorphism} of cup-$i$ constructions is an automorphism $\phi$ of $W$ making the diagram
+A \textbf{cup-$i$ structure} is a symmetric product on $\cochains(X)$ for every simplicial set $X$ that is natural with respect to simplicial maps.
+An \textbf{isomorphism} of cup-$i$ structures is an automorphism $\phi$ of $W$ making the diagram
 \begin{center}
 	\begin{tikzcd}[column sep = -5]
 	W \displaytensor_{\F[\Sym_2]} \cochains(X) \arrow[dr, in=180, out=-90] \arrow[rr, "\phi \, \ot \, \id"] & &
@@ -33,14 +34,14 @@ An \textbf{isomorphism} of cup-$i$ constructions is an automorphism $\phi$ of $W
 \end{center}
 commute for every $X$.
 
-The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of cup-$i$ construction; whereas the second, minimality, is manifested in the definition of cup-$i$ structure via the use of $W$ instead of an arbitrary projective resolution of $\F$ as $\F[\Sym_2]$-module.
-A cup-$i$ construction is \textbf{non-degenerate} if it is not the $0$ map.
+The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of cup-$i$ structure; whereas the second, minimality, is manifested in the definition of cup-$i$ structure via the use of $W$ instead of an arbitrary projective resolution of $\F$ as $\F[\Sym_2]$-module.
+A cup-$i$ structure is \textbf{non-degenerate} if it is not the $0$ map.
 It is \textbf{free} if for any two simplices $x$ and $y$
 \[
 \boxed{x \cup_{i} y = y \cup_{i} x} \ \Longrightarrow\
 \boxed{x \cup_{i} y = 0}
 \]
-whenever $\bars{x} \neq i$ or $\bars{y} \neq i$, and it is \textbf{irreducible} if for any other cup-$i$ construction
+whenever $\bars{x} \neq i$ or $\bars{y} \neq i$, and it is \textbf{irreducible} if for any other cup-$i$ structure
 \[
 \boxed{x \cup_{i} y = x \cup_{i}^\prime y + \cbd(x \cup_{i+1}^\prime y)}
 \ \Longrightarrow \
@@ -51,7 +52,7 @@ whenever $\bars{x} + \bars{y} \neq i, i-1$.
 We can now state our main result.
 
 \begin{theorem} \label{t:main}
-	There is up to isomorphism only one free non-degenerate irreducible cup-$i$ construction.
+	There is up to isomorphism only one free non-degenerate irreducible cup-$i$ structure.
 \end{theorem}
 
 \anibal{Say something about the proof}
@@ -92,7 +93,7 @@ We can now state our main result.
 
 %\subsection{formulas}
 %
-%We now give a new description of Steenrod's original cup-$i$ construction.
+%We now give a new description of Steenrod's original cup-$i$ structure.
 %Our description is in a sense dual to his and the equivalence of both is stated as Proposition \ref{proposition: steenrod's equals ours}.
 %For any positive integer $q$ let $\P_q$ be the collection of cardinality $q$ subsets of non-negative integers and
 %\[
