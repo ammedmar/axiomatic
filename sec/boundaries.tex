@@ -53,46 +53,48 @@ A direct consequence of Lemma \ref{l:(1+T) triangle = 0 implies triangle = 0} is
 	\end{align}
 \end{lemma}
 
-\begin{proof}
-	Let
-	\begin{align*}
-	& S_1 = \big\{ (u, V)\ |\ V \in \P_{n-i-1}(n-1) \text{ and }  u \in \{0, \dots, n \} \big\}, \\
-	& S_2 = \big\{ (w, W)\ |\ W \in \P_{n-i}(n) \text{ and } w \in W \big\}
-	\end{align*}
-	and notice that identity \eqref{equation: triangle of boundary} is, using the isomorphism
-	\begin{align*}
-	\cP[n] &\cong \chains \simplex^n \\
-	U &\mapsto \delta_U ,
-	\end{align*}
-	equivalent to
-	\begin{equation} \label{e:triangle of partial recasted}
-	\sum_{(u, V) \in S_1}
-	\delta_{V^\xi} \circ \delta_u \ot \delta_{V^{\bar{\xi}}} \circ \delta_u \ \, =
-	\sum_{\substack{(w, W) \in S_2 \\ w \in W^{\bar{\xi}}}}
-	\delta_{w.W^\xi} \ot \delta_{W^{\bar{\xi}}} \ + \!
-	\sum_{\substack{(w, W) \in S_2 \\ w \in W^\xi}}
-	\delta_{W^\xi} \ot \delta_{w.W^{\bar{\xi}}.}
-	\end{equation}
-	Define $S_1 \to S_2$ by sending $\big(u, \, \{v_1 < \cdots < v_{n-i-1}\} \big)$ to $\big(u,\, \{w_1 < \cdots < w_{q}\} \big)$ with
-	\[
-	w_i =
-	\begin{cases}
-	v_i & \text{ if } v_i < u \\
-	u & \text{ if } v_i < u \leq v_{i+1} \\
-	v_{i-1}+1 & \text{ if } v_i < u.
-	\end{cases}
-	\]
-	This function is a bijection since it is injective and both sets have the same cardinality.
-	To establishes \eqref{e:triangle of partial recasted} we use the simplicial identities to notice that
-	\[
-	\delta_{V^\xi} \circ \delta_u \ot \delta_{V^{\bar{\xi}}} \circ \delta_u =
-	\begin{cases}
-	\delta_{w.W^\xi} \ot \delta_{W^{\bar{\xi}}} & \text{ if } w \in W^{\bar{\xi}}, \\
-	\delta_{W^\xi} \ot \delta_{w.W^{\bar{\xi}}} & \text{ if } w \in W^\xi,
-	\end{cases}
-	\]
-	if $(u, V) \mapsto (w, W)$.
-\end{proof}
+\anibal{proof in the other paper}
+
+%\begin{proof}
+%	Let
+%	\begin{align*}
+%	& S_1 = \big\{ (u, V) \mid V \in \P_{n-i-1}(n-1) \text{ and }  u \in \{0, \dots, n \} \big\}, \\
+%	& S_2 = \big\{ (w, W) \mid W \in \P_{n-i}(n) \text{ and } w \in W \big\}
+%	\end{align*}
+%	and notice that identity \eqref{equation: triangle of boundary} is, using the isomorphism
+%	\begin{align*}
+%	\cP[n] &\cong \chains \simplex^n \\
+%	U &\mapsto \delta_U ,
+%	\end{align*}
+%	equivalent to
+%	\begin{equation} \label{e:triangle of partial recasted}
+%	\sum_{(u, V) \in S_1}
+%	\delta_{V^\xi} \circ \delta_u \ot \delta_{V^{\bar{\xi}}} \circ \delta_u \ \, =
+%	\sum_{\substack{(w, W) \in S_2 \\ w \in W^{\bar{\xi}}}}
+%	\delta_{w.W^\xi} \ot \delta_{W^{\bar{\xi}}} \ + \!
+%	\sum_{\substack{(w, W) \in S_2 \\ w \in W^\xi}}
+%	\delta_{W^\xi} \ot \delta_{w.W^{\bar{\xi}}.}
+%	\end{equation}
+%	Define $S_1 \to S_2$ by sending $\big(u, \, \{v_1 < \cdots < v_{n-i-1}\} \big)$ to $\big(u,\, \{w_1 < \cdots < w_{q}\} \big)$ with
+%	\[
+%	w_i =
+%	\begin{cases}
+%	v_i & \text{ if } v_i < u \\
+%	u & \text{ if } v_i < u \leq v_{i+1} \\
+%	v_{i-1}+1 & \text{ if } v_i < u.
+%	\end{cases}
+%	\]
+%	This function is a bijection since it is injective and both sets have the same cardinality.
+%	To establishes \eqref{e:triangle of partial recasted} we use the simplicial identities to notice that
+%	\[
+%	\delta_{V^\xi} \circ \delta_u \ot \delta_{V^{\bar{\xi}}} \circ \delta_u =
+%	\begin{cases}
+%	\delta_{w.W^\xi} \ot \delta_{W^{\bar{\xi}}} & \text{ if } w \in W^{\bar{\xi}}, \\
+%	\delta_{W^\xi} \ot \delta_{w.W^{\bar{\xi}}} & \text{ if } w \in W^\xi,
+%	\end{cases}
+%	\]
+%	if $(u, V) \mapsto (w, W)$.
+%\end{proof}
 
 \begin{lemma} \label{lemma: boundary gives the lower case}
 	For $i \leq n$
@@ -102,71 +104,89 @@ A direct consequence of Lemma \ref{l:(1+T) triangle = 0 implies triangle = 0} is
 	\end{equation}
 \end{lemma}
 
-\begin{proof}
-	For $U = (u_1, \dots, u_{n-i}) \in \P_{n-i}(n)$ and $x \notin U$ define when possible:
-	\begin{align*}
-	V_{U,x} = x.U \setminus l_{U, x} & \ \text{ with } l_{U,x} = \max\{u\in U\ |\ x>u\}, \\
-	W_{U,x} = x.U \setminus r_{U, x} & \ \text{ with } r_{U,x} = \max\{u \in U\ |\ x>u\}.
-	\end{align*}
-	Notice that $(l_{U,x}).V_{U,x} = x.U = (r_{U,x}).W_{U,x}$ and that for any $u \in U \setminus \{l_{U,x}, r_{U,x}\}$ we have $\ind_{V_{U,x}}(u) = \ind_{U}(u) = \ind_{W_{U,x}}(u)$.
+\anibal{also proven in the other paper}
 
-	We introduce the following sets using tabbing to represent inclusion:
-
-	\vspace*{5pt}
-	$L = \{x.U^0 \ot U^1\ | \ U \in \P_{n-i}(n),\ x \notin U\}$
-	\vspace*{1pt}
-	\begin{tab}
-		$L^{e} = \{x.U^0 \ot U^1 \in L\ | \ \ind_{x.U}(x) \text{ even}\}$
-		\begin{tab}
-			$L_{min}^{e} = \{x.U^0 \ot U^1 \in L^e\ | \ x < u_1 \}$ \par
-			$\overline{L}_{min}^{e} = L^{e} \setminus L_{min}^{e}$
-			\begin{tab}
-				$\overline{L}_{min}^{e,e} = \{ x.U^0 \ot U^1 \in \overline{L}_{min}^{e}\ | \ \ind_{x.U}(l_{U,x}) \text{ even} \}$ \par
-				$\overline{L}_{min}^{e,o} = \{ x.U^0 \ot U^1 \in \overline{L}_{min}^{e}\ | \ \ind_{x.U}(l_{U,x}) \text{ odd} \}$
-				\vspace*{7pt}
-			\end{tab}
-		\end{tab}
-		$L^{o} = \{x.U^0 \ot U^1\ | \ \ind_{x.U}(x) \text{ odd}\}$ \par
-		\begin{tab}
-			$L_{max}^{o} = \{x.U^0 \ot U^1 \in L^o\ | \ u_q < x \}$ \par
-			$\overline{L}_{max}^{o} = L^{o}\setminus L_{max}^{o}$.
-			\begin{tab}
-				$\overline{L}_{max}^{o,e} = \{ x.U^0 \ot U^1 \in \overline{L}_{max}^{o}\ | \ \ind_{x.U}(r_{U,x}) \text{ even} \}$ \par
-				$\overline{L}_{max}^{o,o} = \{ x.U^0 \ot U^1 \in \overline{L}_{max}^{o}\ | \ \ind_{x.U}(r_{U,x}) \text{ odd} \}$.
-			\end{tab}
-		\end{tab}
-	\end{tab}
-
-	\vspace*{5pt}
-	Similar subsets of $R = \{U^0\ot x.U^1\ | \ U \in \P_{n-i}(n),\ x \in \overline{U}\}$ are defined analogously, and we claim the following four identities:
-	\begin{equation}\label{lemma4: existence: eq2}
-	\overline{R}_{min}^{o,o} = \overline{L}_{max}^{o,o}\ , \qquad \overline{R}_{min}^{o,e} = \overline{R}_{max}^{e,o}\ , \qquad
-	\overline{L}_{min}^{e,o} = \overline{L}_{max}^{o,e}\ , \qquad \overline{L}_{min}^{e,e} = \overline{R}_{max}^{e,e}.
-	\end{equation}
-	We show only the proof of the first one. The other three are proven analogously.
-	\begin{alignat*}{2}
-	&\boxed{x.U^0\ot U^1 \in \overline{L}_{max}^{o,o}}\ &\Longrightarrow\ &\boxed{x.U^0\ot U^1 =\, W_U(x)^0\ot r_{U,x}.W_{U,x}^1 \in \overline{R}_{min}^{o,o} \! } \\
-	&\boxed{U^0\ot x.U^1 \in \overline{R}_{min}^{o,o}}\ &\Longrightarrow\ &\boxed{U^0\ot x.U^1 =\, l_{U,x}.V_U(x)^0\ot V_{U,x}^1 \in \overline{L}_{max}^{o,o} \ \ }
-	\end{alignat*}
-	The identities in (\ref{lemma4: existence: eq2}) imply
-	\begin{equation} \label{lemma4: existence: eq3}
-	\sum_{\overline{L}_{max}^{o},\, \overline{L}_{min}^{e}} d_{x.U^0} \ot d_{U^1}\ \ +
-	\sum_{\overline{R}_{max}^{e},\, \overline{R}_{min}^{o}} d_{U^0} \ot d_{x.U^1}\ =\ 0.
-	\end{equation}
-	Let us now consider the right hand side of (\ref{lemma4: existence: eq1})
-	\[
-	(1+T) \sum_{U \in \P_{n-i+1}(n)} {U^0} \ot {U^1} \, = \!\!
-	\sum_{L^0_{max},\, L^r_{min}} {x.U^0} \ot {U^1}\ + \!
-	\sum_{R^e_{max}, \, R^o_{min}} {U^0} \ot {x.U^1,}
-	\]
-	Thanks to (\ref{lemma4: existence: eq3}), the above expression is equivalent to
-	\[
-	(1+T) \sum_{U \in \P_{n-i+1}(n)} {U^0} \ot {U^1} \, = \
-	\sum_{L} {x.U^0} \ot {U^1}\ + \
-	\sum_{R} {U^0} \ot {x.U^1.}
-	\]
-	as claimed.
-\end{proof}
+%\begin{proof}
+%	For $U = (u_1, \dots, u_{n-i}) \in \P_{n-i}(n)$ and $x \notin U$ define when possible:
+%	\begin{align*}
+%	V_{U,x} = x.U \setminus l_{U, x} & \ \text{ with } l_{U,x} = \max \{u \in U \mid u<x \}, \\
+%	W_{U,x} = x.U \setminus r_{U, x} & \ \text{ with } r_{U,x} = \min \{u \in U \mid x<u \}.
+%	\end{align*}
+%	Notice that
+%	\[
+%	(l_{U,x}).V_{U,x} = x.U = (r_{U,x}).W_{U,x}
+%	\]
+%	and that
+%	\[
+%	\ind_{V_{U,x}}(u) = \ind_{U}(u) = \ind_{W_{U,x}}(u)
+%	\]
+%	for any $u \in U \setminus \{l_{U,x}, r_{U,x}\}$.
+%
+%	We introduce the following sets using tabbing to represent inclusion:
+%
+%	\vspace*{5pt}
+%	$L = \{x.U^0 \ot U^1 \mid U \in \P_{n-i}(n),\ x \notin U\}$
+%	\vspace*{1pt}
+%	\begin{tab}
+%		$L^{(0)} = \{x.U^0 \ot U^1 \in L \mid \ind_{x.U}(x) = 0\}$
+%		\begin{tab}
+%			$L_{\max}^{(0)} = \{x.U^0 \ot U^1 \in L^{(0)} \mid u_{n-i} < x \}$ \par
+%			$\oL_{\max}^{(0)} = L^{(0)} \setminus L_{\max}^{(0)}$
+%			\begin{tab}
+%				$\oL_{\max}^{(0,0)} = \{ x.U^0 \ot U^1 \in \oL_{\max}^{(0)} \mid \ind_{x.U}(l_{U,x}) = 0 \}$ \par
+%				$\oL_{\max}^{(0,1)} = \{ x.U^0 \ot U^1 \in \oL_{\max}^{(0)} \mid \ind_{x.U}(l_{U,x}) = 1 \}$
+%				\vspace*{7pt}
+%			\end{tab}
+%		\end{tab}
+%		$L^{(1)} = \{x.U^0 \ot U^1 \mid \ind_{x.U}(x) \text{ odd}\}$ \par
+%		\begin{tab}
+%			$L_{\min}^{(1)} = \{x.U^0 \ot U^1 \in L^{(1)} \mid u_{n-i} < x \}$ \par
+%			$\oL_{\min}^{(1)} = L^{(1)} \setminus L_{\min}^{(1)}$
+%			\begin{tab}
+%				$\oL_{\min}^{(1,0)} = \{ x.U^0 \ot U^1 \in \oL_{\min}^{(1)} \mid \ind_{x.U}(r_{U,x}) = 0 \}$ \par
+%				$\oL_{\min}^{(1,1)} = \{ x.U^0 \ot U^1 \in \oL_{\min}^{(1)} \mid \ind_{x.U}(r_{U,x}) = 1 \}$.
+%			\end{tab}
+%		\end{tab}
+%	\end{tab}
+%
+%	\vspace*{5pt}
+%	Similar subsets of $R = \{U^0\ot x.U^1 \mid U \in \P_{n-i}(n),\ x \in \overline{U}\}$ are defined analogously, and we claim the following four identities:
+%	\begin{equation}\label{lemma4: existence: eq2}
+%	\oL_{\max}^{(0,0)} = \oR_{\min}^{(0,0)}\ , \qquad
+%	\oL_{\max}^{(0,1)} = \oL_{\min}^{(1,0)}\ , \qquad
+%	\oR_{\min}^{(0,1)} = \oR_{\max}^{(1,0)}\ , \qquad
+%	\oL_{\min}^{(1,1)} = \oR_{\max}^{(1,1)}.
+%	\end{equation}
+%	We show only the proof of the first one. The other three are proven analogously.
+%	\begin{alignat*}{2}
+%	&\boxed{x.U^0 \ot U^1 \in \oL_{\max}^{(0,0)} \hspace*{1pt} }\ &\Longrightarrow\
+%	&\boxed{x.U^0 \ot U^1 =\, W_{U,x}^0 \ot r_{U,x}.W_{U,x}^1 \in \oR_{\min}^{(0,0)} \! } \\
+%	&\boxed{U^0 \ot x.U^1 \in \oR_{\min}^{(0,0)}}\ &\Longrightarrow\
+%	&\boxed{U^0 \ot x.U^1 =\, l_{U,x}.V_{U,x}^0 \ot V_{U,x}^1 \in \oL_{\max}^{(0,0)} \hspace*{8pt}}
+%	\end{alignat*}
+%	The identities in (\ref{lemma4: existence: eq2}) imply
+%	\begin{equation} \label{lemma4: existence: eq3}
+%	\sum_{\oL_{\max}^{(0)} \union \, \oL_{\min}^{(1)}} x.U^0 \ot U^1\ \ +
+%	\sum_{\oR_{\min}^{(0)} \union \, \oR_{\max}^{(1)}} U^0 \ot x.U^1\ =\ 0.
+%	\end{equation}
+%
+%	\anibal{Continue here}
+%
+%
+%	Let us now consider the right hand side of (\ref{lemma4: existence: eq1})
+%	\[
+%	(1+T) \sum_{U \in \P_{n-i+1}(n)} {U^0} \ot {U^1} \, = \!\!
+%	\sum_{L^o_{max},\, L^r_{min}} {x.U^0} \ot {U^1}\ + \!
+%	\sum_{R^e_{max}, \, R^o_{min}} {U^0} \ot {x.U^1,}
+%	\]
+%	Thanks to (\ref{lemma4: existence: eq3}), the above expression is equivalent to
+%	\[
+%	(1+T) \sum_{U \in \P_{n-i+1}(n)} {U^0} \ot {U^1} \, = \
+%	\sum_{L} {x.U^0} \ot {U^1}\ + \
+%	\sum_{R} {U^0} \ot {x.U^1.}
+%	\]
+%	as claimed.
+%\end{proof}
 
 %\begin{corollary}
 %	The map $\Delta \colon W \to \mathcal Z(2)$ is a free, non-degenerate Steenrod construction.

@@ -16,43 +16,43 @@
      \end{align*}
 \end{lemma}
 
-%\begin{proof}
-%	Let us assume $\triangle_i [n-1] = \sum_{\P_{n-1-i}(n-1)} \delta_{U^-} \ot \delta_{U^+}$. The other case is done analogously. Rewriting \eqref{equation: boundary of triangle} we have
-%    \begin{align*}
-%    \partial \triangle_i [n]\ & =\! \sum_{\P_{n-i}(n)} \left(\sum_{u \notin U} \delta_{u.U^\xi} \ot \delta_{U^{\bar{\xi}}} +
-%    \sum_{u \notin U} \delta_{U^\xi} \ot \delta_{u.U^{\bar{\xi}}} \right) \\ & +\!
-%    \sum_{\P_{n-i}(n)} \left(\sum_{u \in U^{\bar{\xi}}} \delta_{u.U^\xi} \ot \delta_{U^{\bar{\xi}}} +
-%    \sum_{u \in U^{\xi}} \delta_{U^\xi} \ot \delta_{u.U^{\bar{\xi}}} \right)
-%    \end{align*}
-%    and by adding $\triangle(\partial \, \id_{[n]})$ to it and using identity \eqref{equation: triangle of boundary} we get
-%    \begin{align}
-%    (1 + T) \triangle_{i-1} [n]\ & =\! \sum_{\P_{n-i}(n)} \left(\sum_{u \notin U} \delta_{u.U^\xi} \ot \delta_{U^{\bar{\xi}}} +
-%    \sum_{u \notin U} \delta_{U^\xi} \ot \delta_{u.U^{\bar{\xi}}} \right) \label{equation: top}\\ +\
-%    (1 + T) & \sum_{\substack{\P_{n-i}(n) \\ \xi(U) \neq -}} \left(\sum_{u \in U^+} \delta_{u.U^-} \ot \delta_{U^{+}} +
-%    \sum_{u \in U^-} \delta_{U^-} \ot \delta_{u.U^+} \right).
-%    \end{align}
-%    For $j \in \{0, \dots, n\}$, Lemma \ref{lemma: condition to be in the kernel of s} tells us that the basis elements appearing in the right hand of \eqref{equation: top} are in the kernel of $(s_j)_\ast^{\ot 2}$ for any $j$. Let $\Lambda_{j, j+1}^\pm$ be the subset of pairs $(u, U)$ with $U \in \P_{n-i}(n)$ and $u \in U^\pm$ such that $u \in \{j, j+1\}$ and $\xi(U) \neq -$. Since the maps $(1+T)$ and $(s_j)_\ast^{\ot 2}$ commute, applying $(s_j)_\ast^{\ot 2}$ to the identity above implies that
-%    \begin{equation} \label{equation: ptt}
-%    \sum_{\Lambda_{j, j+1}^-} \delta_{U^- \setminus u} \ot \delta_{U^+} +
-%    \sum_{\Lambda_{j, j+1}^+} \delta_{U^-} \ot \delta_{U^+ \setminus u}
-%    \end{equation}
-%    is in the kernel of $(1+T)$. We can reduce the sum above by noticing that if both $j$ and $j+1$ are in $U$, they are both in one of $U^-$ or $U^+$; so the basis elements associated to $(j, U)$ and $(j+1, U)$ in the sum above cancel each other. Denoting by $\Lambda^\pm_j$ the subset of $\Lambda^\pm_{j, j+1}$ containing $j$ but not $j+1$ and similarly $\Lambda^\pm_{j+1}$, the element \eqref{equation: ptt} can be written as
-%    \begin{equation} \label{equation: linda}
-%    \sum_{\Lambda_j^-,\, \Lambda_{j+1}^-} \delta_{U^- \setminus u} \ot \delta_{U^+} \ +
-%    \sum_{\Lambda_j^+,\, \Lambda_{j+1}^+} \delta_{U^-} \ot \delta_{U^+ \setminus u}.
-%    \end{equation}
-%    The fact that \eqref{equation: linda} is in the kernel of $(1+T)$ implies the existence of an involution $\phi$ of $\Lambda = \Lambda^-_{j} \sqcup \Lambda^-_{j+1} \sqcup \Lambda^+_{j} \sqcup \Lambda^+_{j+1}$ defined by a choice of canceling pairs. Since $i \leq n-2$, this involution has no fixed points. So, for any $(u, U) \in \Lambda$, if $\phi(u, U) = (u^\prime, U^\prime)$ then
-%    \[
-%    U \setminus u = U^\prime \setminus u^\prime, \qquad u \neq u^\prime, \qquad \xi(U) = \xi(U^\prime)
-%    \]
-%    where the last equality holds since $(u^\prime, U^\prime) \in \Lambda$. We remark that the first two conditions completely determine $U^\prime$.
-%
-%    We introduce a symmetric relation in $\P_{n-i}(n)$ writing $V \sim W$ if there exists $k$ such that $V = k.W \setminus(k+1)$ or $W = k.V \setminus(k+1)$. The previous analysis implies that if $V \sim W$ then $\xi(V) = \xi(W)$. The map $\xi$ is constant since there exists a sequence
-%    \[
-%    V \sim \cdots \sim W
-%    \]
-%    for any for any pair $V, W \in \P_{n-i}(n)$.
-%\end{proof}
+\begin{proof}
+	Let us assume $\triangle_i [n-1] = \sum_{\P_{n-1-i}(n-1)} \delta_{U^-} \ot \delta_{U^+}$. The other case is done analogously. Rewriting \eqref{equation: boundary of triangle} we have
+    \begin{align*}
+    \partial \triangle_i [n]\ & =\! \sum_{\P_{n-i}(n)} \left(\sum_{u \notin U} \delta_{u.U^\xi} \ot \delta_{U^{\bar{\xi}}} +
+    \sum_{u \notin U} \delta_{U^\xi} \ot \delta_{u.U^{\bar{\xi}}} \right) \\ & +\!
+    \sum_{\P_{n-i}(n)} \left(\sum_{u \in U^{\bar{\xi}}} \delta_{u.U^\xi} \ot \delta_{U^{\bar{\xi}}} +
+    \sum_{u \in U^{\xi}} \delta_{U^\xi} \ot \delta_{u.U^{\bar{\xi}}} \right)
+    \end{align*}
+    and by adding $\triangle(\partial \, \id_{[n]})$ to it and using identity \eqref{equation: triangle of boundary} we get
+    \begin{align}
+    (1 + T) \triangle_{i-1} [n]\ & =\! \sum_{\P_{n-i}(n)} \left(\sum_{u \notin U} \delta_{u.U^\xi} \ot \delta_{U^{\bar{\xi}}} +
+    \sum_{u \notin U} \delta_{U^\xi} \ot \delta_{u.U^{\bar{\xi}}} \right) \label{equation: top}\\ +\
+    (1 + T) & \sum_{\substack{\P_{n-i}(n) \\ \xi(U) \neq -}} \left(\sum_{u \in U^+} \delta_{u.U^-} \ot \delta_{U^{+}} +
+    \sum_{u \in U^-} \delta_{U^-} \ot \delta_{u.U^+} \right).
+    \end{align}
+    For $j \in \{0, \dots, n\}$, Lemma \ref{lemma: condition to be in the kernel of s} tells us that the basis elements appearing in the right hand of \eqref{equation: top} are in the kernel of $(s_j)_\ast^{\ot 2}$ for any $j$. Let $\Lambda_{j, j+1}^\pm$ be the subset of pairs $(u, U)$ with $U \in \P_{n-i}(n)$ and $u \in U^\pm$ such that $u \in \{j, j+1\}$ and $\xi(U) \neq -$. Since the maps $(1+T)$ and $(s_j)_\ast^{\ot 2}$ commute, applying $(s_j)_\ast^{\ot 2}$ to the identity above implies that
+    \begin{equation} \label{equation: ptt}
+    \sum_{\Lambda_{j, j+1}^-} \delta_{U^- \setminus u} \ot \delta_{U^+} +
+    \sum_{\Lambda_{j, j+1}^+} \delta_{U^-} \ot \delta_{U^+ \setminus u}
+    \end{equation}
+    is in the kernel of $(1+T)$. We can reduce the sum above by noticing that if both $j$ and $j+1$ are in $U$, they are both in one of $U^-$ or $U^+$; so the basis elements associated to $(j, U)$ and $(j+1, U)$ in the sum above cancel each other. Denoting by $\Lambda^\pm_j$ the subset of $\Lambda^\pm_{j, j+1}$ containing $j$ but not $j+1$ and similarly $\Lambda^\pm_{j+1}$, the element \eqref{equation: ptt} can be written as
+    \begin{equation} \label{equation: linda}
+    \sum_{\Lambda_j^-,\, \Lambda_{j+1}^-} \delta_{U^- \setminus u} \ot \delta_{U^+} \ +
+    \sum_{\Lambda_j^+,\, \Lambda_{j+1}^+} \delta_{U^-} \ot \delta_{U^+ \setminus u}.
+    \end{equation}
+    The fact that \eqref{equation: linda} is in the kernel of $(1+T)$ implies the existence of an involution $\phi$ of $\Lambda = \Lambda^-_{j} \sqcup \Lambda^-_{j+1} \sqcup \Lambda^+_{j} \sqcup \Lambda^+_{j+1}$ defined by a choice of canceling pairs. Since $i \leq n-2$, this involution has no fixed points. So, for any $(u, U) \in \Lambda$, if $\phi(u, U) = (u^\prime, U^\prime)$ then
+    \[
+    U \setminus u = U^\prime \setminus u^\prime, \qquad u \neq u^\prime, \qquad \xi(U) = \xi(U^\prime)
+    \]
+    where the last equality holds since $(u^\prime, U^\prime) \in \Lambda$. We remark that the first two conditions completely determine $U^\prime$.
+
+    We introduce a symmetric relation in $\P_{n-i}(n)$ writing $V \sim W$ if there exists $k$ such that $V = k.W \setminus(k+1)$ or $W = k.V \setminus(k+1)$. The previous analysis implies that if $V \sim W$ then $\xi(V) = \xi(W)$. The map $\xi$ is constant since there exists a sequence
+    \[
+    V \sim \cdots \sim W
+    \]
+    for any for any pair $V, W \in \P_{n-i}(n)$.
+\end{proof}
 
 %\begin{figure}
 %    \centering
