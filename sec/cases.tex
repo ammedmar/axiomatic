@@ -41,23 +41,12 @@ Most of the lemmas below hold with fewer assumptions but we have no use for thes
     which, by Lemma \ref{l:(1+T) triangle = 0 implies triangle = 0}, implies $\triangle_{i-1}  [n] = 0$.
 \end{proof}
 
-\anibal{Fix this lemma to be more useful on the places invoked}
-
-\begin{lemma} \label{l:condition to be in the kernel of sxs}
-	Let $j \in \{0, \dots, n-1\}$.
-	An element $V \otimes W \in \cP[n] \otimes \cP[n]$ is in the kernel of $(\cP \sigma_j \ot \cP \sigma_j)$ if an only if both $j$ and $j+1$ are missing from either $V$ or $W$.
-\end{lemma}
-
-\begin{proof}
-	TBW
-\end{proof}
-
 \begin{lemma}
 	Let $n \geq 1$.
 	In $\cP[n] \ot \cP[n]$, either $\triangle_{n-1} [n]$ or $T \triangle_{n-1} [n]$ is equal to
 	\[
-	\sum_{\substack{u \leq n \\ u \text{ odd }}} \{u\} \ot \emptyset \ +
-	\sum_{\substack{u \leq n \\ u \text{ even }}} \emptyset \ot \{u\}.
+	\sum_{\substack{u \leq n \\ u \ \mathrm{odd}}} \{u\} \ot \emptyset \ +
+	\sum_{\substack{u \leq n \\ u \ \mathrm{even}}} \emptyset \ot \{u\}.
 	\]
 \end{lemma}
 
