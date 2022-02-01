@@ -1,9 +1,10 @@
 \documentclass{amsart}
-\input{aux/style}  % add packages to style.sty
-\input{aux/commands} % new commands to commands.tex
-\addbibresource{aux/bibliography.bib} % add references to bibliography.bib
-\addbibresource{aux/usualpapers.bib}
+\input{aux/style}
+\input{aux/usualcmds}
+\input{aux/commands}
 \addbibresource{aux/mypapers.bib}
+\addbibresource{aux/usualpapers.bib}
+\addbibresource{aux/bibliography.bib}
 
 \title{An Axiomatic Characterization of Steenrod's cup-$i$ Products}
 
@@ -19,11 +20,12 @@
 %	\input{sec/abstract}
 %	\maketitle
 %	\input{sec/introduction}
-%	\input{sec/preliminaries}
+	\input{sec/preliminaries}
 %	\input{sec/acknowledgment}
 	\input{sec/statement}
+	\input{sec/squares}
 	\input{sec/coalgebra}
-	\input{sec/proof}
+%	\input{sec/proof}
 %	\input{sec/examples}
 %	\sloppy
 %	\printbibliography

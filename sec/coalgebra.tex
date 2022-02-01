@@ -1,15 +1,28 @@
 % !TEX root = ../axiomatic.tex
 
-\subsection{}
+\section{Reformulation}
 
-We will now use the functors $\chains$ and $\chains \ot \chains$ from $\sSet$ to $\Ch$ to present an alternative definition of the notion of cup-$i$ structure.
+We will now use the functors $\chains$ and $\chains \ot \chains$ from $\sSet$ to $\Ch$ to present an alternative version of our main theorem.
 
-\begin{lemma} \label{l:cup-i construction coalgebra}
-	A cup-$i$ structure is canonically equivalent to a collection of natural linear maps
+\begin{definition}
+	A \textbf{cup-$i$ coproduct structure} on a chain complex $C$ is a collection of linear maps
+	\[
+	\triangle_i \colon C \to C \ot C
+	\]
+	for $i \in \N$ with $\triangle_0$ a chain map and
+	\[
+	\bd \circ \triangle_i + \triangle_i \circ \bd =
+	(1+T) \triangle_{i-1}
+	\]
+	for $i > 0$.
+\end{definition}
+
+\begin{lemma} \label{l:cup-i coproducts}
+	A cup-$i$ construction is canonically equivalent to a collection of natural linear maps
 	\[
 	\triangle_i \colon \chains \to \chains \ot \chains
 	\]
-	for $i \in \N$ with $\Delta_0$ a chain map and
+	for $i \in \N$ with $\triangle_0$ a chain map and
 	\[
 	\bd \circ \triangle_i + \triangle_i \circ \bd =
 	(1+T) \triangle_{i-1}
@@ -18,8 +31,6 @@ We will now use the functors $\chains$ and $\chains \ot \chains$ from $\sSet$ to
 \end{lemma}
 
 \begin{proof}
-	By naturality, a cup-$i$ structure is determined by its restriction to representable simplicial sets.
-
 	Let $C^\vee = \Hom(C, \F)$ with $C$ a finite dimensional chain complex.
 	The relevant case for us is $C = \chains \simplex^n$ for $n \in \N$.
 	Using the hom-tensor adjunction and the finite dimensionality of $C$ we have
@@ -43,7 +54,24 @@ We will now use the functors $\chains$ and $\chains \ot \chains$ from $\sSet$ to
 	\end{align*}
 \end{proof}
 
-We will refer to a cup-$i$ structure and to its associated collection of natural linear maps $\triangle_i \colon \chains \to \chains \ot \chains$ interchangeably.
+\begin{lemma} \label{l:cup-i construction coalgebra}
+	A cup-$i$ construction is canonically equivalent to a collection of natural linear maps
+	\[
+	\triangle_i \colon \chains \to \chains \ot \chains
+	\]
+	for $i \in \N$ with $\triangle_0$ a chain map and
+	\[
+	\bd \circ \triangle_i + \triangle_i \circ \bd =
+	(1+T) \triangle_{i-1}
+	\]
+	for $i > 0$.
+\end{lemma}
+
+\begin{proof}
+	By naturality, a cup-$i$ structure is determined by its restriction to representable simplicial sets.
+\end{proof}
+
+We will refer to a cup-$i$ construction and to its defining associated collection of natural linear maps $\triangle_i \colon \chains \to \chains \ot \chains$ interchangeably.
 
 \begin{remark}
 	For any two cochains $\alpha$ and $\beta$ we have after unraveling the isomorphisms in the proof above that $\alpha \cup_i \beta = (\alpha \ot \beta) \triangle_i(-)$.
@@ -63,7 +91,7 @@ We will refer to a cup-$i$ structure and to its associated collection of natural
 
 \begin{proof}
 	By naturality $f$ is determined by its restriction to $\chains \simplex^n$ for $n \in \N$.
-	Furthermore, for any non-degenerate simplex $(x \colon [m] \to [n]) \in \simplex^n_m$ we have
+	Furthermore, for any non-degenerate simplex $\big( x \colon [m] \to [n] \big) \in \simplex^n_m$ we have
 	\[
 	f(x) = f \big( x \circ [m] \big) =
 	(f \circ \chains x) [m] =
@@ -98,7 +126,7 @@ The chain complex $\chains \simplex^n$ is isomorphic to the following:
 	\]
 	and its differential by
 	\[
-	\bd U = \sum_{\bar u \notin U} \{\bar u\} \union U.
+	\bd U = \sum_{\bar u \in \{0, \dots, n\} \setminus U} \{\bar u\} \union U.
 	\]
 \end{definition}
 
@@ -136,5 +164,12 @@ As proven in \cite{medina2021newformulas} these elements define a cup-$i$ constr
 We now state a stronger formulation of Theorem \ref{t:main}
 
 \begin{theorem} \label{t:main reformulated}
-	If $\triangle$ is a free non-degenerate irreducible cup-$i$ structure, then, for every $i \in \N$, either $\triangle_i = \Delta_i$ or $\triangle_i = T \Delta_i$.
+	If $\triangle$ is a free non-degenerate irreducible cup-$i$ construction, then, for every $i \in \N$, either $\triangle_i = \Delta_i$ or $\triangle_i = T \Delta_i$.
 \end{theorem}
+
+%We will also prove the following lemma that helps verify the irreducibility of a cup-$i$ construction.
+%
+%\begin{lemma}
+%	Let $\triangle$ be a free non-degenerate cup-$i$ construction, then, then $\triangle$ is irreducible if an only if for every $i \in \N$ and simplex $x$,
+%	$\triangle_i = \Delta_i$ or $\triangle_i = T \Delta_i$.
+%\end{lemma}

@@ -1,9 +1,9 @@
 % !TEX root = ../axiomatic.tex
 
-\section{Preliminaries}
+\section{Simplicial sets and their (co)chains}
 
 We are interested in the cochains with $\F$-coefficients of spaces.
-As is usually done, we represent spaces as simplicial sets and take advantage of the fact that all natural construction on simplicial sets, like their cochains and cup-$i$ products, need only be defined on the standard simplicial sets $\simplex^n$.
+As is usually done, we represent spaces as simplicial sets and take advantage of the fact that all natural construction on simplicial sets need only be defined on the standard simplicial sets $\simplex^n$.
 
 The \textbf{simplex category} is defined to have an object $[d] = \{0, \dots, d\}$ for every $d \in \N$ and a morphism $[n] \to [d]$ for each order-preserving function from $[n]$ to $[d]$.
 
@@ -42,6 +42,8 @@ As is customary we use the notation
 X [n] = X_n \qquad X(\delta_i) = d_i \qquad X(\sigma_i) = s_i
 \]
 and refer to simplices in the image of any $s_i$ as \textit{degenerate}.
+We say that a simplex $y$ is a \textbf{face} of another $x$ if there exists $U$ with $y = d_U(x)$.
+
 
 For each $n \in \N$, the simplicial set $\simplex^n$ is defined by
 \[
@@ -60,15 +62,15 @@ We will work with homologically graded chain complexes of $\F$-modules, regardin
 \bd (c \ot c^\prime) = \bd c \ot c^\prime + c \ot \bd c^\prime.
 \end{gather*}
 
-The functor of \textbf{normalized chains} (with $\F$-coefficients) is defined as follows:
+The functor of \textbf{normalized chains} (with $\F$-coefficients) $\chains \colon \sSet \to \Ch$ is defined on objects as follows:
 \[
-N_*(X)_n = \frac{\F \{ X_n \}}{\F \{ s(X_{n-1}) \}}
+\chains(X)_n = \frac{\F \{ X_n \}}{\F \{ s(X_{n-1}) \}}
 \]
-where $s(X_{n-1}) = \bigcup_{i=0}^{n-1} s_i(X_{n-1})$, and $\bd_n \colon N_*(X)_n \to N_*(X)_{n-1}$ is given by
+where $s(X_{n-1}) = \bigcup_{i=0}^{n-1} s_i(X_{n-1})$, and $\bd_n \colon \chains(X)_n \to \chains(X)_{n-1}$ is given by
 \[
 \bd_n = \sum_{i = 0}^{n} d_{i}.
 \]
 
-The functor of \textbf{normalized cochains} $\cochains$ is defined by composing $\chains$ with the linear duality functor $\Hom_{\F}(-, \F)$.
+The functor of \textbf{normalized cochains} $\cochains$ is defined by composing $\chains$ with the linear duality functor $\Hom(-, \F)$.
 Notice that in this definition $\cochains(X)$ is concentrated in non-positive degrees.
-If $x$ is a basis element in $\chains(X)_n$ we denote its dual basis element in $\cochains(X)_{-n}$ by $x^*$.
+If $x$ is a $n$-simplex we abuse notation and use the same symbol $x$ to denote the associated basis element in $\chains(X)$ and its dual basis element in $\cochains(X)_{-n}$.

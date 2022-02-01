@@ -1,125 +1,125 @@
 % !TEX root = ../axiomatic.tex
 
-\section{Statement}
+\section{Main statement}
 
 Let $\Sym_2$ be the group with one non-identity element $T$ and let
 \[
 \begin{tikzcd}[column sep = 20pt]
-W = \big(
+W = \Big(
 \F[\Sym_2]\{e_0\} &
 \F[\Sym_2]\{e_1\} \arrow[l, "\ 1+T"'] &
-\arrow[l, "\ 1+T"'] \cdots \big)
+\arrow[l, "\ 1+T"'] \cdots \Big)
 \end{tikzcd}
 \]
 be the minimal resolution of $\F$ by free $\F[\Sym_2]$-modules.
 
-\subsection{Cup-$i$ structures on cochains}
+\begin{definition}
+	A \textbf{cup-$i$ product structure} on a chain complex $A$ is a chain map
+	\[
+	W \ot_{\F[\Sym_2]} A^{\ot 2} \to A
+	\]
+	where $T$ acts by transposition on $A^{\ot 2}$.
+	We denote the image of $[e_i \ot \alpha \ot \beta]$ by $\alpha \cup_i \beta$.
+\end{definition}
 
-A \textbf{symmetric product} on a chain complex $A$ is a chain map
-\[
-W \ot_{\F[\Sym_2]} A^{\ot 2} \to A
-\]
-where $T$ acts by transposition on $A^{\ot 2}$.
-We denote the image of $[e_i \ot \alpha \ot \beta]$ by $\alpha \cup_i \beta$.
-The name of this structure is motivated by the fact that a chain map $\F \ot_{\F[\Sym_2]} A^{\ot 2} \to A$ defines a commutative product on $A$.
+\begin{remark}
+	Since a chain map $\F \ot_{\F[\Sym_2]} A^{\ot 2} \to A$ defines a commutative product on $A$, we can think of a cup-$i$ product structure on $A$ as defining a product on $A$ that satisfies a minimally derived commutativity condition.
+\end{remark}
 
-A \textbf{cup-$i$ structure} is a symmetric product on $\cochains(X)$ for every simplicial set $X$ that is natural with respect to simplicial maps.
-An \textbf{isomorphism} of cup-$i$ structures is an automorphism $\phi$ of $W$ making the diagram
-\begin{center}
-	\begin{tikzcd}[column sep = -5]
-	W \displaytensor_{\F[\Sym_2]} \cochains(X) \arrow[dr, in=180, out=-90] \arrow[rr, "\phi \, \ot \, \id"] & &
-	W \displaytensor_{\F[\Sym_2]} \cochains(X) \arrow[dl, in=0, out=-90] \\
-	& \cochains(X) &
+\begin{definition}
+	An \textbf{isomorphism} of cup-$i$ product structures on $A$ is an automorphism $\phi$ of $W$ making the diagram
+	\begin{center}
+	\begin{tikzcd}[column sep = 5]
+	W \displaytensor_{\F[\Sym_2]} A \arrow[dr, in=180, out=-90] \arrow[rr, "\phi \, \ot \, \id"] & &
+	W \displaytensor_{\F[\Sym_2]} A \arrow[dl, in=0, out=-90] \\
+	& A &
 	\end{tikzcd}
-\end{center}
-commute for every $X$.
+	\end{center}
+	commute.
+\end{definition}
 
-The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of cup-$i$ structure; whereas the second, minimality, is manifested in the definition of cup-$i$ structure via the use of $W$ instead of an arbitrary projective resolution of $\F$ as $\F[\Sym_2]$-module.
-A cup-$i$ structure is \textbf{non-degenerate} if it is not the $0$ map.
-It is \textbf{free} if for any two simplices $x$ and $y$
-\[
-\boxed{x \cup_{i} y = y \cup_{i} x} \
-\Longrightarrow \
-\boxed{x \cup_{i} y = 0}
-\]
-whenever $\bars{x} \neq i$ or $\bars{y} \neq i$.
-It is \textbf{irreducible} if for any pair of simplices $y \leq x$ with $y \neq x$
-\[
-\boxed{\big( y^{(1)} \cup_{i} y^{(2)} \big)(x) = 0}
-\]
-for any $y^{(1)}, y^{(2)} \leq y$.
+\begin{definition}
+	A \textbf{cup-$i$ product construction on simplicial sets}, or a \textbf{cup-$i$ construction} for short, is a cup-$i$ product structure on $\cochains(X)$ for every simplicial set $X$ that is natural with respect to simplicial maps.
+	An \textbf{isomorphism} of cup-$i$ constructions is a collection of natural isomorphisms of cup-$i$ product structures.
+\end{definition}
+
+The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of cup-$i$ construction; whereas the second, minimality, is manifested in the definition of cup-$i$ product structure via the use of $W$ instead of an arbitrary projective resolution of $\F$.
+\begin{definition}
+	A cup-$i$ construction is \textbf{non-degenerate} if for any simplex $x$
+	\[
+	\boxed{x \cup_0 x \neq 0}
+	\]
+	whenever $\bars{x} = 0$.
+	It is \textbf{free} if for any two simplices $x$ and $y$
+	\[
+	\boxed{x \cup_{i} y = y \cup_{i} x} \
+	\Longrightarrow \
+	\boxed{x \cup_{i} y = 0}
+	\]
+	whenever $\bars{x} \neq i$ or $\bars{y} \neq i$.
+	It is \textbf{irreducible} if for any proper face $y$ of $x$
+	\[
+	\boxed{\Big( y^{(1)} \cup_{i} y^{(2)} \Big)(x) = 0}
+	\]
+	for any two faces $y^{(1)}$ and $y^{(2)}$ of $y$.
+\end{definition}
 
 We can now state our main result.
 
 \begin{theorem} \label{t:main}
-	There is up to isomorphism only one free non-degenerate irreducible cup-$i$ structure.
+	There is up to isomorphism only one free non-degenerate irreducible cup-$i$ construction.
 \end{theorem}
 
-\anibal{Say something about the proof}
+Furthermore, we will use this result to prove in \cref{s:other constructions} that all cup-$i$ constructions available in the literature are isomorphic to Steenrod's original \cite{steenrod1947products}.
 
-%\begin{remark}
-%	Steenrod squares were axiomatized soon after their introduction with the Cartan formula being the least obvious of the axioms.
-%	We think of Theorem \ref{theorem: main} as a continuation of this efforts and remark that in \cite{medina2020cartan} an effective cochain level proof of the Cartan formula is given.
-%	ADEM
-%\end{remark}
-%
-%\begin{remark}
-%	The formulae in Definition \ref{definition: our cup-i products} have been used to provide new algorithms for the computation of Steenrod squares and cup-$i$ products on finite simplicial complexes.
-%	See \cite{medina2018persistence} for a discussion of these algorithms and their incorporation into the field of topological data analysis.
-%\end{remark}
+To prove this result we will use formulas defining one such cup-$i$ construction introduced in \cite{medina2021newformulas} and reviewed below.
+The verification that these define a cup-$i$ construction is given in that same article.
+In what follows we refer to it as the \textbf{canonical cup-$i$ construction}.
 
-%\subsection{conterexample}
-%
-%Every pair $\triangle_{i,n} = \Delta_{i,n}$ except for a fixed $i^\prime$ and $n^\prime$ with
-%\[
-%\triangle_{i^\prime+1, n} =
-%T \Delta_{i^\prime, n}, \quad n \geq n^\prime,
-%\]
-%and
-%\[
-%\triangle_{i^\prime, n} = \begin{cases}
-%T \Delta_{i^\prime, n} & n < n^\prime, \\
-%\Delta_{i^\prime, n} + \Delta_{i+1, n-1} \circ \bd_n & n = n^\prime,
-%\end{cases}
-%\]
-%
-%For example, to $\Delta_0([0123])$ this adds
-%\[
-%\begin{split}
-%[1,2,3] \ot [1,2] + [1,3] \ot [1,2,3] + [1,2,3] \ot [2,3] + \\ [0,2,3] \ot [0,2] + [0,3] \ot [0,2,3] + [0,2,3] \ot [2,3] + \\ [0,1,3] \ot [0,1] + [0,3] \ot [0,1,3] + [0,1,3] \ot [1,3] + \\ [0,1,2] \ot [0,1] + [0,2] \ot [0,1,2] + [0,1,2] \ot [1,2] \phantom{+}
-%\end{split}
-%\]
+\begin{notation}
+	Let $x$ be an $n$-simplex.
+	For a set
+	\begin{equation*}
+	U = \{u_1 < \dots < u_r\} \subseteq \big\{ 0, \dots, n \big\}
+	\end{equation*}
+	we write $d_U(x) = d_{u_1}\! \dotsm \, d_{u_r}(x)$, with $d_{\emptyset}(x) = x$.
+\end{notation}
 
+\begin{definition}[\cite{medina2021newformulas}] \label{d:cup-i coproducts}
+	Let $X$ be a simplicial set, $x \in X_n$ and $\alpha, \beta \in \cochains(X)$.
+	\begin{equation} \label{e:new formulas}
+	(\alpha \cup_i \beta)(x) =
+	\begin{cases}
+	(\alpha \ot \beta) \sum d_{U^0}(x) \ot d_{U^1}(x) &
+	\text{if } i \in \{0, \dots, n\}, \\
+	\hfil 0 &
+	\text{otherwise},
+	\end{cases}
+	\end{equation}
+	where the sum is taken over all subsets $U = \{u_1 < \cdots < u_{n-i}\} \subseteq \{0, \dots, n\}$ and
+	\begin{equation} \label{e:partition subsets}
+	U^0 = \{u_j \in U \mid u_j \equiv j \text{ mod } 2\}, \qquad
+	U^1 = \{u_j \in U \mid u_j \not\equiv j \text{ mod } 2\}.
+	\end{equation}
+\end{definition}
 
-%\subsection{formulas}
-%
-%We now give a new description of Steenrod's original cup-$i$ structure.
-%Our description is in a sense dual to his and the equivalence of both is stated as Proposition \ref{proposition: steenrod's equals ours}.
-%For any positive integer $q$ let $\P_q$ be the collection of cardinality $q$ subsets of non-negative integers and
-%\[
-%\P_q(n) = \{ U \in \P_q \mid \forall u \in U, u \leq n\}.
-%\]
-%For $U = \{u_1 < \cdots < u_q\} \in \P_q$ let
-%\[
-%d_U \colon \chains(X) \to \chains(X)
-%\]
-%be the linear map defined on a basis element $x \in X_n$ by
-%\[
-%d_U (x) = d_{u_1} \cdots \, d_{u_q} (x)
-%\]
-%with the convention that $d_U(x) = 0$ if $n < u_q$.
-%For each $u_r \in U$ define the \textbf{index of $u_r$ in $U$} as
-%\[
-%\ind_U(u_r) = u_r + r
-%\]
-%denoting $U^0$ (resp. $U^1$) the subset of $U$ containing all elements whose index in $U$ is odd (resp. even).
-%Either of these sets could be empty and we declare $d_\emptyset = \id$ and $\P_0 = \{\emptyset\}$.
-%
-%\begin{definition} \label{definition: our cup-i products}
-%	For any simplicial set $X$ and cochains $\alpha, \beta \in \cochains(X)$ define for any $c \in \chains(X)_n$
-%	\[
-%	(\alpha \cup_i \beta)(c) =
-%	(\alpha \ot \beta) \sum_{U \in \P_{n-i}} d_{U^0}(c) \ot d_{U^1}(c)
-%	\]
-%	if  $i \leq n$ and to be $0$ otherwise.
-%\end{definition}
+\begin{example} \label{ex:alexander-whitney diagonal}
+	For $i = 0$, \cref{e:new formulas} gives
+	\begin{equation*}
+	(\alpha \cup_0 \beta)(x) =
+	\sum_{j=0}^n \alpha \big(d_{j+1} \cdots d_{n}(x)\big) \cdot \beta \big(d_{0} \cdots d_{j-1}(x)\big).
+	\end{equation*}
+	A binary operation known as the \textit{Alexander--Whitney product} and widely used to define the algebra structure on cohomology.
+\end{example}
+
+\begin{example} \label{ex:Sq0 is the identity}
+	For any simplex $x \in X_n$, \cref{e:new formulas} gives
+	\begin{equation*}
+	(x \cup_n x)(x) = x(x) \cdot x(x) = 1.
+	\end{equation*}
+\end{example}
+
+In particular, we see from this example that the canonical cup-$i$ construction is non-degenerate.
+\anibal{check both free and irreducible}
+
+%To do so we will provide an alternative characterization of irreducibility for free non-degenerate cup-$i$ structures in \cref{labellist} that is easier to check in specific examples.

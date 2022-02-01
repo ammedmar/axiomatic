@@ -1,0 +1,78 @@
+%We say that a cup-$i$ construction if \textbf{reducible} if it is not irreducible and we have the following characterization.
+%
+%\begin{theorem}
+%	A free non-degenerate cup-$i$ construction $\phi$ is reducible if and only there is $\phi(e_i)$
+%
+%	of reducible non-degenerate and free cup-$i$ constructions that
+%
+%\end{theorem}
+
+
+%\anibal{Say something about the proof}
+
+%\begin{remark}
+%	Steenrod squares were axiomatized soon after their introduction with the Cartan formula being the least obvious of the axioms.
+%	We think of Theorem \ref{theorem: main} as a continuation of this efforts and remark that in \cite{medina2020cartan} an effective cochain level proof of the Cartan formula is given.
+%	ADEM
+%\end{remark}
+%
+%\begin{remark}
+%	The formulae in Definition \ref{definition: our cup-i products} have been used to provide new algorithms for the computation of Steenrod squares and cup-$i$ products on finite simplicial complexes.
+%	See \cite{medina2018persistence} for a discussion of these algorithms and their incorporation into the field of topological data analysis.
+%\end{remark}
+
+%\subsection{conterexample}
+%
+%Every pair $\triangle_{i,n} = \Delta_{i,n}$ except for a fixed $i^\prime$ and $n^\prime$ with
+%\[
+%\triangle_{i^\prime+1, n} =
+%T \Delta_{i^\prime, n}, \quad n \geq n^\prime,
+%\]
+%and
+%\[
+%\triangle_{i^\prime, n} = \begin{cases}
+%T \Delta_{i^\prime, n} & n < n^\prime, \\
+%\Delta_{i^\prime, n} + \Delta_{i+1, n-1} \circ \bd_n & n = n^\prime,
+%\end{cases}
+%\]
+%
+%For example, to $\Delta_0([0123])$ this adds
+%\[
+%\begin{split}
+%[1,2,3] \ot [1,2] + [1,3] \ot [1,2,3] + [1,2,3] \ot [2,3] + \\ [0,2,3] \ot [0,2] + [0,3] \ot [0,2,3] + [0,2,3] \ot [2,3] + \\ [0,1,3] \ot [0,1] + [0,3] \ot [0,1,3] + [0,1,3] \ot [1,3] + \\ [0,1,2] \ot [0,1] + [0,2] \ot [0,1,2] + [0,1,2] \ot [1,2] \phantom{+}
+%\end{split}
+%\]
+
+
+%\subsection{formulas}
+%
+%We now give a new description of Steenrod's original cup-$i$ structure.
+%Our description is in a sense dual to his and the equivalence of both is stated as Proposition \ref{proposition: steenrod's equals ours}.
+%For any positive integer $q$ let $\P_q$ be the collection of cardinality $q$ subsets of non-negative integers and
+%\[
+%\P_q(n) = \{ U \in \P_q \mid \forall u \in U, u \leq n\}.
+%\]
+%For $U = \{u_1 < \cdots < u_q\} \in \P_q$ let
+%\[
+%d_U \colon \chains(X) \to \chains(X)
+%\]
+%be the linear map defined on a basis element $x \in X_n$ by
+%\[
+%d_U (x) = d_{u_1} \cdots \, d_{u_q} (x)
+%\]
+%with the convention that $d_U(x) = 0$ if $n < u_q$.
+%For each $u_r \in U$ define the \textbf{index of $u_r$ in $U$} as
+%\[
+%\ind_U(u_r) = u_r + r
+%\]
+%denoting $U^0$ (resp. $U^1$) the subset of $U$ containing all elements whose index in $U$ is odd (resp. even).
+%Either of these sets could be empty and we declare $d_\emptyset = \id$ and $\P_0 = \{\emptyset\}$.
+%
+%\begin{definition} \label{definition: our cup-i products}
+%	For any simplicial set $X$ and cochains $\alpha, \beta \in \cochains(X)$ define for any $c \in \chains(X)_n$
+%	\[
+%	(\alpha \cup_i \beta)(c) =
+%	(\alpha \ot \beta) \sum_{U \in \P_{n-i}} d_{U^0}(c) \ot d_{U^1}(c)
+%	\]
+%	if  $i \leq n$ and to be $0$ otherwise.
+%\end{definition}

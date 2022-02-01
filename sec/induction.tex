@@ -25,11 +25,12 @@
 \end{proof}
 
 \begin{lemma}
-	If for some $i \leq n-2$ there exists $\xi \colon \P_{n-i}(n) \to \F$ such that
+	Let $i \leq n-2$.
+	If there exists $\xi \colon \P_{n-i}(n) \to \F$ such that
 	\[
 	\triangle_i [n]\ =\! \sum_{\P_{n-i}(n)} {U^{\xi}} \ot {U^{\barxi}}
 	\]
-	and either $\triangle_i [n-1]$ is equal to $\Delta_i [n-1]$ or $\Delta_i [n-1]$, then $\xi$ is constant, i.e., $\triangle_i [n] = \Delta_i [n]$ or $\triangle_i [n] = T \Delta_i [n]$.
+	and $\triangle_i [n-1]$ is equal either to $\Delta_i [n-1]$ or $\Delta_i [n-1]$, then $\xi$ is constant, i.e., $\triangle_i [n] = \Delta_i [n]$ or $\triangle_i [n] = T \Delta_i [n]$.
 \end{lemma}
 
 \begin{proof}
@@ -101,47 +102,48 @@
 	so $\xi \colon \P_{n-i}(n) \to \F$ must be constant.
 \end{proof}
 
+\begin{lemma}
+	Let $\triangle$ be irreducible and $i \leq n-2$.
+	If $\triangle_i [n] = \Delta_i [n]$ or $\triangle_i [n] = T \Delta_i [n]$ then the following implications hold:
+	\begin{alignat*}{2}
+	&\boxed{\triangle_i [n-1] = \Delta_i [n-1] \hspace*{7pt}}\ &\Longrightarrow\
+	&\boxed{\triangle_i [n] = \Delta_i [n] \hspace*{7pt}} \\
+	&\boxed{\triangle_i [n-1] = T \Delta_i [n-1]}\ &\Longrightarrow\
+	&\boxed{\triangle_i [n] = T \Delta_i [n]}
+	\end{alignat*}
+\end{lemma}
 
-\anibal{Lemma}
+\begin{proof}
+	We will establish the first of these implications using proof by contradiction.
+	The second is proven analogously.
+	Observe that using the assumptions we have
+	\begin{align*}
+	(1+T) \triangle_{i-1}[n] &=
+	\bd T \Delta_i [n] + \Delta_i \bd \, [n] \\ &=
+	T \bd \Delta_i [n] + \bd \Delta_i [n] + \bd \Delta_i [n] + \Delta_i \bd \, [n] \\ &=
+	(1+T) \bd \Delta_i [n] + (1+T) \Delta_{i-1} [n] \\ &=
+	(1+T) \Delta_i \bd \, [n] + (1+T) \Delta_{i-1} [n]
+	\end{align*}
+	Using \eqref{e:triangle of boundary} and the definition of $\Delta_{i-1} [n]$ we have
+	\begin{align*}
+	(1+T) \triangle_{i-1}[n] &=
+	(1+T) \sum_{\P_{n-i}(n)} \left( \,
+	\sum_{u \in U^1} {u.U^0} \ot {U^1} \ +
+	\sum_{u \in U^0} {U^0} \ot {u.U^1} \right) \\ &+
+	(1+T) \sum_{\P_{n-i+1}(n)} U^0 \ot U^1.
+	\end{align*}
+	By \cref{l:freeness recasted} there exists functions $\eta \colon \P_{n-i}(n) \to \F$ and $\zeta \colon \P_{n-i+1}(n) \to \F$ such that
+	\begin{align*}
+	\triangle_{i-1}[n] \ &=
+	\sum_{\P_{n-i}(n)} \left( \,
+	\sum_{u \in U^\bareta} u.U^\eta \ot U^\bareta \ +
+	\sum_{u \in U^\eta} U^\eta \ot u.U^\bareta \right) \\ &+
+	\sum_{\P_{n-i+1}(n)} U^\zeta \ot U^\barzeta.
+	\end{align*}
+	But this contradicts the irreducibility of $\triangle$.
+\end{proof}
 
-Furthermore, if $\triangle$ is irreducible then
-\begin{alignat*}{2}
-&\boxed{\triangle_i [n-1] = \Delta_i [n-1] \hspace*{7pt}}\ &\Longrightarrow\
-&\boxed{\triangle_i [n] = \Delta_i [n] \hspace*{7pt}} \\
-&\boxed{\triangle_i [n-1] = T \Delta_i [n-1]}\ &\Longrightarrow\
-&\boxed{\triangle_i [n] = T \Delta_i [n]}
-\end{alignat*}
-
-------------
-
-\anibal{proof}
-
-The last step, proving that $\xi \equiv 0$, will be proven by contradiction.
-If not then $\xi \equiv 1$, which is equivalent to $\triangle_i [n] = T \Delta_i$.
-By assumption $\triangle_i [n-1] = \Delta_i [n-1]$ so
-\begin{align*}
-(1+T) \triangle_{i-1}[n] &=
-\bd T \Delta_i [n] + \Delta_i \bd \, [n] \\ &=
-T \bd \Delta_i [n] + \bd \Delta_i [n] + \bd \Delta_i [n] + \Delta_i \bd \, [n] \\ &=
-(1+T) \bd \Delta_i [n] + (1+T) \Delta_{i-1} [n] \\ &=
-(1+T) \Delta_i \bd \, [n] + (1+T) \Delta_{i-1} [n]
-\end{align*}
-Using \eqref{e:triangle of boundary} and the definition of $\Delta_{i-1} [n]$ we have
-\begin{align*}
-(1+T) \triangle_{i-1}[n] &=
-(1+T) \sum_{\P_{n-i}(n)} \left( \,
-\sum_{u \in U^1} {u.U^0} \ot {U^1} \ +
-\sum_{u \in U^0} {U^0} \ot {u.U^1} \right) \\ &+
-(1+T) \sum_{\P_{n-i+1}(n)} U^0 \ot U^1.
-\end{align*}
-By \cref{l:freeness recasted} there exists functions $\eta \colon \P_{n-i}(n) \to \F$ and $\zeta \colon \P_{n-i+1}(n) \to \F$ such that
-\begin{align*}
-\triangle_{i-1}[n] \ &=
-\sum_{\P_{n-i}(n)} \left( \,
-\sum_{u \in U^\bareta} u.U^\eta \ot U^\bareta \ +
-\sum_{u \in U^\eta} U^\eta \ot u.U^\bareta \right) \\ &+
-\sum_{\P_{n-i+1}(n)} U^\zeta \ot U^\barzeta.
-\end{align*}
+\newpage
 \begin{align*}
 \label{equation: boundary of triangle}
 \bd \triangle_i [n]\ = &
@@ -149,10 +151,6 @@ By \cref{l:freeness recasted} there exists functions $\eta \colon \P_{n-i}(n) \t
 \sum_{u \in U^\xi} U^\xi \ot u.U^\barxi \right) \\ + &
 \sum_{\P_{n-i}(n)} \sum_{x \notin U} \left( x.U^\xi \ot U^\barxi \ +\ U^\xi \ot {x.U^\barxi} \right).
 \end{align*}
-
-
-
-\newpage
 
 
 %\begin{figure}
