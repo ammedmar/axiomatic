@@ -1,22 +1,22 @@
 % !TEX root = ../axiomatic.tex
 
-\section{Simplicial sets and their (co)chains}
+\section{Simplicial sets and their normalized chains} \label{s:preliminaries}
 
 We are interested in the cochains with $\F$-coefficients of spaces.
 As is usually done, we represent spaces as simplicial sets and take advantage of the fact that all natural construction on simplicial sets need only be defined on the standard simplicial sets $\simplex^n$.
 
-The \textbf{simplex category} is defined to have an object $[d] = \{0, \dots, d\}$ for every $d \in \N$ and a morphism $[n] \to [d]$ for each order-preserving function from $[n]$ to $[d]$.
-
-The morphisms $\delta_i \colon [d-1] \to [d]$ and $\sigma_i \colon [d+1] \to [d]$ defined for $0 \leq i \leq d$ by
+The \textbf{simplex category} is defined to have an object $[n] = \{0, \dots, n\}$ for every $n \in \N$ and a morphism in $\simplex \big([m], [n] \big)$ for each order-preserving function from $[m]$ to $[n]$.
+As is commonly done we denote the identity $[n] \to [n]$ simply as $[n]$.
+The morphisms $\delta_i \colon [n-1] \to [n]$ and $\sigma_i \colon [n+1] \to [n]$ defined for $0 \leq i \leq n$ by
 \[
 \delta_i(k) =
-\begin{cases} k & k < i \\ k+1 & i \leq k \end{cases}
+\begin{cases} k & k < i, \\ k+1 & i \leq k, \end{cases}
 \quad \text{ and } \quad
 \sigma_i(k) =
-\begin{cases} k & k \leq i \\ k-1 & i < k, \end{cases}
+\begin{cases} k & k \leq i, \\ k-1 & i < k, \end{cases}
 \]
 generate all morphisms in the simplex category.
-These generators satisfy the so called \textbf{cosimplicial identities}
+They satisfy the \textbf{cosimplicial identities}:
 \[
 \begin{split}
 \delta_j \, \delta_i &= \delta_i \, \delta_{j-1} \hspace*{18.5pt} i < j \\
@@ -25,39 +25,43 @@ These generators satisfy the so called \textbf{cosimplicial identities}
 \begin{cases}
 \id & i = j,\, j+1 \\
 \delta_i \, \sigma_{j-1} & i < j \\
-\delta_{i-1} \, \sigma_{j} & i > j + 1.
+\delta_{i-1} \, \sigma_{j} & i > j + 1,
 \end{cases}
 \end{split}
 \]
-We notice that any morphism in the simplex category can be uniquely written as
-\[
+which can be used to see that any morphism in the simplex category can be uniquely written as
+\begin{equation} \label{e:canonical presentation of a morphism}
 \delta_{u_{p}} \cdots\, \delta_{u_1}\, \sigma_{v_1} \cdots\, \sigma_{v_q}
-\]
+\end{equation}
 for some sets of non-negative integers $U = \{u_1 < \cdots < u_{p}\}$ and $V = \{v_1 < \cdots < v_{q}\}$.
-We simplify notation and write this morphism simply as $\delta_U\, \sigma_V$.
+We simplify notation and write the \textbf{canonical presentation} \eqref{e:canonical presentation of a morphism} simply as $\delta_U\, \sigma_V$.
 
-A \textbf{simplicial set} $X$ is a contravariant functor from the simplex category to the category of sets and a simplicial map is a natural transformation between two simplicial sets.
-As is customary we use the notation
+A \textbf{simplicial set} $X$ is a contravariant functor from the simplex category to the category of sets and a \textbf{simplicial map} is a natural transformation between two simplicial sets.
+As is customary we use the notation:
 \[
-X [n] = X_n \qquad X(\delta_i) = d_i \qquad X(\sigma_i) = s_i
+X \big( [n] \big) = X_n, \qquad
+X(\delta_i) = d_i, \qquad
+X(\sigma_i) = s_i.
 \]
-and refer to simplices in the image of any $s_i$ as \textit{degenerate}.
-We say that a simplex $y$ is a \textbf{face} of another $x$ if there exists $U$ with $y = d_U(x)$.
+Elements in $X_n$ are referred to as \mbox{\textbf{$n$-simplices}} with the integer $n$ called its \textbf{dimension} and omitted when unspecified.
+Simplices in the image of any $s_i$ are termed \textbf{degenerate}.
+We extend the notation of canonical presentations writing $X(\delta_U \sigma_V) = s_V d_U$ with $d_\emptyset = s_\emptyset = \id$.
+We say that a simplex $y$ is a (proper) \textbf{face} of a simplex $x$ if $y = d_U(x)$ for some (non-empty) $U$.
 
 
-For each $n \in \N$, the simplicial set $\simplex^n$ is defined by
+For each $n \in \N$, the simplicial set $\simplex^n$ referred to as the \textbf{$n^\th$ standard simplicial set} is defined by
 \[
-\simplex^n_k = \simplex \big( [k], [n] \big) \qquad
+\simplex^n_m = \simplex \big( [m], [n] \big) \qquad
 d_i(\delta_U\, \sigma_V) = \delta_U\, \sigma_V \, \delta_i \qquad
 s_i(\delta_U\, \sigma_V) = \delta_U\, \sigma_V \, \sigma_i.
 \]
 
 We will work with homologically graded chain complexes of $\F$-modules, regarding, in the usual way, the set of linear maps between them and their tensor product as chain complexes:
 \begin{gather*}
-\Hom(C, C')_n = \big\{f \ |\ c\in C_m \Rightarrow f(c) \in C'_{m+n} \big\},
+\Hom(C, C^\prime)_m = \big\{f \mid \forall k \in \Z, c \in C_k \Rightarrow f(c) \in C^\prime_{k+m} \big\},
 \qquad
 \bd f = \bd \circ f + f \circ \bd, \\
-(C \ot C^\prime)_n = \bigoplus_{p + q = n} C_p \ot C^\prime_q \,,
+(C \ot C^\prime)_m = \bigoplus_{p + q = m} C_p \ot C^\prime_q \,,
 \qquad
 \bd (c \ot c^\prime) = \bd c \ot c^\prime + c \ot \bd c^\prime.
 \end{gather*}
@@ -73,4 +77,4 @@ where $s(X_{n-1}) = \bigcup_{i=0}^{n-1} s_i(X_{n-1})$, and $\bd_n \colon \chains
 
 The functor of \textbf{normalized cochains} $\cochains$ is defined by composing $\chains$ with the linear duality functor $\Hom(-, \F)$.
 Notice that in this definition $\cochains(X)$ is concentrated in non-positive degrees.
-If $x$ is a $n$-simplex we abuse notation and use the same symbol $x$ to denote the associated basis element in $\chains(X)$ and its dual basis element in $\cochains(X)_{-n}$.
+If $x$ is a $n$-simplex we abuse notation and use the same symbol $x$ to denote the associated basis element in $\chains(X)_n$ and its dual basis element in $\cochains(X)_{-n}$.

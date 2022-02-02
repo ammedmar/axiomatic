@@ -1,6 +1,6 @@
 % !TEX root = ../axiomatic.tex
 
-\section{Main statement}
+\section{Main statement} \label{s:statement}
 
 Let $\Sym_2$ be the group with one non-identity element $T$ and let
 \[
@@ -70,22 +70,19 @@ We can now state our main result.
 	There is up to isomorphism only one free non-degenerate irreducible cup-$i$ construction.
 \end{theorem}
 
-Furthermore, we will use this result to prove in \cref{s:other constructions} that all cup-$i$ constructions available in the literature are isomorphic to Steenrod's original \cite{steenrod1947products}.
+Furthermore, we will use this result to prove in \cref{s:other presentations} that all cup-$i$ constructions available in the literature are isomorphic to Steenrod's original \cite{steenrod1947products}.
 
-To prove this result we will use formulas defining one such cup-$i$ construction introduced in \cite{medina2021newformulas} and reviewed below.
+To prove our main result we will use formulas defining one such cup-$i$ construction introduced in \cite{medina2021newformulas} and reviewed below.
 The verification that these define a cup-$i$ construction is given in that same article.
 In what follows we refer to it as the \textbf{canonical cup-$i$ construction}.
 
-\begin{notation}
-	Let $x$ be an $n$-simplex.
-	For a set
-	\begin{equation*}
-	U = \{u_1 < \dots < u_r\} \subseteq \big\{ 0, \dots, n \big\}
-	\end{equation*}
-	we write $d_U(x) = d_{u_1}\! \dotsm \, d_{u_r}(x)$, with $d_{\emptyset}(x) = x$.
-\end{notation}
+Recall from \cref{s:preliminaries} that for any $n$-simplex $x$ and set
+\begin{equation*}
+U = \{u_1 < \dots < u_r\} \subseteq \big\{ 0, \dots, n \big\}
+\end{equation*}
+we write $d_U(x) = d_{u_1}\! \dotsm \, d_{u_r}(x)$, with $d_{\emptyset}(x) = x$.
 
-\begin{definition}[\cite{medina2021newformulas}] \label{d:cup-i coproducts}
+\begin{definition}[\cite{medina2021newformulas}] \label{d:my cup-i construction}
 	Let $X$ be a simplicial set, $x \in X_n$ and $\alpha, \beta \in \cochains(X)$.
 	\begin{equation} \label{e:new formulas}
 	(\alpha \cup_i \beta)(x) =
@@ -109,7 +106,7 @@ In what follows we refer to it as the \textbf{canonical cup-$i$ construction}.
 	(\alpha \cup_0 \beta)(x) =
 	\sum_{j=0}^n \alpha \big(d_{j+1} \cdots d_{n}(x)\big) \cdot \beta \big(d_{0} \cdots d_{j-1}(x)\big).
 	\end{equation*}
-	A binary operation known as the \textit{Alexander--Whitney product} and widely used to define the algebra structure on cohomology.
+	A binary operation known as the \textbf{Alexander--Whitney product}.
 \end{example}
 
 \begin{example} \label{ex:Sq0 is the identity}
