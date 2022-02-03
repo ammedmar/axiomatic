@@ -125,7 +125,7 @@ It is based on the fact that every non-degenerate simplex of $\simplex^n$ is a f
 %\end{lemma}
 
 \begin{proof}
-	It can be easily seen that $\Psi_n$ induces a bijection of basis elements.
+	It can be easily seen that $\Psi_n$ induces a degree preserving bijection of basis elements.
 	We will verify that this assignment induces a chain map.
 	Let $U = \{u_1 < \cdots < u_{n-m}\} \in \rP_{m-n}^n$.
 	Using the relation $d_jd_u = d_ud_{j+1}$ if $u \leq j$ we have
@@ -174,30 +174,20 @@ It is based on the fact that every non-degenerate simplex of $\simplex^n$ is a f
 	This follows from straightforward computations using the cosimplicial identities.
 \end{proof}
 
-%\anibal{Maybe we need this lemma:}
-%\begin{lemma} \label{l:condition to be in the kernel of sxs}
-%	Let $j \in \{0, \dots, n-1\}$.
-%	An element $V \otimes W \in \cP[n] \otimes \cP[n]$ is in the kernel of $(\cP \sigma_j \ot \cP \sigma_j)$ if an only if both $j$ and $j+1$ are missing from either $V$ or $W$.
-%\end{lemma}
-%
-%\begin{proof}
-%	TBW
-%\end{proof}
-
 We can use the natural isomorphism $\Psi$ to interpret cup-$i$ constructions in terms of natural linear transformations $\triangle_i \colon \cP \to \cP \ot \cP$ as in \cref{l:cup-i construction coalgebra}.
-Additionally, these are determined, as in \cref{l:natural linear map}, by elements $\triangle_i[n]$ in $\cP(\simplex^n) \ot \cP(\simplex^n)$ for $i, n \in \N$ laying in the kernel of $\cP(\sigma_j) \otimes \cP(\sigma_j)$ for every codegeneracy $\sigma_j \colon [n] \to [n-1]$.
+Additionally, these are determined, as in \cref{l:natural linear map}, by elements $\triangle_i[n]$ in $\cP(\simplex^n) \ot \cP(\simplex^n)$ for $i, n \in \N$ laying in the kernel of $\cP(\sigma_j) \ot \cP(\sigma_j)$ for every codegeneracy $\sigma_j \colon [n] \to [n-1]$.
 For example, the canonical cup-$i$ construction (\cref{d:my cup-i construction}) is given by the collection indexed by $i, n \in \N$ of elements
 \[
-\Delta_i[n] = \sum_{U \in \rP^n_{n-i}} U^0 \otimes U^1
+\Delta_i[n] = \sum_{U \in \rP^n_{n-i}} U^0 \ot U^1
 \]
-if $i \leq n$ and $0$ otherwise, where for $\varepsilon \in \Ftwo \cong \{0,1\}$ we have $U^\varepsilon = \ind_U^{-1}(\varepsilon)$ with
+if $i \leq n$ and $\Delta_i[n] = 0$ otherwise, where for $\varepsilon \in \Ftwo \cong \{0,1\}$ we have $U^\varepsilon = \ind_U^{-1}(\varepsilon)$ with
 \[
 \begin{split}
 \ind_U \colon U &\to \F \\
 u_j &\mapsto u_j + j \mod 2.
 \end{split}
 \]
-We refer to $\ind_U$ as the \textbf{index function of $U$} and to the ordered partition $U = U^0 \sqcup U^1$ as its \textbf{index splitting}.
+We refer to $\ind_U$ as the \textbf{index function} of $U$ and to the ordered partition $U = U^0 \sqcup U^1$ as its \textbf{index splitting}.
 
 %\begin{definition}
 %	For any $U = \{u_1 < \dots < u_{m-n}\} \in \P_{m-n}^n$ the \textbf{index function} is defined by

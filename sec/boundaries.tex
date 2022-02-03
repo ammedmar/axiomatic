@@ -1,53 +1,71 @@
-\subsection{}
+%\subsection{}
 
 \begin{notation}
 	Given $\xi \colon \P_{n-i}(n) \to \F$ we denote by $\bar{\xi}$ the function with the same domain and range satisfying $\xi(U) \neq \bar{\xi}(U)$ for every $U$, and simplify the notation $U^{\xi(U)}$ and $U^{\bar{\xi}(U)}$ to $U^\xi$ and $U^{\bar{\xi}}$ respectively.
 \end{notation}
 
+\anibal{Make a more general statement of the following that includes other type of summands. It must also apply to the second lemma in the induction step.}
+
 A direct consequence of Lemma \ref{l:(1+T) triangle = 0 implies triangle = 0} is the following.
 
 \begin{lemma}
-    If
-    \[
-    (1+T) \triangle_i [n] =
-    (1+T) \sum_{\P_{n-i}(n)} {U^0} \ot {U^1}
-    \]
-    for some $i < n$, then there exists $\xi \colon \P_{n-i}(n) \to \F$  such that
-    \[
-    \triangle_i  [n]\ =\! \sum_{\P_{n-i}(n)} {U^{\xi}} \ot {U^{\bar{\xi}}}.
-    \]
+	If for some integers $i < n$,
+	\begin{align*}
+	(1+T) \, \triangle_i [n] = \,
+	&(1+T) \, \Delta_i [n] \\ \defeq
+	&(1+T) \sum_{\P_{n-i}^n} {U^0} \ot {U^1}
+	\end{align*}
+	then there exists $\xi \colon \P_{n-i}(n) \to \F$ such that
+	\[
+	\triangle_i [n]\ =\! \sum_{\P_{n-i}^n} {U^{\xi}} \ot {U^{\bar{\xi}}}.
+	\]
 \end{lemma}
 
-\anibal{Make a more general statement that includes other type of summands. It must also apply to the second lemma in the induction step}
+% THIS SEEMS TO BE WRONG, NOT ANY CUP-i CONST.
+%\begin{lemma} \label{l:triangle boundary}
+%	Let $\triangle$ be a free cup-$i$ construction.
+%	If for some integers $i \leq n$ we have
+%	\begin{align*}
+%	(1+T) \, \triangle_i [n-1] = \,
+%	&(1+T) \, \Delta_i [n-1] \\ \defeq
+%	&(1+T) \sum_{\P_{n-i-1}^n} {U^0} \ot {U^1}
+%	\end{align*}
+%	then
+%	\begin{align}
+%	\label{e:triangle of boundary}
+%	\triangle_i \bd \, [n] \ =\!
+%	\sum_{\P_{n-i}^n} \left( \,
+%	\sum_{u \in U^1} {u.U^0} \ot {U^1} \ +
+%	\sum_{u \in U^0} {U^0} \ot {u.U^1} \right).
+%	\end{align}
+%\end{lemma}
 
-\begin{notation}
-    For $U \in \P_{n-i}(n)$ we write $u \notin U$ if $u \in \{0, \dots, n\} \setminus U$. If $u \notin U$ define $u.U = \{u\} \union U \in \P_{n-i+1}(n)$ and if $u \in U$ define $U \setminus u = U \setminus \{u\} \in \P_{n-i-1}(n)$.
-\end{notation}
+We recall two facts about the canonical cup-$i$ construction proven in \cite{medina2021newformulas} as Lemma 21 and 22 respectively.
 
 \begin{lemma} \label{l:triangle boundary}
-	If for some $i \leq n$
-	\[
-	\triangle_i [n-1]\ =\!
-	\sum_{\P_{n-i-1}(n)} {U^0} \ot {U^1}
-	\]
+	If for some integers $i \leq n$ we have
+	\begin{align*}
+	(1+T) \, \triangle_i [n-1] = \,
+	&(1+T) \, \Delta_i [n-1] \\ \defeq
+	&(1+T) \sum_{\P_{n-i-1}^n} {U^0} \ot {U^1}
+	\end{align*}
 	then
 	\begin{align}
 	\label{e:triangle of boundary}
 	\triangle_i \bd \, [n] \ =\!
-	\sum_{\P_{n-i}(n)} \left( \,
+	\sum_{\P_{n-i}^n} \left( \,
 	\sum_{u \in U^1} {u.U^0} \ot {U^1} \ +
 	\sum_{u \in U^0} {U^0} \ot {u.U^1} \right).
 	\end{align}
 \end{lemma}
 
-\anibal{proof in the other paper}
-
 \begin{lemma} \label{l:boundary gives the lower case}
-	For $i \leq n$
-	\begin{equation*}
-	(1+T) \!\! \sum_{\P_{n-i+1}(n)} {U^0} \ot {U^1} =
-	\sum_{U \in \P_{n-i}(n)} \sum_{x \notin U} ({x.U^0} \ot {U^1}\ +\ {U^0} \ot {x.U^1})
-	\end{equation*}
+	For every pair of integers $i \leq n$ we have
+	\begin{align*}
+	(1+T) \!\! \sum_{\P_{n-i+1}^n} U^0 \ot U^1 &=
+	(1+T) \Delta_{i-1} [n] \\ &=
+	\sum_{U \in \P_{n-i}^n} \sum_{x \notin U} \Big( x.U^0 \ot U^1\ +\ {U^0} \ot {x.U^1} \Big)
+	\end{align*}
 \end{lemma}
 
-\anibal{also proven in the other paper}
+MERGE THESE ABOVE.
