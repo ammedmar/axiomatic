@@ -1,3 +1,60 @@
+%\anibal{Make a more general statement of the following that includes other type of summands. It must also apply to the second lemma in the induction step.}
+%
+%A direct consequence of Lemma \cref{l:splitting of summands} is the following.
+%
+%\begin{lemma}
+%	If for some integers $i < n$,
+%	\begin{align*}
+%	(1+T) \, \triangle_i [n] = \,
+%	&(1+T) \, \Delta_i [n] \\ \defeq
+%	&(1+T) \sum_{\P_{n-i}^n} {U^0} \ot {U^1}
+%	\end{align*}
+%	then there exists $\xi \colon \P_{n-i}(n) \to \F$ such that
+%	\[
+%	\triangle_i [n]\ =\! \sum_{\P_{n-i}^n} {U^{\xi}} \ot {U^{\bar{\xi}}}.
+%	\]
+%\end{lemma}
+
+% THIS SEEMS TO BE WRONG, NOT ANY CUP-i CONST.
+%\begin{lemma} \label{l:triangle boundary}
+%	Let $\triangle$ be a free cup-$i$ construction.
+%	If for some integers $i \leq n$ we have
+%	\begin{align*}
+%	(1+T) \, \triangle_i [n-1] = \,
+%	&(1+T) \, \Delta_i [n-1] \\ \defeq
+%	&(1+T) \sum_{\P_{n-i-1}^n} {U^0} \ot {U^1}
+%	\end{align*}
+%	then
+%	\begin{align}
+%	\label{e:triangle of boundary}
+%	\triangle_i \bd \, [n] \ =\!
+%	\sum_{\P_{n-i}^n} \left( \,
+%	\sum_{u \in U^1} {u.U^0} \ot {U^1} \ +
+%	\sum_{u \in U^0} {U^0} \ot {u.U^1} \right).
+%	\end{align}
+%\end{lemma}
+
+
+%\anibal{absorve the following lemma into the proof of the next one, the only place where it's used.}
+%
+%\begin{lemma} \label{l:boundary triangle}
+%	Let $\triangle$ be a free non-degenerate cup-$i$ construction.
+%	If for some $i < n$ there is $\xi \colon \P_{n-i}^n \to \F$ such that
+%	\[
+%	\triangle_i [n]\ =\! \sum_{U \in \P_{n-i}^n \kern-5pt} {U^{\xi}} \ot {U^{\barxi}}
+%	\]
+%	then
+%	\begin{align*}
+%	\label{equation: boundary of triangle}
+%	\bd \triangle_i [n]\ = &
+%	\sum_{U \in \P_{n-i}^n \kern-5pt} \left( \, \sum_{u \in U^\barxi} u.U^\xi \ot U^\barxi \ +
+%	\sum_{u \in U^\xi} U^\xi \ot u.U^\barxi \right) \\ + &
+%	\sum_{U \in \P_{n-i}^n \kern-5pt} \sum_{x \notin U} \left( x.U^\xi \ot U^\barxi \ +\ U^\xi \ot {x.U^\barxi} \right).
+%	\end{align*}
+%\end{lemma}
+%
+%\anibal{where is the proof? It is immediate from the definition of $\bd$ in $\cP$}
+
 %We say that a cup-$i$ construction if \textbf{reducible} if it is not irreducible and we have the following characterization.
 %
 %\begin{theorem}

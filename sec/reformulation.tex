@@ -32,6 +32,7 @@ Recall the functors $\chains$ and $\chains \ot \chains$ from $\sSet$ to $\Ch$, a
 %	If $C$ is finite dimensional, a cup-$i$ coproduct structure on $C$ is canonically equivalent to a cup-$i$ product structure on $C^\vee = \Hom(C, \Ftwo)$.
 %\end{lemma}
 
+\iffalse
 \begin{proof}
 	Let $C^\vee = \Hom(C, \F)$ with $C$ a finite dimensional chain complex.
 	Using the hom-tensor adjunction and the finite dimensionality of $C$ we have
@@ -57,6 +58,7 @@ Recall the functors $\chains$ and $\chains \ot \chains$ from $\sSet$ to $\Ch$, a
 	By naturality, a cup-$i$ structure is determined by its restriction to representable simplicial sets $\simplex^n$.
 	Since $\chains(\simplex^n)$ is finite dimensional, the previous argument involving only canonical equivalences proves the claim.
 \end{proof}
+\fi
 
 Motivated by this formulation of cup-$i$ structure, we present a more explicit description of a general natural linear transformation $\chains \to \chains \ot \chains$.
 
@@ -101,9 +103,9 @@ It is based on the fact that every non-degenerate simplex of $\simplex^n$ is a f
 	\end{cases}
 	\]
 	and its differential by
-	\[
+	\begin{equation} \label{e:boundary of P(simplex)}
 	\bd U = \sum_{\bar u \in \{0, \dots, n\} \setminus U} \{\bar u\} \union U.
-	\]
+	\end{equation}
 \end{definition}
 
 \begin{lemma}
@@ -117,39 +119,24 @@ It is based on the fact that every non-degenerate simplex of $\simplex^n$ is a f
 	is a chain isomorphism for every $n \in \N$.
 \end{lemma}
 
-%\begin{lemma} \label{l:partial dU = dxU}
-%	For any $x \in X_n$ and $U \in \P_{q}(n)$
-%	\begin{equation} \label{lemma1: existence:eq1}
-%	\partial_{n-q} \circ d_U(x) = \sum_{\bar{u} \in \overline{U}} d_{\bar{u}.U}(x).
-%	\end{equation}
-%\end{lemma}
-
+\iffalse
 \begin{proof}
 	It can be easily seen that $\Psi_n$ induces a degree preserving bijection of basis elements.
 	We will verify that this assignment induces a chain map.
 	Let $U = \{u_1 < \cdots < u_{n-m}\} \in \rP_{m-n}^n$.
 	Using the relation $d_jd_u = d_ud_{j+1}$ if $u \leq j$ we have
 	\begin{align*}
-	\partial \Psi_n(U) &=
-	\partial d_U[n] =
+	\bd \Psi_n(U) &=
+	\bd d_U[n] =
 	\sum_{j=0}^{m} d_j\, d_{u_1} \cdots\, d_{u_{n-m}}[n] \\ &=
 	\sum_{\bar u \in \{0, \dots, n\} \setminus U}
 	\hspace*{-10pt} d_{u_1} \cdots\, d_{\bar{u}} \cdots\, d_{u_{n-m}}[n] \\ &=
 	\sum_{\bar u \in \{0, \dots, n\} \setminus U} d_{\{\bar u\} \union U}[n] \\ &=
-	\Psi_n(\partial U),
+	\Psi_n(\bd U),
 	\end{align*}
 	as claimed.
 \end{proof}
-
-%\begin{lemma} \label{l:pigeon hole}
-%	For any $x \in X_n$ and $q \in \{1, \dots, n\}$
-%	\begin{equation} \label{e:pigeon hole 1}
-%	\Delta_{n-q} \circ \partial_n (x)\ =\!
-%	\sum_{U \in \P_{n-m}(n)} \left( \,
-%	\sum_{u \in U^1} d_{u.U^0} \ot d_{U^1} +
-%	\sum_{u \in U^0} d_{U^0} \ot d_{u.U^1} \right)(x \ot x).
-%	\end{equation}
-%\end{lemma}
+\fi
 
 \begin{definition}
 	Let $\cP \colon \sSet \to \Ch$ be the functor defined on standard simplicial sets as in \cref{d:dual standard chains} and such that for $U \in \cP(\simplex^n)_m$ and $j \in \{0, \dots, n\}$:
@@ -160,8 +147,8 @@ It is based on the fact that every non-degenerate simplex of $\simplex^n$ is a f
 	\begin{equation} \label{e:action of P on a codegeneracy}
 	\cP(\sigma_j)(U) = \begin{cases}
 	U \setminus \{j+1\} & j+1 \in U, \\
-	\hfil U \setminus \{j\} & j+1 \notin U \wedge j \in U, \\
-	\hfil 0 & j+1 \notin U \wedge j \notin U.
+	\hfil U \setminus \{j\} & j+1 \notin U \text{ and } j \in U, \\
+	\hfil 0 & j+1 \notin U \text{ and } j \notin U.
 	\end{cases}
 	\end{equation}
 \end{definition}

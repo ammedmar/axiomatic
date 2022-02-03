@@ -1,37 +1,20 @@
 % !TEX root = ../axiomatic.tex
 
-\subsection{Induction step}
-
 \begin{notation}
 	For $U \in \P_{n-i}^n$ we write $u \notin U$ if $u \in \{0, \dots, n\} \setminus U$. If $u \notin U$ define $u.U = \{u\} \union U \in \P_{n-i+1}(n)$ and if $u \in U$ define $U \setminus u = U \setminus \{u\} \in \P_{n-i-1}(n)$.
 \end{notation}
 
-\anibal{absorve the following lemma into the proof of the next one, the only place where it's used.}
+\begin{notation}
+	Given $\xi \colon \P_{n-i}(n) \to \F$ we denote by $\bar{\xi}$ the function with the same domain and range satisfying $\xi(U) \neq \bar{\xi}(U)$ for every $U$, and simplify the notation $U^{\xi(U)}$ and $U^{\bar{\xi}(U)}$ to $U^\xi$ and $U^{\bar{\xi}}$ respectively.
+\end{notation}
 
-\begin{lemma} \label{l:boundary triangle}
-	Let $\triangle$ be a free non-degenerate cup-$i$ construction.
-	If for some $i < n$ there is $\xi \colon \P_{n-i}^n \to \F$ such that
-	\[
-	\triangle_i [n]\ =\! \sum_{\P_{n-i}^n} {U^{\xi}} \ot {U^{\barxi}}
-	\]
-	then
-	\begin{align*}
-	\label{equation: boundary of triangle}
-	\bd \triangle_i [n]\ = &
-	\sum_{\P_{n-i}^n} \left( \, \sum_{u \in U^\barxi} u.U^\xi \ot U^\barxi \ +
-	\sum_{u \in U^\xi} U^\xi \ot u.U^\barxi \right) \\ + &
-	\sum_{\P_{n-i}^n} \sum_{x \notin U} \left( x.U^\xi \ot U^\barxi \ +\ U^\xi \ot {x.U^\barxi} \right).
-	\end{align*}
-\end{lemma}
-
-\anibal{where is the proof? It is immediate from the definition of $\bd$ in $\cP$}
-
-\begin{lemma}
+\begin{lemma} \label{l:first nail}
 	Let $\triangle$ be a free and non-degenerate cup-$i$ construction and $i,n \in \N$ with $i \leq n-2$.
-	If there exists a function $\xi \colon \P_{n-i}^n \to \F$ such that
-	\[
-	\triangle_i [n]\ =\! \sum_{\P_{n-i}^n} {U^{\xi}} \ot {U^{\barxi}}
-	\]
+	If there is a function $\xi \colon \P_{n-i}^n \to \F$ with
+	\begin{equation} \label{e:assumed identity with xi and barxi}
+	\triangle_i [n] \ = \!
+	\sum_{U \in \P_{n-i}^n \kern-5pt} U^{\xi} \ot U^{\barxi}
+	\end{equation}
 	and either
 	\[
 	\triangle_i [n-1] = \Delta_i [n-1]
@@ -46,26 +29,36 @@
 	\]
 \end{lemma}
 
-\iffalse
 \begin{proof}
-	Let us assume $\triangle_i [n-1] = \Delta_i [n-1] = \sum_{\P_{n-1-i}^{n-1}} U^0 \ot U^1$.
-	The other case is done analogously.
-
-	By \cref{l:boundary triangle} we have
+	Let us assume $\triangle_i [n-1] = \Delta_i [n-1]$.
+	The other case is proven analogously.
+	Applying the boundary of $\cP(\simplex^n) \ot \cP(\simplex^n)$, as defined in \cref{e:boundary of P(simplex)}, to \cref{e:assumed identity with xi and barxi}	we have
 	\begin{align*}
-	\partial \triangle_i [n]\ & =\! \sum_{\P_{n-i}^n} \left(\sum_{u \notin U} {u.U^\xi} \ot {U^\barxi} +
+	\bd \, \triangle_i [n]\ & =\!
+	\sum_{U \in \P_{n-i}^n \kern-5pt} \left(\sum_{u \notin U} {u.U^\xi} \ot {U^\barxi} \, +
 	\sum_{u \notin U} {U^\xi} \ot {u.U^\barxi} \right) \\ & +\!
-	\sum_{\P_{n-i}^n} \left(\sum_{u \in U^\barxi} {u.U^\xi} \ot {U^\barxi} +
+	\sum_{U \in \P_{n-i}^n \kern-5pt} \left(\sum_{u \in U^\barxi} {u.U^\xi} \ot {U^\barxi} \ +
 	\sum_{u \in U^{\xi}} {U^\xi} \ot {u.U^\barxi} \right).
 	\end{align*}
-	Adding $\triangle_i \bd \, [n]$ to it and using identity \eqref{e:triangle of boundary} we deduce that $(1+T) \triangle_{i-1} [n] = \bd \triangle_i [n] + \triangle_i \bd \, [n]$ is equal to
+	By assumption and \cref{l:from the other paper} we have
+	\[
+	\triangle_i \bd \, [n] =
+	\Delta_i \bd \, [n] \, = \!
+	\sum_{U \in \P_{n-i}^n \kern-5pt} \left( \,
+	\sum_{u \in U^1} {u.U^0} \ot {U^1} \, +
+	\sum_{u \in U^0} {U^0} \ot {u.U^1} \right).
+	\]
+	Adding this last two identities together we have
 	\begin{align}
-	\label{e:top} & \sum_{\P_{n-i}^n} \left(\sum_{u \notin U} u.U^\xi \ot U^\barxi +
-	\sum_{u \notin U} U^\xi \ot u.U^\barxi \right) \\ +\
-	\label{e:bottom} (1+T) & \sum_{\substack{\P_{n-i}^n \\ \xi(U) \neq 0}} \left(\sum_{u \in U^1} {u.U^0} \ot {U^1} +
+	(1+T) \triangle_{i-1} [n] &= \bd \triangle_i [n] + \triangle_i \bd \, [n] \\ &=
+	\label{e:top} \sum_{U \in \P_{n-i}^n \kern-5pt} \left(
+	\sum_{\,u \notin U} u.U^\xi \ot U^\barxi \, +
+	\sum_{u \notin U} U^\xi \ot u.U^\barxi \right) \\ &+ \,
+	\label{e:bottom} (1+T) \sum_{\substack{U \in \P_{n-i}^n \\ \xi(U) \neq 0} \kern-3pt} \left(
+	\sum_{\,u \in U^1} {u.U^0} \ot {U^1} \ +
 	\sum_{u \in U^0} {U^0} \ot {u.U^1} \right).
 	\end{align}
-	We will use Lemma \ref{l:condition to be in the kernel of sxs} to show that \eqref{e:top}, the first sum above, is in the kernel $K^{(j)}$ of $\cP(\sigma_j) \ot \cP(\sigma_j)$ for every codegeneracy $\sigma_j \colon [n] \to [n-1]$.
+	We will use Lemma \ref{l:condition to be in the kernel of sxs} to show that summand \eqref{e:top} is in the kernel $K^{(j)}$ of $\cP(\sigma_j) \ot \cP(\sigma_j)$ for every codegeneracy $\sigma_j \colon [n] \to [n-1]$.
 	Consider $U \in \P_{n-i}^n$.
 	If $\{j, j+1\} \cap U = \emptyset$ then $u.U^\xi \ot U^\barxi \in K^{(j)}$ and $U^\xi \ot u.U^\barxi \in K^{(j)}$ for every $u \notin U$.
 	If $\{j, j+1\} \cap U = \{j, j+1\}$ then the same conclusion follows from the fact that $\ind_U(j) = \ind_U(j+1)$.
@@ -77,7 +70,7 @@
 	Let $\Gamma_{j+1}^\xi$, $\Gamma_j^\barxi$, and $\Gamma_{j+1}^\barxi$ be defined analogously.
 	The claim follows from the existence of the bijections $\Gamma_{j}^\xi \cong \Gamma_{j+1}^\xi$ and $\Gamma_{j}^\barxi \cong \Gamma_{j+1}^\barxi$ defined by the assignments $U \mapsto (j+1).\big( U \setminus \{j\} \big)$ and $U \mapsto j.\big( U \setminus \{j+1\} \big)$, since two summands related by one of these bijections are sent to the same element by $\cP(\sigma_j) \ot \cP(\sigma_j)$.
 
-	We will impose conditions on \eqref{e:bottom} following an analysis similar to the one just given.
+	We will impose conditions on summand \eqref{e:bottom} following an analysis similar to the one just given.
 	Notice that $(1+T)$ commutes with $\cP(\sigma_j) \ot \cP(\sigma_j)$ and that the only basis elements in \eqref{e:bottom} not in $K^{(j)}$ are associated to pairs $(U, u)$ with $\xi(U) \neq 0$ and $u = j$ or $ u = j+1$.
 	Let $\Lambda_{j}^0$ be the subset of $\{U \in \P_{n-i}^n \mid \xi(U) \neq 0\}$ consisting of sets $U$ with $j \in U^0$ and $j+1 \notin U$.
 	We define $\Lambda_{j}^1$, $\Lambda_{j+1}^0$, and $\Lambda_{j+1}^1$ analogously.
@@ -115,50 +108,62 @@
 	\]
 	so $\xi \colon \P_{n-i}^n \to \F$ must be constant.
 \end{proof}
-\fi
 
-\begin{lemma}
-	Let $\triangle$ be irreducible and $i \leq n-2$.
+
+\begin{lemma} \label{l:second nail}
+	Let $\triangle$ be a free, non-degenerate and irreducible cup-$i$ construction and $i,n \in \N$ with $i \leq n-2$.
 	If $\triangle_i [n] = \Delta_i [n]$ or $\triangle_i [n] = T \Delta_i [n]$ then the following implications hold:
 	\begin{alignat*}{2}
 	&\boxed{\triangle_i [n-1] = \Delta_i [n-1] \hspace*{7pt}}\ &\Longrightarrow\
 	&\boxed{\triangle_i [n] = \Delta_i [n] \hspace*{7pt}} \\
 	&\boxed{\triangle_i [n-1] = T \Delta_i [n-1]}\ &\Longrightarrow\
-	&\boxed{\triangle_i [n] = T \Delta_i [n]}
+	&\boxed{\triangle_i [n] = T \Delta_i [n]} \ .
 	\end{alignat*}
 \end{lemma}
 
-\iffalse
 \begin{proof}
-	We will establish the first of these implications using proof by contradiction.
-	The second is proven analogously.
-	Observe that using the assumptions we have
+	We will establish the first of these implications using a proof by contradiction for which we assume $\triangle_i [n-1] = \Delta_i [n-1]$ and $\triangle_i [n] = T \Delta_i [n]$.
+	The second implication is proven analogously.
+	We have
 	\begin{align*}
 	(1+T) \triangle_{i-1}[n] &=
+	\bd \triangle_i [n] + \triangle_i \bd \, [n] \\ &=
 	\bd T \Delta_i [n] + \Delta_i \bd \, [n] \\ &=
 	T \bd \Delta_i [n] + \bd \Delta_i [n] + \bd \Delta_i [n] + \Delta_i \bd \, [n] \\ &=
 	(1+T) \bd \Delta_i [n] + (1+T) \Delta_{i-1} [n] \\ &=
-	(1+T) \Delta_i \bd \, [n] + (1+T) \Delta_{i-1} [n]
+	(1+T) \Delta_i \bd \, [n] + (1+T) \Delta_{i-1} [n].
 	\end{align*}
-	Using \eqref{e:triangle of boundary} and the definition of $\Delta_{i-1} [n]$ we have
+	Using from \cref{l:from the other paper} that
+	\[
+	\Delta_i \bd \, [n] =
+	\sum_{U \in \P_{n-i}^n \kern-5pt} \left( \,
+	\sum_{u \in U^1} {u.U^0} \ot {U^1} \ +
+	\sum_{u \in U^0} {U^0} \ot {u.U^1} \right)
+	\]
+	and that
+	\[
+	\Delta_{i-1} [n] \defeq
+	\sum_{V \in \P_{n-i+1}^n \kern-15pt} V^0 \ot V^1
+	\]
+	we have
 	\begin{align*}
 	(1+T) \triangle_{i-1}[n] &=
-	(1+T) \sum_{\P_{n-i}^n} \left( \,
+	(1+T) \sum_{U \in \P_{n-i}^n \kern-5pt} \left( \,
 	\sum_{u \in U^1} {u.U^0} \ot {U^1} \ +
 	\sum_{u \in U^0} {U^0} \ot {u.U^1} \right) \\ &+
-	(1+T) \sum_{\P_{n-i+1}^n} U^0 \ot U^1.
+	(1+T) \sum_{V \in \P_{n-i+1}^n \kern-15pt} V^0 \ot V^1.
 	\end{align*}
-	By \cref{l:freeness recasted} there exists functions $\eta \colon \P_{n-i}^n \to \F$ and $\zeta \colon \P_{n-i+1}^n \to \F$ such that
+	By \cref{l:splitting of summands} there are functions $\eta \colon \P_{n-i}^n \to \F$ and $\zeta \colon \P_{n-i+1}^n \to \F$ such that
 	\begin{align*}
 	\triangle_{i-1}[n] \ &=
-	\sum_{\P_{n-i}^n} \left( \,
+	\sum_{U \in \P_{n-i}^n \kern-5pt} \left( \,
 	\sum_{u \in U^\bareta} u.U^\eta \ot U^\bareta \ +
 	\sum_{u \in U^\eta} U^\eta \ot u.U^\bareta \right) \\ &+
-	\sum_{\P_{n-i+1}^n} U^\zeta \ot U^\barzeta.
+	\sum_{V \in \P_{n-i+1}^n \kern-15pt} V^\zeta \ot V^\barzeta.
 	\end{align*}
-	But this contradicts the irreducibility of $\triangle$.
+	But this contradicts the irreducibility of $\triangle$ as expressed in \cref{l:irreducubility recasted}.
 \end{proof}
-\fi
+
 
 \begin{figure}
 	\centering
@@ -196,18 +201,15 @@
 	\caption{Induction step \label{figure}}
 \end{figure}
 
-\newpage
-
-
-\begin{lemma}
-	Let $\triangle$ be a free non-degenerate cup-$i$ construction.
+\begin{lemma} \label{l:induction step}
+	Let $\triangle$ be a free non-degenerate and irreducible cup-$i$ construction.
 	Let $\big\{\p(i,n)\big\}_{i,n\in\N}$ and $\big\{\q(i,n)\big\}_{i,n \in \N}$ each be one of the following two families of propositions:
 	\[
 	\big\{ \triangle_i [n] = \Delta_ i [n] \big\}_{i,n\in\N}
 	\quad \text{or} \quad
 	\big\{ \triangle_i [n] = T \Delta_ i [n] \big\}_{i,n\in\N} \ .
 	\]
-	For all $i,n \in \N$ with $i < n-1$ the following implication holds:
+	For all $i,n \in \N$ with $i \leq n-2$ the following implication holds:
 	\[
 	\boxed{\p(i+1,n) \wedge \p(i+1,n-1) \wedge \q(i,n-1)}\ \Longrightarrow\ \boxed{\q(i,n)}
 	\]
@@ -219,22 +221,24 @@
 
 	From $\p(i+1,n)$ and $\p(i+1,n-1)$ we have
 	\[
-	\partial \triangle_{i+1} [n] + \triangle_{i+1} \partial [n] = \partial \Delta_{i+1} [n] + \Delta_{i+1} \partial [n]
+	\bd \triangle_{i+1} [n] + \triangle_{i+1} \bd [n] = \bd \Delta_{i+1} [n] + \Delta_{i+1} \bd [n]
 	\]
 	or, equivalently,
+	\begin{align*}
+	(1+T) \, \triangle_i [n] =
+	(1+T) \, \Delta_i [n] \defeq
+	(1+T) \sum_{U \in \P_{n-i}^n \kern-5pt} {U^0} \ot {U^1}
+	\end{align*}
+	\cref{l:splitting of summands} implies the existence of a function $\xi \colon \rP_{n-i}^n \to \Ftwo$ such that
 	\[
-	(1+T) \triangle_{i} [n] = (1+T) \Delta_{i} [n]
+	\triangle_i [n] \ =
+	\sum_{U \in \P_{n-i}^n \kern-5pt} U^\xi \ot U^\barxi.
 	\]
-	Lemma \ref{lemma: extra lemma} implies
-	\begin{equation} \label{proposition: uniqueness: induction step: eq1}
-	\Delta_{i} [n] \ = \!\!\! \sum_{U \in \P_{n-i}^n} d_{U^{\xi}} [n] \tensor d_{U^{\barxi}} [n]
-	\end{equation}
-	for some $\barxi,\, \xi \colon \P_{n-i}^n\to\{+,-\}$.
-	To finish the proof we need to show $\xi(U) = -$ and $\barxi(U) = +$
-	for each $U \in \P_{n-i}^n$.
-	Therefore,
+	\cref{l:first nail} implies, using $\q(i,n-1)$, that
 	\[
-	(1+T)\,(\Delta_{i-1})_n =
-	\partial_{n+i}\, (\Delta_{i})_n\ +\ (\Delta_{i})_{n-1}\, \partial_{n}
+	\triangle_i [n] = \Delta_i [n]
+	\quad \text{or} \quad
+	\triangle_i [n] = T \Delta_i [n].
 	\]
+	Finally, \cref{l:second nail} implies $\triangle_i [n] = \Delta_i [n]$, i.e., $\q(i,n)$.
 \end{proof}

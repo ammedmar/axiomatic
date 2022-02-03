@@ -14,15 +14,27 @@ Additionally, any $\triangle_i$ is determined by elements
 \]
 in $\cP(\simplex^n) \ot \cP(\simplex^n)$ of degree $n+i$ for $n \in \N$ where $\Lambda(i,n)$ is a finite (possibly empty) indexing set and $V_\lambda \ot W_\lambda$ is a basis element for each $\lambda \in \Lambda(i,n)$.
 
+\begin{lemma} \label{l:irreducubility recasted}
+	A cup-$i$ construction $\triangle$ determined by elements
+	\[
+	\triangle_i [n] = \sum_{\lambda \in \Lambda(i,n) \kern-5pt} V_\lambda \ot W_\lambda
+	\]
+	is irreducible if and only if $V_\lambda \cap W_\lambda = \emptyset$ for all $\lambda \in \Lambda(i,n)$ and $i, n \in \N$.
+\end{lemma}
+
+\begin{proof}
+	TBW
+\end{proof}
+
 \begin{lemma} \label{l:freeness recasted}
 	A cup-$i$ construction $\triangle$ determined by elements
 	\[
-	\triangle_i [n] \ = \! \sum_{\lambda \in \Lambda(i,n)} {V_\lambda} \ot {W_\lambda}
+	\triangle_i [n] = \sum_{\lambda \in \Lambda(i,n) \kern-5pt} V_\lambda \ot W_\lambda
 	\]
 	is free if and only if
 	\[
-	{V_{\lambda_1}} \ot {W_{\lambda_1}} \neq
-	{W_{\lambda_2}} \ot {V_{\lambda_2}}
+	V_{\lambda_1} \ot W_{\lambda_1} \neq
+	W_{\lambda_2} \ot V_{\lambda_2}
 	\]
 	for all $\lambda_1, \lambda_2 \in \Lambda(i,n)$ whenever $i \neq n$.
 \end{lemma}
@@ -31,17 +43,17 @@ in $\cP(\simplex^n) \ot \cP(\simplex^n)$ of degree $n+i$ for $n \in \N$ where $\
 %	If this is not the case, then there is a summand of the form
 %\end{proof}
 
-\begin{lemma} \label{l:(1+T) triangle = 0 implies triangle = 0}
+\begin{lemma} \label{l:splitting of summands}
 	Let $\triangle$ be a free cup-$i$ construction.
 	If
 	\[
 	(1+T) \triangle_i [n] =
-	(1+T) \sum_{\lambda \in \Lambda(i,n)} {V_\lambda} \ot {W_\lambda}
+	(1+T) \sum_{\lambda \in \Lambda(i,n) \kern-10pt} {V_\lambda} \ot {W_\lambda}
 	\]
-	for some $i < n$, then there exists a partition of $\Lambda(i,n) = \Lambda_1 \sqcup \Lambda_2$ such that
+	for some $i,n \in \N$ with $i < n$, then there is a partition of $\Lambda(i,n) = \Lambda_1 \sqcup \Lambda_2$ with
 	\begin{equation} \label{e:splitting after 1+T}
 	\triangle_i [n] =
-	\sum_{\lambda \in \Lambda_1} {V_\lambda} \ot {W_\lambda} +
+	\sum_{\lambda \in \Lambda_1} {V_\lambda} \ot {W_\lambda} \, +
 	\sum_{\lambda \in \Lambda_2} {W_\lambda} \ot {V_\lambda}.
 	\end{equation}
 \end{lemma}
