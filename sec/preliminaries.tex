@@ -18,7 +18,7 @@ The morphisms $\delta_i \colon [n-1] \to [n]$ and $\sigma_i \colon [n+1] \to [n]
 \]
 generate all morphisms in the simplex category.
 They satisfy the \textbf{cosimplicial identities}:
-\[
+\begin{equation} \label{e:cosimplicial identities}
 \begin{split}
 \delta_j \, \delta_i &=
 \delta_i \, \delta_{j-1} \hspace*{20.9pt} i < j, \\
@@ -26,12 +26,13 @@ They satisfy the \textbf{cosimplicial identities}:
 \sigma_i \, \sigma_{j+1} \hspace*{17.9pt} i \leq j, \\
 \sigma_j \, \delta_i &=
 \begin{cases}
-\id & i = j,\, j+1, \\
 \delta_i \, \sigma_{j-1} & i < j, \\
+\hfil \id & i = j,\, j+1, \\
 \delta_{i-1} \, \sigma_{j} & i > j + 1,
 \end{cases}
 \end{split}
-\]
+\end{equation}
+
 which can be used to see that any morphism in the simplex category can be uniquely written as
 \begin{equation} \label{e:canonical presentation of a morphism}
 \delta_{u_{p}} \cdots\, \delta_{u_1}\, \sigma_{v_1} \cdots\, \sigma_{v_q}
@@ -60,16 +61,14 @@ s_i(\delta_U\, \sigma_V) = \delta_U\, \sigma_V \, \sigma_i.
 \]
 
 We will work with homologically graded chain complexes of $\F$-modules, regarding, in the usual way, the set of linear maps between them and their tensor product as chain complexes:
-\begin{gather*}
-\Hom(C, C^\prime)_m = \big\{f \mid \forall k \in \Z, c \in C_k \Rightarrow f(c) \in C^\prime_{k+m} \big\},
-\qquad
-\bd f = \bd \circ f + f \circ \bd, \\
-(C \ot C^\prime)_m = \bigoplus_{p + q = m} C_p \ot C^\prime_q \,,
-\qquad
-\bd (c \ot c^\prime) = \bd c \ot c^\prime + c \ot \bd c^\prime.
-\end{gather*}
+\begin{align*}
+\Hom(C, C^\prime)_m &= \big\{f \mid \forall k \in \Z, f(C_k) \subseteq C^\prime_{k+m} \big\},
+&\bd f &= \bd \circ f + f \circ \bd, \\
+(C \ot C^\prime)_m &= \bigoplus_{p + q = m} C_p \ot C^\prime_q \,,
+&\bd (c \ot c^\prime) &= \bd c \ot c^\prime + c \ot \bd c^\prime.
+\end{align*}
 
-The functor of \textbf{normalized chains} (with $\F$-coefficients) $\chains \colon \sSet \to \Ch$ is defined on objects as follows:
+The functor of (normalized) \textbf{chains} (with $\F$-coefficients) $\chains \colon \sSet \to \Ch$ is defined on objects as follows:
 \[
 \chains(X)_n = \frac{\F \{ X_n \}}{\F \{ s(X_{n-1}) \}}
 \]

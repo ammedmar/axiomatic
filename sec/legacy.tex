@@ -1,3 +1,206 @@
+\subsection{Coalgebra version}
+
+\begin{lemma} \label{lemma: cup-i constructions and diagonals are the same}
+	Let $C^* = \Hom_{\F}(C_*, \F)$ with $C_*$ a finite dimensional chain complex. The linear duality functor induces a bijection between cup-$i$ structures on $C^*$ and $\F[\Sigma_2]$-linear chain maps $W \to \Hom_{\F}(C_*, C_*^{\tensor 2})$.
+\end{lemma}
+
+\begin{proof}
+	Since $C_\ast$ is finite dimensional, we have
+	\[
+	\Hom_{\F}(C_\ast, C_\ast^{\otimes 2}) \cong \Hom_{\F}((C^\ast)^{\otimes 2}, C^\ast).
+	\]
+	Therefore, the hom-tensor adjunction gives
+	\begin{align*}
+	\Hom_{\F[\Sigma_2]}\big(W, \Hom_{\F}(C_\ast, C_\ast^{\otimes 2}) \big) & \cong
+	\Hom_{\F[\Sigma_2]}\big(W, \Hom_{\F}((C^\ast)^{\otimes 2}, C^\ast) \big) \\ & \cong
+	\Hom_{\F} \big(W \otimes_{\F[\Sigma_2]} (C^\ast)^{\otimes 2}, C^\ast \big)
+	\end{align*}
+	as chain complexes of $\F$-modules.
+\end{proof}
+
+\begin{definition}
+	Let $\mathcal Z(2)$ be the universal chain complex of $\F[\Sigma_2]$-modules together with a natural $\F[\Sigma_2]$-linear chain maps
+	\[
+	\mathcal Z(2) \to \Hom_{\F}\big( N_\bullet(X), N_\bullet(X)^{\otimes 2} \big)
+	\]
+	for every simplicial set $X$.
+\end{definition}
+
+According to Lemma \ref{lemma: cup-i constructions and diagonals are the same} a cup-$i$ construction is equivalent to a natural collection of $\F[\Sigma_2]$-linear chain maps
+\[
+W \to \Hom_{\F}\big( N_\bullet(X), N_\bullet(X)^{\otimes 2} \big)
+\]
+which, by the universality of $\mathcal Z(2)$, is equivalent to an $\F[\Sigma_2]$-linear chain map
+\[
+W \to \mathcal Z(2).
+\]
+We will reference a cup-$i$ construction and to its associated $\F[\Sigma_2]$-linear chain map $\triangle \colon W \to \mathcal Z(2)$ interchangeably, denoting $\triangle(e_i)$ simply by $\triangle_i$.
+
+We can give a more explicit description of $\mathcal Z(2)$ by noticing that a natural transformation
+\[
+f_X \colon N_\bullet(X) \to N_\bullet(X)^{\otimes 2}
+\]
+is determined by the images, for each $n \in \N$, of the elements $\id_{[n]} \in N_\bullet(\simplex^n)$, and, conversely, that a set containing an element $f(\id_{[n]})$ in $N_\bullet(\simplex^n)^{\otimes 2}$ for each $n \in \N$ defines a natural transformation $f_X$ if and only if the induced maps $f_{\simplex^n}$ satisfy
+\[
+\begin{tikzcd}
+N_\bullet(\simplex^n) \arrow[r, "f_{\simplex^n}"] \arrow[d, "(s_j)_\ast"] & N_\bullet(\simplex^n)^{\otimes 2} \arrow[d, "(s_j)_\ast^{\otimes 2}"] \\
+N_\bullet(\simplex^{n-1}) \arrow[r, "f_{\simplex^{n-1}}"] & N_\bullet(\simplex^{n-1})^{\otimes 2}
+\end{tikzcd}
+\]
+for each $j = 0, \dots, n$. That is to say, if
+\begin{equation} \label{equation: naturality and degeneracy}
+(s_j)_\ast^{\otimes 2} \big( f(\id_{[n]}) \big) = 0
+\end{equation}
+for each $j = 0, \dots, n$. We record the following direct consequence for later reference:
+
+\begin{lemma} \label{lemma: condition to be in the kernel of s}
+	A basis element $\delta_V \otimes \delta_W$ is in the kernel of $(s_j)^{\otimes 2}_\ast$ if and only if both $j$ and $j+1$ are missing from either $V$ or $W$.
+\end{lemma}
+
+\begin{definition}
+	Let $\Delta \colon W \to \mathcal Z(2)$ be the $\F[\Sigma_2]$-linear map defined by
+	\[
+	\Delta_i(\id_{[n]}) = \sum_{\P_{n-i}(n)} \delta_{U^{-}} \otimes \delta_{U^{+}}
+	\]
+	for $i \leq n$ and $\Delta_i(\id_{[n]}) = 0$ otherwise.
+\end{definition}
+
+We now state an equivalent formulation of Theorem \ref{theorem: main}
+
+\begin{theorem} \label{theorem: main reformulated}
+	If $\triangle : W \to \mathcal{Z}(2)$ is a free non-degenerate cup-$i$ construction, then, for every $i \geq 0$, either $\triangle_i = \Delta_i$ or $\triangle_i = T \Delta_i$.
+\end{theorem}
+
+For the rest of Section \ref{sec: proof} we take $\triangle$ to be a free and non-degenerate cup-$i$ construction.
+
+
+
+\begin{lemma} \label{l:freeness recasted}
+	A cup-$i$ construction $\triangle$, determined by elements
+	\[
+	\triangle_i [n] \ =
+	\sum_{\lambda \in \Lambda(i,n) \kern-5pt} V_\lambda \ot W_\lambda,
+	\]
+	is free if and only if
+	\[
+	V_{\lambda_1} \ot W_{\lambda_1} \neq
+	W_{\lambda_2} \ot V_{\lambda_2}
+	\]
+	for all $\lambda_1, \lambda_2 \in \Lambda(i,n)$ whenever $i \neq n$.
+\end{lemma}
+
+\begin{proof}
+	If this is not the case, then there is a summand of the form ...
+\end{proof}
+
+\begin{lemma} \label{l:non-degeneracy recasted}
+	A cup-$i$ construction $\triangle$ is non-degenerate if and only if $\triangle_0 [0] \neq 0$.
+\end{lemma}
+
+\begin{proof}
+	content...
+\end{proof}
+
+\begin{lemma} \label{l:irreducibility recasted}
+	A cup-$i$ construction $\triangle$, determined by elements
+	\[
+	\triangle_i [n] \ =
+	\sum_{\lambda \in \Lambda(i,n) \kern-5pt} V_\lambda \ot W_\lambda,
+	\]
+	is irreducible if and only if $V_\lambda \cap W_\lambda = \emptyset$ for all $\lambda \in \Lambda(i,n)$ and $i, n \in \N$.
+\end{lemma}
+
+\begin{proof}
+	TBW
+\end{proof}
+
+
+
+%\begin{example} \label{ex:Sq0 is the identity}
+%	For any simplex $x \in X_n$, \cref{e:new formulas} gives
+%	\begin{equation*}
+%	(x \cup_n x)(x) = x(x) \cdot x(x) = 1.
+%	\end{equation*}
+%\end{example}
+%
+%In particular, we see from this example that the canonical cup-$i$ construction is non-degenerate.
+%We will verify in \cref{c:canonical is free and irreducible} that is is also free and irreducible.
+
+
+%We can use the natural isomorphism $\Psi$ to interpret cup-$i$ constructions in terms of natural linear transformations $\triangle_i \colon \cP \to \cP \ot \cP$ as in \cref{l:cup-i construction coalgebra}.
+%Additionally, these are determined, as in \cref{l:natural linear map}, by elements $\triangle_i[n]$ in $\cP(\simplex^n) \ot \cP(\simplex^n)$ for $i, n \in \N$ laying in the kernel of $\cP(\sigma_j) \ot \cP(\sigma_j)$ for every codegeneracy $\sigma_j \colon [n] \to [n-1]$.
+%For example, the canonical cup-$i$ construction (\cref{d:my cup-i construction}) is given by the collection indexed by $i, n \in \N$ of elements
+%\[
+%\Delta_i[n] = \sum_{U \in \rP^n_{n-i}} U^0 \ot U^1
+%\]
+%if $i \leq n$ and $\Delta_i[n] = 0$ otherwise, where for $\varepsilon \in \Ftwo \cong \{0,1\}$ we have $U^\varepsilon = \ind_U^{-1}(\varepsilon)$ with
+%\[
+%\begin{split}
+%\ind_U \colon U &\to \F \\
+%u_j &\mapsto u_j + j \mod 2.
+%\end{split}
+%\]
+%We refer to $\ind_U$ as the \textbf{index function} of $U$ and to the ordered partition $U = U^0 \sqcup U^1$ as its \textbf{index splitting}.
+
+%\begin{definition}
+%	For any $U = \{u_1 < \dots < u_{m-n}\} \in \P_{m-n}^n$ the \textbf{index function} is defined by
+%	\[
+%	\begin{split}
+%	\ind_U \colon U &\to \F \\
+%	u_j &\mapsto u_j + j \mod 2,
+%	\end{split}
+%	\]
+%	and the \textbf{index splitting} of $U$ is the ordered partition $U = U^0 \sqcup U^1$ with
+%	\[
+%	U^\varepsilon = \ind_U^{-1}(\varepsilon).
+%	\]
+%\end{definition}
+
+%\begin{definition}
+%	For $n, i \in \N$ we introduce the following elements of $\cP[n] \ot \cP[n]$:
+%	\[
+%	\Delta_i [n] \ =
+%	\sum_{U \in \P_{n-i}(n)} {U^0} \ot {U^1}
+%	\]
+%	if $i \leq \{0, \dots, n\}$ and $\Delta_i [n] = 0$ if not.
+%\end{definition}
+%
+%As proven in \cite{medina2021fast_sq} these elements define a cup-$i$ construction which is non-degenerate by direct inspection.
+%
+%We now state a stronger formulation of Theorem \ref{t:main}
+%
+%\begin{theorem} \label{t:main reformulated}
+%	If $\triangle$ is a free non-degenerate irreducible cup-$i$ construction, then, for every $i \in \N$, either $\triangle_i = \Delta_i$ or $\triangle_i = T \Delta_i$.
+%\end{theorem}
+
+%We will also prove the following lemma that helps verify the irreducibility of a cup-$i$ construction.
+%
+%\begin{lemma}
+%	Let $\triangle$ be a free non-degenerate cup-$i$ construction, then, then $\triangle$ is irreducible if an only if for every $i \in \N$ and simplex $x$,
+%	$\triangle_i = \Delta_i$ or $\triangle_i = T \Delta_i$.
+%\end{lemma}
+
+
+
+%\begin{definition} \label{d:cup-i coproduct structure}
+%	A \textbf{cup-$i$ coproduct structure} on a chain complex $C$ is a collection of linear maps
+%	\[
+%	\triangle_i \colon C \to C \ot C
+%	\]
+%	for $i \in \N$ with $\triangle_0$ a chain map and
+%	\[
+%	\bd \circ \triangle_i + \triangle_i \circ \bd =
+%	(1+T) \triangle_{i-1}
+%	\]
+%	for $i > 0$.
+%\end{definition}
+
+%\begin{lemma} \label{l:cup-i coproduct structure equivalence}
+%	If $C$ is finite dimensional, a cup-$i$ coproduct structure on $C$ is canonically equivalent to a cup-$i$ product structure on $C^\vee = \Hom(C, \Ftwo)$.
+%\end{lemma}
+
+
+
 %\anibal{Make a more general statement of the following that includes other type of summands. It must also apply to the second lemma in the induction step.}
 %
 %A direct consequence of Lemma \cref{l:splitting of summands} is the following.

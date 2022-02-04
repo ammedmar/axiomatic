@@ -2,6 +2,8 @@
 
 \section{Main statement} \label{s:statement}
 
+\subsection{Cup-$i$ constructions}
+
 Let $\Sym_2$ be the group with one non-identity element $T$ and let
 \[
 \begin{tikzcd}[column sep = 20pt]
@@ -43,7 +45,9 @@ be the minimal resolution of $\F$ by free $\F[\Sym_2]$-modules.
 	An \textbf{isomorphism} of cup-$i$ constructions is a collection of natural isomorphisms of cup-$i$ product structures.
 \end{definition}
 
-The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of cup-$i$ construction; whereas the second, minimality, is manifested in the definition of cup-$i$ product structure via the use of $W$ instead of an arbitrary projective resolution of $\F$.
+\subsection{Uniqueness}
+
+The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of cup-$i$ construction; whereas the second, minimality, is manifested in the definition of cup-$i$ product structure via the use of $W$ instead of a non-minimal projective resolution of $\F$.
 
 \begin{definition}
 	A cup-$i$ construction is \textbf{non-degenerate} if for any simplex $x$
@@ -73,17 +77,16 @@ We can now state our main result.
 
 Furthermore, we will use this result to prove in \cref{s:other presentations} that all cup-$i$ constructions available in the literature are isomorphic to Steenrod's original \cite{steenrod1947products}.
 
-To prove our main result we will use formulas defining one such cup-$i$ construction introduced in \cite{medina2021newformulas} and reviewed below.
-The verification that these define a cup-$i$ construction is given in that same article.
-In what follows we refer to it as the \textbf{canonical cup-$i$ construction}.
+\subsection{Existence}
 
-Recall from \cref{s:preliminaries} that for any $n$-simplex $x$ and set
-\begin{equation*}
-U = \{u_1 < \dots < u_r\} \subseteq \big\{ 0, \dots, n \big\}
-\end{equation*}
-we write $d_U(x) = d_{u_1}\! \dotsm \, d_{u_r}(x)$, with $d_{\emptyset}(x) = x$.
+To prove our main result we will use formulas defining one such cup-$i$ construction introduced in \cite{medina2021fast_sq} and reviewed below.
+The verification that these define a \mbox{cup-$i$} construction, which we refer to as the \textbf{canonical cup-$i$ construction}, is given in the article cited.
 
-\begin{definition}[\cite{medina2021newformulas}] \label{d:my cup-i construction}
+\begin{notation}
+	For any $n$-simplex $x$ and set $U = \{u_1 < \dots < u_r\} \subseteq \big\{ 0, \dots, n \big\}$ we write $d_U(x)$ for $d_{u_1}\! \dotsm \, d_{u_r}(x)$, with $d_{\emptyset}(x) = x$.
+\end{notation}
+
+\begin{definition}[\cite{medina2021fast_sq}] \label{d:my cup-i construction}
 	Let $X$ be a simplicial set, $x \in X_n$ and $\alpha, \beta \in \cochains(X)$.
 	\begin{equation} \label{e:new formulas}
 	(\alpha \cup_i \beta)(x) =
@@ -94,11 +97,11 @@ we write $d_U(x) = d_{u_1}\! \dotsm \, d_{u_r}(x)$, with $d_{\emptyset}(x) = x$.
 	\text{otherwise},
 	\end{cases}
 	\end{equation}
-	where the sum is taken over all subsets $U = \{u_1 < \cdots < u_{n-i}\} \subseteq \{0, \dots, n\}$ and
-	\begin{equation} \label{e:partition subsets}
+	where the sum is taken over all $U = \{u_1 < \cdots < u_{n-i}\} \subseteq \{0, \dots, n\}$ and
+	\begin{equation*}
 	U^0 = \{u_j \in U \mid u_j \equiv j \text{ mod } 2\}, \qquad
 	U^1 = \{u_j \in U \mid u_j \not\equiv j \text{ mod } 2\}.
-	\end{equation}
+	\end{equation*}
 \end{definition}
 
 \begin{example} \label{ex:alexander-whitney diagonal}
@@ -107,17 +110,9 @@ we write $d_U(x) = d_{u_1}\! \dotsm \, d_{u_r}(x)$, with $d_{\emptyset}(x) = x$.
 	(\alpha \cup_0 \beta)(x) =
 	\sum_{j=0}^n \alpha \big(d_{j+1} \cdots d_{n}(x)\big) \cdot \beta \big(d_{0} \cdots d_{j-1}(x)\big).
 	\end{equation*}
-	A binary operation known as the \textbf{Alexander--Whitney product}.
+	A binary operation known as \textbf{Alexander--Whitney product}.
 \end{example}
 
-\begin{example} \label{ex:Sq0 is the identity}
-	For any simplex $x \in X_n$, \cref{e:new formulas} gives
-	\begin{equation*}
-	(x \cup_n x)(x) = x(x) \cdot x(x) = 1.
-	\end{equation*}
-\end{example}
-
-In particular, we see from this example that the canonical cup-$i$ construction is non-degenerate.
-\anibal{check both free and irreducible}
-
-%To do so we will provide an alternative characterization of irreducibility for free non-degenerate cup-$i$ structures in \cref{labellist} that is easier to check in specific examples.
+\begin{theorem} \label{t:existence}
+	The canonical cup-$i$ construction if free, non-degenerate and irreducible
+\end{theorem}
