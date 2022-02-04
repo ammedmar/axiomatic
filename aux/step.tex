@@ -1,0 +1,31 @@
+\begin{tikzpicture}[scale = .65]
+	\draw (0,0)--(0,6);
+	\draw (0,0)--(11,0);
+	\draw (0,0)--(6,6);
+	\draw (1,0)--(7,6);
+	\draw (3,0)--(9,6);
+	\draw (4,0)--(10,6);
+	\draw[dashed] (5,0)--(11,6);
+
+	\draw[dotted, shorten >=10pt,shorten <=10pt] (3,2)--(4,1);
+	\draw[dotted, shorten >=10pt,shorten <=10pt] (5,4)--(6,3);
+	\draw[dotted, shorten >=10pt,shorten <=10pt] (7,6)--(8,5);
+
+	\fill (7,4) circle (0.1);
+	\fill (8,4) circle (0.1);
+	\fill (7,3) circle (0.1);
+	\fill[white] (8,3) circle (0.1);
+	\draw (8,3) circle (0.1);
+
+	\node[above] at (7,4) {p};
+	\node[above] at (8,4) {p};
+	\node[above] at (7,3) {q};
+	\node[above] at (8,3) {q};
+
+	\draw[dotted, shorten >=10pt,shorten <=10pt] (7,2)--(8,1);
+	\draw[dotted, shorten >=10pt,shorten <=10pt] (9,4)--(10,3);
+	\draw[dotted, shorten >=10pt,shorten <=10pt] (11,6)--(12,5);
+
+	\node[below] at (11,0) {$n$};
+	\node[left] at (0,6) {$i$};
+	\end{tikzpicture}
