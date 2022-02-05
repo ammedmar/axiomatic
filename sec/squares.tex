@@ -2,65 +2,52 @@
 
 \section{Steenrod squares} \label{s:squares}
 
-%Let us consider a cup-$i$ construction $W \ot C_\bullet \to C_\bullet^{\ot 2}$.
-%Using the linear duality functor and passing to fix points it gives a chain map
-%\begin{equation*}
-%\begin{tikzcd}
-%\Hom\left(C_\bullet \ot C_\bullet, \Ftwo \right)^{\Sym_2} \arrow[r] &
-%\Hom\left(W \ot C_\bullet, \Ftwo \right)^{\Sym_2},
-%\end{tikzcd}
-%\end{equation*}
-%which we can complete, using isomorphisms \eqref{e:adjunction isomorphism} and \eqref{e:invariant hom iso hom coinvariants} of \cref{s:preliminaries}, to a commutative diagram
-%\begin{equation*}
-%\begin{tikzcd}
-%\Hom\left(C_\bullet \ot C_\bullet, \Ftwo \right)^{\Sym_2} \arrow[r] &
-%\Hom\left(W \ot C_\bullet, \Ftwo \right)^{\Sym_2} \arrow[d] \\
-%\left(C^\bullet \ot C^\bullet\right)^{\Sym_2} \arrow[u]&
-%\Hom\left(W_{\Sym_2} \ot C_\bullet, \Ftwo \right) \arrow[d] \\
-%C^\bullet \arrow[u, "doubleing"] \arrow[r, dashed]&
-%\Hom\left(W_{\Sym_2}, C^\bullet\right),
-%\end{tikzcd}
-%\end{equation*}
-%where the choice of coefficients ensures that the \textit{doubleing map} $\alpha \mapsto \alpha \ot \alpha$ is linear.
-%Using the adjunction isomorphism, the dashed arrow defines a linear map
-%\begin{equation} \label{e:Steenrod squares parameterized}
-%\begin{tikzcd}[row sep=0pt, column sep = small]
-%C^\bullet \ot W_{\Sym_2} \arrow[r] &[-10pt] C^\bullet \\
-%\alpha \ot e_i \arrow[r, |->] & (\alpha \ot \alpha)\triangle_i(-)
-%\end{tikzcd}
-%\end{equation}
-%descending to mod $2$ cohomology.
-%The Steenrod squares are defined by reindexing this map.
-%Explicitly,
-%\begin{definition} \label{d:steenrod squares}
-%	The \textit{$k^\th$ Steenrod square} is defined by
-%	\begin{equation} \label{e:steenrod squares}
-%	\begin{tikzcd}[row sep=0pt, column sep=tiny]
-%	Sq^k \colon H^{-n} \arrow[r] & H^{-n-k} \\
-%	\phantom{Sq^k \colon}{[\alpha]} \arrow[r, |->] & \big[ (\alpha \ot \alpha)\triangle_{n-k}(-) \big].
-%	\end{tikzcd}
-%	\end{equation}
-%	for any cup-$i$ construction $\triangle$.
-%\end{definition}
-%
-%\subsection{Additional comments}
+By an acyclic carrier argument \cite{eilenberg1953acyclic} all non-degenerate cup-$i$ constructions are homotopic to each other.
+Any of them gives rise to the following celebrated cohomology operations introduced by Steenrod through an explicit cup-$i$ construction \cite{steenrod1947products}.
 
-%\begin{remark}[Transverse intersections]
-%	From a geometric viewpoint, the cup product can be interpreted in terms of intersections of cycles in certain cases.
-%	For any space, Thom showed that every mod $2$ homology class is represented by the push-forward of the fundamental class of a closed manifold $W$ along some map to the space.
-%	Furthermore, if the target $M$ is a closed manifold, and therefore satisfies Poincar\'{e} duality
-%	\[
-%	PD \colon H^k(M ;\Ftwo) \to H_{\bars{M}-k}(M; \Ftwo),
-%	\]
-%	the cohomology class dual to the homology class represented by the intersection of two transverse maps $V \to X$ and $W \to M$, or more precisely their pull-back $W \times_M V \to M$, is the cohomology class $[\alpha] [\beta]$ where $[\alpha]$ and $[\beta]$ are respectively dual to the homology classes represented by $V \to M$ and $W \to M$.
-%	By taking $[\alpha] = [\beta]$ we have that $Sq^k \big( [\alpha] \big)$ with $\alpha$ of degree $-k$ is represented by the transverse self-intersection of $W \to M$, that is, the intersection of this map and a generic perturbation of itself.
-%	In manifold topology, the relationship at the (co)homology level between cup product and intersection is classical.
-%	For a comparison between these at the level of (co)chain see \cite{medina2021flowing}.
-%	A generalization of this result to cup-$i$ products is the focus of current research \cite{medina2022foundations}
-%\end{remark}
-%
-%\begin{remark}[Odd primes]
-%	For the reader familiar with group homology, we remark that Steenrod squares are parameterized by classes on the mod $2$ homology of $\Sym_2$.
-%	Steenrod used this group homology viewpoint to non-constructively define operations on the mod $p$ cohomology of spaces \cite{steenrod1952reduced, steenrod1953cyclic, steenrod1962cohomology} for any prime $p$.
-%	To define these constructively, analogues of explicit cup-$i$ coproducts for odd primes were introduced in \cite{medina2021maysteenrod} using May's operadic viewpoint \cite{may1970general} and implemented in the computer algebra system \texttt{ComCH} \cite{medina2021computer}.
-%\end{remark}
+\begin{definition}
+	For any non-degenerate cup-$i$ construction the \textbf{$k^\th$ Steenrod square} is defined on cocycle representatives by
+	\[
+	\begin{tikzcd} [column sep=tiny, row sep=0]
+	\Sq^k \colon &[-10pt] \rH^{-n} \arrow[r] & \rH^{-n-k} \\
+	& {[\alpha]} \arrow[r, mapsto] & \big[ \alpha \cup_{n-k} \alpha \big].
+	\end{tikzcd}
+	\]
+\end{definition}
+
+Steenrod squares are axiomatically characterized \cite{steenrod1962cohomology}, and one can interpret \cref{t:main} as a continuation of these efforts capturing the isomorphism type, and not just the homotopy type, of Steenrod's original construction (\cref{s:others}).
+
+\begin{remark}[Relations]
+	Cup-$i$ products provide an effective construction of coboundaries coherently enforcing the commutativity relation of the cup product in cohomology.
+	There are two notable relations satisfied by Steenrod squares.
+	The first one, known as the \textit{Cartan relation}, expresses the interaction between these operations and the cup product:
+	\begin{equation*}
+	Sq^k \big( [\alpha] [\beta] \big) = \sum_{i+j=k} Sq^i \big([\alpha]\big)\, Sq^j \big([\beta]\big),
+	\end{equation*}
+	whereas the second, the \textit{Adem relation} \cite{adem1952iteration}, expresses dependencies appearing through iteration:
+	\begin{equation*}
+	Sq^i Sq^j = \sum_{k=0}^{\lfloor i/2 \rfloor} \binom{j-k-1}{i-2k} Sq^{i+j-k} Sq^k.
+	\end{equation*}
+	Explicit cochains enforcing them were recently given in \cite{medina2020cartan} and \cite{medina2021adem} respectively using the canonical cup-$i$ construction.
+\end{remark}
+
+\begin{remark}[Odd primes]
+	Steenrod squares are parameterized by classes on the mod $2$ homology of $\Sym_2$.
+	Steenrod used this group homology viewpoint to non-constructively define operations on the mod $p$ cohomology of spaces \cite{steenrod1952reduced, steenrod1953cyclic, steenrod1962cohomology} for any prime $p$.
+	To define these constructively for odd primes, explicit cup-$(p,i)$ constructions were introduced in \cite{medina2021may_st} (for simplicial and cubical sets) using May's operadic viewpoint \cite{may1970general}.
+	These were implemented in the computer algebra system \texttt{ComCH} \cite{medina2021comch}.
+\end{remark}
+
+\begin{remark}[Transverse intersections]
+	From a geometric viewpoint, the cup product can be interpreted in terms of intersections of cycles in certain cases.
+	For any space, Thom showed that every mod $2$ homology class is represented by the push-forward of the fundamental class of a closed manifold $W$ along some map to the space.
+	Furthermore, if the target $M$ is a closed manifold, and therefore satisfies Poincar\'{e} duality
+	\[
+	PD \colon H^k(M ;\Ftwo) \to H_{\bars{M}-k}(M; \Ftwo),
+	\]
+	the cohomology class dual to the homology class represented by the intersection of two transverse maps $V \to X$ and $W \to M$, or more precisely their pull-back $W \times_M V \to M$, is the cohomology class $[\alpha] [\beta]$ where $[\alpha]$ and $[\beta]$ are respectively dual to the homology classes represented by $V \to M$ and $W \to M$.
+	By taking $[\alpha] = [\beta]$ we have that $Sq^k \big( [\alpha] \big)$ with $\alpha$ of degree $-k$ is represented by the transverse self-intersection of $W \to M$, that is, the intersection of this map and a generic perturbation of itself.
+	In manifold topology, the relationship at the (co)homology level between cup product and intersection is classical.
+	For a comparison between these at the level of (co)chain see \cite{medina2021flowing}.
+	A generalization of this result to cup-$i$ products is the focus of current research \cite{medina2022foundations}
+\end{remark}
