@@ -3,7 +3,7 @@
 \section{Steenrod squares} \label{s:squares}
 
 By an acyclic carrier argument \cite{eilenberg1953acyclic} all non-degenerate cup-$i$ constructions are homotopic to each other.
-Any of them gives rise to the following celebrated cohomology operations introduced by Steenrod through an explicit cup-$i$ construction \cite{steenrod1947products}.
+Any of them gives rise to the following celebrated cohomology operations introduced by Steenrod in \cite{steenrod1947products} through an explicit cup-$i$ construction, reviewed and shown to agree with the canonical one on \cref{s:others}.
 
 \begin{definition}
 	For any non-degenerate cup-$i$ construction the \textbf{$k^\th$ Steenrod square} is defined on cocycle representatives by
@@ -22,11 +22,13 @@ Steenrod squares are axiomatically characterized \cite{steenrod1962cohomology}, 
 	There are two notable relations satisfied by Steenrod squares.
 	The first one, known as the \textit{Cartan relation}, expresses the interaction between these operations and the cup product:
 	\begin{equation*}
-	Sq^k \big( [\alpha] [\beta] \big) = \sum_{i+j=k} Sq^i \big([\alpha]\big)\, Sq^j \big([\beta]\big),
+	\Sq^k \big( [\alpha] [\beta] \big) =
+	\sum_{i+j=k} \Sq^i \big( [\alpha]\big)\, Sq^j \big([\beta] \big),
 	\end{equation*}
 	whereas the second, the \textit{Adem relation} \cite{adem1952iteration}, expresses dependencies appearing through iteration:
 	\begin{equation*}
-	Sq^i Sq^j = \sum_{k=0}^{\lfloor i/2 \rfloor} \binom{j-k-1}{i-2k} Sq^{i+j-k} Sq^k.
+	\Sq^i \Sq^j =
+	\sum_{k=0}^{\lfloor i/2 \rfloor} \binom{j-k-1}{i-2k} \Sq^{i+j-k} \Sq^k.
 	\end{equation*}
 	Explicit cochains enforcing them were recently given in \cite{medina2020cartan} and \cite{medina2021adem} respectively using the canonical cup-$i$ construction.
 \end{remark}
@@ -46,7 +48,7 @@ Steenrod squares are axiomatically characterized \cite{steenrod1962cohomology}, 
 	PD \colon H^k(M ;\Ftwo) \to H_{\bars{M}-k}(M; \Ftwo),
 	\]
 	the cohomology class dual to the homology class represented by the intersection of two transverse maps $V \to X$ and $W \to M$, or more precisely their pull-back $W \times_M V \to M$, is the cohomology class $[\alpha] [\beta]$ where $[\alpha]$ and $[\beta]$ are respectively dual to the homology classes represented by $V \to M$ and $W \to M$.
-	By taking $[\alpha] = [\beta]$ we have that $Sq^k \big( [\alpha] \big)$ with $\alpha$ of degree $-k$ is represented by the transverse self-intersection of $W \to M$, that is, the intersection of this map and a generic perturbation of itself.
+	By taking $[\alpha] = [\beta]$ we have that $\Sq^k \big( [\alpha] \big)$ with $\alpha$ of degree $-k$ is represented by the transverse self-intersection of $W \to M$, that is, the intersection of this map and a generic perturbation of itself.
 	In manifold topology, the relationship at the (co)homology level between cup product and intersection is classical.
 	For a comparison between these at the level of (co)chain see \cite{medina2021flowing}.
 	A generalization of this result to cup-$i$ products is the focus of current research \cite{medina2022foundations}

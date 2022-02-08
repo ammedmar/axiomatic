@@ -2,7 +2,7 @@
 
 \section{Other constructions} \label{s:others}
 
-\subsection{Original construction}
+\subsection{Original construction} \label{ss:original}
 
 We now review from \cite[p.293]{steenrod1947products} \textbf{Steenrod's \mbox{cup-$i$} construction} (see also \cite[p.682]{mcclure2003multivariable}).
 Following \cref{l:cup-i construction coalgebra}, we will describe it as a set of elements $\triangle_i^{\mathrm{S}} [n] \in \chains(\simplex^n)^{\ot 2}_{i+n}$ with $i,n \in \N$.
@@ -78,17 +78,17 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 	This concludes the proof.
 \end{proof}
 
-\subsection{AW--EZ contraction}
+\subsection{AW--EZ contraction} \label{ss:real}
 
 In work by Real \cite{real1996computability} and Gonz\'alez-D\'iaz--Real \cite{gonzalez-diaz1999steenrod, gonzalez2003computation, gonzalez-diaz2005cocyclic}
-an alternative cup-$i$ construction was developed based on the a Alexander--Whitney and Eilenberg--Zilber maps
+an alternative cup-$i$ construction was developed based on the Alexander--Whitney and Eilenberg--Zilber linear natural transformations
 \[
 \AW \colon \chains(\simplex^n \times \simplex^n)
 \rightleftarrows
 \chains(\simplex^n) \ot \chains(\simplex^n) \,: \EZ
 \]
-together with an explicit chain homotopy $\mathrm{SHI}$ between their non-trivial composition and the identity.
-As in \cref{l:cup-i construction coalgebra}, the natural linear transformations defining the \textbf{Gonz\'alez-D\'iaz--Real's \mbox{cup-$i$} construction} are
+and an explicit natural chain homotopy $\mathrm{SHI}$ between their non-trivial composition and the identity.
+The natural linear transformations defining the \textbf{Gonz\'alez-D\'iaz--Real's \mbox{cup-$i$} construction} (\cref{l:cup-i construction coalgebra}) are
 \[
 \triangle^{\mathrm{GR}}_i = \AW (T \, \mathrm{SHI})^i.
 \]
@@ -124,6 +124,5 @@ A small variation of the proof given for \cref{t:steenrod cup-i} establishes the
 	Gonz\'alez-D\'iaz--Real's \mbox{cup-$i$} construction agrees with the canonical one.
 \end{theorem}
 
-\subsection{Operads and props}
+\subsection{Operads and props} \label{ss:operads}
 
-One can verify directly that the cup-$i$ constructions induced by the
