@@ -11,14 +11,14 @@ If $i > n$ then $\triangle_i^{\mathrm{S}} [n] = 0$, otherwise it is given by the
 0 \leq p_1 < \cdots < p_{i+1} \leq n
 \]
 of the basis element
-\begin{equation} \label{equation: steenrod original i odd}
+\begin{equation} \label{e:steenrod original i odd}
 \begin{split}
 [ 0, \dots, &{p_1} ] \ast [ {p_2}, \dots, {p_3} ] \ast \cdots \ast [ {p_{i+1}}, \dots, n ] \\
 \ot \ [ &{p_1}, \dots, {p_2} ] \ast \cdots \ast [ {p_{i}}, \dots, {p_{i+1}} ]
 \end{split}
 \end{equation}
 if $i$ is odd, and of
-\begin{equation} \label{equation: steenrod original i even}
+\begin{equation} \label{e:steenrod original i even}
 \begin{split}
 [ 0, \dots, &{p_1} ] \ast [ {p_2}, \dots, {p_3} ] \ast \cdots \ast [ {p_{i}}, \dots, {p_{i+1}} ] \\
 \ot \ [ &{p_1}, \dots, {p_2} ] \ast [ {p_3}, \dots, {p_4} ] \ast \cdots \ast [ {p_{i+1}}, \dots, n ]
@@ -30,14 +30,14 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 \]
 
 \begin{theorem} \label{t:steenrod cup-i}
-	Steenrod's cup-$i$ construction agrees with the canonical one.
+	Steenrod's \mbox{cup-$i$} construction agrees with the canonical one.
 \end{theorem}
 
 \begin{proof}
 	We will use \cref{t:main} prove that they are isomorphic.
 	We can then conclude their equality by inspecting that $\triangle^{\mathrm{S}}_i [i+1] \neq \Delta_i [i+1]$.
 
-	Let us verify that Steenrod's cup-$i$ construction is free, non-degenerate and irreducible.
+	Let us verify that Steenrod's \mbox{cup-$i$} construction is free, non-degenerate and irreducible.
 	To prove it is \emph{free} let us assume $i$ is odd with $i < n$.
 	The case where $i$ is even is done analogously.
 	it it is not, then there exist two distinct sequences
@@ -70,7 +70,7 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 	[q_r] &\ast [q_{r+1}] = [p_r, p_{r}+1].
 	\end{split}
 	\]
-	Steenrod's cup-$i$ construction is \emph{non-degenerate} since $\Delta_0\big([0]\big) = [0] \ot [0] \neq 0$.
+	Steenrod's \mbox{cup-$i$} construction is \emph{non-degenerate} since $\Delta_0\big([0]\big) = [0] \ot [0] \neq 0$.
 	It is \emph{irreducible} since for each summand all integers $\{0, \dots, n\}$ appear in at least one of the tensor factors.
 
 	Consider the element $U = \{0\} \in \rP_{1}^{i+1}$ giving rise to the summand $U^1 \ot U^0 = \{0\} \ot \emptyset$ in $T \Delta_i [i+1]$.
@@ -81,7 +81,7 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 \subsection{AW--EZ contraction} \label{ss:real}
 
 In work by Real \cite{real1996computability} and Gonz\'alez-D\'iaz--Real \cite{gonzalez-diaz1999steenrod, gonzalez2003computation, gonzalez-diaz2005cocyclic}
-an alternative cup-$i$ construction was developed based on the Alexander--Whitney and Eilenberg--Zilber linear natural transformations
+an alternative \mbox{cup-$i$} construction was developed based on the Alexander--Whitney and Eilenberg--Zilber linear natural transformations
 \[
 \AW \colon \chains(\simplex^n \times \simplex^n)
 \rightleftarrows
@@ -124,5 +124,100 @@ A small variation of the proof given for \cref{t:steenrod cup-i} establishes the
 	Gonz\'alez-D\'iaz--Real's \mbox{cup-$i$} construction agrees with the canonical one.
 \end{theorem}
 
-\subsection{Operads and props} \label{ss:operads}
+\subsection{Operads} \label{ss:operads}
 
+In this section, independent of the main results of this work, we assume familiarity with the theory of operads over the category of chain complexes (of $\Ftwo$-modules).
+After reviewing natural $E_\infty$-coalgebra structures on the normalized chains of simplicial sets introduced by McClure--Smith \cite{mcclure2003multivariable}, Berger--Fresse \cite{berger2004combinatorial}, and the author \cite{medina2020prop1,medina2021prop2}, we will describe associated \mbox{cup-$i$} constructions satisfying our axioms.
+
+%We also assume familiarity with the notion of $E_\infty$-operad.
+%The main example for us is the \textbf{Eilenberg--Zilber operad} $\EZop$ whose arity $r$ part $\EZop(r)$ is given by all natural linear transformation from $\chains$ to $\chains^{\ot r}$.
+%We will describe two suboperads defining an $E_\infty$-coalgebra structure on chains.
+
+\subsubsection{}
+
+An \textbf{$\Med$-bialgebra} is a chain complex $B$ with three operations
+\[
+\Delta \colon B \to B \ot B, \qquad
+\varepsilon \colon B \to \Ftwo, \qquad
+\ast \colon B \ot B \to B,
+\]
+such that the first two define the structure of a counital coalgebra on $B$, and the third one satisfies
+\begin{gather*}
+\varepsilon \circ \ast = 0, \\
+\bd \circ \ast + \ast \circ (\bd \ot \, \id) + \ast \circ (\id \ot \bd) =
+\varepsilon \ot \id + \id \ot \varepsilon.
+\end{gather*}
+As proven in \cite{medina2020prop1}, any $\Med$-bialgebra $B$ is an $E_\infty$-coalgebra by discarding compositions of the generators defining maps of the form $B^{\ot s} \to B^{\ot r}$ for $s \neq 1$.
+The $E_\infty$-operad controlling this structure is denoted $\UM$.
+
+The complex of normalized chains of a standard simplicial set is naturally an $\Med$-bialgebra with the Alexander--Whitney coproduct $\Delta$, its counit $\varepsilon$ -- the augmentation map -- and the \textbf{join product} $\ast \colon \chains^{\ot 2}(\simplex^n) \to \chains(\simplex^n)$ defined by
+\[
+\ast \big(\left[v_0, \dots, v_p \right] \ot \left[v_{p+1}, \dots, v_q\right]\big) =
+\begin{cases} \left[v_{\pi(0)}, \dots, v_{\pi(q)}\right] & \text{ if } v_i \neq v_j \text{ for } i \neq j, \\
+\hfil 0 & \text{ if not}, \end{cases}
+\]
+where $\pi$ is the permutation that orders the vertices.
+The natural $\UM$-coalgebra structure on $\chains(\simplex^n)$ extends to $\chains(X)$ for every simplicial set $X$.
+Using this $E_\infty$-coalgebra structure, a \mbox{cup-$i$} construction is recursively defined by
+\begin{equation} \label{e:prop cup-i}
+\begin{split}
+& \copr_0 = \copr, \\
+& \copr_i =
+(\ast \ot \id) \circ (\id \ot T \copr_{i-1}) \circ \copr.
+\end{split}
+\end{equation}
+We can directly compare \cref{e:prop cup-i} to \cref{e:steenrod original i odd, e:steenrod original i even} to conclude that this \mbox{cup-$i$} construction agrees with Steenrod's original.
+
+\subsubsection{}
+
+The Alexander--Whitney coproduct and the join product are coassociative and associative respectively and we write
+\begin{align*}
+\Delta^1 &= \Delta, &
+\ast^1 &= \ast, \\
+\Delta^{m+1} &= (\Delta^m \ot \, \id) \circ \Delta, &
+\ast^{m+1} &= \ast \circ (\ast^m \ot \, \id).
+\end{align*}
+
+Consider a surjection $s \colon \{1, \dots, \ell\} \to \{1, \dots, r\}$ which we represent by its order image $\big( s(1), \dots, s(\ell) \big)$.
+The natural linear transformation associated to $s$ is
+\begin{equation} \label{e:surjection action}
+\Big( \ast^{\bars{s^{-1}(1)}} \ot \dotsb \ot \ast^{\bars{s^{-1}(r)}} \Big) \circ \pi_s \circ \Delta^{\ell-1}
+\end{equation}
+where $\ast^0 = \id$ and $\pi_s$ is the shuffle permutation defined by
+\[
+\big( \pi s(1), \dots, \pi s(\ell) \big) =
+\big( 1, \dots, 1, \dots, r, \dots, r \big).
+\]
+This assignment defines the surjection operad $\cX$ of McClure--Smith \cite{mcclure2003multivariable} as a suboperad of the endomorphism operad of $\chains$.
+Furthermore, it is clear that for any simplicial set $X$ the $\cX$-coalgebra on $\chains(X)$ is controlled by its $\UM$-coalgebra structure i.e., by the Alexander--Whitney coproduct and the join product.
+Additionally, we can inspect \cref{e:prop cup-i} to conclude that the surjections $\big\{ (1,2), (1,2,1), (1,2,1,2), \dots \big\}$ define Steenrod's original \mbox{cup-$i$} construction.
+In fact, $\cX(2)$ is isomorphic to $W$ so its set of bases is in bijection with the set of a \mbox{cup-$i$} constructions satisfying our axioms.
+
+\subsubsection{}
+
+Let $G$ be a finite group.
+Its unreduced bar resolution is the simplicial set
+\[
+\begin{split}
+EG_m &= \big\{ (g_0, \dots, g_m) \mid g_i \in G \big\}, \\
+\face_j(g_0, \dots, g_m) &= (g_0, \dots, \widehat g_j, \dots, g_m), \\
+\dege_j(g_0, \dots, g_m) &= (g_0, \dots, g_j, g_j, \dots, g_m).
+\end{split}
+\]
+The partial composition of permutations
+\[
+\circ_j \colon \Sym_p \times \Sym_q \to \Sym_{p+q-1}
+\]
+induces an operad structure on the collection of normalized chains $\BE(r) = \chains(E \Sym_r)$.
+This $E_\infty$-operad, introduced by Berger--Fresse \cite{berger2004combinatorial}, is referred to as the \textbf{Barratt--Eccles operad} and is here denoted by $\BE$.
+These authors also define a quasi-isomorphism of operads $\mathrm{TR} \colon \BE \to \cX$ and use it to associate to any simplex $(\sigma_0, \dots, \sigma_m) \in E \Sym_r$ a natural linear transformation $\chains \to \chains^{\ot r}$.
+In particular, for any simplicial set $X$ the $\BE$-coalgebra structure on $\chains(X)$ is controlled by its $\UM$-coalgebra structure, i.e., by the Alexander--Whitney coproduct and the join product.
+Since for the isomorphism $\mathrm{TR} \colon \BE(2) \to \cX(2)$ we have
+\[
+\mathrm{TR}(\id, T, \id, \dots, T^i) =
+\begin{cases}
+(1,2,\dots,2,1) & \text{ if } m \text{ is even}, \\
+(1,2,\dots,2,1) & \text{ if } m \text{ is odd},
+\end{cases}
+\]
+the elements $\big\{ (\id, T, \id, \dots, T^i) \big\}_{i \in \N}$ define a \mbox{cup-$i$} construction that agrees with Steenrod's, and the set of bases of $\BE(2)$ is in bijection with the set of a \mbox{cup-$i$} constructions satisfying our axioms.
