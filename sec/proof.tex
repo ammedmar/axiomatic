@@ -5,7 +5,7 @@
 \subsection{Freeness, non-degeneracy and irreducibility} \label{ss:free non-deg irreducible}
 
 \begin{lemma} \label{l:properties recasted}
-	Let $\triangle = \big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a cup-$i$ construction.
+	Let $\triangle = \big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a \mbox{cup-$i$} construction.
 	If
 	\[
 	\triangle_i [n] \ =
@@ -23,11 +23,17 @@
 \end{lemma}
 
 \begin{proof}
-	By naturality, it suffices to verify these equivalences for the cup-$i$ product structure defined on $\cochains(\simplex^n)$ for every $n \in \N$.
+	By naturality, it suffices to verify these equivalences for the \mbox{cup-$i$} product structure defined on $\cochains(\simplex^n)$ for every $n \in \N$.
 	In this case, the claims follow from directly comparing with \cref{d:properties of cup-i constructions}.
 \end{proof}
 
-We can use \cref{l:properties recasted} to deduce that the canonical cup-$i$ construction is free, non-degenerate and irreducible (\cref{t:existence}) by inspecting \cref{l:canonical cup-i construction}.
+By inspecting \cref{l:canonical cup-i construction} we deduce from \cref{l:properties recasted} the following.
+
+\begin{theorem} \label{t:existence}
+	The canonical \mbox{cup-$i$} construction if free, non-degenerate and irreducible.
+\end{theorem}
+
+%that the canonical \mbox{cup-$i$} construction is free, non-degenerate and irreducible (\cref{t:existence}) by inspecting \cref{l:canonical cup-i construction}.
 
 %\begin{proof} [Proof of \cref{t:existence}]
 %	Follows directly from \cref{l:properties recasted} by inspecting \cref{l:canonical cup-i construction}.
@@ -36,7 +42,7 @@ We can use \cref{l:properties recasted} to deduce that the canonical cup-$i$ con
 \subsection{A consequence of freeness}
 
 \begin{lemma} \label{l:splitting of summands}
-	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a free cup-$i$ construction.
+	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a free \mbox{cup-$i$} construction.
 	If
 	\[
 	(1+T) \triangle_i [n] =
@@ -58,7 +64,7 @@ We can use \cref{l:properties recasted} to deduce that the canonical cup-$i$ con
 \subsection{Special cases}
 
 \begin{lemma} \label{l:special case one}
-	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be free and non-degenerate cup-$i$ construction.
+	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be free and non-degenerate \mbox{cup-$i$} construction.
 	\begin{enumerate}
 		\item $\forall i,n \in \N$, $\triangle_i[n] = 0$ if $i > n$.
 		\item $\forall n \in \N$, $\triangle_n[n] = \emptyset \ot \emptyset$.
@@ -102,7 +108,7 @@ We can use \cref{l:properties recasted} to deduce that the canonical cup-$i$ con
 \end{proof}
 
 \begin{lemma} \label{l:special case two}
-	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be free and non-degenerate cup-$i$ construction.
+	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be free and non-degenerate \mbox{cup-$i$} construction.
 	For all integer $n \geq 1$ either $\triangle_{n-1} [n]$ or $T \triangle_{n-1} [n]$ is equal to
 	\[
 	\sum_{\substack{u \in \{0,\dots,n\} \\ u \ \mathrm{odd}}} \{u\} \ot \emptyset
@@ -162,7 +168,7 @@ We can use \cref{l:properties recasted} to deduce that the canonical cup-$i$ con
 \end{notation}
 
 \begin{lemma} \label{l:first nail}
-	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a free and non-degenerate cup-$i$ construction and $i,n \in \N$ with $i \leq n-2$.
+	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a free and non-degenerate \mbox{cup-$i$} construction and $i,n \in \N$ with $i \leq n-2$.
 	If there is a function $\xi \colon \P_{n-i}^n \to \F$ with
 	\begin{equation} \label{e:assumed identity with xi and barxi}
 	\triangle_i [n] \ = \!
@@ -263,7 +269,7 @@ We can use \cref{l:properties recasted} to deduce that the canonical cup-$i$ con
 \end{proof}
 
 \begin{lemma} \label{l:second nail}
-	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a free, non-degenerate and irreducible cup-$i$ construction and $i,n \in \N$ with $i \leq n-2$.
+	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a free, non-degenerate and irreducible \mbox{cup-$i$} construction and $i,n \in \N$ with $i \leq n-2$.
 	If $\triangle_i [n] = \Delta_i [n]$ or $\triangle_i [n] = T \Delta_i [n]$ then the following implications hold:
 	\begin{alignat*}{2}
 	&\boxed{\triangle_i [n-1] = \Delta_i [n-1] \kern 7.3pt}\ &\Longrightarrow\
@@ -326,7 +332,7 @@ We can use \cref{l:properties recasted} to deduce that the canonical cup-$i$ con
 \end{figure}
 
 \begin{lemma} \label{l:induction step}
-	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a free non-degenerate and irreducible cup-$i$ construction.
+	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a free non-degenerate and irreducible \mbox{cup-$i$} construction.
 	Let $\big\{ \p(i,n) \big\}_{i,n \in \N}$ and $\big\{ \q(i,n) \big\}_{i,n \in \N}$ each be one of the following two families of propositions:
 	\[
 	\big\{ \triangle_i [n] = \Delta_ i [n] \big\}_{i,n\in\N}
@@ -370,7 +376,7 @@ We can use \cref{l:properties recasted} to deduce that the canonical cup-$i$ con
 We are now ready to present the proof of our main result.
 
 \begin{proof}[Proof of \cref{t:main}]
-	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a free, non-degenerate and irreducible cup-$i$ construction.
+	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a free, non-degenerate and irreducible \mbox{cup-$i$} construction.
 	We will use an induction argument over $k = n-i$ to show that for each $i \in \N$ either $\triangle_i [n] = \Delta_i [n]$ or
 	$\triangle_i [n] = T \Delta_i [n]$ for all $n \in \N$.
 	By \cref{l:special case one} $\triangle_i [n] = \Delta_i [n]$ and $\triangle_i [n] = T \Delta_i [n]$ for $r \leq 0$.
