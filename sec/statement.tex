@@ -64,6 +64,11 @@ The first axiom alluded to in the introduction, naturality, has been explicitly 
 	\boxed{x \cup_0 x \neq 0}
 	\]
 	whenever $\bars{x} = 0$.
+	It is \textbf{irreducible} if for any proper face $y$ of $x$
+	\[
+	\boxed{\Big( y^{(1)} \cup_{i} y^{(2)} \Big)(x) = 0}
+	\]
+	for any two faces $y^{(1)}$ and $y^{(2)}$ of $y$.
 	It is \textbf{free} if for any two simplices $x$ and $y$
 	\[
 	\boxed{x \cup_{i} y = y \cup_{i} x} \
@@ -71,17 +76,12 @@ The first axiom alluded to in the introduction, naturality, has been explicitly 
 	\boxed{x \cup_{i} y = 0}
 	\]
 	whenever $\bars{x} \neq i$ or $\bars{y} \neq i$.
-	It is \textbf{irreducible} if for any proper face $y$ of $x$
-	\[
-	\boxed{\Big( y^{(1)} \cup_{i} y^{(2)} \Big)(x) = 0}
-	\]
-	for any two faces $y^{(1)}$ and $y^{(2)}$ of $y$.
 \end{definition}
 
 We can now state our main result.
 
 \begin{theorem} \label{t:main}
-	There is up to isomorphism only one free non-degenerate irreducible \mbox{cup-$i$} construction.
+	There is up to isomorphism only one non-degenerate, irreducible and free \mbox{cup-$i$} construction.
 \end{theorem}
 
 Furthermore, we will use this result to prove in \cref{s:others} that all \mbox{cup-$i$} constructions available in the literature are isomorphic to Steenrod's original \cite{steenrod1947products}.
@@ -123,7 +123,7 @@ To prove our main result we will use formulas defining one such \mbox{cup-$i$} c
 
 The verification that our formulas in \cref{e:new formulas} define a \mbox{cup-$i$} construction is given in \cite{medina2021fast_sq}.
 We will refer to it as the \textbf{canonical \mbox{cup-$i$} construction}.
-\cref{t:existence} states that it is non-degenerate, irreducible, and free; and \cref{t:steenrod cup-i} that it is equal to Steenrod's original cup-$i$ construction.
+Furthermore, as we will show, it is non-degenerate, irreducible, and free (\cref{t:existence}); and it is equal to Steenrod's original cup-$i$ construction (\cref{t:steenrod cup-i}).
 
 %We also have, as proven in \cref{ss:free non-deg irreducible}, that the following.
 %
