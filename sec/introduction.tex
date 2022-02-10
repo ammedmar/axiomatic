@@ -2,59 +2,65 @@
 
 \section{Introduction} \label{s:introduction}
 
-In \cite{steenrod1947products}, Steenrod introduced by means of formulas the cup-$i$ products on the cochains of spaces.
+In \cite{steenrod1947products}, Steenrod introduced by means of formulas the \mbox{cup-$i$} products on the cochains of spaces.
 These bilinear maps give rise to Steenrod squares, cohomology operations
 \[
 \Sq^k \colon \rH^\vee(X; \F) \to \rH^\vee(X; \F)
 \]
 laying at the heart of stable homotopy theory.
 
-Steenrod's formulas for the cup-$i$ products extend the Alexander-Whitney product on cochains.
-This non-commutative product induces the commutative algebra structure in cohomology, and we can interpret the higher cup-$i$ products
+Steenrod's formulas for the \mbox{cup-$i$} products extend the Alexander-Whitney product on cochains.
+This non-commutative product $\cup_0$ induces the commutative algebra structure on cohomology, and we can interpret the higher \mbox{cup-$i$} products
 \[
 \cup_i\ \colon \cochains(X; \F) \tensor \cochains(X; \F) \to \cochains(X; \F)
 \]
-as coherent homotopies enforcing derived commutativity at the cochain level.
+as coherent homotopies witnessing the derived commutativity of $\cup_0$ at the cochain level.
 
-In later work by Steenrod \cite{steenrod1962cohomology} and others, an indirect argument based on the acyclic carrier theorem is used to establish the existence of cup-$i$ products and consequently of Steenrod squares.
-This approach became the standard since any set of choices for the cup-$i$ products homotopic to Steenrod's original gives rise to the same cohomology operations which, by then, had been axiomatically characterized.
-As a consequence, the need to interact with a specific set of choices for the cup-$i$ products largely declined.
+In later work by Steenrod \cite{steenrod1962cohomology} and others, an indirect argument based on the acyclic carrier theorem is used to establish the existence of \mbox{cup-$i$} products and consequently of Steenrod squares.
+This approach became the standard since any set of choices for the \mbox{cup-$i$} products homotopic to Steenrod's original gives rise to the same cohomology operations which, by then, had been axiomatically characterized.
+As a consequence, the need to interact with a specific set of choices for the \mbox{cup-$i$} products largely declined.
 
-Interest in actual cochain representatives and operations, like the \mbox{cup-$i$} products, has recently been rekindled by their use in condensed matter physics \cite{gaiotto2016spin, kapustin2017fermionic, barkeshli2021classification} and topological data analysis \cite{medina2018persistence}.
+Interest in actual cochain representatives and operations, like the \mbox{cup-$i$} products, has recently been rekindled by their use in the study of topological phases of matter \cite{gaiotto2016spin, kapustin2017fermionic, barkeshli2021classification} (see also \cite{brumfiel2016pontrjagin,brumfiel2018pontrjagin})
+and topological data analysis \cite{carlsson2005barcode, medina2018persistence}.
 Additionally, the combinatorics of Steenrod's cup-$i$ products has been related to higher category theory by deducing the nerve construction from them \cite{street1987orientals, medina2020globular}, and their geometry has been explored using fibrations of convex polytopes \cite{medina2022fib_poly}.
 
-In the present work we present an axiomatic characterization of Steenrod's original cup-$i$ construction up to isomorphism and not just homotopy.
-Loosely expressed, our axioms demand that a cup-$i$ construction be natural with respect to simplicial maps, parameterized by the smallest possible complex, not identically $0$, as free as possible with respect to transpositions, and irreducible to subsimplices.
+In the present work we introduce an axiomatic characterization of Steenrod's original cup-$i$ construction up to isomorphism -- not just homotopy.
+Loosely expressed, our axioms demand that a cup-$i$ construction be natural with respect to simplicial maps, parameterized by the smallest possible complex, not identically $0$ or reducible to subsimplices, and as free as possible with respect to transpositions.
 
-The first alternative construction of cup-$i$ products is due to Real \cite{real1996computability} and furthered developed by Gonz\'alez-D\'iaz--Real \cite{gonzalez-diaz1999steenrod}.
-It is based on the Eilenberg--Zilber contraction.
+The relevance of this result is twofold.
+On the one hand, as we overview below, it clarifies that all available cup-$i$ constructions represent the same isomorphism class.
+At least for two of these, no previous proof of the equivalence with Steenrod's existed in print.
+On the other hand, it highlights the fundamental nature of Steenrod's \mbox{cup-$i$} construction illuminating its unexpected connections with convex geometry and higher category theory.
+
+The first alternative construction of \mbox{cup-$i$} products is due to Real \cite{real1996computability} and it is based on the Eilenberg--Zilber contraction.
+It was further developed by Gonz\'alez-D\'iaz--Real \cite{gonzalez-diaz1999steenrod} and used as the basis of an algorithm for the computation of Steenrod squares implementated by Palmieri on \texttt{SAGE}.\footnote{This project is available at \url{https://www.sagemath.org/}}
 We will review this construction in \cref{ss:real} and use our axioms to show it is isomorphic -- in fact equal -- to Steenrod's original.
 
-A generalization of the notion of cup-$i$ product structure is that of $E_\infty$-algebra.
-Using work by \cite[\subsectionSymbol4.5]{benson1998representations}, McClure--Smith \cite{mcclure2003multivariable} and Berger--Fresse \cite{berger2004combinatorial} constructed natural $E_\infty$-algebra structures on the normalized cochains of simplicial sets.
-As we describe in \cref{ss:operads}, the restrictions of these to arity $2$ define, after a choice of basis,
-a cup-$i$ construction satisfying our axioms.
-In fact, these authors identified bases giving rise to Steenrod's original cup-$i$ construction in each of their models.
+In \cite{medina2021fast_sq}, new formulas defining a \mbox{cup-$i$} construction were introduced and used to present a faster algorithm for the computation of Steenrod squares for finite simplicial complexes.
+This algorithm was implemented in the package \texttt{steenroder} computing persistence Steenrod barcodes for topological data analysis.\footnote{This project is currently hosted at \url{https://github.com/Steenroder/steenroder}}
+The question of comparing the resulting \mbox{cup-$i$} construction with either Steenrod's or Gonz\'alez-D\'iaz--Real's was not addressed.
+We use our axiomatic characterization to show in \cref{ss:original} that these agree.
 
-More generally, in \cite{medina2020prop1} a finitely presented prop was introduced with a natural action on normalized cochains of standard simplicial sets.
-As described in \cref{ss:operads}, any of the cup-$i$ constructions satisfying our axioms is expressible in terms of the cup-$0$ product of Alexander and Whitney and an algebraic version of the join of simplices.
+A generalization of the notion of \mbox{cup-$i$} product structure is that of $E_\infty$-algebra.
+Using work by \cite[\subsectionSymbol4.5]{benson1998representations} generalizing Steenrod's formulas, McClure--Smith \cite{mcclure2003multivariable} and Berger--Fresse \cite{berger2004combinatorial} constructed natural $E_\infty$-algebra structures on the normalized cochains of simplicial sets.
+As we describe in \cref{ss:operads}, these structures induce a bijection between the set of bases of the arity 2 part of their operads and the set of \mbox{cup-$i$} constructions satisfying our axioms.
 
-In \cite{medina2021fast_sq}, new formulas defining a cup-$i$ construction were introduced and used to present a fast algorithm for the computation of Steenrod squares in the mod 2 cohomology of finite simplicial complexes.
-This algorithm was implemented in the package \texttt{steenroder} computing Steenrod barcodes \cite{medina2018persistence} in topological data analysis.\footnote{This project is currently hosted at \url{https://github.com/Steenroder/steenroder}}
-Said formulas, recalled here as \cref{d:my cup-i construction}, are central to the proof of our axiomatic characterization, presented as \cref{t:main}.
-In \cite{medina2021fast_sq}, it was shown that they define a cup-$i$ construction and in \cref{ss:original}, that this construction agrees with Steenrod's original.
+In \cite{medina2020prop1}, the normalized chains of standard simplicial sets where shown to be equipped with a natural $\Med$-bialgebra structure generated by the Alexander--Whitney map, the augmentation, and an algebraic version of the join.
+This structure generalizes that of McClure--Smith and Berger--Fresse, in particular, we observe that Steenrod's \mbox{cup-$i$} construction can be explicitly obtained by composing the Alexander--Whitney and join maps.
 
-Analogues of Steenrod's cup-$i$ products defining effectively Steenrod's mod $p$ cohomology operations for simplicial and cubical sets were introduced in \cite{medina2021may_st}.
-We expect to provide an axiomatic characterization for these in future work.
+
+Analogues of Steenrod's \mbox{cup-$i$} products defining Steenrod's mod $p$ cohomology operations effectively for simplicial and cubical sets were introduced in \cite{medina2021may_st}.
+We expect to provide an axiomatic characterization of these in future work.
 
 \subsection*{Outline}
 
 \cref{s:preliminaries} presents the foundations of the theory of simplicial sets and chain complexes.
-Our axiomatic characterization is presented in \cref{s:statement}, and the reader is encouraged to start the paper there referring back if needed.
+Our axiomatic characterization is presented in \cref{s:statement}.
+The reader is encouraged to start the paper there and refer back if needed.
 We discuss Steenrod squares in \cref{s:squares}.
 This section is logically independent of the rest of the paper but serves to provide context for the subject.
 Before presenting any proofs, we recast in \cref{s:reformulation} the main definitions and theorems of \cref{s:statement} in terms of a functor naturally isomorphic to that of normalized chains.
 This functor seems interesting on its own right.
 The proof of our main result occupies \cref{s:proof}.
-We finish this work by showing in \cref{s:others} that all other cup-$i$ constructions in the literature are isomorphic to Steenrod's original.
+We finish this work by showing in \cref{s:others} that all other \mbox{cup-$i$} constructions in the literature are isomorphic to Steenrod's original.
 
