@@ -2,12 +2,15 @@
 
 \section{Reformulation} \label{s:reformulation}
 
+In this section we give a more category theoretic description of the notion of \mbox{cup-$i$} construction using the functor of normalized chains.
+We also introduce a functor naturally isomorphic to it -- interesting on its own right -- that simplifies the presentation of the canonical cup-$i$ construction and facilitates the proof of our main theorem.
+
 \subsection{Natural linear transformations}
 
 Recall the functors $\chains$ and $\chains \ot \chains$ from $\sSet$ to $\Ch$, and the notion of natural linear transformation $\chains \to \chains \ot \chains$ between them, i.e., a linear map $\chains(X) \to \chains(X) \ot \chains(X)$ for every simplicial set $X$ that is natural with respect to simplicial maps.
 
 \begin{lemma} \label{l:cup-i construction coalgebra}
-	A cup-$i$ construction is canonically equivalent to a collection of natural linear transformations $\triangle_i \colon \chains \to \chains \ot \chains$ for $i \in \N$ with $\triangle_0$ a natural chain map and
+	A \mbox{cup-$i$} construction is canonically equivalent to a collection of natural linear transformations $\triangle_i \colon \chains \to \chains \ot \chains$ for $i \in \N$ with $\triangle_0$ a natural chain map and
 	\[
 	\bd \circ \, \triangle_i + \triangle_i \circ \bd =
 	(1+T) \triangle_{i-1}
@@ -24,7 +27,7 @@ Recall the functors $\chains$ and $\chains \ot \chains$ from $\sSet$ to $\Ch$, a
 	\Hom_{\F[\Sym_2]} \big( W, \Hom(C, C^{\ot 2}) \big)
 	\end{align*}
 	as chain complexes of $\F$-modules.
-	In other words, the linear duality functor induces a bijection between cup-$i$ product structures on $C^\vee$ and $\F[\Sym_2]$-linear chain maps $\triangle \colon W \to \Hom(C, C^{\ot 2})$.
+	In other words, the linear duality functor induces a bijection between \mbox{cup-$i$} product structures on $C^\vee$ and $\F[\Sym_2]$-linear chain maps $\triangle \colon W \to \Hom(C, C^{\ot 2})$.
 	The latter are canonically equivalent to linear maps $\triangle_i = \triangle(e_i)$ satisfying that $\triangle_0$ is a chain map and
 	\[
 	\bd \circ \, \triangle_i + \triangle_i \circ \bd =
@@ -37,11 +40,11 @@ Recall the functors $\chains$ and $\chains \ot \chains$ from $\sSet$ to $\Ch$, a
 	\bd \circ \, \triangle_i + \triangle_i \circ \bd \ +\ (1+T) \triangle_{i-1}.
 	\end{align*}
 
-	By naturality, a cup-$i$ structure is determined by its restriction to representable simplicial sets $\simplex^n$.
+	By naturality, a \mbox{cup-$i$} structure is determined by its restriction to representable simplicial sets $\simplex^n$.
 	Since $\chains(\simplex^n)$ is finite dimensional, the previous argument involving only canonical equivalences proves the claim.
 \end{proof}
 
-Motivated by this formulation of cup-$i$ structure we present the following.
+Motivated by this formulation of \mbox{cup-$i$} structure we present the following.
 
 \begin{lemma} \label{l:natural linear map}
 	A natural linear transformation $f \colon \chains \to \chains \ot \chains$ is canonically equivalent to a collection of elements $f[n] \in \chains(\simplex^n) \ot \chains(\simplex^n)$
@@ -73,7 +76,7 @@ Motivated by this formulation of cup-$i$ structure we present the following.
 
 \subsection{The functor $\cP$}
 
-It will be convenient to use an alternative to the the functor of normalized chains which is naturally isomorphic to it.
+It will be convenient to use an alternative to the functor of normalized chains which is naturally isomorphic to it.
 This functor is constructed using the fact that every non-degenerate simplex of $\simplex^n$ is a face of the identity $[n]$.
 
 \begin{definition} \label{d:dual standard chains}
@@ -103,7 +106,6 @@ This functor is constructed using the fact that every non-degenerate simplex of 
 	is a chain isomorphism for every $n \in \N$.
 \end{lemma}
 
-\iffalse
 \begin{proof}
 	It can be easily seen that $\Psi_n$ induces a degree preserving bijection of basis elements.
 	We will verify that this assignment induces a chain map.
@@ -120,7 +122,6 @@ This functor is constructed using the fact that every non-degenerate simplex of 
 	\end{align*}
 	as claimed.
 \end{proof}
-\fi
 
 \begin{definition}
 	Let $\cP \colon \sSet \to \Ch$ be the functor defined on standard simplicial sets as in \cref{d:dual standard chains} and such that for $U \in \cP(\simplex^n)_m$ and coface $\delta_j \colon [n] \to [n+1]$
@@ -153,7 +154,7 @@ A direct consequence of \cref{e:action of P on a codegeneracy} is the following.
 
 \subsection{Cup-$i$ constructions}
 
-We can use \cref{l:cup-i construction coalgebra} and the natural isomorphism $\Psi$ of \cref{l:natural equivalence P and N} to interpret cup-$i$ constructions in terms of natural linear transformations $\triangle_i \colon \cP \to \cP \ot \cP$ satisfying
+We can use \cref{l:cup-i construction coalgebra} and the natural isomorphism $\Psi$ of \cref{l:natural equivalence P and N} to interpret \mbox{cup-$i$} constructions in terms of natural linear transformations $\triangle_i \colon \cP \to \cP \ot \cP$ satisfying
 \[
 \bd \circ \, \triangle_i + \triangle_i \circ \bd =
 (1+T) \triangle_{i-1}
@@ -168,9 +169,9 @@ Additionally, by \cref{l:natural linear map}, any $\triangle_i$ is determined by
 in the kernel of $\cP(\sigma_j)^{\ot 2}$ for every codegeneracy $\sigma_j \colon [n] \to [n-1]$,
 where $\Lambda(i,n)$ is a finite (possibly empty) indexing set, and $V_\lambda \ot W_\lambda$ is a basis element for each $\lambda \in \Lambda(i,n)$.
 
-We will identify a cup-$i$ construction and its set $\triangle = \big\{ \triangle_i [n] \big\}_{i,n \in \N}$.
+We will identify a \mbox{cup-$i$} construction and its set $\triangle = \big\{ \triangle_i [n] \big\}_{i,n \in \N}$.
 
-\subsection{Canonical cup-$i$ construction}
+\subsection{Canonical \mbox{cup-$i$} construction}
 
 \begin{definition}
 	For any $U \in \rP^n_{n-i}$ the \textbf{index function} of $U$ is given by
@@ -189,7 +190,7 @@ We will identify a cup-$i$ construction and its set $\triangle = \big\{ \triangl
 By inspecting \cref{d:my cup-i construction} we have the following.
 
 \begin{lemma} \label{l:canonical cup-i construction}
-	The canonical cup-$i$ construction is given by the collection of elements $\Delta_i[n] \in \cP(\simplex^n)^{\ot 2}_{i+n}$ for $i,n \in \N$ with
+	The canonical \mbox{cup-$i$} construction is given by the collection of elements $\Delta_i[n] \in \cP(\simplex^n)^{\ot 2}_{i+n}$ for $i,n \in \N$ with
 	\[
 	\Delta_i[n] \ =
 	\sum_{U \in \rP^n_{n-i} \kern-5pt} U^0 \ot U^1
