@@ -2,10 +2,12 @@
 
 \section{Steenrod squares} \label{s:squares}
 
+This section is included to provide context to our results and is logically independent of the rest of this paper.
+
 By an acyclic carrier argument \cite{eilenberg1953acyclic} all non-degenerate \mbox{cup-$i$} constructions are homotopic to each other.
 Any of them gives rise to the following celebrated cohomology operations introduced by Steenrod in \cite{steenrod1947products} through an explicit \mbox{cup-$i$} construction reviewed in \cref{ss:original}.
 
-\begin{definition}
+\begin{definition*}
 	For any non-degenerate \mbox{cup-$i$} construction the \textbf{$k^\th$ Steenrod square} is defined on cocycle representatives by
 	\[
 	\begin{tikzcd} [column sep=tiny, row sep=0]
@@ -13,11 +15,29 @@ Any of them gives rise to the following celebrated cohomology operations introdu
 	& {[\alpha]} \arrow[r, mapsto] & \big[ \alpha \cup_{n-k} \alpha \big].
 	\end{tikzcd}
 	\]
-\end{definition}
+\end{definition*}
 
-Steenrod squares are axiomatically characterized \cite{steenrod1962cohomology}, and one can interpret \cref{t:main} as a continuation of these efforts capturing the isomorphism type, and not just the homotopy type, of Steenrod's original construction.
+Steenrod squares generate all stable operation on mod $2$ cohomology.
+They have been axiomatically characterized \cite{steenrod1962cohomology}, and one can interpret \cref{t:main} as a continuation of this result capturing the isomorphism type, and not just the homotopy type, of Steenrod's original construction.
 
-\begin{remark}[Relations]
+\begin{remark*}[Discrimination tools]
+	We can illustrate the additional discriminatory power offered by these operations considering the following isomorphisms:
+	\begin{enumerate}
+		\item As graded vector spaces, $\rH^\vee(\R P^2; \Ftwo) \cong \rH^\vee(S^1 \wedge S^2; \Ftwo)$
+		but they are distinguished by $\Sq^1$.
+		\item As graded modules, $\rH^\vee(\mathbb C P^2; \Z) \cong \rH^\vee(S^2 \wedge S^4; \Z)$
+		but they are distinguished by $\Sq^2$.
+		\item As graded rings, $\rH^\vee(\Sigma \mathbb C P^2; \Z) \cong \rH^\vee(\Sigma (S^2 \wedge S^4); \Z)$
+		but they are distinguished by $\Sq^2$.
+	\end{enumerate}
+\end{remark*}
+
+\begin{remark*}[Persistent homology]
+	Persistent homology is a method used on highly intensive data analysis tasks \cite{carlsson2008images, chan2013viral, lee2017quantifying} and for which various software projects exist \cite{bauer2021ripser, gudhi, medina2021giotto}.
+	Based on \cite{medina2018persistence}, the project \href{https://github.com/Steenroder/steenroder}{\texttt{steenroder}} incorporates into the persistent homology pipeline the additional information Steenrod squares provide.
+\end{remark*}
+
+\begin{remark*}[Relations]
 	Cup-$i$ products provide an effective construction of coboundaries coherently witnessing the commutativity relation of the cup product in cohomology at the cochain level.
 	There are two notable relations satisfied by Steenrod squares;
 	the first one, known as the \textit{Cartan relation}, expresses the interaction between these operations and the cup product:
@@ -31,9 +51,9 @@ Steenrod squares are axiomatically characterized \cite{steenrod1962cohomology}, 
 	\sum_{k=0}^{\lfloor i/2 \rfloor} \binom{j-k-1}{i-2k} \Sq^{i+j-k} \Sq^k.
 	\end{equation*}
 	Explicit cochains witnessing them were recently given in \cite{medina2020cartan} and \cite{medina2021adem} respectively.
-\end{remark}
+\end{remark*}
 
-\begin{remark}[Transverse intersections]
+\begin{remark*}[Transverse intersections]
 	For any space, Thom showed that every mod $2$ homology class is represented by the push-forward of the fundamental class of a closed manifold $W$ along some map to the space.
 	Furthermore, if the target $M$ is a closed manifold, and therefore satisfies Poincar\'{e} duality
 	\[
@@ -43,11 +63,11 @@ Steenrod squares are axiomatically characterized \cite{steenrod1962cohomology}, 
 	By taking $[\alpha] = [\beta]$ of degree $-k$ we have that $\Sq^k \big( [\alpha] \big)$ is represented by the transverse self-intersection of $W \to M$, that is, the intersection of this map and a generic perturbation of itself.
 	A comparison lifting this one between intersection and the cup-$0$ product of cochains was given in \cite{medina2021flowing}.
 	A generalization of this result to \mbox{cup-$i$} products is the focus of current research \cite{medina2022foundations}
-\end{remark}
+\end{remark*}
 
-\begin{remark}[Odd primes]
+\begin{remark*}[Odd primes]
 	Steenrod squares are parameterized by classes on the mod $2$ homology of $\Sym_2$.
 	Steenrod used this group homology viewpoint to non-constructively define operations on the mod $p$ cohomology of spaces \cite{steenrod1952reduced, steenrod1953cyclic, steenrod1962cohomology} for any prime $p$.
 	To define these constructively for odd primes, explicit cup-$(p,i)$ constructions were introduced in \cite{medina2021may_st} (for simplicial and cubical sets) using May's operadic viewpoint \cite{may1970general}.
 	These constructions are implemented in the computer algebra system \texttt{ComCH} \cite{medina2021comch}.\footnote{Currently hosted at \url{https://github.com/ammedmar/comch}.}
-\end{remark}
+\end{remark*}
