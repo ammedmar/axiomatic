@@ -202,7 +202,7 @@ We will rewrite a statement proven as Lemma~21 in \cite{medina2021fast_sq}.
 \begin{proof}
 	Let us assume $\triangle_i [n-1] = \Delta_i [n-1]$.
 	The other case is proven analogously.
-	Applying the boundary of $\cP(\simplex^n)^{\ot 2}$, as defined in \cref{e:boundary of P(simplex)}, to \cref{e:assumed identity with xi and barxi}	we have
+	Applying the boundary of $\cP(\simplex^n)^{\ot 2}$, as defined in \cref{e:boundary of P}, to \cref{e:assumed identity with xi and barxi}	we have
 	\begin{align*}
 	\bd \, \triangle_i [n]\ & =\!
 	\sum_{U \in \P_{n-i}^n \kern-5pt} \left(\sum_{u \notin U} {u.U^\xi} \ot {U^\barxi} \, +
@@ -333,7 +333,7 @@ We will rewrite a statement proven as Lemma~21 in \cite{medina2021fast_sq}.
 	This contradicts the irreducibility of $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ as expressed in \cref{l:properties recasted}.
 \end{proof}
 
-\subsection{Induction step and complete proof} \label{ss:step}
+\subsection{Induction step} \label{ss:step}
 
 \begin{figure}
 	\centering
@@ -384,7 +384,7 @@ We will rewrite a statement proven as Lemma~21 in \cite{medina2021fast_sq}.
 	Finally, \cref{l:second nail} implies $\triangle_i [n] = \Delta_i [n]$, i.e., $\q(i,n)$.
 \end{proof}
 
-\subsection{Proof of \cref{t:main}} \label{ss:proof}
+\subsection{Complete proof} \label{ss:proof}
 
 Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a free, non-degenerate and irreducible \mbox{cup-$i$} construction.
 We will use an induction argument over $k = n-i$ to show that for each $i \in \N$ either $\triangle_i [n] = \Delta_i [n]$ or
