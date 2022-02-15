@@ -2,8 +2,7 @@
 
 \section{Preliminaries} \label{s:preliminaries}
 
-%We are interested in the mod 2 singular cochains of spaces.
-%As is usually done, we represent spaces as simplicial sets and take advantage of the fact that all natural construction on simplicial sets need only be defined on standard simplicial sets.
+In this section we review the basic theory of simplicial sets including the construction of their normalized chains.
 
 \subsection{Simplicial sets}
 
@@ -23,18 +22,18 @@ They satisfy the \textbf{cosimplicial identities}:
 \begin{equation} \label{e:cosimplicial identities}
 \begin{split}
 \delta_j \, \delta_i &=
-\delta_i \, \delta_{j-1} \hspace*{20.9pt} i < j, \\
+\delta_i \, \delta_{j-1}, \hspace*{18.3pt} i < j, \\
 \sigma_j \, \sigma_i &=
-\sigma_i \, \sigma_{j+1} \hspace*{17.9pt} i \leq j, \\
+\sigma_i \, \sigma_{j+1}, \hspace*{15.9pt} i \leq j, \\
 \sigma_j \, \delta_i &=
 \begin{cases}
-\delta_i \, \sigma_{j-1} & i < j, \\
-\hfil \id & i = j,\, j+1, \\
-\delta_{i-1} \, \sigma_{j} & i > j + 1,
+\delta_i \, \sigma_{j-1}, & i < j, \\
+\hfil \id, & i = j,\, j+1, \\
+\delta_{i-1} \, \sigma_{j}, & i > j + 1,
 \end{cases}
 \end{split}
 \end{equation}
-which can be used to see that any morphism in the simplex category can be uniquely written in the form
+which can be used to uniquely express any morphism in the form
 \begin{equation} \label{e:canonical factorization}
 \delta_{u_{p}} \cdots\, \delta_{u_1}\, \sigma_{v_1} \cdots\, \sigma_{v_q}
 \end{equation}
@@ -42,6 +41,7 @@ for some sets of non-negative integers $U = \{u_1 < \cdots < u_{p}\}$ and $V = \
 We simplify notation and write the \textbf{canonical factorization} \eqref{e:canonical factorization} simply as $\delta_U \sigma_V$.
 
 A \textbf{simplicial set} $X$ is a contravariant functor from the simplex category to the category of sets and a \textbf{simplicial map} is a natural transformation between two simplicial sets.
+We denote this category by $\sSet$.
 As is customary we use the notation:
 \[
 X \big( [n] \big) = X_n, \qquad
@@ -50,10 +50,10 @@ X(\sigma_i) = s_i.
 \]
 Elements in $X_n$ are referred to as \mbox{\textbf{$n$-simplices}} with the integer $n$ called its \textbf{dimension} and omitted when unspecified.
 Simplices in the image of any $s_i$ are termed \textbf{degenerate}.
-We extend the notation of canonical factorizations writing $X(\delta_U \sigma_V) = s_V d_U$ with $d_\emptyset = s_\emptyset = \id$.
+We extend the notation of canonical factorizations writing $X(\delta_U \sigma_V) = s_V d_U$ with $d_\emptyset$ and $s_\emptyset$ representing the identity.
 We say that a simplex $y$ is a (proper) \textbf{face} of a simplex $x$ if $y = d_U(x)$ for some (non-empty) $U$.
 
-For each $n \in \N$, the simplicial set $\simplex^n$ referred to as the \textbf{$n^\th$ standard simplicial set} is defined by
+For each $n \in \N$, the simplicial set $\simplex^n$, referred to as the \textbf{$n^\th$ standard simplicial set}, is defined by
 \[
 \simplex^n_m = \simplex \big( [m], [n] \big), \qquad
 d_i(\delta_U\, \sigma_V) = \delta_U \sigma_V \delta_i, \qquad

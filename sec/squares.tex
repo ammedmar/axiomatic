@@ -17,8 +17,7 @@ Any of them gives rise to the following celebrated cohomology operations introdu
 	\]
 \end{definition*}
 
-Steenrod squares generate all stable operation on mod $2$ cohomology.
-They have been axiomatically characterized \cite{steenrod1962cohomology}, and one can interpret \cref{t:main} as a continuation of this result capturing the isomorphism type, and not just the homotopy type, of Steenrod's original construction.
+These operations have been axiomatically characterized \cite{steenrod1962cohomology}, and one can interpret \cref{t:main} as a continuation of this result capturing the isomorphism type, and not just the homotopy type, of Steenrod's original construction.
 
 \begin{remark*}[Discrimination tools]
 	We can illustrate the additional discriminatory power offered by these operations considering the following isomorphisms:
@@ -43,31 +42,24 @@ They have been axiomatically characterized \cite{steenrod1962cohomology}, and on
 	the first one, known as the \textit{Cartan relation}, expresses the interaction between these operations and the cup product:
 	\begin{equation*}
 	\Sq^k \big( [\alpha] [\beta] \big) =
-	\sum_{i+j=k} \Sq^i \big( [\alpha]\big)\, Sq^j \big([\beta] \big),
+	\sum_{\mathclap{i+j=k}} \, \Sq^i\big([\alpha]\big) Sq^j\big([\beta]\big),
 	\end{equation*}
 	whereas the second, the \textit{Adem relation} \cite{adem1952iteration}, expresses dependencies appearing through iteration:
 	\begin{equation*}
 	\Sq^i \Sq^j =
 	\sum_{k=0}^{\lfloor i/2 \rfloor} \binom{j-k-1}{i-2k} \Sq^{i+j-k} \Sq^k.
 	\end{equation*}
-	Explicit cochains witnessing them were recently given in \cite{medina2020cartan} and \cite{medina2021adem} respectively.
+	Explicit cochains witnessing them were recently defined in \cite{medina2020cartan} and \cite{medina2021adem} respectively.
 \end{remark*}
 
 \begin{remark*}[Transverse intersections]
-	For any space, Thom showed that every mod $2$ homology class is represented by the push-forward of the fundamental class of a closed manifold $W$ along some map to the space.
+	For any space, Thom showed that every mod~$2$ homology class is represented by the push-forward of the fundamental class of a closed manifold $W$ along some map to the space.
 	Furthermore, if the target $M$ is a closed manifold, and therefore satisfies Poincar\'{e} duality
 	\[
 	PD \colon H^k(M ;\Ftwo) \to H_{\bars{M}-k}(M; \Ftwo),
 	\]
 	the cohomology class dual to the homology class represented by the intersection of two transverse maps $V \to M$ and $W \to M$ is the cohomology class $[\alpha] [\beta]$ where $[\alpha]$ and $[\beta]$ are respectively dual to the homology classes represented by $V \to M$ and $W \to M$.
-	By taking $[\alpha] = [\beta]$ of degree $-k$ we have that $\Sq^k \big( [\alpha] \big)$ is represented by the transverse self-intersection of $W \to M$, that is, the intersection of this map and a generic perturbation of itself.
+	By taking $[\alpha] = [\beta]$ of degree $-k$ we have that $\Sq^k \big( [\alpha] \big)$ is represented by the transverse self-intersection of $W \to M$.
 	A comparison lifting this one between intersection and the cup-$0$ product of cochains was given in \cite{medina2021flowing}.
 	A generalization of this result to \mbox{cup-$i$} products is the focus of current research \cite{medina2022foundations}
-\end{remark*}
-
-\begin{remark*}[Odd primes]
-	Steenrod squares are parameterized by classes on the mod $2$ homology of $\Sym_2$.
-	Steenrod used this group homology viewpoint to non-constructively define operations on the mod $p$ cohomology of spaces \cite{steenrod1952reduced, steenrod1953cyclic, steenrod1962cohomology} for any prime $p$.
-	To define these constructively for odd primes, explicit cup-$(p,i)$ constructions were introduced in \cite{medina2021may_st} (for simplicial and cubical sets) using May's operadic viewpoint \cite{may1970general}.
-	These constructions are implemented in the computer algebra system \texttt{ComCH} \cite{medina2021comch}.\footnote{Currently hosted at \url{https://github.com/ammedmar/comch}.}
 \end{remark*}

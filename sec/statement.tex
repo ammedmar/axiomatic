@@ -11,8 +11,8 @@ Let $\Sym_2$ be the group with one non-identity element $T$ and let
 \[
 \begin{tikzcd}[column sep = 20pt]
 W = \Big(
-\F[\Sym_2]\{e_0\} &
-\F[\Sym_2]\{e_1\} \arrow[l, "\ 1+T"'] &
+\Fp[\Sym_2]\{e_0\} &
+\Fp[\Sym_2]\{e_1\} \arrow[l, "\ 1+T"'] &
 \arrow[l, "\ 1+T"'] \cdots \Big)
 \end{tikzcd}
 \]
@@ -58,7 +58,7 @@ be the minimal projective resolution of $\F$ by $\F[\Sym_2]$-modules.
 
 The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of \mbox{cup-$i$} construction; whereas the second, minimality, is manifested in the use of $W$ instead of an arbitrary (non-minimal) projective resolution of $\F$.
 
-\begin{definition} \label{d:properties of cup-i constructions}
+\begin{definition} \label{d:properties}
 	A \mbox{cup-$i$} construction is \textbf{non-degenerate} if for any simplex $x$
 	\[
 	\boxed{x \cup_0 x \neq 0}
@@ -84,17 +84,17 @@ We can now state our main result.
 	There is up to isomorphism only one non-degenerate, irreducible and free \mbox{cup-$i$} construction.
 \end{theorem}
 
-Furthermore, we will use this result to prove in \cref{s:others} that all \mbox{cup-$i$} constructions available in the literature are isomorphic to Steenrod's original \cite{steenrod1947products}.
+We will use this result to prove in \cref{s:others} that all \mbox{cup-$i$} constructions available in the literature are isomorphic to Steenrod's original \cite{steenrod1947products}.
 
 \subsection{Existence}
 
-To prove our main result we will use formulas defining one such \mbox{cup-$i$} construction introduced in \cite{medina2021fast_sq} which we now reviewed.
+To prove our main result we will use formulas defining one such \mbox{cup-$i$} construction introduced in \cite{medina2021fast_sq}.
 
-\begin{notation}
+\begin{notation*}
 	For any $n$-simplex $x$ and set $U = \{u_1 < \dots < u_r\} \subseteq \big\{ 0, \dots, n \big\}$ we write $d_U(x)$ for $d_{u_1}\! \dotsm d_{u_r}(x)$, with $d_{\emptyset}(x) = x$.
-\end{notation}
+\end{notation*}
 
-\begin{definition}[\cite{medina2021fast_sq}] \label{d:my cup-i construction}
+\begin{definition}[\cite{medina2021fast_sq}] \label{d:my cup-i}
 	Let $X$ be a simplicial set, $x \in X_n$ and $\alpha, \beta \in \cochains(X)$.
 	\begin{equation} \label{e:new formulas}
 	(\alpha \cup_i \beta)(x) =
@@ -112,21 +112,15 @@ To prove our main result we will use formulas defining one such \mbox{cup-$i$} c
 	\end{equation*}
 \end{definition}
 
-\begin{example} \label{ex:alexander-whitney diagonal}
+\begin{example}
 	For $i = 0$, \cref{e:new formulas} gives
 	\begin{equation*}
 	(\alpha \cup_0 \beta)(x) =
-	\sum_{j=0}^n \alpha \big(d_{j+1} \cdots d_{n}(x)\big) \cdot \beta \big(d_{0} \cdots d_{j-1}(x)\big)
+	\sum_{j=0}^n \alpha \big(d_{j+1} \cdots d_{n}(x)\big) \cdot \beta \big(d_{0} \cdots d_{j-1}(x)\big),
 	\end{equation*}
-	and defined the so-called \textbf{Alexander--Whitney product}.
+	the so-called \textbf{Alexander--Whitney product}.
 \end{example}
 
 The verification that our formulas in \cref{e:new formulas} define a \mbox{cup-$i$} construction is given in \cite{medina2021fast_sq}.
 We will refer to it as the \textbf{canonical \mbox{cup-$i$} construction}.
-Furthermore, as we will show, it is non-degenerate, irreducible, and free (\cref{t:existence}); and it is equal to Steenrod's original cup-$i$ construction (\cref{t:steenrod cup-i}).
-
-%We also have, as proven in \cref{ss:free non-deg irreducible}, that the following.
-%
-%\begin{theorem} \label{t:existence}
-%	The canonical \mbox{cup-$i$} construction if free, non-degenerate and irreducible.
-%\end{theorem}
+Furthermore, it is non-degenerate, irreducible, and free (\cref{t:existence}) and agrees with Steenrod's original cup-$i$ construction (\cref{t:steenrod cup-i}).
