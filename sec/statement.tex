@@ -2,21 +2,24 @@
 
 \section{Main statement} \label{s:statement}
 
+In this section we introduce the notion of \mbox{cup-$i$} construction and the properties that characterize Steenrod's.
+We state our main result and review a specific presentation of a \mbox{cup-$i$} construction satisfying these properties.
+
 \subsection{Cup-$i$ constructions}
 
 Let $\Sym_2$ be the group with one non-identity element $T$ and let
 \[
 \begin{tikzcd}[column sep = 20pt]
 W = \Big(
-\F[\Sym_2]\{e_0\} &
-\F[\Sym_2]\{e_1\} \arrow[l, "\ 1+T"'] &
+\Fp[\Sym_2]\{e_0\} &
+\Fp[\Sym_2]\{e_1\} \arrow[l, "\ 1+T"'] &
 \arrow[l, "\ 1+T"'] \cdots \Big)
 \end{tikzcd}
 \]
-be the minimal resolution of $\F$ by free $\F[\Sym_2]$-modules.
+be the minimal projective resolution of $\F$ by $\F[\Sym_2]$-modules.
 
 \begin{definition}
-	A \textbf{cup-$i$ product structure} on a chain complex $A$ is a chain map
+	A \textbf{\mbox{cup-$i$} product structure} on a chain complex $A$ is a chain map
 	\[
 	W \ot_{\F[\Sym_2]} A^{\ot 2} \to A
 	\]
@@ -25,36 +28,47 @@ be the minimal resolution of $\F$ by free $\F[\Sym_2]$-modules.
 \end{definition}
 
 \begin{remark}
-	Since a chain map $\F \ot_{\F[\Sym_2]} A^{\ot 2} \to A$ defines a commutative product on $A$, we can think of a cup-$i$ product structure on $A$ as defining a product on $A$ that satisfies a minimally derived commutativity condition.
+	Consider a \mbox{cup-$i$} product structure on $A$.
+	The induced map
+	\[
+	\Ftwo \otimes_{\Ftwo[\Sym_2]} H^{\ot 2} \to H
+	\]
+	on the homology $H$ of $A$ defines a \emph{commutative} product on it.
+	We can therefore think of the structure on $A$ as a product $\cup_0 \colon A \otimes A \to A$ that is commutative up to coherent homotopies, which are given by the maps $\cup_i \colon A \ot A \to A$ for $i > 0$.
 \end{remark}
 
 \begin{definition}
-	An \textbf{isomorphism} of cup-$i$ product structures on $A$ is an automorphism $\phi$ of $W$ making the diagram
+	An \textbf{isomorphism} of \mbox{cup-$i$} product structures on $A$ is an automorphism $\phi$ of $W$ making the diagram
 	\begin{center}
-	\begin{tikzcd}[column sep = 5]
-	W \displaytensor_{\F[\Sym_2]} A \arrow[dr, in=180, out=-90] \arrow[rr, "\phi \, \ot \, \id"] & &
+	\begin{tikzcd}[column sep=5, row sep=15]
+	W \displaytensor_{\F[\Sym_2]} A \arrow[dr, in=180, out=-90] \arrow[rr, "\phi \, \ot \, \id \, "] & &
 	W \displaytensor_{\F[\Sym_2]} A \arrow[dl, in=0, out=-90] \\
 	& A &
-	\end{tikzcd}
+ 	\end{tikzcd}
 	\end{center}
 	commute.
 \end{definition}
 
 \begin{definition}
-	A \textbf{cup-$i$ construction} (more accurately termed cup-$i$ product construction on simplicial sets) is a cup-$i$ product structure on $\cochains(X)$ for every simplicial set $X$ that is natural with respect to simplicial maps.
-	An \textbf{isomorphism} of cup-$i$ constructions is a collection of natural isomorphisms of cup-$i$ product structures.
+	A \textbf{\mbox{cup-$i$} construction} (more accurately termed \emph{\mbox{cup-$i$} product construction for simplicial sets}) is a \mbox{cup-$i$} product structure on $\cochains(X)$ for every simplicial set $X$ that is natural with respect to simplicial maps.
+	An \textbf{isomorphism} of \mbox{cup-$i$} constructions is an isomorphism of \mbox{cup-$i$} structures on $\cochains(X)$ for every simplicial set $X$ that is natural with respect to simplicial maps.
 \end{definition}
 
 \subsection{Uniqueness}
 
-The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of cup-$i$ construction; whereas the second, minimality, is manifested in the definition of cup-$i$ product structure via the use of $W$ instead of a non-minimal projective resolution of $\F$.
+The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of \mbox{cup-$i$} construction; whereas the second, minimality, is manifested in the use of $W$ instead of an arbitrary (non-minimal) projective resolution of $\F$.
 
-\begin{definition}
-	A cup-$i$ construction is \textbf{non-degenerate} if for any simplex $x$
+\begin{definition} \label{d:properties}
+	A \mbox{cup-$i$} construction is \textbf{non-degenerate} if for any simplex $x$
 	\[
 	\boxed{x \cup_0 x \neq 0}
 	\]
 	whenever $\bars{x} = 0$.
+	It is \textbf{irreducible} if for any proper face $y$ of $x$
+	\[
+	\boxed{\Big( y^{(1)} \cup_{i} y^{(2)} \Big)(x) = 0}
+	\]
+	for any two faces $y^{(1)}$ and $y^{(2)}$ of $y$.
 	It is \textbf{free} if for any two simplices $x$ and $y$
 	\[
 	\boxed{x \cup_{i} y = y \cup_{i} x} \
@@ -62,31 +76,25 @@ The first axiom alluded to in the introduction, naturality, has been explicitly 
 	\boxed{x \cup_{i} y = 0}
 	\]
 	whenever $\bars{x} \neq i$ or $\bars{y} \neq i$.
-	It is \textbf{irreducible} if for any proper face $y$ of $x$
-	\[
-	\boxed{\Big( y^{(1)} \cup_{i} y^{(2)} \Big)(x) = 0}
-	\]
-	for any two faces $y^{(1)}$ and $y^{(2)}$ of $y$.
 \end{definition}
 
 We can now state our main result.
 
 \begin{theorem} \label{t:main}
-	There is up to isomorphism only one free non-degenerate irreducible cup-$i$ construction.
+	There is up to isomorphism only one non-degenerate, irreducible and free \mbox{cup-$i$} construction.
 \end{theorem}
 
-Furthermore, we will use this result to prove in \cref{s:other presentations} that all cup-$i$ constructions available in the literature are isomorphic to Steenrod's original \cite{steenrod1947products}.
+We will use this result to prove in \cref{s:others} that all \mbox{cup-$i$} constructions available in the literature are isomorphic to Steenrod's original \cite{steenrod1947products}.
 
 \subsection{Existence}
 
-To prove our main result we will use formulas defining one such cup-$i$ construction introduced in \cite{medina2021fast_sq} and reviewed below.
-The verification that these define a \mbox{cup-$i$} construction, which we refer to as the \textbf{canonical cup-$i$ construction}, is given in the article cited.
+To prove our main result we will use formulas defining one such \mbox{cup-$i$} construction introduced in \cite{medina2021fast_sq}.
 
-\begin{notation}
-	For any $n$-simplex $x$ and set $U = \{u_1 < \dots < u_r\} \subseteq \big\{ 0, \dots, n \big\}$ we write $d_U(x)$ for $d_{u_1}\! \dotsm \, d_{u_r}(x)$, with $d_{\emptyset}(x) = x$.
-\end{notation}
+\begin{notation*}
+	For any $n$-simplex $x$ and set $U = \{u_1 < \dots < u_r\} \subseteq \big\{ 0, \dots, n \big\}$ we write $d_U(x)$ for $d_{u_1}\! \dotsm d_{u_r}(x)$, with $d_{\emptyset}(x) = x$.
+\end{notation*}
 
-\begin{definition}[\cite{medina2021fast_sq}] \label{d:my cup-i construction}
+\begin{definition}[\cite{medina2021fast_sq}] \label{d:my cup-i}
 	Let $X$ be a simplicial set, $x \in X_n$ and $\alpha, \beta \in \cochains(X)$.
 	\begin{equation} \label{e:new formulas}
 	(\alpha \cup_i \beta)(x) =
@@ -104,15 +112,15 @@ The verification that these define a \mbox{cup-$i$} construction, which we refer
 	\end{equation*}
 \end{definition}
 
-\begin{example} \label{ex:alexander-whitney diagonal}
+\begin{example}
 	For $i = 0$, \cref{e:new formulas} gives
 	\begin{equation*}
 	(\alpha \cup_0 \beta)(x) =
-	\sum_{j=0}^n \alpha \big(d_{j+1} \cdots d_{n}(x)\big) \cdot \beta \big(d_{0} \cdots d_{j-1}(x)\big).
+	\sum_{j=0}^n \alpha \big(d_{j+1} \cdots d_{n}(x)\big) \cdot \beta \big(d_{0} \cdots d_{j-1}(x)\big),
 	\end{equation*}
-	A binary operation known as \textbf{Alexander--Whitney product}.
+	the so-called \textbf{Alexander--Whitney product}.
 \end{example}
 
-\begin{theorem} \label{t:existence}
-	The canonical cup-$i$ construction if free, non-degenerate and irreducible
-\end{theorem}
+The verification that our formulas in \cref{e:new formulas} define a \mbox{cup-$i$} construction is given in \cite{medina2021fast_sq}.
+We will refer to it as the \textbf{canonical \mbox{cup-$i$} construction}.
+Furthermore, it is non-degenerate, irreducible, and free (\cref{t:existence}) and agrees with Steenrod's original cup-$i$ construction (\cref{t:steenrod cup-i}).

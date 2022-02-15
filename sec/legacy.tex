@@ -1,3 +1,41 @@
+\begin{align*}
+\triangle^{\mathrm{GR}}_i [n] = \!
+& \sum_{j_i=S(i)}^{n} \ \sum_{j_{i-1}=S(i-1)}^{j_i-1} \dots \sum_{j_1=S(1)}^{j_2-1} \\
+& \{j_0+1 < \dots < j_1-1\} \union \{j_2+1 < \dots < j_3-1\} \union \dots \union \{j_i+1 < \dots < j_n\}\\ \ot \,
+& \{0 < \dots < j_0-1\} \union \{j_1+1 < \dots < j_2-1\} \union \dots \union \{j_{i-1}+1 < \dots < j_i-1\}
+\end{align*}
+and if $n$ is odd by
+\begin{align*}
+\triangle^{\mathrm{GR}}_i [n] = \!
+& \sum_{j_i=S(i)}^{n} \ \sum_{j_{i-1}=S(i-1)}^{j_i-1} \dots \sum_{j_1=S(1)}^{j_2-1} \\
+& \{j_0+1 < \dots < j_1-1\} \union \{j_2+1 < \dots < j_3-1\} \union \dots \union \{j_{i-1}+1 < \dots < j_i-1\}\\ \ot \,
+& \{0 < \dots < j_0-1\} \union \{j_1+1 < \dots < j_2-1\} \union \dots \union \{j_i+1 < \dots < j_n\},
+\end{align*}
+where
+
+
+%	Since a chain map $\F \ot_{\F[\Sym_2]} A^{\ot 2} \to A$ defines a commutative product on a chain complex $A$, we can think of a cup-$i$ product structure on $A$ as defining a product on $A$ that satisfies a (minimally) derived commutativity condition.
+
+%\begin{definition}
+%	For any $U \in \rP^n_{n-i}$ the \textbf{index function} of $U$ is defined by
+%	\[
+%	\begin{split}
+%	\ind_U \colon U &\to \F \\
+%	u_j &\mapsto u_j + j \mod 2,
+%	\end{split}
+%	\]
+%	and we refer to the ordered partition $U = U^0 \sqcup U^1$ where $U^\varepsilon = \ind_U^{-1}(\varepsilon)$ for $\varepsilon \in \Ftwo \cong \{0,1\}$ as its \textbf{index splitting}.
+%\end{definition}
+%
+%\begin{example} \label{l:canonical cup-i construction}
+%	The canonical cup-$i$ construction (\cref{d:my cup-i construction}) is given by the collection of elements $\Delta_i[n] \in \cP(\simplex^n)^{\ot 2}$ for $i,n \in \N$ with
+%	\[
+%	\Delta_i[n] \ =
+%	\sum_{U \in \rP^n_{n-i} \kern-5pt} U^0 \ot U^1
+%	\]
+%	if $i \leq n$ and $\Delta_i[n] = 0$ otherwise.
+%\end{example}
+
 \subsection{Coalgebra version}
 
 \begin{lemma} \label{lemma: cup-i constructions and diagonals are the same}
