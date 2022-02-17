@@ -159,9 +159,11 @@ The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
 	For $i,n \in \N$ with $i < n$ we have:
 	\[
 	\Delta_i \bd \, [n] =
-	\sum_{\mathclap{U \in \P_{n-i}^n}} \ \left( \
+	\sum_{\mathclap{U \in \P_{n-i}^n}} \
+	\left(\
 	\sum_{\mathclap{u \in U^1}} u.U^0 \ot U^1 +
-	\sum_{\mathclap{u \in U^0}} U^0 \ot u.U^1 \right).
+	\sum_{\mathclap{u \in U^0}} U^0 \ot u.U^1
+	\right).
 	\]
 \end{proposition}
 
@@ -200,32 +202,37 @@ The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
 	\begin{align*}
 	\bd \triangle_i [n] & =
 	\sum_{\mathclap{U \in \P_{n-i}^n}} \
-	\left( \ \sum_{u \notin U} u.U^\xi \ot U^\barxi +
-	\sum_{u \notin U} {U^\xi} \ot {u.U^\barxi} \right) \\ & +
+	\left(\
+	\sum_{\mathclap{u \notin U}} u.U^\xi \ot U^\barxi +
+	\sum_{\mathclap{u \notin U}} U^\xi \ot u.U^\barxi
+	\right) \\ & +
 	\sum_{\mathclap{U \in \P_{n-i}^n}} \
-	\left(\sum_{u \in U^\barxi} {u.U^\xi} \ot {U^\barxi} +
-	\sum_{u \in U^{\xi}} U^\xi \ot u.U^\barxi \right).
+	\left(\
+	\sum_{\mathclap{u \in U^\barxi}} u.U^\xi \ot U^\barxi +
+	\sum_{\mathclap{u \in U^{\xi}}} U^\xi \ot u.U^\barxi
+	\right).
 	\end{align*}
 	By assumption and \cref{p:fact} we have
 	\[
 	\triangle_i \bd \, [n] =
 	\Delta_i \bd \, [n] =
 	\sum_{\mathclap{U \in \P_{n-i}^n}} \
-	\left( \
+	\left(\
 	\sum_{\mathclap{u \in U^1}} u.U^0 \ot U^1 +
 	\sum_{\mathclap{u \in U^0}} U^0 \ot u.U^1
 	\right).
 	\]
 	Adding this last two identities together we have
 	\begin{align}
-	(1+T) \triangle_{i-1} [n] &= \bd \triangle_i [n] + \triangle_i \bd \, [n] \\ &=
+	(1+T) \triangle_{i-1} [n] &=
+	\bd \triangle_i [n] + \triangle_i \bd \, [n] \\ &=
 	\label{e:top} \sum_{\mathclap{U \in \P_{n-i}^n}} \
-	\left( \
+	\left(\
 	\sum_{\mathclap{u \notin U}} u.U^\xi \ot U^\barxi +
 	\sum_{\mathclap{u \notin U}} U^\xi \ot u.U^\barxi
 	\right) \\ &+ \,
 	\label{e:bottom} (1+T) \sum_{\mathclap{\substack{U \in \P_{n-i}^n \\ \xi(U) \neq 0}}} \
-	\left( \
+	\left(\
 	\sum_{\mathclap{u \in U^1}} u.U^0 \ot U^1 +
 	\sum_{\mathclap{u \in U^0}} U^0 \ot u.U^1
 	\right).
@@ -250,21 +257,27 @@ The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
 
 	Observe that the sum
 	\[
-	\sum_{\Lambda_{j \wedge j+1}} \left( \sum_{u \in U^1} {u.U^0} \ot {U^1} +
-	\sum_{u \in U^0} {U^0} \ot {u.U^1} \right)
+	\sum_{\mathclap{\Lambda_{j \wedge j+1}}}
+	\left(\
+	\sum_{u \in U^1} {u.U^0} \ot {U^1} +
+	\sum_{u \in U^0} {U^0} \ot {u.U^1}
+	\right)
 	\]
 	is in $K^{(j)}$ since, given that $\ind_U(j) = \ind_U(j+1)$, the only non-zero summands associated to $(U,j)$ and $(U,j+1)$ cancel each other.
 	Therefore, applying $\cP(\sigma_j) \ot \cP(\sigma_j)$ to
 	\[
-	\sum_{\substack{\P_{n-i}^n \\ \xi(U) \neq 0}} \left(\sum_{u \in U^1} {u.U^0} \ot {U^1} +
-	\sum_{u \in U^0} {U^0} \ot {u.U^1} \right)
+	\sum_{\mathclap{\substack{\P_{n-i}^n \\ \xi(U) \neq 0}}}
+	\left(\
+	\sum_{u \in U^1} {u.U^0} \ot {U^1} +
+	\sum_{u \in U^0} {U^0} \ot {u.U^1}
+	\right)
 	\]
 	yields
 	\begin{align*}
-	&\sum_{\Lambda_{j}^0} U^0 \setminus \{j\} \ot {U^1} \ + \
-	\sum_{\Lambda_{j}^1} U^0 \ot {U^1} \setminus \{j\} \\ + \
-	&\sum_{\Lambda_{j+1}^0} U^0 \setminus \{j+1\} \ot {U^1} \ + \
-	\sum_{\Lambda_{j+1}^1} U^0 \ot {U^1} \setminus \{j+1\}.
+	&\sum_{\mathclap{\Lambda_{j}^0}} U^0 \setminus \{j\} \ot {U^1}	+
+	\sum_{\mathclap{\Lambda_{j}^1}} U^0 \ot {U^1} \setminus \{j\} \\ +
+	&\sum_{\mathclap{\Lambda_{j+1}^0}} U^0 \setminus \{j+1\} \ot {U^1} +
+	\sum_{\mathclap{\Lambda_{j+1}^1}} U^0 \ot {U^1} \setminus \{j+1\}.
 	\end{align*}
 	which must be in the kernel of $(1+T)$.
 	This implies the existence of an involution $\phi^{(j)}$ of $\Lambda = \Lambda^0_{j} \sqcup \Lambda^1_{j} \sqcup \Lambda^1_{j+1} \sqcup \Lambda^1_{j+1}$ defined by a choice of canceling pairs.
@@ -310,7 +323,7 @@ The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
 	\begin{split}
 	\Delta_i \bd \, [n] &=
 	\sum_{\mathclap{U \in \P_{n-i}^n}} \
-	\left( \
+	\left(\
 	\sum_{\mathclap{u \in U^1}} u.U^0 \ot U^1 +
 	\sum_{\mathclap{u \in U^0}} U^0 \ot u.U^1
 	\right), \\
@@ -322,7 +335,7 @@ The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
 	\begin{align*}
 	(1+T) \triangle_{i-1}[n] &=
 	(1+T) \sum_{\mathclap{U \in \P_{n-i}^n}} \
-	\left( \
+	\left(\
 	\sum_{\mathclap{u \in U^1}} u.U^0 \ot U^1 +
 	\sum_{\mathclap{u \in U^0}} U^0 \ot u.U^1
 	\right) \\ &+
@@ -332,7 +345,7 @@ The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
 	\begin{align*}
 	\triangle_{i-1}[n] \ &=
 	\sum_{\mathclap{U \in \P_{n-i}^n}} \
-	\left( \
+	\left(\
 	\sum_{\mathclap{u \in U^\bareta}} u.U^\eta \ot U^\bareta +
 	\sum_{\mathclap{u \in U^\eta}} U^\eta \ot u.U^\bareta
 	\right) \\ &+
