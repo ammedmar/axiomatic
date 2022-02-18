@@ -35,18 +35,7 @@
 \DeclareMathOperator{\EZ}{EZ}
 \DeclareMathOperator{\AW}{AW}
 \newcommand{\diag}{\mathrm{D}}
-\DeclareMathOperator{\copr}{\Delta}
-\DeclareMathOperator{\aug}{\epsilon}
-\DeclareMathOperator{\pr}{\ast}
 
-% elements
-\newcommand{\id}{\mathsf{id}}
-\newcommand{\Med}{\cM}
-\newcommand{\UM}{{\forget(\Med)}}
-\newcommand{\MSL}{{\Med_{sl}}}
-\newcommand{\USL}{{\forget(\Med_{sl})}}
-\newcommand{\Surj}{\cX}
-\newcommand{\BE}{\cE}
 
 % sets and spaces
 \newcommand{\N}{\mathbb{N}}
@@ -59,10 +48,8 @@
 \newcommand{\Ftwo}{{\mathbb{F}_2}}
 \newcommand{\Fp}{{\mathbb{F}_p}}
 \newcommand{\Cp}{{\mathbb{C}_p}}
-\newcommand{\graphs}{\mathfrak{G}}
 \newcommand{\gsimplex}{\mathbb{\Delta}}
 \newcommand{\gcube}{\mathbb{I}}
-\newcommand{\scube}[1]{(\triangle^{\!1})^{\times #1}}
 
 % categories
 \newcommand{\Cat}{\mathsf{Cat}}
@@ -79,8 +66,6 @@
 \newcommand{\coAlg}{\mathsf{coAlg}}
 \newcommand{\biAlg}{\mathsf{biAlg}}
 \newcommand{\sGrp}{\mathsf{sGrp}}
-\newcommand{\Nec}{\mathsf{Nec}}
-\newcommand{\nSet}{\mathsf{nSet}}
 \newcommand{\Mon}{\mathsf{Mon}}
 \newcommand{\SymMod}{\mathsf{Mod}_{\Sym}}
 \newcommand{\SymBimod}{\mathsf{biMod}_{\Sym}}
@@ -91,8 +76,7 @@
 \DeclareMathOperator{\free}{F}
 \DeclareMathOperator{\forget}{U}
 \DeclareMathOperator{\yoneda}{\mathcal{Y}}
-\DeclareMathOperator{\sSing}{Sing^{\simplex}}
-\DeclareMathOperator{\cSing}{Sing^{\cube}}
+\DeclareMathOperator{\Sing}{Sing}
 \newcommand{\loops}{\Omega}
 \DeclareMathOperator{\cobar}{\mathbf{\Omega}}
 \DeclareMathOperator{\proj}{\pi}
@@ -100,36 +84,29 @@
 
 % chains
 \DeclareMathOperator{\chains}{N}
-\DeclareMathOperator{\schains}{N^{\simplex}}
-\DeclareMathOperator{\cchains}{N^{\cube}}
 \DeclareMathOperator{\cochains}{N^{\vee}}
-\DeclareMathOperator{\scochains}{N^{\vee}_{\simplex}}
-\DeclareMathOperator{\ccochains}{N^{\vee}_{\cube}}
-\DeclareMathOperator{\Schains}{S}
-\DeclareMathOperator{\sSchains}{S^{\simplex}}
-\DeclareMathOperator{\cSchains}{S^{\cube}}
-\DeclareMathOperator{\sScochains}{S^{\vee}_{\simplex}}
-\DeclareMathOperator{\cScochains}{S^{\vee}_{\cube}}
 \DeclareMathOperator{\gchains}{C}
 
+% pair delimiters (mathtools)
+\DeclarePairedDelimiter\bars{\lvert}{\rvert}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\DeclarePairedDelimiter\angles{\langle}{\rangle}
+\DeclarePairedDelimiter\set{\{}{\}}
+
 % other
+\newcommand{\id}{\mathsf{id}}
 \renewcommand{\th}{\mathrm{th}}
 \newcommand{\op}{\mathrm{op}}
 \DeclareMathOperator*{\colim}{colim}
 \DeclareMathOperator{\coker}{coker}
-\newcommand{\tensor}{\otimes}
+\DeclareMathOperator{\Med}{\mathcal{M}}
 \newcommand{\Hom}{\mathrm{Hom}}
 \newcommand{\End}{\mathrm{End}}
 \newcommand{\coEnd}{\mathrm{coEnd}}
 \newcommand{\biEnd}{\mathrm{biEnd}}
-\newcommand{\bars}[1]{\lvert#1\rvert}
-\newcommand{\norm}[1]{\lVert#1\Vert}
-\newcommand{\angles}[1]{\langle#1\rangle}
-\newcommand{\pairing}[2]{\langle#1, #2\rangle}
 \newcommand{\xla}[1]{\xleftarrow{#1}}
 \newcommand{\xra}[1]{\xrightarrow{#1}}
 \newcommand{\defeq}{\stackrel{\mathrm{def}}{=}}
-\newcommand{\pdfEinfty}{\texorpdfstring{${E_\infty}$}{E-infty}}
 
 % letters
 \newcommand{\bk}{\mathbb{k}}
