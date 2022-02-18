@@ -250,7 +250,7 @@ The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
 	The claim follows from the existence of the bijections $\Gamma_{j}^\xi \cong \Gamma_{j+1}^\xi$ and $\Gamma_{j}^\barxi \cong \Gamma_{j+1}^\barxi$ defined by the assignments $U \mapsto (j+1).\big( U \setminus \{j\} \big)$ and $U \mapsto j.\big( U \setminus \{j+1\} \big)$, since two summands related by one of these bijections are sent to the same element by $\cP(\sigma_j) \ot \cP(\sigma_j)$.
 
 	We will impose conditions on summand \eqref{e:bottom} following an analysis similar to the one just given.
-	Notice that $(1+T)$ commutes with $\cP(\sigma_j) \ot \cP(\sigma_j)$ and that the only basis elements in \eqref{e:bottom} not in $K^{(j)}$ are associated to pairs $(U, u)$ with $\xi(U) \neq 0$ and $u = j$ or $ u = j+1$.
+	Notice that $(1+T)$ commutes with $\cP(\sigma_j)^{\ot 2}$ and that the only basis elements in \eqref{e:bottom} not in $K^{(j)}$ are associated to pairs $(U, u)$ with $\xi(U) \neq 0$ and $u = j$ or $ u = j+1$.
 	Let $\Lambda_{j}^0$ be the subset of $\{U \in \P_{n-i}^n \mid \xi(U) \neq 0\}$ consisting of sets $U$ with $j \in U^0$ and $j+1 \notin U$.
 	We define $\Lambda_{j}^1$, $\Lambda_{j+1}^0$, and $\Lambda_{j+1}^1$ analogously.
 	The set $\Lambda_{j \wedge j+1}$ is defined by the conditions $\xi(U) \neq 0$ and $j,j+1 \in U$.
@@ -259,24 +259,24 @@ The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
 	\[
 	\sum_{\mathclap{\Lambda_{j \wedge j+1}}}
 	\left(\
-	\sum_{u \in U^1} {u.U^0} \ot {U^1} +
-	\sum_{u \in U^0} {U^0} \ot {u.U^1}
+	\sum_{u \in U^1} u.U^0 \ot U^1 +
+	\sum_{u \in U^0} U^0 \ot u.U^1
 	\right)
 	\]
 	is in $K^{(j)}$ since, given that $\ind_U(j) = \ind_U(j+1)$, the only non-zero summands associated to $(U,j)$ and $(U,j+1)$ cancel each other.
-	Therefore, applying $\cP(\sigma_j) \ot \cP(\sigma_j)$ to
+	Therefore, applying $\cP(\sigma_j)^{\ot 2}$ to
 	\[
 	\sum_{\mathclap{\substack{\P_{n-i}^n \\ \xi(U) \neq 0}}}
 	\left(\
-	\sum_{u \in U^1} {u.U^0} \ot {U^1} +
-	\sum_{u \in U^0} {U^0} \ot {u.U^1}
+	\sum_{u \in U^1} {u.U^0} \ot U^1 +
+	\sum_{u \in U^0} {U^0} \ot u.U^1
 	\right)
 	\]
 	yields
 	\begin{align*}
-	&\sum_{\mathclap{\Lambda_{j}^0}} U^0 \setminus \{j\} \ot {U^1}	+
-	\sum_{\mathclap{\Lambda_{j}^1}} U^0 \ot {U^1} \setminus \{j\} \\ +
-	&\sum_{\mathclap{\Lambda_{j+1}^0}} U^0 \setminus \{j+1\} \ot {U^1} +
+	&\sum_{\mathclap{\Lambda_{j}^0}} U^0 \setminus \{j\} \ot U^1	+
+	\sum_{\mathclap{\Lambda_{j}^1}} U^0 \ot U^1 \setminus \{j\} \\ +
+	&\sum_{\mathclap{\Lambda_{j+1}^0}} U^0 \setminus \{j+1\} \ot U^1 +
 	\sum_{\mathclap{\Lambda_{j+1}^1}} U^0 \ot {U^1} \setminus \{j+1\}.
 	\end{align*}
 	which must be in the kernel of $(1+T)$.

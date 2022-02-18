@@ -132,7 +132,7 @@ A small variation of the proof given for \cref{t:steenrod cup-i} establishes the
 \subsection{Operads} \label{ss:operads}
 
 In this section, independent of the main results of this work, we assume familiarity with the theory of operads over the category of chain complexes (of $\Ftwo$-modules).
-We discuss the relationship between Steenrod's cup-$i$ construction and the $E_\infty$-structures of McClure--Smith \cite{mcclure2003multivariable}, Berger--Fresse \cite{berger2004combinatorial}, and the author \cite{medina2020prop1,medina2021prop2}.
+We discuss Steenrod's cup-$i$ construction as generalized by the $E_\infty$-structures of McClure--Smith \cite{mcclure2003multivariable}, Berger--Fresse \cite{berger2004combinatorial}, and the author \cite{medina2020prop1,medina2021prop2}.
 
 \subsubsection{}
 
@@ -149,7 +149,7 @@ such that the first two define the structure of a counital coalgebra on $B$, and
 \varepsilon \ot \id + \id \ot \varepsilon.
 \end{gather*}
 As proven in \cite{medina2020prop1}, any $\Med$-bialgebra $B$ is an $E_\infty$-coalgebra by discarding compositions of the generators defining maps of the form $B^{\ot s} \to B^{\ot r}$ for $s \neq 1$.
-The $E_\infty$-operad controlling this structure is denoted $\UM$.
+The $E_\infty$-operad controlling this structure is denoted $\forget(\Med)$.
 
 The complex of normalized chains of a standard simplicial set is naturally an $\Med$-bialgebra with the Alexander--Whitney coproduct $\Delta$, the augmentation map $\varepsilon$, and the \textbf{join product} $\ast \colon \chains^{\ot 2}(\simplex^n) \to \chains(\simplex^n)$ defined by
 \[
@@ -158,13 +158,14 @@ The complex of normalized chains of a standard simplicial set is naturally an $\
 \hfil 0 & \text{ if not}, \end{cases}
 \]
 where $\pi$ is the permutation that orders the vertices.
-The natural $\UM$-coalgebra structure on $\chains(\simplex^n)$ extends to $\chains(X)$ for every simplicial set $X$.
+We remark that this structure is induced from an analogue one in the cellular context \cite{medina2021prop2}.
+The natural $\forget(\Med)$-coalgebra structure on $\chains(\simplex^n)$ extends to $\chains(X)$ for every simplicial set $X$.
 Using this $E_\infty$-coalgebra structure, a \mbox{cup-$i$} construction is recursively defined by
 \begin{equation} \label{e:prop cup-i}
 \begin{split}
-& \copr_0 = \copr, \\
-& \copr_i =
-(\ast \ot \id) \circ (\id \ot T \copr_{i-1}) \circ \copr.
+& \Delta_0 = \Delta, \\
+& \Delta_i =
+(\ast \ot \id) \circ (\id \ot T \Delta_{i-1}) \circ \Delta.
 \end{split}
 \end{equation}
 We can directly compare \cref{e:prop cup-i} to \cref{e:original i odd,e:original i even} to conclude that this \mbox{cup-$i$} construction agrees with Steenrod's original.
@@ -190,7 +191,7 @@ where $\ast^0 = \id$ and $\pi_s$ is the shuffle permutation defined by
 \big( 1, \dots, 1, \dots, r, \dots, r \big).
 \]
 This assignment defines the \textbf{surjection operad} $\cX$ of McClure--Smith \cite{mcclure2003multivariable} as a suboperad of the endomorphism operad of $\chains$.
-Furthermore, it is clear that for any simplicial set $X$ the $\cX$-coalgebra on $\chains(X)$ is controlled by its $\UM$-coalgebra structure i.e., by the Alexander--Whitney coproduct and the join product.
+Furthermore, it is clear that for any simplicial set $X$ the $\cX$-coalgebra on $\chains(X)$ is controlled by its $\forget(\Med)$-coalgebra structure i.e., by the Alexander--Whitney coproduct and the join product.
 Additionally, we can inspect \cref{e:prop cup-i} to conclude that the surjections $\big\{ (1,2), (1,2,1), (1,2,1,2), \dots \big\}$ define Steenrod's original \mbox{cup-$i$} construction.
 In fact, $\cX(2)$ is isomorphic to $W$ so its set of bases is in bijection with the set of a \mbox{cup-$i$} constructions satisfying our axioms.
 
@@ -208,11 +209,11 @@ The partial composition of permutations
 \[
 \circ_j \colon \Sym_p \times \Sym_q \to \Sym_{p+q-1}
 \]
-induces an operad structure on the collection of normalized chains $\BE(r) = \chains(E \Sym_r)$.
-This $E_\infty$-operad, introduced by Berger--Fresse \cite{berger2004combinatorial}, is referred to as the \textbf{Barratt--Eccles operad} and is here denoted by $\BE$.
-These authors also define a quasi-isomorphism of operads $\mathrm{TR} \colon \BE \to \cX$ and use it to associate to any simplex in $E \Sym_r$ a natural linear transformation $\chains \to \chains^{\ot r}$.
-In particular, for any simplicial set $X$ the $\BE$-coalgebra structure on $\chains(X)$ is controlled by its $\UM$-coalgebra structure, i.e., by the Alexander--Whitney coproduct and the join product.
-Since for the isomorphism $\mathrm{TR} \colon \BE(2) \to \cX(2)$ we have
+induces an operad structure on the collection of normalized chains $\cE(r) = \chains(E \Sym_r)$.
+This $E_\infty$-operad, introduced by Berger--Fresse \cite{berger2004combinatorial}, is referred to as the \textbf{Barratt--Eccles operad} and is here denoted by $\cE$.
+These authors also define a quasi-isomorphism of operads $\mathrm{TR} \colon \cE \to \cX$ and use it to associate to any simplex in $E \Sym_r$ a natural linear transformation $\chains \to \chains^{\ot r}$.
+In particular, for any simplicial set $X$ the $\cE$-coalgebra structure on $\chains(X)$ is controlled by its $\forget(\Med)$-coalgebra structure, i.e., by the Alexander--Whitney coproduct and the join product.
+Since for the isomorphism $\mathrm{TR} \colon \cE(2) \to \cX(2)$ we have
 \[
 \mathrm{TR}(\id, T, \id, \dots, T^i) =
 \begin{cases}
@@ -220,7 +221,7 @@ Since for the isomorphism $\mathrm{TR} \colon \BE(2) \to \cX(2)$ we have
 (1,2,\dots,2,1) & \text{ if } m \text{ is odd},
 \end{cases}
 \]
-the elements $\big\{ (\id, T, \id, \dots, T^i) \big\}_{i \in \N}$ define a \mbox{cup-$i$} construction that agrees with Steenrod's, and the set of bases of $\BE(2)$ is in bijection with the set of a \mbox{cup-$i$} constructions satisfying our axioms.
+the elements $\big\{ (\id, T, \id, \dots, T^i) \big\}_{i \in \N}$ define a \mbox{cup-$i$} construction that agrees with Steenrod's, and the set of bases of $\cE(2)$ is in bijection with the set of a \mbox{cup-$i$} constructions satisfying our axioms.
 
 \subsection{}
 
@@ -233,7 +234,7 @@ W(p) \to \Hom(\chains, \chains^{\ot p})
 \]
 where
 \[
-\begin{tikzcd}[column sep = 20pt]
+\begin{tikzcd}[column sep=20pt]
 	W(p) = \Big(
 	\Fp[\Sym_p]\{e_0\} &
 	\Fp[\Sym_p]\{e_1\} \arrow[l, "\ T-1"'] &

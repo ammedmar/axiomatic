@@ -7,10 +7,10 @@ We also introduce a functor naturally isomorphic to it -- interesting on its own
 
 \subsection{Natural linear transformations}
 
-Recall the functors $\chains$ and $\chains \ot \chains$ from $\sSet$ to $\Ch$, and the notion of natural linear transformation $\chains \to \chains \ot \chains$ between them, i.e., a linear map $\chains(X) \to \chains(X) \ot \chains(X)$ for every simplicial set $X$ that is natural with respect to simplicial maps.
+Recall the functors $\chains$ and $\chains^{\ot 2}$ from $\sSet$ to $\Ch$, and the notion of natural linear transformation $\chains \to \chains^{\ot 2}$ between them, i.e., a linear map $\chains(X) \to \chains(X)^{\ot 2}$ for every simplicial set $X$ that is natural with respect to simplicial maps.
 
 \begin{lemma} \label{l:coalgebra}
-	A \mbox{cup-$i$} construction is canonically equivalent to a collection of natural linear transformations $\triangle_i \colon \chains \to \chains \ot \chains$ for $i \in \N$ satisfying
+	A \mbox{cup-$i$} construction is canonically equivalent to a collection of natural linear transformations $\triangle_i \colon \chains \to \chains^{\ot 2}$ for $i \in \N$ satisfying
 	\[
 	\bd \circ \, \triangle_i + \triangle_i \circ \bd =
 	(1+T) \triangle_{i-1}
@@ -47,7 +47,7 @@ Recall the functors $\chains$ and $\chains \ot \chains$ from $\sSet$ to $\Ch$, a
 Motivated by this formulation of \mbox{cup-$i$} structure we present the following.
 
 \begin{lemma} \label{l:natural}
-	A natural linear transformation $f \colon \chains \to \chains \ot \chains$ is canonically equivalent to a collection of elements $f[n] \in \chains(\simplex^n)^{\ot 2}$	for $n \in \N$ whose image under $\chains(\sigma_j)^{\ot 2}$ is $0$
+	A natural linear transformation $f \colon \chains \to \chains^{\ot 2}$ is canonically equivalent to a collection of elements $f[n] \in \chains(\simplex^n)^{\ot 2}$	for $n \in \N$ whose image under $\chains(\sigma_j)^{\ot 2}$ is $0$
 	for each codegeneracy map $\sigma_j \colon [n] \to [n-1]$.
 \end{lemma}
 
@@ -56,8 +56,8 @@ Motivated by this formulation of \mbox{cup-$i$} structure we present the followi
 	Furthermore, for any non-degenerate simplex $\big( x \colon [m] \to [n] \big) \in \simplex^n_m$ we have
 	\[
 	f(x) = f \big( x \circ [m] \big) =
-	\big( f \circ \chains(x) \big) [m] =
-	\big( \chains(x) \ot \chains(x) \big) f[m],
+	f \circ \chains(x) [m] =
+	\chains(x)^{\ot 2} f[m],
 	\]
 	so the elements $f[m]$ with $m \in \N$ determine $f$.
 	Here $[m]$ denotes the identity of the object $[m]$ and we are using $x$ to also denote the simplicial map $\simplex^m \to \simplex^n$ defined by $y \mapsto x \circ y$.
@@ -68,7 +68,7 @@ Motivated by this formulation of \mbox{cup-$i$} structure we present the followi
 	0 = f(0) = f(\sigma_j) =
 	f \big( \sigma_j \circ [n] \big) =
 	\big( f \circ \chains(\sigma_j) \big) [n] =
-	\big( \chains \sigma_j \ot \chains(\sigma_j) \big) f[n]
+	\chains(\sigma_j)^{\ot 2} f[n]
 	\]
 	as claimed.
 \end{proof}
@@ -155,7 +155,7 @@ A direct consequence of \cref{e:codegeneracy P} is the following.
 
 \subsection{Cup-$i$ constructions}
 
-We can use \cref{l:coalgebra} and the natural isomorphism $\Psi$ of \cref{l:P and N} to interpret \mbox{cup-$i$} constructions in terms of natural linear transformations $\triangle_i \colon \cP \to \cP \ot \cP$ satisfying
+We can use \cref{l:coalgebra} and the natural isomorphism $\Psi$ of \cref{l:P and N} to interpret \mbox{cup-$i$} constructions in terms of natural linear transformations $\triangle_i \colon \cP \to \cP^{\ot 2}$ satisfying
 \[
 \bd \circ \, \triangle_i + \triangle_i \circ \bd =
 (1+T) \triangle_{i-1}
