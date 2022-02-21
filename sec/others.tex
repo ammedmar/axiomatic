@@ -90,7 +90,7 @@ an alternative \mbox{cup-$i$} construction was introduced based on the Alexander
 \[
 \AW \colon \chains(\simplex^n \times \simplex^n)
 \rightleftarrows
-\chains(\simplex^n) \ot \chains(\simplex^n) \,: \EZ,
+\chains(\simplex^n) \ot \chains(\simplex^n) \,: \EZ
 \]
 and an explicit natural chain homotopy $\mathrm{SHI}$ between their non-trivial composition $\EZ \AW$ and the identity.
 The natural linear transformations defining \textbf{Real's \mbox{cup-$i$} construction} are
@@ -132,23 +132,24 @@ A small variation of the proof given for \cref{t:steenrod cup-i} establishes the
 \subsection{Operads} \label{ss:operads}
 
 In this section, independent of the main results of this work, we assume familiarity with the theory of operads over the category of chain complexes (of $\Ftwo$-modules).
-We discuss Steenrod's cup-$i$ construction as generalized by the $E_\infty$-structures of McClure--Smith \cite{mcclure2003multivariable}, Berger--Fresse \cite{berger2004combinatorial}, and the author \cite{medina2020prop1,medina2021prop2}.
+We discuss Steenrod's cup-$i$ construction as generalized by the $E_\infty$-structures of McClure--Smith \cite{mcclure2003multivariable}, Berger--Fresse \cite{berger2004combinatorial}, and the author \cite{medina2020prop1}.
 
 \subsubsection{}
 
 An \textbf{$\Med$-bialgebra} is a chain complex $B$ with three operations
-\[
-\Delta \colon B \to B \ot B, \qquad
-\varepsilon \colon B \to \Ftwo, \qquad
-\ast \colon B \ot B \to B,
-\]
+\begin{equation} \label{e:generators}
+	\Delta \colon B \to B \ot B, \qquad
+	\varepsilon \colon B \to \Ftwo, \qquad
+	\ast \colon B \ot B \to B,
+\end{equation}
 such that the first two define the structure of a counital coalgebra on $B$, and the third one satisfies
 \begin{gather*}
 \varepsilon \circ \ast = 0, \\
 \bd \circ \ast + \ast \circ (\bd \ot \, \id) + \ast \circ (\id \ot \bd) =
 \varepsilon \ot \id + \id \ot \varepsilon.
 \end{gather*}
-As proven in \cite{medina2020prop1}, any $\Med$-bialgebra $B$ is an $E_\infty$-coalgebra by discarding compositions of the generators defining maps of the form $B^{\ot s} \to B^{\ot r}$ for $s \neq 1$.
+As proven in \cite{medina2020prop1}, any $\Med$-bialgebra is an $E_\infty$-coalgebra.
+More explicitly, the associated $E_\infty$ structure consists of all maps of the form $B \to B^{\ot r}$ for $r \geq 0$ resulting from the composition of generators in \cref{e:generators} and permutations of tensor factors.
 The $E_\infty$-operad controlling this structure is denoted $\forget(\Med)$.
 
 The complex of normalized chains of a standard simplicial set is naturally an $\Med$-bialgebra with the Alexander--Whitney coproduct $\Delta$, the augmentation map $\varepsilon$, and the \textbf{join product} $\ast \colon \chains^{\ot 2}(\simplex^n) \to \chains(\simplex^n)$ defined by
@@ -181,7 +182,7 @@ The Alexander--Whitney coproduct and the join product are coassociative and asso
 \end{align*}
 
 Consider a surjection $s \colon \{1, \dots, \ell\} \to \{1, \dots, r\}$ which we represent by its order image $\big( s(1), \dots, s(\ell) \big)$.
-The natural linear transformation associated to $s$ is
+We define a natural linear transformation associated to $s$ by
 \begin{equation} \label{e:surjection action}
 \Big( \ast^{\bars{s^{-1}(1)}} \ot \dotsb \ot \ast^{\bars{s^{-1}(r)}} \Big) \circ \pi_s \circ \Delta^{\ell-1}
 \end{equation}

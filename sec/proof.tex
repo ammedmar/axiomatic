@@ -13,6 +13,8 @@ Our theorem is finally proven in \cref{ss:proof} using the foreshadowed inductio
 
 \subsection{Properties} \label{ss:properties}
 
+We start by recasting the properties introduced in \cref{d:properties} using the reformulation of the previous section and observe that the canonical cup-$i$ construction satisfies them.
+
 \begin{lemma} \label{l:properties}
 	Consider for each $i,n \in \N$ an element
 	\[
@@ -20,7 +22,7 @@ Our theorem is finally proven in \cref{ss:proof} using the foreshadowed inductio
 	\sum_{\mathclap{\lambda \in \Lambda(i,n)}} V_\lambda \ot W_\lambda
 	\]
 	with each $V_\lambda \ot W_\lambda$ in the basis of $\cP(\simplex^n)^{\ot 2}_{i+n}$.
-	If $\big\{ \triangle_i [n] \big\}_{i,n \in \N}$ defines a \mbox{cup-$i$} construction, this satisfies the following equivalences:
+	Assume $\big\{ \triangle_i [n] \big\}_{i,n \in \N}$ defines a \mbox{cup-$i$} construction, then:
 	\begin{enumerate}
 		\item It is non-degenerate iff
 		$\triangle_0 [0] \neq 0$.
@@ -44,6 +46,8 @@ The following is deduced from \cref{l:properties} by inspecting \cref{l:canonica
 
 \subsection{A consequence of freeness} \label{ss:consequence}
 
+We record an important observation concerning free cup-$i$ constructions.
+
 \begin{lemma} \label{l:consequence}
 	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a free \mbox{cup-$i$} construction.
 	If
@@ -66,11 +70,14 @@ The following is deduced from \cref{l:properties} by inspecting \cref{l:canonica
 
 \subsection{Special cases} \label{ss:cases}
 
+We relate cup-$i$ constructions with some of our properties to the canonical cup-$i$ construction for special values of $i,n \in \N$.
+These will serve as the base case of an induction argument in \cref{ss:proof}.
+
 \begin{lemma} \label{l:special case one}
 	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be free and non-degenerate \mbox{cup-$i$} construction.
 	\begin{enumerate}
-		\item \label{i:i>n} $\forall i,n \in \N$, $\triangle_i[n] = 0$ if $i > n$.
-		\item \label{i:i=n} $\forall n \in \N$, $\triangle_n[n] = \emptyset \ot \emptyset$.
+		\item \label{i:i>n} $\forall i,n \in \N$, $\triangle_i[n] = \Delta_i [n] \defeq 0$ if $i > n$.
+		\item \label{i:i=n} $\forall n \in \N$, $\triangle_n[n] = \Delta_n [n] \defeq \emptyset \ot \emptyset$.
 	\end{enumerate}
 \end{lemma}
 
@@ -101,7 +108,7 @@ The following is deduced from \cref{l:properties} by inspecting \cref{l:canonica
 	which is a contradiction since $\sum_u \{u\} \ot \{u\}$ is not in the image of $(1+T)$.
 
 	The previous argument shows that $\triangle_n [n] = 0$ for every $n \in \N$.
-	This serves as the base case of an induction argument over $n-i$ proving that $\triangle_i [n] = 0$ for every $i, n \in \N$; a contradiction to the non-degeneracy of the cup-$i$ construction.
+	This serves as the base case of an induction argument over $n-i$ that will prove $\triangle_i [n] = 0$ for every $i, n \in \N$; a contradiction to the non-degeneracy of the cup-$i$ construction.
 	For the induction step, consider
 	\begin{align*}
 	(1+T) \triangle_{i-1} [n] =
@@ -114,7 +121,7 @@ The following is deduced from \cref{l:properties} by inspecting \cref{l:canonica
 	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be free and non-degenerate \mbox{cup-$i$} construction.
 	For all integer $n \geq 1$ either $\triangle_{n-1} [n]$ or $T \triangle_{n-1} [n]$ is equal to
 	\[
-	\Delta_{n-1} [n] =
+	\Delta_{n-1} [n] \defeq
 	\sum_{\mathclap{\substack{u \in \{0,\dots,n\} \\ u \ \mathrm{odd}}}} \{u\} \ot \emptyset +
 	\sum_{\mathclap{\substack{u \in \{0,\dots,n\} \\ u \ \mathrm{even}}}} \emptyset \ot \{u\}.
 	\]
@@ -128,9 +135,9 @@ The following is deduced from \cref{l:properties} by inspecting \cref{l:canonica
 	(\bd \ot \, \id + \id \ot \bd) (\emptyset \ot \emptyset) \\ &=
 	(1+T) \sum_{u=0}^n \{u\} \ot \emptyset
 	\end{align*}
-	and we need to show that the partition of the indexing set $\{0, \dots, n\} = \Lambda_0 \sqcup \Lambda_1$ provided by \cref{l:consequence} is determined by the parity of the associated integer.
+	and we need to show that the partition of the indexing set $\{0, \dots, n\} = \Lambda_0 \sqcup \Lambda_1$ provided by \cref{l:consequence} is determined by the parity of integers.
 	Let us argue by contradiction assuming some $j$ and $j+1$ belong to the same $\Lambda_{\varepsilon}$.
-	With no loss of generality we have
+	With no loss of generality let us assume $\varepsilon = 0$ so we have
 	\[
 	\triangle_{n-1} [n] = \big( \{j\} + \{j+1\} \big) \ot \emptyset + O(j, j+1)
 	\]
@@ -141,19 +148,19 @@ The following is deduced from \cref{l:properties} by inspecting \cref{l:canonica
 	\]
 	where $P(j, j+1)$ is a sum of basis elements with $j$ and $j+1$ missing from at least one of its tensor factors.
 
-	By \cref{l:kernel of sxs} every basis element in $P(j,j+1)$ is in the kernel of $\cP(\sigma_j) \ot \cP(\sigma_j)$.
-	Using \cref{l:consequence} in the above equation implies that $\triangle_{n-2} [n]$, an element in $\ker \big( \cP(\sigma_j) \ot \cP(\sigma_j) \big)$, is equal to either $\big( \{j\} \ot \{j+1\} \big)$ or $\big( \{j+1\} \ot \{j\} \big)$ plus an element in this kernel.
-	This is a contradiction since neither of these two basis elements is in $\ker \big( \cP(\sigma_j) \ot \cP(\sigma_j) \big)$ by \cref{l:kernel of sxs}.
+	By \cref{l:kernel of sxs} every basis element in $P(j,j+1)$ is in the $\ker \cP(\sigma_j)^{\ot 2}$.
+	Using \cref{l:consequence} in the above equation implies that $\triangle_{n-2} [n]$, an element in $\ker \cP(\sigma_j)^{\ot 2}$, is equal to either $\big( \{j\} \ot \{j+1\} \big)$ or $\big( \{j+1\} \ot \{j\} \big)$ plus an element in this kernel.
+	This is a contradiction since neither of these two basis elements is in $\ker \cP(\sigma_j)^{\ot 2}$ by \cref{l:kernel of sxs}.
 \end{proof}
 
 \subsection{A fact about our formulas} \label{ss:fact}
 
-\begin{notation*}
-	For $U \in \P_{n-i}^n$ we write $u \notin U$ if $u \in \{0, \dots, n\} \setminus U$.
-	We simplify notation writing $u.U$ instead of $\{u\} \union U$ if $u \notin U$ and $U \setminus u$ instead of $U \setminus \{u\}$ if $u \in U$.
-\end{notation*}
+We reprint a statement proven as Lemma~21 in \cite{medina2021fast_sq}.
 
-The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
+\begin{notation*}
+	For $U \in \P_{n-i}^n$ we write $\bar u \notin U$ if $\bar u \in \{0, \dots, n\} \setminus U$.
+	We simplify notation writing $\bar u.U$ instead of $\{\bar u\} \union U$ if $\bar u \notin U$ and $U \setminus u$ instead of $U \setminus \{u\}$ if $u \in U$.
+\end{notation*}
 
 \begin{proposition} \label{p:fact}
 	For $i,n \in \N$ with $i < n$ we have:
@@ -168,6 +175,8 @@ The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
 \end{proposition}
 
 \subsection{Preparing the induction step} \label{ss:preparing}
+
+We will prove two statements that are key to prove the induction step of the argument establishing our main result.
 
 \begin{notation*}
 	Given a function $\xi \colon \P_{n-i}^n \to \F$ we denote by $\barxi \colon \P_{n-i}^n \to \F$ the function defined by the condition $\barxi(U) \neq \xi(U) \text{ for all } U \in \P_{n-i}^n$.
@@ -198,13 +207,13 @@ The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
 \begin{proof}
 	Let us assume $\triangle_i [n-1] = \Delta_i [n-1]$.
 	The other case is proven analogously.
-	Applying the boundary of $\cP(\simplex^n)^{\ot 2}$ -- \cref{e:boundary of P} -- to \cref{e:xi and barxi}	we have
+	Applying the boundary of $\cP(\simplex^n)^{\ot 2}$ -- \cref{e:boundary of P} -- to \cref{e:xi and barxi} gives
 	\begin{align*}
 	\bd \triangle_i [n] & =
 	\sum_{\mathclap{U \in \P_{n-i}^n}} \
 	\left(\
-	\sum_{\mathclap{u \notin U}} u.U^\xi \ot U^\barxi +
-	\sum_{\mathclap{u \notin U}} U^\xi \ot u.U^\barxi
+	\sum_{\mathclap{\bar u \notin U}} \bar u.U^\xi \ot U^\barxi +
+	\sum_{\mathclap{\bar u \notin U}} U^\xi \ot \bar u.U^\barxi
 	\right) \\ & +
 	\sum_{\mathclap{U \in \P_{n-i}^n}} \
 	\left(\
@@ -212,7 +221,7 @@ The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
 	\sum_{\mathclap{u \in U^{\xi}}} U^\xi \ot u.U^\barxi
 	\right).
 	\end{align*}
-	By assumption and \cref{p:fact} we have
+	Combining our assumption and \cref{p:fact} gives
 	\[
 	\triangle_i \bd \, [n] =
 	\Delta_i \bd \, [n] =
@@ -222,14 +231,14 @@ The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
 	\sum_{\mathclap{u \in U^0}} U^0 \ot u.U^1
 	\right).
 	\]
-	Adding this last two identities together we have
+	Adding this last two identities together gives
 	\begin{align}
 	(1+T) \triangle_{i-1} [n] &=
 	\bd \triangle_i [n] + \triangle_i \bd \, [n] \\ &=
 	\label{e:top} \sum_{\mathclap{U \in \P_{n-i}^n}} \
 	\left(\
-	\sum_{\mathclap{u \notin U}} u.U^\xi \ot U^\barxi +
-	\sum_{\mathclap{u \notin U}} U^\xi \ot u.U^\barxi
+	\sum_{\mathclap{\bar u \notin U}} \bar u.U^\xi \ot U^\barxi +
+	\sum_{\mathclap{\bar u \notin U}} U^\xi \ot \bar u.U^\barxi
 	\right) \\ &+ \,
 	\label{e:bottom} (1+T) \sum_{\mathclap{\substack{U \in \P_{n-i}^n \\ \xi(U) \neq 0}}} \
 	\left(\
@@ -237,20 +246,20 @@ The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
 	\sum_{\mathclap{u \in U^0}} U^0 \ot u.U^1
 	\right).
 	\end{align}
-	We will use Lemma \ref{l:kernel of sxs} to show that summand \eqref{e:top} is in the kernel $K^{(j)}$ of $\cP(\sigma_j) \ot \cP(\sigma_j)$ for every codegeneracy $\sigma_j \colon [n] \to [n-1]$.
+	We will use Lemma \ref{l:kernel of sxs} to show that summand \eqref{e:top} is in $\ker \cP(\sigma_j)^{\ot 2}$ for every codegeneracy $\sigma_j \colon [n] \to [n-1]$.
 	Consider $U \in \P_{n-i}^n$.
-	If $\{j, j+1\} \cap U = \emptyset$ then $u.U^\xi \ot U^\barxi \in K^{(j)}$ and $U^\xi \ot u.U^\barxi \in K^{(j)}$ for every $u \notin U$.
+	If $\{j, j+1\} \cap U = \emptyset$ then for every $\bar u \notin U$ we have $\bar u.U^\xi \ot U^\barxi \in \ker \cP(\sigma_j)^{\ot 2}$ and $U^\xi \ot \bar u.U^\barxi \in \ker \cP(\sigma_j)^{\ot 2}$.
 	If $\{j, j+1\} \cap U = \{j, j+1\}$ then the same conclusion follows from the fact that $\ind_U(j) = \ind_U(j+1)$.
-	If $\{j, j+1\} \cap U = \{j\}$ then $u.U^\xi \ot U^\barxi \in K^{(j)}$ and $U^\xi \ot u.U^\barxi \in K^{(j)}$ for every $u \notin U$ with $u \neq j+1$.
-	Furthermore, if $j \in U^\xi$ then $(j+1).U^\xi \ot U^\barxi \in K^{(j)}$ and $U^\xi \ot (j+1).U^\barxi \notin K^{(j)}$.
+	If $\{j, j+1\} \cap U = \{j\}$ then $\bar u.U^\xi \ot U^\barxi \in \ker \cP(\sigma_j)^{\ot 2}$ and $U^\xi \ot \bar u.U^\barxi \in \ker \cP(\sigma_j)^{\ot 2}$ for every $\bar u \notin U$ with $\bar u \neq j+1$.
+	Furthermore, if $j \in U^\xi$ then $(j+1).U^\xi \ot U^\barxi \in \ker \cP(\sigma_j)^{\ot 2}$ and $U^\xi \ot (j+1).U^\barxi \notin \ker \cP(\sigma_j)^{\ot 2}$.
 	An analogous statement holds if $j \in U^\barxi$ and a similar analysis applies to the case $\{j, j+1\} \cap U = \{j+1\}$.
-	We will show that the basis elements in \eqref{e:top} that are not in $K^{(j)}$ cancel in pairs after the application of $\cP(\sigma_j) \ot \cP(\sigma_j)$.
+	We will show that the basis elements in \eqref{e:top} that are not in $\ker \cP(\sigma_j)^{\ot 2}$ cancel in pairs after the application of $\cP(\sigma_j)^{\ot 2}$.
 	Let $\Gamma_j^\xi \subseteq \P_{n-i}^n$ consists of elements $U$ with $\{j, j+1\} \cap U = \{j\}$ and $j \in U^\xi$.
 	Let $\Gamma_{j+1}^\xi$, $\Gamma_j^\barxi$, and $\Gamma_{j+1}^\barxi$ be defined analogously.
-	The claim follows from the existence of the bijections $\Gamma_{j}^\xi \cong \Gamma_{j+1}^\xi$ and $\Gamma_{j}^\barxi \cong \Gamma_{j+1}^\barxi$ defined by the assignments $U \mapsto (j+1).\big( U \setminus \{j\} \big)$ and $U \mapsto j.\big( U \setminus \{j+1\} \big)$, since two summands related by one of these bijections are sent to the same element by $\cP(\sigma_j) \ot \cP(\sigma_j)$.
+	The claim follows from the existence of the bijections $\Gamma_{j}^\xi \cong \Gamma_{j+1}^\xi$ and $\Gamma_{j}^\barxi \cong \Gamma_{j+1}^\barxi$ defined by the assignments $U \mapsto (j+1).\big( U \setminus \{j\} \big)$ and $U \mapsto j.\big( U \setminus \{j+1\} \big)$, since two summands related by one of these bijections are sent to the same element by $\cP(\sigma_j)^{\ot 2}$.
 
 	We will impose conditions on summand \eqref{e:bottom} following an analysis similar to the one just given.
-	Notice that $(1+T)$ commutes with $\cP(\sigma_j)^{\ot 2}$ and that the only basis elements in \eqref{e:bottom} not in $K^{(j)}$ are associated to pairs $(U, u)$ with $\xi(U) \neq 0$ and $u = j$ or $ u = j+1$.
+	Notice that $(1+T)$ commutes with $\cP(\sigma_j)^{\ot 2}$ and that the only basis elements in \eqref{e:bottom} not in $\ker \cP(\sigma_j)^{\ot 2}$ are associated to pairs $(U, u)$ with $\xi(U) \neq 0$ and $u = j$ or $ u = j+1$.
 	Let $\Lambda_{j}^0$ be the subset of $\{U \in \P_{n-i}^n \mid \xi(U) \neq 0\}$ consisting of sets $U$ with $j \in U^0$ and $j+1 \notin U$.
 	We define $\Lambda_{j}^1$, $\Lambda_{j+1}^0$, and $\Lambda_{j+1}^1$ analogously.
 	The set $\Lambda_{j \wedge j+1}$ is defined by the conditions $\xi(U) \neq 0$ and $j,j+1 \in U$.
@@ -263,7 +272,7 @@ The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
 	\sum_{u \in U^0} U^0 \ot u.U^1
 	\right)
 	\]
-	is in $K^{(j)}$ since, given that $\ind_U(j) = \ind_U(j+1)$, the only non-zero summands associated to $(U,j)$ and $(U,j+1)$ cancel each other.
+	is in $\ker \cP(\sigma_j)^{\ot 2}$ since, given that $\ind_U(j) = \ind_U(j+1)$, the only non-zero summands, which are associated to $(U,j)$ and $(U,j+1)$, cancel each other.
 	Therefore, applying $\cP(\sigma_j)^{\ot 2}$ to
 	\[
 	\sum_{\mathclap{\substack{\P_{n-i}^n \\ \xi(U) \neq 0}}}
@@ -287,11 +296,11 @@ The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
 	Recall that by definition $\xi(U) = \xi(U^\prime) \neq 0$.
 	This analysis applies to any $j \in \{0, \dots, n\}$ and we introduce a relation in $\P_{n-i}^n$ writing $U \sim U^\prime$ if $U^\prime = j.(U \setminus \{j+1\})$ or $U^\prime = (j+1).\big( U \setminus \{j+1\} \big)$ for some $j$.
 	By the previous analysis, if $U \sim U^\prime$ then $\xi(U) = \xi(U^\prime)$.
-	The lemma now follows from observing that any two elements $V$ and $W$ in $\P_{n-i}^n$ are related by a sequence
+	Any two elements $V$ and $W$ in $\P_{n-i}^n$ are related by a sequence
 	\[
 	V \sim \dots \sim W,
 	\]
-	so $\xi \colon \P_{n-i}^n \to \F$ must be constant.
+	so $\xi \colon \P_{n-i}^n \to \F$ must be constant as claimed.
 \end{proof}
 
 \begin{lemma} \label{l:second nail}
@@ -356,6 +365,8 @@ The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
 
 \subsection{Induction step} \label{ss:step}
 
+We prove the induction step of the argument proving our main result.
+
 \begin{figure}
 	\centering
 	\input{aux/step}
@@ -408,10 +419,13 @@ The following is proven as Lemma~21 in \cite{medina2021fast_sq}.
 
 \subsection{Complete proof} \label{ss:proof}
 
-Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a non-degenerate, irreducible, and free \mbox{cup-$i$} construction.
-We will use an induction argument over $k = n-i$ to show that for each $i \in \N$ either $\triangle_i [n] = \Delta_i [n]$ or
-$\triangle_i [n] = T \Delta_i [n]$ for all $n \in \N$.
-By \cref{l:special case one} $\triangle_i [n] = \Delta_i [n]$ and $\triangle_i [n] = T \Delta_i [n]$ for $r \leq 0$.
-By \cref{l:special case two} $\triangle_i [n] = \Delta_i [n]$ or $\triangle_i [n] = T \Delta_i [n]$ for $r = 1$.
-This serves as the base case of the induction and \cref{l:induction step} as the induction step.
-We have now proven \cref{t:main}.
+We now present the proof of our main result.
+
+\begin{proof}[Proof of \cref{t:main}]
+	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a non-degenerate, irreducible, and free \mbox{cup-$i$} construction.
+	We will use an induction argument over $k = n-i$ to show that for each $i \in \N$ either $\triangle_i [n] = \Delta_i [n]$ or
+	$\triangle_i [n] = T \Delta_i [n]$ for all $n \in \N$.
+	By \cref{l:special case one} $\triangle_i [n] = \Delta_i [n]$ and $\triangle_i [n] = T \Delta_i [n]$ for $r \leq 0$.
+	By \cref{l:special case two} $\triangle_i [n] = \Delta_i [n]$ or $\triangle_i [n] = T \Delta_i [n]$ for $r = 1$.
+	This serves as the base case of the induction and \cref{l:induction step} as the induction step (\cref{f:induction step}).
+\end{proof}
