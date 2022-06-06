@@ -34,8 +34,21 @@ We start by recasting the properties introduced in \cref{d:properties} using the
 \end{lemma}
 
 \begin{proof}
-	By naturality, it suffices to verify these equivalences for the \mbox{cup-$i$} product structure defined on $\cochains(\simplex^n)$ for every $n \in \N$.
-	In this case, the claims follow from directly comparing with \cref{d:properties}.
+	By naturality, it suffices to verify these equivalences for the \mbox{cup-$i$} product structure defined on $\cochains(X)$ when $X = \simplex^n$ for every $n \in \N$.
+	We will use the fact that the isomorphism $\Psi_n^{\ot 2} \colon \cP(\gsimplex)^{\ot 2} \to \chains(\gsimplex^2)^{\ot 2}$ sends basis elements to basis elements, as does the linear duality isomorphism between chains and cochains.
+
+	\noindent (1) To prove this equivalence it suffices to assume $n = 0$ by naturality.
+	Then the statement follows from the fact that $\cochains(\gsimplex^0)^{\ot 2}$ is one dimensional.
+
+	\noindent (2) To prove this equivalence notice that there is $k \in V_\lambda \cap W_\lambda$ for one of the summands of $\triangle_i [n]$ if an only the image of this summand under $\Psi_n^{\ot 2}$ is
+	\[
+	\underbrace{d_{V_\lambda \setminus k} \overbrace{d_k[n]}^{y}}_{y^{(1)}}
+	\ot
+	\underbrace{d_{W_\lambda \setminus k} \overbrace{d_k[n]}^{y}}_{y^{(2)}}
+	\]
+	with $y^{(1)} \smallsmile_i y^{(2)} \neq 0$.
+
+	\noindent (3) This equivalence follows directly from considering the isomorphism $\Psi_n^{\ot 2}$.
 \end{proof}
 
 The following is deduced from \cref{l:properties} by inspecting \cref{l:canonical}.
