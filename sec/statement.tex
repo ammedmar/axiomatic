@@ -17,24 +17,30 @@ W = \Big(
 \end{tikzcd}
 \]
 be the minimal projective resolution of $\F$ by $\F[\Sym_2]$-modules.
+We notice that the group of automorphisms of $W$ is isomorphic to $\prod_{\N} \Sym_2$ with any such $\phi$ defined by a choice for every $i \in \N$ of
+\[
+\phi(e_i) = e_i
+\quad \text{ or } \quad
+\phi(e_i) = Te_i.
+\]
 
 \begin{definition}
 	A \textbf{\mbox{cup-$i$} product structure} on a chain complex $A$ is a chain map
 	\[
 	W \ot_{\F[\Sym_2]} A^{\ot 2} \to A
 	\]
-	where $T$ acts by transposition on $A^{\ot 2}$.
+	where $T$ acts by transposition on $A^{\ot 2}$ and by right multiplication on $W$.
 	We denote the image of $[e_i \ot \alpha \ot \beta]$ by $\alpha \cup_i \beta$.
 \end{definition}
 
 \begin{remark}
 	Consider a \mbox{cup-$i$} product structure on $A$.
-	The induced map
+	We can think of the product $\cup_0 \colon A \otimes A \to A$ as being commutative up to coherent homotopies, which are given by the maps $\cup_i \colon A \ot A \to A$ for $i > 0$.
+	Notice that the induced map
 	\[
 	\Ftwo \otimes_{\Ftwo[\Sym_2]} H^{\ot 2} \to H
 	\]
 	on the homology $H$ of $A$ defines a \emph{commutative} product on it.
-	We can therefore think of the structure on $A$ as a product $\cup_0 \colon A \otimes A \to A$ that is commutative up to coherent homotopies, which are given by the maps $\cup_i \colon A \ot A \to A$ for $i > 0$.
 \end{remark}
 
 \begin{definition}
@@ -56,7 +62,7 @@ be the minimal projective resolution of $\F$ by $\F[\Sym_2]$-modules.
 
 \subsection{Uniqueness}
 
-The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of \mbox{cup-$i$} construction; whereas the second, minimality, is manifested in the use of $W$ instead of an arbitrary (non-minimal) projective resolution of $\F$.
+The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of \mbox{cup-$i$} construction; whereas the second, minimality, is manifested in the use of $W$ instead of an arbitrary projective resolution of $\F$.
 
 \begin{definition} \label{d:properties}
 	A \mbox{cup-$i$} construction is \textbf{non-degenerate} if for any simplex $x$
