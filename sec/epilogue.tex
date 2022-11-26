@@ -1,0 +1,95 @@
+% !TEX root = ../axiomatic.tex
+
+\section{Related and future work}\label{s:epilogue}
+
+%This section is included to provide context to our results and is logically independent of the rest of this paper.
+%
+%By an acyclic carrier argument \cite{eilenberg1953acyclic} all non-degenerate \mbox{cup-$i$} constructions are homotopic to each other.
+%Any of them gives rise to the following celebrated cohomology operations introduced by Steenrod in \cite{steenrod1947products} through an explicit \mbox{cup-$i$} construction reviewed in \cref{ss:original}.
+%
+%\begin{definition*}
+%	For any non-degenerate \mbox{cup-$i$} construction the \textbf{$k^\th$ Steenrod square} is defined on cocycle representatives by
+%	\[
+%	\begin{tikzcd} [column sep=tiny, row sep=0]
+%	\Sq^k \colon &[-10pt] \rH^{-n} \arrow[r] & \rH^{-n-k} \\
+%	& {[\alpha]} \arrow[r, mapsto] & \big[ \alpha \cup_{n-k} \alpha \big].
+%	\end{tikzcd}
+%	\]
+%\end{definition*}
+%
+%These operations have been axiomatically characterized \cite{steenrod1962cohomology}, and one can interpret \cref{t:main} as a continuation of this result capturing the isomorphism type, and not just the homotopy type, of Steenrod's original construction.
+%
+%\begin{remark*}[Discrimination tools]
+%	We can illustrate the additional discriminatory power offered by these operations considering the following isomorphisms:
+%	\begin{enumerate}
+%		\item As graded vector spaces, $\rH^\vee(\R P^2; \Ftwo) \cong \rH^\vee(S^1 \wedge S^2; \Ftwo)$
+%		but they are distinguished by $\Sq^1$.
+%		\item As graded modules, $\rH^\vee(\mathbb C P^2; \Z) \cong \rH^\vee(S^2 \wedge S^4; \Z)$
+%		but they are distinguished by $\Sq^2$.
+%		\item As graded rings, $\rH^\vee(\Sigma \mathbb C P^2; \Z) \cong \rH^\vee(\Sigma (S^2 \wedge S^4); \Z)$
+%		but they are distinguished by $\Sq^2$.
+%	\end{enumerate}
+%\end{remark*}
+%
+%\begin{remark*}[Persistent homology]
+%	Persistent homology is a method used on highly intensive data analysis tasks \cite{carlsson2008images, chan2013viral, lee2017quantifying} and for which various software projects exist \cite{bauer2021ripser, gudhi, medina2021giotto}.
+%	Based on \cite{medina2022per_st}, the project \href{https://github.com/Steenroder/steenroder}{\texttt{steenroder}} incorporates into the persistent homology pipeline the additional information Steenrod squares provide using the formulas presented in \cref{d:my cup-i}.
+%\end{remark*}
+
+\subsection{Relations and secondary operations}
+
+The cup-$i$ products provide an effective construction of coboundaries coherently witnessing the commutativity relation of the cup product in cohomology at the cochain level.
+These define the squares, which are primary operations.
+This invites the consideration of relations among the squares themselves.
+There are two notable relations;
+the first one, known as the \textit{Cartan relation}, expresses the interaction between these operations and the cup product:
+\begin{equation*}
+	\Sq^k \big( [\alpha] [\beta] \big) =
+	\sum_{\mathclap{i+j=k}} \, \Sq^i\big([\alpha]\big) Sq^j\big([\beta]\big),
+\end{equation*}
+whereas the second, the \textit{Adem relation} \cite{adem1952iteration}, expresses dependencies appearing through iteration:
+\begin{equation*}
+	\Sq^i \Sq^j =
+	\sum_{k=0}^{\lfloor i/2 \rfloor} \binom{j-k-1}{i-2k} \Sq^{i+j-k} \Sq^k.
+\end{equation*}
+Explicit cochains witnessing them were defined in \cite{medina2020cartan} and \cite{medina2021adem} respectively, and used in the classification of invertible fermionic topological phases in \cite{kapustin2017fermionic, barkeshli2021classification}.
+
+%\begin{remark*}[Transverse intersections]
+%	Thom showed that every mod~$2$ homology class of a space is represented by the push-forward of the fundamental class of a closed manifold $W$ along some map to it.
+%	Furthermore, if the target $M$ is a closed manifold, and therefore satisfies Poincar\'{e} duality
+%	\[
+%	PD \colon H^k(M ;\Ftwo) \to H_{\bars{M}-k}(M; \Ftwo),
+%	\]
+%	the cohomology class dual to the homology class represented by the intersection of two transverse maps $V \to M$ and $W \to M$ is the cohomology class $[\alpha] [\beta]$ where $[\alpha]$ and $[\beta]$ are respectively dual to the homology classes represented by $V \to M$ and $W \to M$.
+%	By taking $[\alpha] = [\beta]$ of degree $-k$ we have that $\Sq^k \big( [\alpha] \big)$ is represented by the transverse self-intersection of $W \to M$.
+%	A comparison lifting this one between intersection and the cup-$0$ product of cochains was given in \cite{medina2021flowing}.
+%	A generalization of this result to \mbox{cup-$i$} products is the focus of current research \cite{medina2022foundations}
+%\end{remark*}
+
+\subsection{Cup-$(p,i)$ products}
+
+Steenrod squares are parameterized by classes on the mod $2$ homology of $\sym_2$.
+Steenrod used this group homology viewpoint to non-constructively define -- for any prime $p$ -- operations on the mod $p$ cohomology of spaces \cite{steenrod1952reduced, steenrod1953cyclic}.
+To define these constructively for odd primes, May's operadic viewpoint \cite{may1970general} was used in \cite{medina2021may_st} to provide explicit \textbf{cup-$(p,i)$ constructions}, which were implemented in the computer algebra system \href{https://github.com/ammedmar/comch}{\texttt{ComCH}} \cite{medina2021comch}.
+A cup-$(p,i)$ construction is an $\cyc_p$-equivariant chain map
+\[
+W(p) \to \Hom(\chains, \chains^{\ot p})
+\]
+inducing an isomorphism in homology where $W(p)$
+%\[
+%\begin{tikzcd}[column sep=20pt]
+%	W(p) = \Big(
+%	\Fp[\sym_p]\{e_0\} &
+%	\Fp[\sym_p]\{e_1\} \arrow[l, "\ \rho - \id"'] &
+%	\arrow[l, "\ \id+\rho+\dots+\rho^{p-1}"'] \cdots \Big)
+%\end{tikzcd}
+%\]
+%\[
+%W(p) = \Big(
+%\Fp[\sym_p]\{e_0\}
+%\xla{\rho-\id}
+%\Fp[\sym_p]\{e_1\}
+%\xla{\id+\rho+\dots+\rho^{p-1}} \cdots \Big)
+%\]
+is the minimal resolution of $\Fp$ as an $\Fp[\sym_p]$-module.
+Studying the moduli of cup-$(p,i)$ constructions as done here for the $p = 2$ case is left to future work.

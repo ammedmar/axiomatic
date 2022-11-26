@@ -1,13 +1,12 @@
 % !TEX root = ../axiomatic.tex
 
-\section{Other constructions} \label{s:others}
+\section{Other formulas of cup-$i$ products}\label{s:others}
 
-In this section we show in \cref{ss:original} that the canonical \mbox{cup-$i$} construction is equal to Steenrod's original.
-We then review Real's approach in \cref{ss:real} and show that the resulting \mbox{cup-$i$} construction is also equal to the canonical one.
-The agreement of these three constructions appear in print for the first time here.
-We devote \cref{ss:operads} to review more general structures on the normalized chains of simplicial chains due to McClure--Smith, Berger--Fresse, and the author.
+In this section we first show that the canonical \mbox{cup-$i$} construction is equal to Steenrod's original (\cref{ss:original}).
+We then review Real's formulas and show that the resulting \mbox{cup-$i$} construction is also equal to the canonical one (\cref{ss:real}).
+The agreement of these three constructions seems to appear in print for the first time here.
 
-\subsection{Original construction} \label{ss:original}
+\subsection{Original construction}\label{ss:original}
 
 We now review \textbf{Steenrod's \mbox{cup-$i$} construction} \cite[p.293]{steenrod1947products}.
 Following \cref{l:coalgebra}, we will describe it as a set of elements $\triangle_i^{\mathrm{S}} [n] \in \chains(\simplex^n)^{\ot 2}_{i+n}$ with $i,n \in \N$.
@@ -16,14 +15,14 @@ If $i > n$ then $\triangle_i^{\mathrm{S}} [n] = 0$, otherwise it is given by the
 0 \leq p_1 < \cdots < p_{i+1} \leq n
 \]
 of the basis element
-\begin{equation} \label{e:original i odd}
+\begin{equation}\label{e:original i odd}
 \begin{split}
 [ 0, \dots, &{p_1} ] \ast [ {p_2}, \dots, {p_3} ] \ast \cdots \ast [ {p_{i+1}}, \dots, n ] \\
 \ot \ [ &{p_1}, \dots, {p_2} ] \ast \cdots \ast [ {p_{i}}, \dots, {p_{i+1}} ]
 \end{split}
 \end{equation}
 if $i$ is odd, and of
-\begin{equation} \label{e:original i even}
+\begin{equation}\label{e:original i even}
 \begin{split}
 [ 0, \dots, &{p_1} ] \ast [ {p_2}, \dots, {p_3} ] \ast \cdots \ast [ {p_{i}}, \dots, {p_{i+1}} ] \\
 \ot \ [ &{p_1}, \dots, {p_2} ] \ast [ {p_3}, \dots, {p_4} ] \ast \cdots \ast [ {p_{i+1}}, \dots, n ]
@@ -34,7 +33,7 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 [{p_{k-1}}, \dots, {p_{k}} ] \ast [ {p_{k+1}}, \dots, p_{k+2}] = [{p_{k-1}}, \dots, p_k, p_{k+1}, \dots, p_{k+2}].
 \]
 
-\begin{theorem} \label{t:steenrod cup-i}
+\begin{theorem}\label{t:steenrod cup-i}
 	Steenrod's \mbox{cup-$i$} construction agrees with the canonical one.
 \end{theorem}
 
@@ -83,10 +82,22 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 	This concludes the proof.
 \end{proof}
 
-\subsection{AW--EZ contraction} \label{ss:real}
+\begin{remark*}
+	A recursive formula for Steenrod's original construction, which seems to first appear in \cite{medina2022dennis}, is:
+	\begin{equation}\label{e:prop cup-i}
+		\begin{split}
+			& \Delta_0 = \Delta, \\
+			& \Delta_i =
+			(\ast \ot \id) \circ (\id \ot T \Delta_{i-1}) \circ \Delta.
+		\end{split}
+	\end{equation}
+%	We can directly compare \cref{e:prop cup-i} to \cref{e:original i odd,e:original i even} to conclude that this \mbox{cup-$i$} construction agrees with Steenrod's original.
+\end{remark*}
+
+\subsection{AW--EZ contraction}\label{ss:real}
 
 In work by Real \cite{real1996computability}, further developed by Gonz\'alez\-/D\'iaz\--Real \cite{gonzalez-diaz1999steenrod, gonzalez2003computation, gonzalez-diaz2005cocyclic},
-an alternative \mbox{cup-$i$} construction was introduced based on the Alexander--Whitney and Eilenberg--Zilber linear natural transformations
+an alternative formulas for a \mbox{cup-$i$} construction were introduced based on the Alexander--Whitney and Eilenberg--Zilber linear natural transformations
 \[
 \AW \colon \chains(\simplex^n \times \simplex^n)
 \rightleftarrows
@@ -129,118 +140,3 @@ A small variation of the proof given for \cref{t:steenrod cup-i} establishes the
 	Real's \mbox{cup-$i$} construction agrees with the canonical one.
 \end{theorem}
 
-\subsection{Operads} \label{ss:operads}
-
-In this section, independent of the main results of this work, we assume familiarity with the theory of operads over the category of chain complexes (of $\Ftwo$-modules).
-We discuss Steenrod's cup-$i$ construction as generalized by the $E_\infty$-structures of McClure--Smith \cite{mcclure2003multivariable}, Berger--Fresse \cite{berger2004combinatorial}, and the author \cite{medina2020prop1}.
-
-\subsubsection{}
-
-An \textbf{$\Med$-bialgebra} is a chain complex $B$ with three operations
-\begin{equation} \label{e:generators}
-	\Delta \colon B \to B \ot B, \qquad
-	\varepsilon \colon B \to \Ftwo, \qquad
-	\ast \colon B \ot B \to B,
-\end{equation}
-such that the first two define the structure of a counital coalgebra on $B$, and the third one satisfies
-\begin{gather*}
-\varepsilon \circ \ast = 0, \\
-\bd \circ \ast + \ast \circ (\bd \ot \, \id) + \ast \circ (\id \ot \bd) =
-\varepsilon \ot \id + \id \ot \varepsilon.
-\end{gather*}
-As proven in \cite{medina2020prop1}, any $\Med$-bialgebra is an $E_\infty$-coalgebra.
-More explicitly, the associated $E_\infty$ structure consists of all maps of the form $B \to B^{\ot r}$ for $r \geq 0$ resulting from the composition of generators in \cref{e:generators} and permutations of tensor factors.
-The $E_\infty$-operad controlling this structure is denoted $\forget(\Med)$.
-
-The complex of normalized chains of a standard simplicial set is naturally an $\Med$-bialgebra with the Alexander--Whitney coproduct $\Delta$, the augmentation map $\varepsilon$, and the \textbf{join product} $\ast \colon \chains^{\ot 2}(\simplex^n) \to \chains(\simplex^n)$ defined by
-\[
-\ast \big(\left[v_0, \dots, v_p \right] \ot \left[v_{p+1}, \dots, v_q\right]\big) =
-\begin{cases} \left[v_{\pi(0)}, \dots, v_{\pi(q)}\right] & \text{ if } v_i \neq v_j \text{ for } i \neq j, \\
-\hfil 0 & \text{ if not}, \end{cases}
-\]
-where $\pi$ is the permutation that orders the vertices.
-We remark that this structure is induced from an analogue one in the cellular context \cite{medina2021prop2}.
-The natural $\forget(\Med)$-coalgebra structure on $\chains(\simplex^n)$ extends to $\chains(X)$ for every simplicial set $X$.
-Using this $E_\infty$-coalgebra structure, a \mbox{cup-$i$} construction is recursively defined by
-\begin{equation} \label{e:prop cup-i}
-\begin{split}
-& \Delta_0 = \Delta, \\
-& \Delta_i =
-(\ast \ot \id) \circ (\id \ot T \Delta_{i-1}) \circ \Delta.
-\end{split}
-\end{equation}
-We can directly compare \cref{e:prop cup-i} to \cref{e:original i odd,e:original i even} to conclude that this \mbox{cup-$i$} construction agrees with Steenrod's original.
-
-\subsubsection{}
-
-The Alexander--Whitney coproduct and the join product are coassociative and associative respectively, and we write
-\begin{align*}
-\Delta^1 &= \Delta, &
-\ast^1 &= \ast, \\
-\Delta^{m+1} &= (\Delta^m \ot \, \id) \circ \Delta, &
-\ast^{m+1} &= \ast \circ (\ast^m \ot \, \id).
-\end{align*}
-
-Consider a surjection $s \colon \{1, \dots, \ell\} \to \{1, \dots, r\}$ which we represent by its order image $\big( s(1), \dots, s(\ell) \big)$.
-We define a natural linear transformation associated to $s$ by
-\begin{equation} \label{e:surjection action}
-\Big( \ast^{\bars{s^{-1}(1)}} \ot \dotsb \ot \ast^{\bars{s^{-1}(r)}} \Big) \circ \pi_s \circ \Delta^{\ell-1}
-\end{equation}
-where $\ast^0 = \id$ and $\pi_s$ is the shuffle permutation defined by
-\[
-\big( \pi s(1), \dots, \pi s(\ell) \big) =
-\big( 1, \dots, 1, \dots, r, \dots, r \big).
-\]
-This assignment defines the \textbf{surjection operad} $\cX$ of McClure--Smith \cite{mcclure2003multivariable} as a suboperad of the endomorphism operad of $\chains$.
-Furthermore, it is clear that for any simplicial set $X$ the $\cX$-coalgebra on $\chains(X)$ is controlled by its $\forget(\Med)$-coalgebra structure i.e., by the Alexander--Whitney coproduct and the join product.
-Additionally, we can inspect \cref{e:prop cup-i} to conclude that the surjections $\big\{ (1,2), (1,2,1), (1,2,1,2), \dots \big\}$ define Steenrod's original \mbox{cup-$i$} construction.
-In fact, $\cX(2)$ is isomorphic to $W$ so its set of bases is in bijection with the set of a \mbox{cup-$i$} constructions satisfying our axioms.
-
-\subsubsection{}
-
-Let $G$ be a finite group and consider the simplicial set
-\[
-\begin{split}
-EG_m &= \big\{ (g_0, \dots, g_m) \mid g_i \in G \big\}, \\
-\face_j(g_0, \dots, g_m) &= (g_0, \dots, \widehat g_j, \dots, g_m), \\
-\dege_j(g_0, \dots, g_m) &= (g_0, \dots, g_j, g_j, \dots, g_m).
-\end{split}
-\]
-The partial composition of permutations
-\[
-\circ_j \colon \Sym_p \times \Sym_q \to \Sym_{p+q-1}
-\]
-induces an operad structure on the collection of normalized chains $\cE(r) = \chains(E \Sym_r)$.
-This $E_\infty$-operad, introduced by Berger--Fresse \cite{berger2004combinatorial}, is referred to as the \textbf{Barratt--Eccles operad} and is here denoted by $\cE$.
-These authors also define a quasi-isomorphism of operads $\mathrm{TR} \colon \cE \to \cX$ and use it to associate to any simplex in $E \Sym_r$ a natural linear transformation $\chains \to \chains^{\ot r}$.
-In particular, for any simplicial set $X$ the $\cE$-coalgebra structure on $\chains(X)$ is controlled by its $\forget(\Med)$-coalgebra structure, i.e., by the Alexander--Whitney coproduct and the join product.
-Since for the isomorphism $\mathrm{TR} \colon \cE(2) \to \cX(2)$ we have
-\[
-\mathrm{TR}(\id, T, \id, \dots, T^i) =
-\begin{cases}
-(1,2,\dots,2,1) & \text{ if } m \text{ is even}, \\
-(1,2,\dots,2,1) & \text{ if } m \text{ is odd},
-\end{cases}
-\]
-the elements $\big\{ (\id, T, \id, \dots, T^i) \big\}_{i \in \N}$ define a \mbox{cup-$i$} construction that agrees with Steenrod's, and the set of bases of $\cE(2)$ is in bijection with the set of a \mbox{cup-$i$} constructions satisfying our axioms.
-
-\subsection{}
-
-Steenrod squares are parameterized by classes on the mod $2$ homology of $\Sym_2$.
-Steenrod used this group homology viewpoint to non-constructively define for any prime $p$ operations on the mod $p$ cohomology of spaces \cite{steenrod1952reduced, steenrod1953cyclic}.
-To define these constructively for odd primes, May's operadic viewpoint \cite{may1970general} was used in \cite{medina2021may_st} to provide explicit \textbf{cup-$(p,i)$ constructions}, which were implemented in the computer algebra system \href{https://github.com/ammedmar/comch}{\texttt{ComCH}} \cite{medina2021comch}.
-A cup-$(p,i)$ construction is an equivariant chain map
-\[
-W(p) \to \Hom(\chains, \chains^{\ot p})
-\]
-where
-\[
-\begin{tikzcd}[column sep=20pt]
-	W(p) = \Big(
-	\Fp[\Sym_p]\{e_0\} &
-	\Fp[\Sym_p]\{e_1\} \arrow[l, "\ T-1"'] &
-	\arrow[l, "\ N"'] \cdots \Big)
-\end{tikzcd}
-\]
-is the minimal resolution of $\Fp$ as an $\Fp[\Sym_p]$-module.
-Studying the moduli of cup-$(p,i)$ constructions as done here for the $p = 2$ case is left to future work.

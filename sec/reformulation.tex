@@ -1,15 +1,15 @@
 % !TEX root = ../axiomatic.tex
 
-\section{Reformulation} \label{s:reformulation}
+\section{Reformulation}\label{s:reformulation}
 
-In this section we give a more category theoretic description of the notion of \mbox{cup-$i$} construction using the functor of normalized chains.
+In this section we give a more category theoretic description of the notion of \mbox{cup-$i$} construction using the functor of chains with mod 2 coefficients.
 We also introduce a functor naturally isomorphic to it -- interesting on its own right -- that simplifies the presentation of the canonical cup-$i$ construction and facilitates the proof of our main theorem.
 
 \subsection{Natural linear transformations}
 
-Recall the functors $\chains$ and $\chains^{\ot 2}$ from $\sSet$ to $\Ch$, and the notion of natural linear transformation $\chains \to \chains^{\ot 2}$ between them, i.e., a linear map $\chains(X) \to \chains(X)^{\ot 2}$ for every simplicial set $X$ that is natural with respect to simplicial maps.
+Recall the functor of (normalized) chains $\chains$ with coefficients in $\Ftwo$ and its tensor product $\chains^{\ot 2}$ both going from $\sSet$ to $\Ch$, as well as the notion of natural linear transformation $\chains \to \chains^{\ot 2}$ between them, i.e., a linear map $\chains(X) \to \chains(X)^{\ot 2}$ for every simplicial set $X$ that is natural with respect to simplicial maps.
 
-\begin{lemma} \label{l:coalgebra}
+\begin{lemma}\label{l:coalgebra}
 	A \mbox{cup-$i$} construction is canonically equivalent to a collection of natural linear transformations $\triangle_i \colon \chains \to \chains^{\ot 2}$ for $i \in \N$ satisfying
 	\[
 	\bd \circ \, \triangle_i + \triangle_i \circ \bd =
@@ -22,12 +22,12 @@ Recall the functors $\chains$ and $\chains^{\ot 2}$ from $\sSet$ to $\Ch$, and t
 	Let $C^\vee = \Hom(C, \F)$ with $C$ a finite dimensional chain complex.
 	Using the hom-tensor adjunction and the finite dimensionality of $C$ we have
 	\begin{align*}
-	\Hom \big(W \ot_{\F[\Sym_2]} (C^\vee)^{\ot 2}, C^\vee \big) & \cong
-	\Hom_{\F[\Sym_2]} \big( W, \Hom((C^\vee)^{\ot 2}, C^\vee) \big) \\ & \cong
-	\Hom_{\F[\Sym_2]} \big( W, \Hom(C, C^{\ot 2}) \big)
+	\Hom \big(W \ot_{\F[\sym_2]} (C^\vee)^{\ot 2}, C^\vee \big) & \cong
+	\Hom_{\F[\sym_2]} \big( W, \Hom((C^\vee)^{\ot 2}, C^\vee) \big) \\ & \cong
+	\Hom_{\F[\sym_2]} \big( W, \Hom(C, C^{\ot 2}) \big)
 	\end{align*}
 	as chain complexes of $\F$-modules.
-	In other words, the linear duality functor induces a bijection between \mbox{cup-$i$} product structures on $C^\vee$ and $\F[\Sym_2]$-linear chain maps $\triangle \colon W \to \Hom(C, C^{\ot 2})$.
+	In other words, the linear duality functor induces a bijection between \mbox{cup-$i$} product structures on $C^\vee$ and $\F[\sym_2]$-linear chain maps $\triangle \colon W \to \Hom(C, C^{\ot 2})$.
 	The latter are canonically equivalent to linear maps $\triangle_i = \triangle(e_i)$ satisfying
 	\[
 	\bd \circ \, \triangle_i + \triangle_i \circ \bd =
@@ -46,7 +46,7 @@ Recall the functors $\chains$ and $\chains^{\ot 2}$ from $\sSet$ to $\Ch$, and t
 
 Motivated by this formulation of \mbox{cup-$i$} structure we present the following.
 
-\begin{lemma} \label{l:natural}
+\begin{lemma}\label{l:natural}
 	A natural linear transformation $f \colon \chains \to \chains^{\ot 2}$ is canonically equivalent to a collection of elements $f[n] \in \chains(\simplex^n)^{\ot 2}$	for $n \in \N$ whose image under $\chains(\sigma_j)^{\ot 2}$ is $0$
 	for each codegeneracy map $\sigma_j \colon [n] \to [n-1]$.
 \end{lemma}
@@ -78,7 +78,7 @@ Motivated by this formulation of \mbox{cup-$i$} structure we present the followi
 It will be convenient to use an alternative to the functor of normalized chains which is naturally isomorphic to it.
 This functor is constructed using the fact that every non-degenerate simplex of $\simplex^n$ is a face of the identity $[n]$.
 
-\begin{definition} \label{d:dual chains}
+\begin{definition}\label{d:dual chains}
 	Let $\P_{n-m}^n$ be the set of subsets of $\{0, \dots, n\}$ whose cardinality is $n-m$.
 	Define the degree $m$ part of a chain complex $\cP(\simplex^n)$ by
 	\[
@@ -88,7 +88,7 @@ This functor is constructed using the fact that every non-degenerate simplex of 
 	\end{cases}
 	\]
 	and its differential by
-	\begin{equation} \label{e:boundary of P}
+	\begin{equation}\label{e:boundary of P}
 	\bd U =
 	\sum_{\mathclap{\bar u \in \{0, \dots, n\} \setminus U}} \{\bar u\} \union U.
 	\end{equation}
@@ -130,7 +130,7 @@ This functor is constructed using the fact that every non-degenerate simplex of 
 	\cP(\delta_j)(U) = \{ u_1 < \dots < u_{k-1} < j < u_k+1 < \dots < u_{n-m}+1 \}
 	\]
 	where $k$ is determined by the inequalities, and for any codegeneracy $\sigma_j \colon [n] \to [n-1]$
-	\begin{equation} \label{e:codegeneracy P}
+	\begin{equation}\label{e:codegeneracy P}
 	\cP(\sigma_j)(U) = \begin{cases}
 	U \setminus \{j+1\}, & j+1 \in U, \\
 	\hfil U \setminus \{j\}, & j+1 \notin U \text{ and } j \in U, \\
@@ -139,17 +139,17 @@ This functor is constructed using the fact that every non-degenerate simplex of 
 	\end{equation}
 \end{definition}
 
-\begin{lemma} \label{l:P and N}
+\begin{lemma}\label{l:P and N}
 	The chain isomorphisms $\{\Psi_n\}_{n \in \N}$ define a natural equivalence $\Psi$ between the functors $\cP$ and $\chains$.
 \end{lemma}
 
 \begin{proof}
-	This follows from two straightforward computations using the cosimplicial identities \eqref{e:cosimplicial identities}.
+	This follows from two straightforward computations using the cosimplicial identities.
 \end{proof}
 
 A direct consequence of \cref{e:codegeneracy P} is the following.
 
-\begin{lemma} \label{l:kernel of sxs}
+\begin{lemma}\label{l:kernel of sxs}
 	For any codegeneracy $\sigma_j \colon [n] \to [n-1]$ a basis element $V \ot W \in \cP(\simplex^n)^{\ot 2}$ is in $\ker \cP(\sigma_j)^{\ot 2}$ if an only if both $j$ and $j+1$ are missing from either $V$ or $W$.
 \end{lemma}
 
@@ -189,7 +189,7 @@ We will identify a \mbox{cup-$i$} construction and its associated set $\big\{ \t
 
 By inspecting \cref{d:my cup-i} we have the following.
 
-\begin{lemma} \label{l:canonical}
+\begin{lemma}\label{l:canonical}
 	The canonical \mbox{cup-$i$} construction is given by the collection of elements $\Delta_i[n] \in \cP(\simplex^n)^{\ot 2}_{i+n}$ for $i,n \in \N$ with
 	\[
 	\Delta_i[n] =
