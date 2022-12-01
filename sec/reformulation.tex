@@ -7,7 +7,8 @@ We also introduce a functor naturally isomorphic to it -- interesting on its own
 
 \subsection{Natural linear transformations}
 
-Recall the functor of (normalized) chains $\chains$ with coefficients in $\Ftwo$ and its tensor product $\chains^{\ot 2}$ both going from $\sSet$ to $\Ch$, as well as the notion of natural linear transformation $\chains \to \chains^{\ot 2}$ between them, i.e., a linear map $\chains(X) \to \chains(X)^{\ot 2}$ for every simplicial set $X$ that is natural with respect to simplicial maps.
+Recall the functor of (normalized) chains $\chains$ with coefficients in $\Ftwo$ and its tensor product $\chains^{\ot 2}$, both going from $\sSet$ to $\Ch$.
+We will consider natural linear transformations $\chains \to \chains^{\ot 2}$ between them, i.e., linear maps $\chains(X) \to \chains(X)^{\ot 2}$ for every simplicial set $X$ that is natural with respect to simplicial maps.
 
 \begin{lemma}\label{l:coalgebra}
 	A \mbox{cup-$i$} construction is canonically equivalent to a collection of natural linear transformations $\triangle_i \colon \chains \to \chains^{\ot 2}$ for $i \in \N$ satisfying
@@ -15,7 +16,7 @@ Recall the functor of (normalized) chains $\chains$ with coefficients in $\Ftwo$
 	\bd \circ \, \triangle_i + \triangle_i \circ \bd =
 	(1+T) \triangle_{i-1}
 	\]
-	for all $i \geq 0$ with the convention $\triangle_{-1} = 0$.
+	for all $i \in \N$ with the convention $\triangle_{i} = 0$ for a negative integer $i$.
 \end{lemma}
 
 \begin{proof}
@@ -33,7 +34,7 @@ Recall the functor of (normalized) chains $\chains$ with coefficients in $\Ftwo$
 	\bd \circ \, \triangle_i + \triangle_i \circ \bd =
 	(1+T) \triangle_{i-1}
 	\]
-	for all $i \geq 0$ with $\triangle_{-1} = 0$, since
+	for all $i \in \Z$ with $\triangle_{i} = 0$ if $i$ is negative, since
 	\begin{align*}
 	\bd \triangle (e_i) + \triangle \bd(e_i) &=
 	\bd \triangle (e_i) + \triangle (1+T) (e_{i-1}) \\ &=
@@ -153,14 +154,14 @@ A direct consequence of \cref{e:codegeneracy P} is the following.
 	For any codegeneracy $\sigma_j \colon [n] \to [n-1]$ a basis element $V \ot W \in \cP(\simplex^n)^{\ot 2}$ is in $\ker \cP(\sigma_j)^{\ot 2}$ if an only if both $j$ and $j+1$ are missing from either $V$ or $W$.
 \end{lemma}
 
-\subsection{Cup-$i$ constructions}
+\subsection{Cup-$i$ constructions revisited}
 
 We can use \cref{l:coalgebra} and the natural isomorphism $\Psi$ of \cref{l:P and N} to interpret \mbox{cup-$i$} constructions in terms of natural linear transformations $\triangle_i \colon \cP \to \cP^{\ot 2}$ satisfying
 \[
 \bd \circ \, \triangle_i + \triangle_i \circ \bd =
 (1+T) \triangle_{i-1}
 \]
-for all $i \in \N$ with the convention $\triangle_{-1} = 0$.
+for all $i \in \Z$ with $\triangle_{i} = 0$ if $i$ is negative.
 Additionally, by \cref{l:natural}, any $\triangle_i$ is determined by a collection of elements $\triangle_i [n] \in \cP(\simplex^n)^{\ot 2}_{i+n} $ indexed by $n \in \N$ with
 \[
 \triangle_i [n] =
@@ -171,7 +172,7 @@ where $\Lambda(i,n)$ is a finite (possibly empty) indexing set, and $V_\lambda \
 
 We will identify a \mbox{cup-$i$} construction and its associated set $\big\{ \triangle_i [n] \big\}_{i,n \in \N}$.
 
-\subsection{Canonical \mbox{cup-$i$} construction}
+\subsection{Canonical \mbox{cup-$i$} construction revisited}
 
 \begin{definition}
 	For any $U \in \rP^n_{n-i}$ the \textbf{index function} of $U$ is given by
@@ -195,5 +196,5 @@ By inspecting \cref{d:my cup-i} we have the following.
 	\Delta_i[n] =
 	\sum_{\mathclap{U \in \rP^n_{n-i}}} U^0 \ot U^1
 	\]
-	if $i \leq n$ and $\Delta_i[n] = 0$ otherwise.
+	if $0 \leq i \leq n$ and $\Delta_i[n] = 0$ otherwise.
 \end{lemma}

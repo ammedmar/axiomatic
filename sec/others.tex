@@ -1,6 +1,6 @@
 % !TEX root = ../axiomatic.tex
 
-\section{Other formulas of cup-$i$ products}\label{s:others}
+\section{Other formulas defining cup-$i$ products}\label{s:others}
 
 In this section we first show that the canonical \mbox{cup-$i$} construction is equal to Steenrod's original (\cref{ss:original}).
 We then review Real's formulas and show that the resulting \mbox{cup-$i$} construction is also equal to the canonical one (\cref{ss:real}).
@@ -82,22 +82,19 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 	This concludes the proof.
 \end{proof}
 
-\begin{remark*}
-	A recursive formula for Steenrod's original construction, which seems to first appear in \cite{medina2022dennis}, is:
-	\begin{equation}\label{e:prop cup-i}
-		\begin{split}
-			& \Delta_0 = \Delta, \\
-			& \Delta_i =
-			(\ast \ot \id) \circ (\id \ot T \Delta_{i-1}) \circ \Delta.
-		\end{split}
-	\end{equation}
+A recursive formula for Steenrod's original construction which was introduced in \cite{medina2022dennis} is the following:
+\begin{equation}\label{e:prop cup-i}
+	\begin{split}
+		& \Delta_0 = \Delta, \\
+		& \Delta_i =
+		(\ast \ot \id) \circ (\id \ot T \Delta_{i-1}) \circ \Delta.
+	\end{split}
+\end{equation}
 %	We can directly compare \cref{e:prop cup-i} to \cref{e:original i odd,e:original i even} to conclude that this \mbox{cup-$i$} construction agrees with Steenrod's original.
-\end{remark*}
 
 \subsection{AW--EZ contraction}\label{ss:real}
 
-In work by Real \cite{real1996computability}, further developed by Gonz\'alez\-/D\'iaz\--Real \cite{gonzalez-diaz1999steenrod, gonzalez2003computation, gonzalez-diaz2005cocyclic},
-an alternative formulas for a \mbox{cup-$i$} construction were introduced based on the Alexander--Whitney and Eilenberg--Zilber linear natural transformations
+In work by Real \cite{real1996computability}, further developed by Gonz\'alez\-/D\'iaz\--Real \cite{gonzalez-diaz1999steenrod, gonzalez2003computation, gonzalez-diaz2005cocyclic}, alternative formulas defining a \mbox{cup-$i$} construction were introduced using the Alexander--Whitney and Eilenberg--Zilber linear natural transformations
 \[
 \AW \colon \chains(\simplex^n \times \simplex^n)
 \rightleftarrows
