@@ -4,7 +4,8 @@
 
 In this section we present the proof of our main theorem: any \mbox{cup-$i$} construction that is non-degenerate, irreducible and free is isomorphic to the canonical one.
 We divide this proof into several parts.
-In \cref{ss:properties} we revisit the axioms defining our characterization in light of the previous section.
+
+In \cref{ss:properties} we recast the axioms defining our characterization in the language introduced in the previous section.
 A useful consequence of freeness is recorded in \cref{ss:consequence}.
 The base case of an induction argument is given in \cref{ss:cases}; whereas in
 \cref{ss:fact} we recall a fact about our presentation of the canonical cup-$i$ construction.
@@ -105,7 +106,7 @@ These will serve as the base case of an induction argument in \cref{ss:proof}.
 	(1+T) \triangle_{n-1} [n] =
 	\bd \triangle_{n} [n] + \triangle_{n} \bd \, [n] = 0,
 	\end{align*}
-	and Lemma \ref{l:consequence} implies $\triangle_{n-1} [n] = 0$.
+	and \cref{l:consequence} implies $\triangle_{n-1} [n] = 0$.
 	From this and the assumption
 	\[
 	\triangle_{n-1}[n-1] = \emptyset \ot \emptyset
@@ -127,7 +128,7 @@ These will serve as the base case of an induction argument in \cref{ss:proof}.
 	(1+T) \triangle_{i-1} [n] =
 	\bd \triangle_{i} [n] + \triangle_{i} \bd\, [n] = 0,
 	\end{align*}
-	which, by Lemma \ref{l:consequence}, implies $\triangle_{i-1} [n] = 0$.
+	which, by \cref{l:consequence}, implies $\triangle_{i-1} [n] = 0$.
 \end{proof}
 
 \begin{lemma}\label{l:special case two}
@@ -168,7 +169,7 @@ These will serve as the base case of an induction argument in \cref{ss:proof}.
 
 \subsection{A fact about our formulas}\label{ss:fact}
 
-We reprint a statement proven as Lemma~21 in \cite{medina2023fast_sq}.
+We reprint a statement proven in \cite{medina2023fast_sq} as Lemma~21.
 
 \begin{notation*}
 	For $U \in \P_{n-i}^n$ we write $\bar u \notin U$ if $\bar u \in \{0, \dots, n\} \setminus U$.
@@ -259,7 +260,7 @@ We will prove two statements that are key to prove the induction step of the arg
 	\sum_{\mathclap{u \in U^0}} U^0 \ot u.U^1
 	\right).
 	\end{align}
-	We will use Lemma \ref{l:kernel of sxs} to show that summand \eqref{e:top} is in $\ker \cP(\sigma_j)^{\ot 2}$ for every codegeneracy $\sigma_j \colon [n] \to [n-1]$.
+	We will use \cref{l:kernel of sxs} to show that summand \eqref{e:top} is in $\ker \cP(\sigma_j)^{\ot 2}$ for every codegeneracy $\sigma_j \colon [n] \to [n-1]$.
 	Consider $U \in \P_{n-i}^n$.
 	If $\{j, j+1\} \cap U = \emptyset$ then for every $\bar u \notin U$ we have $\bar u.U^\xi \ot U^\barxi \in \ker \cP(\sigma_j)^{\ot 2}$ and $U^\xi \ot \bar u.U^\barxi \in \ker \cP(\sigma_j)^{\ot 2}$.
 	If $\{j, j+1\} \cap U = \{j, j+1\}$ then the same conclusion follows from the fact that $\ind_U(j) = \ind_U(j+1)$.
