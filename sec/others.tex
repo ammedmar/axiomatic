@@ -1,6 +1,6 @@
 % !TEX root = ../axiomatic.tex
 
-\section{Other formulas defining cup-\textit{i} products}\label{s:others}
+\section{Other formulas}\label{s:others}
 
 In this section we first show that the canonical \mbox{cup-$i$} construction is equal to Steenrod's original (\cref{ss:original}).
 We then review Real's formulas and show that the resulting \mbox{cup-$i$} construction is also equal to the canonical one (\cref{ss:real}).
@@ -9,8 +9,8 @@ The agreement of these three constructions seems to appear in print for the firs
 \subsection{Original construction}\label{ss:original}
 
 We now review \textbf{Steenrod's \mbox{cup-$i$} construction} \cite[p.293]{steenrod1947products}.
-Following \cref{l:coalgebra}, we will describe it as a set of elements $\triangle_i^{\mathrm{S}} [n] \in \chains(\simplex^n)^{\ot 2}_{i+n}$ with $i,n \in \N$.
-If $i > n$ then $\triangle_i^{\mathrm{S}} [n] = 0$, otherwise it is given by the sum over all ordered sequences of integers
+Using \cref{l:coalgebra,l:natural}, we will describe it as a set of elements $\triangle_i^\rS [n] \in \chains(\simplex^n)^{\ot 2}_{i+n}$ with $i,n \in \N$.
+If $i > n$ then $\triangle_i^\rS [n] = 0$, otherwise it is given by the sum over all ordered sequences of integers
 \[
 0 \leq p_1 < \cdots < p_{i+1} \leq n
 \]
@@ -39,10 +39,10 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 
 \begin{proof}
 	We will use \cref{t:main} to prove that they are isomorphic.
-	We can then conclude their equality by inspecting that $\triangle^{\mathrm{S}}_i [i+1] \neq T \Delta_i [i+1]$.
+	We can then conclude their equality by inspecting that $\triangle^\rS_i [i+1] \neq T \Delta_i [i+1]$.
 
 	Steenrod's \mbox{cup-$i$} construction is \emph{non-degenerate} since $\Delta_0\big([0]\big) = [0] \ot [0] \neq 0$.
-	It is \emph{irreducible} since for each basis element in $\triangle^{\mathrm{S}}_i [n]$ with $i \leq n$, all integers $\{0, \dots, n\}$ appear in at least one of the tensor factors.
+	It is \emph{irreducible} since for each basis element in $\triangle^\rS_i [n]$ with $i \leq n$, all integers $\{0, \dots, n\}$ appear in at least one of the tensor factors.
 	To prove it is \emph{free} let us assume $i$ is odd with $i < n$.
 	The case where $i$ is even is done analogously.
 	If it is not free, then there exist two distinct sequences
@@ -76,13 +76,13 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 	\end{split}
 	\]
 
-	\cref{t:main} proves that $\triangle^{\mathrm{S}}_i = \Delta_i$ or $\triangle^{\mathrm{S}}_i = T \Delta_i$ for any $i \in \N$.
+	\cref{t:main} proves that $\triangle^\rS_i = \Delta_i$ or $\triangle^\rS_i = T \Delta_i$ for any $i \in \N$.
 	Consider the element $U = \{0\} \in \rP_{1}^{i+1}$ giving rise to the summand $U^1 \ot U^0 = \{0\} \ot \emptyset$ in $T \Delta_i [i+1]$.
-	Applying the isomorphism $\Psi^{\ot 2} \colon \cP(\simplex^n)^{\ot 2} \to \chains(\simplex^n)^{\ot 2}$ we obtain the basis element $[1,\dots,i+1] \otimes [0,\dots,i+1]$ which is not a summand of $\triangle^{\mathrm{S}}_i [i+1]$.
+	Applying the isomorphism $\Psi^{\ot 2} \colon \cP(\simplex^n)^{\ot 2} \to \chains(\simplex^n)^{\ot 2}$ we obtain the basis element $[1,\dots,i+1] \otimes [0,\dots,i+1]$ which is not a summand of $\triangle^\rS_i [i+1]$.
 	This concludes the proof.
 \end{proof}
 
-A recursive formula for Steenrod's original construction which was introduced in \cite{medina2022dennis} is the following:
+A recursive formula for Steenrod's original construction which was introduced in \cite{medina2023dennis} is the following:
 \begin{equation}\label{e:prop cup-i}
 	\begin{split}
 		& \Delta_0 = \Delta, \\
@@ -90,7 +90,6 @@ A recursive formula for Steenrod's original construction which was introduced in
 		(\ast \ot \id) \circ (\id \ot T \Delta_{i-1}) \circ \Delta.
 	\end{split}
 \end{equation}
-%	We can directly compare \cref{e:prop cup-i} to \cref{e:original i odd,e:original i even} to conclude that this \mbox{cup-$i$} construction agrees with Steenrod's original.
 
 \subsection{AW--EZ contraction}\label{ss:real}
 
@@ -106,34 +105,90 @@ The natural linear transformations defining \textbf{Real's \mbox{cup-$i$} constr
 \triangle^{\mathrm{R}}_i = \AW (T \, \mathrm{SHI})^i.
 \]
 
-In \cite[Corollary 3.2]{gonzalez-diaz1999steenrod} these authors unravelled the above definition in terms of face maps.
-We use \cref{l:natural,l:P and N} to describe these formulas as a set of elements $\triangle_i^{\mathrm{R}} [n] \in \cP(\simplex^n)^{\ot 2}_{i+n}$ with $i,n \in \N$.
+In \cite[Theorem~3.1]{gonzalez-diaz1999steenrod} these authors unravelled the above definition in terms of face maps.
+We use \cref{l:coalgebra,l:natural,l:P and N} to describe these formulas as a set of elements $\triangle_i^{\mathrm{R}} [n] \in \cP(\simplex^n)^{\ot 2}_{i+n}$ with $i,n \in \N$.
 If $i > n$ then $\triangle_i^{\mathrm{R}} [n] = 0$, otherwise it is given by
-\begin{multline*}
-\triangle^{\mathrm{R}}_i [n] = \!
-\sum_{j_i=S(i)}^{n} \ \sum_{j_{i-1}=S(i-1)}^{j_i-1} \dots \sum_{j_1=S(1)}^{j_2-1} \\
-\{j_0+1 < \dots < j_1-1\} \union \{j_2+1 < \dots < j_3-1\} \union \dots \union \{j_i+1 < \dots < j_n\} \\ \ot \,
-\{0 < \dots < j_0-1\} \union \{j_1+1 < \dots < j_2-1\} \union \dots \union \{j_{i-1}+1 < \dots < j_i-1\}
-\end{multline*}
+\begin{multline}\label{eq:real left}
+	\triangle^{\mathrm{R}}_i [n] = \!
+	\sum_{j_i=i}^{m} \ \sum_{j_{i-1}=i-1}^{j_i-1} \dots \sum_{j_0=0}^{j_1-1} \\
+	\{j_0+1,\dots,j_1-1\} \union \{j_2+1,\dots,j_3-1\} \union \dots \union \{j_i+1,\dots,n\} \\ \ot \,
+	\{0,\dots,j_0-1\} \union \{j_1+1,\dots,j_2-1\} \union \dots \union \{j_{i-1}+1,\dots,j_i-1\}
+\end{multline}
 if $n$ is even and by
-\begin{multline*}
-\triangle^{\mathrm{R}}_i [n] = \!
-\sum_{j_i=S(i)}^{n} \ \sum_{j_{i-1}=S(i-1)}^{j_i-1} \dots \sum_{j_1=S(1)}^{j_2-1} \\
-\{j_0+1 < \dots < j_1-1\} \union \{j_2+1 < \dots < j_3-1\} \union \dots \union \{j_{i-1}+1 < \dots < j_i-1\} \\ \ot \,
-\{0 < \dots < j_0-1\} \union \{j_1+1 < \dots < j_2-1\} \union \dots \union \{j_i+1 < \dots < j_n\}
-\end{multline*}
-if $n$ is odd, where
-\[
-S(k) = j_{k+1} - j_{k+2} + \dots + (-1)^{k+i-1} j_i + (-1)^{k+i} \left\lfloor \frac{n+1}{2} \right\rfloor + \left\lfloor \frac{k}{2} \right\rfloor .
-\]
-
-\begin{remark}
-	To compare the above formulas to those appearing in \cite[Corollary~3.2]{gonzalez-diaz1999steenrod} we mention that $i$ and $n$ here are respectively equal to $j-i=n$ and $i+j=m$ there.
-\end{remark}
-
-A small variation of the proof given for \cref{t:steenrod cup-i} establishes the following.
+\begin{multline}\label{eq:real right}
+	\triangle^\rR_i [n] = \!
+	\sum_{j_i=i}^{m} \ \sum_{j_{i-1}=i-1}^{j_i-1} \dots \sum_{j_0=0}^{j_1-1} \\
+	\{j_0+1,\dots,j_1-1\} \union \{j_2+1,\dots,j_3-1\} \union \dots \union \{j_{i-1}+1,\dots,j_i-1\} \\ \ot \,
+	\{0,\dots,j_0-1\} \union \{j_1+1,\dots,j_2-1\} \union \dots \union \{j_i+1,\dots,n\}
+\end{multline}
+if $n$ is odd.\footnote{To compare these formulas to those appearing in \cite[Theorem~3.1]{gonzalez-diaz1999steenrod} replace $i$ and $n$ respectively by $n$ and $m$.}
 
 \begin{theorem}
 	Real's \mbox{cup-$i$} construction agrees with the canonical one.
 \end{theorem}
 
+\begin{proof}
+	We will use \cref{t:main,l:properties} to prove that they are isomorphic.
+	We can then conclude their equality by inspecting that $\triangle^\rR_i [i+1] \neq T \Delta_i [i+1]$.
+	Let us start by describing the indexing set of the sum in recursive terms.
+	It consist of all integers $0 \leq j_0 < \dots < j_i \leq n$ with
+	\begin{equation}\label{eq:indexing set recursively}
+		j_i \in \set{i,\dots,n} \text{ and }
+		i_k \in \set{k,\dots,j_{k+1}-1} \text{ for } k \in \set{0,\dots,i-1}.
+	\end{equation}
+
+	$\triangle^\rR$ is non-degenerate since, if $i=n=0$, the indexing set of the sum consists of a single $i_0 = 0$ and we can see that $\triangle^\rR_0 [0] = \emptyset \ot \emptyset$ using \cref{eq:real left}.
+
+	$\triangle^\rR$ is irreducible since for each summand $V \ot W$, equal to
+	\begin{align*}
+		&\{j_0+1,\dots,j_1-1\} \union \{j_2+1,\dots,j_3-1\} \union \dots \union \{j_i+1,\dots,n\} \\ \ot \,
+		&\{0,\dots,j_0-1\} \union \{j_1+1,\dots,j_2-1\} \union \dots \union \{j_{i-1}+1,\dots,j_i-1\}
+	\end{align*}
+	in the even case, or
+	\begin{align*}
+		&\{j_0+1,\dots,j_1-1\} \union \{j_2+1,\dots,j_3-1\} \union \dots \union \{j_{i-1}+1,\dots,j_i-1\} \\ \ot \,
+		&\{0,\dots,j_0-1\} \union \{j_1+1,\dots,j_2-1\} \union \dots \union \{j_i+1,\dots,n\}
+	\end{align*}
+	in the odd one, we have $V \cap W = \emptyset$ given that $0 \leq j_0 < \dots < j_i \leq n$.
+
+	To prove that $\triangle^\rR$ let is focus on the case when $n$ is an even number, the odd case is analyzed similarly.
+	Fix integers $0 \leq i \leq n$ and let us assume that $V \ot W = W' \ot V'$ for some pair of summands.
+	After suppressing the union symbol and the commas this identity is explicitly given by
+	\begin{align*}
+		&\{j_0+1 \dots j_1-1\} \{j_2+1 \dots j_3-1\} \dots \{j_i+1 \dots n\} \\=
+		&\{0 \dots j'_0-1\} \{j'_1+1 \dots j'_2-1\} \dots \{j'_{i-1}+1 \dots j'_i-1\}
+	\end{align*}
+	and
+	\begin{align*}
+		&\{j'_0+1 \dots j'_1-1\} \{j'_2+1 \dots j'_3-1\} \dots \{j'_i+1 \dots n\} \\=
+		&\{0 \dots j_0-1\} \{j_1+1 \dots j_2-1\} \dots \{j_{i-1}+1 \dots j_i-1\}.
+	\end{align*}
+	Using the first of these identities we have that: if $j_i+1 \leq n$ then $n \in \{j_i+1 \dots n\}$ so $j'_i-1 \geq n$, which is impossible since $j'_i \in \set{i,\dots,n}$.
+	Therefore, $j_i = n$.
+	Using the other identity the same argument shows that $j'_i = n$.
+	Let us consider this to be the base case of an induction argument on $k = i,i-1,\dots,0$, with hypothesis $j_k = j'_k = n-i+k$.
+	Let us consider the induction step from $k$ to $k-1$.
+	In this case,
+	\[
+	\set{j_{k+\ell}+1,\dots,j_{k+\ell+1}-1} = \emptyset = \set{j'_{k+\ell}+1,\dots,j'_{k+\ell+1}-1}
+	\]
+	for all $\ell \in \set{0,\dots,i-k-1}$.
+	Let us assume $k$ is even.
+	The first identity becomes
+	\begin{align*}
+		&\{j_0+1 \dots j_1-1\} \{j_2+1 \dots j_3-1\} \dots \{j_{k-2}+1 \dots j_{k-1}-1\} \\=
+		&\{0 \dots j'_0-1\} \{j'_1+1 \dots j'_2-1\} \dots \{j'_{k-1}+1 \dots j'_k-1\}.
+	\end{align*}
+	If $j'_{k-1}+1 \leq j'_k-1$ then $j'_k - 1 = (n-i+k) - 1 \in \{j'_{k-1}+1 \dots j'_k-1\}$ so $(n-i+k)-1 = j_k - 1 \geq j_{k-1}-1$, which is impossible by \cref{eq:indexing set recursively}, so $j'_{k-1} = n-i+k-1$ by the same equation.
+	A similar argument using the other identity shows that $j_{k-1} = n-i+k-1$.
+	If $k$ is odd a variation of this argument completes the induction step.
+	Finally, using that $j_0 = j'_0 = n-i$, the first identity reduces to
+	\[
+	\emptyset = \set{0,\dots, n-i-1}
+	\]
+	implying $n-i \leq 0$, and, since $n-i \geq 0$, we conclude $n=i$.
+
+	It remains to be shown that $\triangle^\rR$ is not only isomorphic to the canonical cup-$i$ construction $\Delta$, but equal.
+	To do so, notice that for every non-negative integer $i$ the summand in $\triangle_i^\rR[i+1]$ associated the indexing element with $j_k = k+1$ for each $k \in \{0,\dots,i\}$ is $\emptyset \ot \{0\}$ which is not a summand present in $T \Delta_i[i+1]$.
+	Therefore, $\triangle_i^\rR \neq T \Delta_i$ for every $i \geq 0$, so $\triangle^\rR = \Delta$ as claimed.
+\end{proof}

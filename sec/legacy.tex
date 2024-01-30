@@ -1,3 +1,230 @@
+\newpage
+ERASERAESAE
+\begin{proposition}
+	Let $\triangle$ be a cup-$i$ construction and $i_0$ and $n_0$ positive integers.
+	If
+	\[
+	\widetilde\triangle_i[n] =
+	\begin{cases}
+		T\triangle_{i}[n] & i = i_0,n=n_0, \\
+		\big(\triangle_{i} + \bd \triangle_{i+1}\big)[n] & 0 < i_0-i =n-n_0, \\
+		\triangle_{i}[n] & \text{otherwise}.
+	\end{cases}
+	%	\begin{cases}
+		%		T\triangle_{i_0}[n_0] & i = i_0 \text{ and } n=n_0, \\
+		%		\big(\triangle_{i_0-\ell} + \bd \triangle_{i_0-\ell+1}\big)[n_0+\ell] & i = i_0-\ell \text{ and } n=n_0+\ell, \\
+		%		\triangle_{i}[n] & \text{otherwise}.
+		%	\end{cases}
+	\]
+	Then $\widetilde\triangle = \set[\big]{\widetilde\triangle_i[n]}_{i,n}$ is a cup-$i$ construction.
+\end{proposition}
+
+\begin{proof}
+	We need to verify that for each pair $i,n$ the identity
+	\[
+	\big(\bd \widetilde\triangle_{i} + \widetilde\triangle_{i}\bd\big)[n] =
+	(1+T) \widetilde\triangle_{i-1}[n]
+	\]
+	holds, knowing it does so for $\triangle$.
+	We will split the proof into four cases
+	\[
+	i < i_0 \quad;\quad i = i_0 \quad;\quad i = i_0+1 \quad;\quad i > i_0+1.
+	\]
+	If $i > i_0+1$ the identity on $\widetilde\triangle$ reduces to that for $\triangle$.
+	Let $i = i_0+1$, if $n \neq n_0$ the same is true, whereas if $n = n_0$ we have
+	\begin{align*}
+		\big(\bd \widetilde\triangle_{i_0+1} + \widetilde\triangle_{i_0+1} \bd\big) &=
+		\big(\bd \triangle_{i_0+1} + \triangle_{i_0+1} \bd\big) \\ &=
+		(1+T)\triangle_{i_0} \\ &=
+		(1+T)T\triangle_{i_0} \\ &=
+		(1+T)\widetilde\triangle_{i_0}.
+	\end{align*}
+	For $i = i_0$ there are two values of $n$ for which the identity is not immediate.
+	For $n = n_0+1$ we have
+	\begin{align*}
+		\big(\bd \widetilde\triangle_{i_0} + \widetilde\triangle_{i_0} \bd\big) &=
+		\big(\bd \triangle_{i_0} + T\triangle_{i_0} \bd\big) \\ &=
+		\big((1+T)\bd\triangle_{i_0} + T(\bd\triangle_{i_0} + \triangle_{i_0}\bd)\big) \\ &=
+		(1+T)\big(\bd\triangle_{i_0} + \triangle_{i_0-1}\big) \\ &=
+		(1+T)\widetilde\triangle_{i_0-1},
+	\end{align*}
+	and for $n = n_0$ we have
+	\begin{align*}
+		\big(\bd \widetilde\triangle_{i_0} + \widetilde\triangle_{i_0} \bd\big) &=
+		\big(\bd T \triangle_{i_0} + \triangle_{i_0} \bd\big) \\ &=
+		\big((1+T)\bd\triangle_{i_0} + \bd\triangle_{i_0} + \triangle_{i_0}\bd\big) \\ &=
+		(1+T)\big(\bd\triangle_{i_0} + \triangle_{i_0-1}\big) \\ &=
+		(1+T)\widetilde\triangle_{i_0-1}.
+	\end{align*}
+	Let us assume that $i < i_0$ and let $i = i_0 - \ell$ for some positive integer $\ell$.
+	There are two values of $n$ for which the identity in $\widetilde\triangle$ that do not reduce to those in $\triangle$.
+	For $n = n_0+\ell$ we have
+	\begin{align*}
+		\big(\bd\widetilde\triangle_{i_0-\ell} + \widetilde\triangle_{i_0-\ell} \bd\big) &=
+		\big(\bd\triangle_{i_0-\ell} + \bd\bd\triangle_{i_0-\ell+1} + \triangle_{i_0-\ell} \bd\big) \\ &=
+		(1+T)\triangle_{i_0-\ell-1} \\ &=
+		(1+T)\widetilde\triangle_{i_0-\ell-1},
+	\end{align*}
+	and for $n = n_0+\ell+1$ we have
+	\begin{align*}
+		\big(\bd \widetilde\triangle_{i_0-\ell} + \widetilde\triangle_{i_0-\ell} \bd\big) &=
+		\big(\bd \triangle_{i_0-\ell} + \triangle_{i_0-\ell}\bd + \bd\triangle_{i_0-\ell+1}\bd\big) \\ &=
+		(1+T)\big(\triangle_{i_0-\ell-1} + \bd\triangle_{i_0-\ell}\big) \\ &=
+		(1+T)\big(\triangle_{i_0-(\ell+1)} + \bd\triangle_{i_0-(\ell+1)+1}\big) \\ &=
+		(1+T)\widetilde\triangle_{i_0-\ell-1}.\qedhere
+	\end{align*}
+
+	\begin{example*}
+		If $n_0-i_0$
+	\end{example*}
+	%	\noindent \underline{$i_0-\ell+1,n_0+\ell-1$}:DONE
+	%	\begin{align*}
+		%		\big(\bd\widetilde\triangle_{i_0-\ell+1} + \widetilde\triangle_{i_0-\ell+1} \bd\big) &=
+		%		\big(\bd\triangle_{i_0-\ell+1} + \bd\bd\triangle_{i_0-\ell+2} + \triangle_{i_0-\ell+1} \bd\big) \\ &=
+		%		(1+T)\triangle_{i_0-\ell} \\ &=
+		%		(1+T)\widetilde\triangle_{i_0-\ell}.
+		%	\end{align*}
+	%	\noindent \underline{$i_0-\ell+1,n_0+\ell$}:DONE
+	%	\begin{align*}
+		%		\big(\bd \widetilde\triangle_{i_0-\ell+1} + \widetilde\triangle_{i_0-\ell+1} \bd\big) &=
+		%		\big(\bd \triangle_{i_0-\ell+1} + \triangle_{i_0-(\ell-1)}\bd + \bd\triangle_{i_0-(\ell-1)+1}\bd\big) \\ &=
+		%		(1+T)\big(\triangle_{i_0-\ell} + \bd\triangle_{i_0-(\ell-1)}\big) \\ &=
+		%		(1+T)\widetilde\triangle_{i_0-\ell}.
+		%	\end{align*}here
+
+	%	\noindent \underline{$i_0,n_0+1$}:
+	%	\begin{align*}
+		%		\big(\bd \widetilde\triangle_{i_0} + \widetilde\triangle_{i_0} \bd\big) &=
+		%		\big(\bd \triangle_{i_0} + \triangle_{i_0}\bd + \bd\triangle_{i_0+1}\bd\big) \\ &=
+		%		(1+T)(\triangle_{i_0-1} + \bd\triangle_{i_0}) \\ &=
+		%		(1+T)\widetilde\triangle_{i_0-1}.
+		%	\end{align*}
+	%	\noindent \underline{$i_0,n_0$}:
+	%	\begin{align*}
+		%		\big(\bd \widetilde\triangle_{i_0} + \widetilde\triangle_{i_0} \bd\big) &=
+		%		\big(\bd \triangle_{i_0} + \bd^2 \triangle_{i_0+1} + \triangle_{i_0} \bd\big) \\ &=
+		%		(1+T)\triangle_{i_0-1} \\ &=
+		%		(1+T)\widetilde\triangle_{i_0-1}.
+		%	\end{align*}
+	%	and
+	%	\begin{align*}
+		%		\big(\bd\widetilde\triangle_{i_0+1} + \widetilde\triangle_{i_0+1} \bd\big) &=
+		%		\big(\bd\triangle_{i_0+1} + \triangle_{i_0+1}\bd + \bd\triangle_{i_0+2}\bd\big) \\ &=
+		%		\big((1+T)\triangle_{i_0} + \bd(\bd\triangle_{i_0+2} + (1+T)\triangle_{i_0+1})\big) \\ &=
+		%		(1+T)\widetilde\triangle_{i_0}
+		%	\end{align*}
+	%	we can see that $\widetilde\triangle$ is a cup-$i$ construction.
+
+
+
+	%	\vskip5pt\noindent \underline{$i_0+1,n_0+1$}:
+	%	\begin{align*}
+		%		\big(\bd \widetilde\triangle_{i_0+1} + \widetilde\triangle_{i_0+1} \bd\big) &=
+		%		\big(\bd \triangle_{i_0+1} + T\triangle_{i_0+1} \bd\big) \\ &=
+		%		\big((1+T)\bd\triangle_{i_0+1} + T(\bd\triangle_{i_0+1} + \triangle_{i_0+1}\bd)\big) \\ &=
+		%		(1+T)\big(\bd\triangle_{i_0+1} + \triangle_{i_0}\big) \\ &=
+		%		(1+T)\widetilde\triangle_{i_0}.
+		%	\end{align*}
+	%	\noindent \underline{$i_0+1,n_0$}:
+	%	\begin{align*}
+		%		\big(\bd \widetilde\triangle_{i_0+1} + \widetilde\triangle_{i_0+1} \bd\big) &=
+		%		\big(T\bd \triangle_{i_0+1} + \triangle_{i_0+1} \bd\big) \\ &=
+		%		\big((1+T)\bd\triangle_{i_0+1} + \bd\triangle_{i_0+1} + \triangle_{i_0+1}\bd\big) \\ &=
+		%		(1+T)\big(\bd\triangle_{i_0+1} + \triangle_{i_0}\big) \\ &=
+		%		(1+T)\widetilde\triangle_{i_0}.
+		%	\end{align*}
+	%	\noindent \underline{$i_0,n_0+1$}:
+	%	\begin{align*}
+		%		\big(\bd \widetilde\triangle_{i_0} + \widetilde\triangle_{i_0} \bd\big) &=
+		%		\big(\bd \triangle_{i_0} + \triangle_{i_0}\bd + \bd\triangle_{i_0+1}\bd\big) \\ &=
+		%		(1+T)(\triangle_{i_0-1} + \bd\triangle_{i_0}) \\ &=
+		%		(1+T)\widetilde\triangle_{i_0-1}.
+		%	\end{align*}
+	%	\noindent \underline{$i_0,n_0$}:
+	%	\begin{align*}
+		%		\big(\bd \widetilde\triangle_{i_0} + \widetilde\triangle_{i_0} \bd\big) &=
+		%		\big(\bd \triangle_{i_0} + \bd^2 \triangle_{i_0+1} + \triangle_{i_0} \bd\big) \\ &=
+		%		(1+T)\triangle_{i_0-1} \\ &=
+		%		(1+T)\widetilde\triangle_{i_0-1}.
+		%	\end{align*}
+	%	and
+	%	\begin{align*}
+		%		\big(\bd\widetilde\triangle_{i_0+1} + \widetilde\triangle_{i_0+1} \bd\big) &=
+		%		\big(\bd\triangle_{i_0+1} + \triangle_{i_0+1}\bd + \bd\triangle_{i_0+2}\bd\big) \\ &=
+		%		\big((1+T)\triangle_{i_0} + \bd(\bd\triangle_{i_0+2} + (1+T)\triangle_{i_0+1})\big) \\ &=
+		%		(1+T)\widetilde\triangle_{i_0}
+		%	\end{align*}
+	%	we can see that $\widetilde\triangle$ is a cup-$i$ construction.
+	%
+	%	If we take the canonical cup-$i$ construction $\Delta$, then $\widetilde\Delta$ is not irreducible.
+
+\end{proof}
+
+%\begin{proposition}
+%	Let $\triangle$ be a cup-$i$ construction and $i_0,n_0$ two non-negative integers.
+%	If
+%	\[
+%	\widetilde\triangle_i[n] =
+%	\begin{cases}
+	%		T\triangle_{i_0+1} & i = i_0+1 \text{ and } n=n_0, \\
+	%		\big(\triangle_{i_0} + \bd \triangle_{i_0+1}\big) & i = i_0 \text{ and } n=n_0, \\
+	%		\big(\triangle_{i_0-1} + \bd \triangle_{i_0}\big) & i = i_0-1 \text{ and } n=n_0+1, \\
+	%		\triangle_{i}[n] & \text{otherwise}.
+	%	\end{cases}
+%	\]
+%	Then $\set{\widetilde\triangle_i[n]}_{i,n}$ is a cup-$i$ construction.
+%\end{proposition}
+%
+%\begin{proof}
+%	It follows from the following straightforward computations.
+%
+%	\vskip 1em\noindent \underline{$i_0+1,n_0+1$}:
+%	\begin{align*}
+	%		\big(\bd \widetilde\triangle_{i_0+1} + \widetilde\triangle_{i_0+1} \bd\big) &=
+	%		\big(\bd \triangle_{i_0+1} + T\triangle_{i_0+1} \bd\big) \\ &=
+	%		\big((1+T)\bd\triangle_{i_0+1} + T(\bd\triangle_{i_0+1} + \triangle_{i_0+1}\bd)\big) \\ &=
+	%		(1+T)\big(\bd\triangle_{i_0+1} + \triangle_{i_0}\big) \\ &=
+	%		(1+T)\widetilde\triangle_{i_0}.
+	%	\end{align*}
+%	\noindent \underline{$i_0+1,n_0$}:
+%	\begin{align*}
+	%		\big(\bd \widetilde\triangle_{i_0+1} + \widetilde\triangle_{i_0+1} \bd\big) &=
+	%		\big(T\bd \triangle_{i_0+1} + \triangle_{i_0+1} \bd\big) \\ &=
+	%		\big((1+T)\bd\triangle_{i_0+1} + \bd\triangle_{i_0+1} + \triangle_{i_0+1}\bd\big) \\ &=
+	%		(1+T)\big(\bd\triangle_{i_0+1} + \triangle_{i_0}\big) \\ &=
+	%		(1+T)\widetilde\triangle_{i_0}.
+	%	\end{align*}
+%		\noindent \underline{$i_0,n_0+1$}:
+%	\begin{align*}
+	%		\big(\bd \widetilde\triangle_{i_0} + \widetilde\triangle_{i_0} \bd\big) &=
+	%		\big(\bd \triangle_{i_0} + \triangle_{i_0}\bd + \bd\triangle_{i_0+1}\bd\big) \\ &=
+	%		(1+T)(\triangle_{i_0-1} + \bd\triangle_{i_0}) \\ &=
+	%		(1+T)\widetilde\triangle_{i_0-1}.
+	%	\end{align*}
+%	\noindent \underline{$i_0,n_0$}:
+%	\begin{align*}
+	%		\big(\bd \widetilde\triangle_{i_0} + \widetilde\triangle_{i_0} \bd\big) &=
+	%		\big(\bd \triangle_{i_0} + \bd^2 \triangle_{i_0+1} + \triangle_{i_0} \bd\big) \\ &=
+	%		(1+T)\triangle_{i_0-1} \\ &=
+	%		(1+T)\widetilde\triangle_{i_0-1}.
+	%	\end{align*}
+%	and
+%	\begin{align*}
+	%		\big(\bd\widetilde\triangle_{i_0+1} + \widetilde\triangle_{i_0+1} \bd\big) &=
+	%		\big(\bd\triangle_{i_0+1} + \triangle_{i_0+1}\bd + \bd\triangle_{i_0+2}\bd\big) \\ &=
+	%		\big((1+T)\triangle_{i_0} + \bd(\bd\triangle_{i_0+2} + (1+T)\triangle_{i_0+1})\big) \\ &=
+	%		(1+T)\widetilde\triangle_{i_0}
+	%	\end{align*}
+%	we can see that $\widetilde\triangle$ is a cup-$i$ construction.
+%
+%	If we take the canonical cup-$i$ construction $\Delta$, then $\widetilde\Delta$ is not irreducible.
+%
+%\end{proof}
+
+
+
+
+
 \begin{align*}
 \triangle^{\mathrm{GR}}_i [n] = \!
 & \sum_{j_i=S(i)}^{n} \ \sum_{j_{i-1}=S(i-1)}^{j_i-1} \dots \sum_{j_1=S(1)}^{j_2-1} \\

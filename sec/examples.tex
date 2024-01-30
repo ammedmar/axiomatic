@@ -1,0 +1,225 @@
+\section{Independence of the axioms}
+
+In this section we construct examples showing the necessity of each of our axioms.
+
+\subsection{The trivial construction}
+
+The cup-$i$ construction defined by $\triangle_i = 0$ for each positive integer $i$ is both irreducible and free, but not non-degenerate.
+
+\subsection{A non-free construction}
+
+Consider the cycle
+\[
+z = (1+T)(012 \ot 1 + 012 \ot 2 + 01 \ot 12 + 02 \ot 12)
+\]
+in $\chains(\gsimplex^2) \ot \chains(\gsimplex^2)$, and let $\zeta$ be such that $\Psi_2^{\ot2}(\zeta) = z$.
+Explicitly,
+\[
+\zeta = (1+T)\big(\emptyset \ot \set{02} + \emptyset \ot \set{01} + \set{2} \ot \set{0} + \set{1} \ot \set{0}\big).
+\]
+Define for each pair $i,n$
+\[
+\triangle_i[n] =
+\begin{cases}
+	\Delta_0[2] + \zeta & \text{if } i=0 \text{ and } n=2, \\
+	\Delta_{i}[n] & \text{otherwise}.
+\end{cases}
+\]
+This defines a cup-$i$ construction that is non-degenerate, irreducible but not free.
+
+\subsection{A family of reducible constructions}
+
+Before providing an example of a cup-$i$ construction that is both non-degenerate and free but not irreducible, we first introduce a general method to produce new cup-$i$ constructions from old ones.
+
+\begin{lemma}
+	Let $\triangle$ be a cup-$i$ construction and fix $i_0>0$ and $n_0 \geq 0$.
+	For all non-negative integers $i$ and $n$ define
+	\[
+	\widetilde\triangle_i[n] =
+	\begin{cases}
+		T\triangle_{i_0}[n_0] & i=i_0, n=n_0, \\
+		\big(\triangle_{i_0-1} + \triangle_{i_0}\bd\big)[n_0+1] & i=i_0-1, n=n_0+1, \\
+		\big(\triangle_{i_0-1} + \bd\triangle_{i_0}\big)[n_0] & i=i_0-1, n=n_0, \\
+		\triangle_{i}[n] & \text{otherwise}.
+	\end{cases}
+	\]
+	Then $\widetilde\triangle = \set[\big]{\widetilde\triangle_i[n]}_{i,n}$ is a cup-$i$ construction.
+\end{lemma}
+
+\begin{proof}
+	We need to verify that for all $i$ and $n$ the identity
+	\[
+	\big(\bd \widetilde\triangle_{i} + \widetilde\triangle_{i}\bd\big)[n] =
+	(1+T) \widetilde\triangle_{i-1}[n]
+	\]
+	holds, knowing it does so for $\triangle$.
+	A consequence of this identity that we will use without further mention is the following
+	\[
+	(1+T)\triangle_i\bd = (1+T)\bd\triangle_i.
+	\]
+	We will split the proof into five cases
+	\[
+	i < i_0-1 \quad;\quad i = i_0-1 \quad;\quad i = i_0 \quad;\quad i = i_0+1 \quad;\quad i > i_0+1.
+	\]
+	For $i > i_0+1$ the identity on $\widetilde\triangle$ reduces to that for $\triangle$ for all values of $n$.
+	For $i = i_0+1$ there is one value of $n$ to consider.
+	If $n = n_0$ we have
+	\begin{align*}
+		\big(\bd \widetilde\triangle_{i_0+1} + \widetilde\triangle_{i_0+1} \bd\big) &=
+		\big(\bd \triangle_{i_0+1} + \triangle_{i_0+1} \bd\big) \\ &=
+		(1+T)\triangle_{i_0} \\ &=
+		(1+T)T\triangle_{i_0} \\ &=
+		(1+T)\widetilde\triangle_{i_0}.
+	\end{align*}
+	For $i = i_0$ there are two values of $n$ to consider.
+	For $n = n_0+1$ we have
+	\begin{align*}
+		\big(\bd \widetilde\triangle_{i_0} + \widetilde\triangle_{i_0} \bd\big) &=
+		\big(\bd \triangle_{i_0} + T\triangle_{i_0} \bd\big) \\ &=
+		\big((1+T)\bd\triangle_{i_0} + T(\bd\triangle_{i_0} + \triangle_{i_0}\bd)\big) \\ &=
+		(1+T)\big(\triangle_{i_0}\bd \,+\, \triangle_{i_0-1}\big) \\ &=
+		(1+T)\widetilde\triangle_{i_0-1}
+	\end{align*}
+	and for $n = n_0$ we have
+	\begin{align*}
+		\big(\bd \widetilde\triangle_{i_0} + \widetilde\triangle_{i_0} \bd\big) &=
+		\big(\bd T \triangle_{i_0} + \triangle_{i_0} \bd\big) \\ &=
+		\big((1+T)\bd\triangle_{i_0} + \bd\triangle_{i_0} + \triangle_{i_0}\bd\big) \\ &=
+		(1+T)\big(\bd\triangle_{i_0} + \triangle_{i_0-1}\big) \\ &=
+		(1+T)\widetilde\triangle_{i_0-1}.
+	\end{align*}
+	For $i = i_0-1$ there are three cases to consider.
+	For $n = n_0+2$ we have
+	\begin{align*}
+		\big(\bd\widetilde\triangle_{i_0-1} + \widetilde\triangle_{i_0-1} \bd\big) &=
+		\big(\bd\triangle_{i_0-1} + (\triangle_{i_0-1} + \triangle_{i_0} \bd)\bd\big) \\ &=
+		(1+T)\triangle_{i_0-2} \\ &=
+		(1+T)\widetilde\triangle_{i_0-2}.
+	\end{align*}
+	For $n = n_0+1$ we have
+	\begin{align*}
+		\big(\bd\widetilde\triangle_{i_0-1} + \widetilde\triangle_{i_0-1} \bd\big) &=
+		\big(\bd(\triangle_{i_0-1} + \triangle_{i_0} \bd) + (\triangle_{i_0-1} + \bd\triangle_{i_0})\bd \big) \\ &=
+		(1+T)\triangle_{i_0-2} \\ &=
+		(1+T)\widetilde\triangle_{i_0-2}.
+	\end{align*}
+	For $n = n_0$ we have
+	\begin{align*}
+		\big(\bd\widetilde\triangle_{i_0-1} + \widetilde\triangle_{i_0-1} \bd\big) &=
+		\big(\bd(\triangle_{i_0-1} + \bd\triangle_{i_0}) + \triangle_{i_0-1}\bd \big) \\ &=
+		(1+T)\triangle_{i_0-2} \\ &=
+		(1+T)\widetilde\triangle_{i_0-2}.
+	\end{align*}
+	If $i<i_0-1$ the identity on $\widetilde\triangle$ reduces to that for $\triangle$ for all values of $n$.
+\end{proof}
+
+Let us consider the canonical cup-$i$ construction $\Delta$ and the integers $i_0=1$ and $n_0=3$.
+The cup-$i$ construction $\widetilde\triangle$, defined above, is both non-degenerate and free but not irreducible as we will inspect.
+If $i \neq i_0-1$ or to $n \not\in \set{n_0,n_0+1}$ then $\widetilde\triangle_i[n]$ is equal to $\triangle_i[n]$ or $T\triangle_i[n]$.
+With the assistance of \texttt{ComCH} we compute the two cases where the axioms could be broken:
+\[
+\widetilde\triangle_0[4] = (\Delta_0 + \Delta_1\partial)[4] =
+\]
+\noindent
+{\ttfamily
+	(1234)() + (234)(0) + (34)(01) + (4)(012) + ()(0123) + (0)(034) +\\
+	(02)(04) + (023)(0) + (0)(014) + (03)(01) + (0)(012) + (1)(134) +\\
+	(12)(14) + (123)(1) + (1)(014) + (13)(01) + (1)(012) + (2)(234) +\\
+	(12)(24) + (123)(2) + (2)(024) + (23)(02) + (2)(012) + (3)(234) +\\
+	(13)(34) + (123)(3) + (3)(034) + (23)(03) + (3)(013) + (4)(234) +\\
+	(14)(34) + (124)(4) + (4)(034) + (24)(04) + (4)(014)}
+\[
+\widetilde\triangle_0[3] = (\Delta_0 + \partial\Delta_1)[3] =
+\]
+\noindent
+{\ttfamily
+	(0)(23) + (2)(23) + (3)(23) + ()(123) + (01)(3) + (13)(3) +\\
+	(1)(13) + (012)() + (12)(1) + (12)(2) + (0)(03) + (3)(03) +\\
+	(02)(0) + (2)(02) + (0)(01) + (1)(01)}
+
+\vspace*{1em}
+\noindent and conclude that $\widetilde\triangle$ is freeness and non-degenerate, but not irreducible.
+
+\subsection{Non-degenerate, irreducible, \& not free}
+
+Let us once again start with a method to produce new cup-$i$ constructions from old ones.
+
+\begin{lemma}
+	Let $\triangle$ be a cup-$i$ construction and fix $i_0,n_0 \geq 0$.
+	Define
+	\[
+	\widetilde\triangle_i[n] =
+	\begin{cases}
+		(\triangle_{i_0} + (1+T)\bd\triangle_{i_0+1})[n_0] & \text{if } i=i_0 \text{ and } n=n_0, \\
+		\hfil\triangle_{i}[n] & \text{otherwise}.
+	\end{cases}
+	\]
+	for all non-negative $i$ and $n$.
+	Then $\widetilde\triangle = \set[\big]{\widetilde\triangle_i[n]}_{i,n}$ is a cup-$i$ construction.
+\end{lemma}
+
+\begin{proof}
+	We need to verify that for all $i$ and $n$ the identity
+	\[
+	\big(\bd \widetilde\triangle_{i} + \widetilde\triangle_{i}\bd\big)[n] =
+	(1+T) \widetilde\triangle_{i-1}[n]
+	\]
+	holds, knowing it does so for $\triangle$.
+	For $i = i_0+1$ there is one case to consider, $n = n_0$:
+	\begin{align*}
+		\bd\widetilde\triangle_{i_0+1} + \widetilde\triangle_{i_0+1}\bd &=
+		\bd\triangle_{i_0+1} + \triangle_{i_0+1}\bd \\ &=
+		(1+T)\triangle_{i_0} + (1+T)(1+T)\bd\triangle_{i_0+1}\\ &=
+		(1+T)\widetilde\triangle_{i_0}.
+	\end{align*}
+	For $i = i_0$ there are two cases to consider.
+	For $n = n_0+1$ we have
+	\begin{align*}
+		\bd\widetilde\triangle_{i_0} + \widetilde\triangle_{i_0}\bd &=
+		\bd\triangle_{i_0} + \triangle_{i_0}\bd + (1+T)\bd\triangle_{i_0+1}\bd \\ &=
+		\bd\triangle_{i_0} + \triangle_{i_0}\bd\\ &=
+		(1+T)\widetilde\triangle_{i_0-1}.
+	\end{align*}
+	For $n = n_0$ we have
+	\begin{align*}
+		\bd\widetilde\triangle_{i_0} + \widetilde\triangle_{i_0}\bd &=
+		\bd\triangle_{i_0} + \bd(1+T)\bd\triangle_{i_0+1} + \triangle_{i_0}\bd \\ &=
+		\bd\triangle_{i_0} + \triangle_{i_0}\bd\\ &=
+		(1+T)\widetilde\triangle_{i_0-1}.
+	\end{align*}
+	For all other values of $i$ and $n$ the identity on $\widetilde\triangle$ reduces to that on $\triangle$.
+\end{proof}
+
+%\begin{lemma}
+%	Let $\triangle$ be a cup-$i$ construction and fix $i_0\geq0$.
+%	If
+%	\[
+%	\widetilde\triangle_i =
+%	\begin{cases}
+%		\triangle_{i_0} + (1+T)\bd\triangle_{i_0+1} & \text{if }i=i_0, \\
+%		\hfil\triangle_{i} & \text{otherwise}.
+%	\end{cases}
+%	\]
+%	Then $\widetilde\triangle = \set[\big]{\widetilde\triangle_i[n]}_{i,n}$ is a cup-$i$ construction.
+%\end{lemma}
+%
+%\begin{proof}
+%	This is established by two direct computations:
+%	\begin{align*}
+%		\bd\widetilde\triangle_{i_0+1} + \widetilde\triangle_{i_0+1}\bd &=
+%		\bd\triangle_{i_0+1} + \triangle_{i_0+1}\bd \\ &=
+%		(1+T)\triangle_{i_0} + (1+T)(1+T)\bd\triangle_{i_0+1}\\ &=
+%		(1+T)\widetilde\triangle_{i_0}.
+%	\end{align*}
+%	and
+%	\begin{align*}
+%		\bd\widetilde\triangle_{i_0} + \widetilde\triangle_{i_0}\bd &=
+%		\bd\triangle_{i_0} + \bd(1+T)\bd\triangle_{i_0+1} + \triangle_{i_0}\bd + (1+T)\bd\triangle_{i_0+1}\bd \\ &=
+%		\bd\triangle_{i_0} + \triangle_{i_0}\bd\\ &=
+%		(1+T)\widetilde\triangle_{i_0-1}. \qedhere
+%	\end{align*}
+%\end{proof}
+
+\begin{example*}
+	Take $i_0 = 0$ and $n$ at least 3.
+\end{example*}
