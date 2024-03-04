@@ -5,8 +5,7 @@
 In this section, we introduce the concept of a cup-$i$ construction and the axioms that characterize Steenrod's.
 Additionally, we briefly recall from \cite{medina2023fast_sq} a new set of formulas that, after the main result of this paper, define Steenrod's cup-$i$ construction.
 
-We denote the (normalized) cochains of a simplicial $X$ by $\cochains(X)$ graded homologically and concentrated in non-positive degrees.
-Unless otherwise stated we consider $\Ftwo$ as the field of coefficients.
+We denote the (normalized) cochains of a simplicial $X$ with $\Ftwo$ coefficients by $\cochains(X)$, graded homologically and concentrated in non-positive degrees.
 
 \subsection{Cup-\textit{i} constructions}
 
@@ -14,18 +13,13 @@ Let $\sym_2$ be the group with one non-identity element $T$ and let
 \[
 \begin{tikzcd}[column sep=20pt]
 W = \Big(
-\Fp[\sym_2]\{e_0\} &
-\Fp[\sym_2]\{e_1\} \arrow[l, "\ 1+T"'] &
+\Ftwo[\sym_2]\{e_0\} &
+\Ftwo[\sym_2]\{e_1\} \arrow[l, "\ 1+T"'] &
 \arrow[l, "\ 1+T"'] \cdots \Big)
 \end{tikzcd}
 \]
-be the minimal projective resolution of $\F$ by $\F[\sym_2]$-modules.
-We notice that the group of automorphisms of $W$ is isomorphic to $\prod_{\N} \sym_2$ with any such $\phi$ defined by a choice for every $i \in \N$ of
-\[
-\phi(e_i) = e_i
-\quad \text{ or } \quad
-\phi(e_i) = Te_i.
-\]
+be the minimal free resolution of $\Ftwo$ by $\Ftwo[\sym_2]$-modules.
+We notice that the group of automorphisms of $W$ is isomorphic to $\prod_{\N} \sym_2$ with any such $\phi$ defined by a choice between $\phi(e_i) = e_i$ or $\phi(e_i) = Te_i$ for every $i \in \N$.
 
 \begin{definition}
 	A \textbf{\mbox{cup-$i$} product structure} on a chain complex $A$ is a chain map
@@ -45,7 +39,7 @@ with the convention $\alpha \cup_{i} \beta = 0$ for a negative integer $i$.
 Setting $i = 0$ we see that $(A, \cup_0)$ is a differential graded algebra.
 The identity obtained setting $i = 1$ implies that the algebra structure induced in the homology $HA$ of $A$ is commutative, with the product $\cup_1$ enforcing this relation at the chain level.
 This product is itself not commutative, but it is so up to a homotopy defined by $\cup_2$, and so on.
-From this chain level structure we deduce the \textit{Steenrod squares} operations $\Sq^k \colon HA \to HA$, defined for $k \in \N$, by the assignment $[\alpha] \mapsto \big[(\alpha \cup_{k-\bars{\alpha}} \alpha)\big]$.
+%The \textit{Steenrod square} operations $\Sq^k \colon HA \to HA$, for $k \in \N$, are defined by the assignment $[\alpha] \mapsto \big[(\alpha \cup_{k-\bars{\alpha}} \alpha)\big]$.
 
 \begin{definition}
 	An \textbf{isomorphism} of \mbox{cup-$i$} product structures on $A$ is an automorphism $\phi$ of $W$ making the diagram
@@ -60,22 +54,22 @@ From this chain level structure we deduce the \textit{Steenrod squares} operatio
 \end{definition}
 
 \begin{definition}
-	A \textbf{\mbox{cup-$i$} construction} (more accurately termed \emph{\mbox{cup-$i$} product construction on simplicial cochains}) is a \mbox{cup-$i$} product structure on $\cochains(X)$ for every simplicial set $X$ that is natural with respect to simplicial maps.
+	A \textbf{\mbox{cup-$i$} construction} is a \mbox{cup-$i$} product structure on $\cochains(X)$ for every simplicial set $X$ that is natural with respect to simplicial maps.
 	An \textbf{isomorphism} of \mbox{cup-$i$} constructions is defined similarly.
 \end{definition}
 
 \subsection{Uniqueness}
 
-The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of \mbox{cup-$i$} construction; whereas the second, minimality, is manifested in the use of $W$ instead of an arbitrary projective resolution of $\F$.
+The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of \mbox{cup-$i$} construction; whereas the second, minimality, is manifested in the use of $W$ instead of an arbitrary free resolution of $\F$.
 
 In the following definition we identify a simplex with its dual cochain.
 
 \begin{definition}\label{d:properties}
-	A \mbox{cup-$i$} construction is \textbf{non-degenerate} if for any simplex $x$
+	A \mbox{cup-$i$} construction is \textbf{non-degenerate} if
 	\[
 	\boxed{x \cup_0 x \neq 0}
 	\]
-	whenever $\bars{x} = 0$.
+	for a $0$-simplex $x$.
 	It is \textbf{irreducible} if for any proper face $y$ of $x$
 	\[
 	\boxed{\Big( y^{(1)} \cup_{i} y^{(2)} \Big)(x) = 0}
@@ -100,32 +94,33 @@ We will use this result to prove in \cref{s:others,s:operads} that all \mbox{cup
 
 \subsection{Existence}
 
-To prove our main result we will use the following formulas defining one such \mbox{cup-$i$} construction introduced in \cite{medina2023fast_sq}.
+To prove our main result we will use a \mbox{cup-$i$} construction defined using new formulas introduced in \cite{medina2023fast_sq}.
+Before we recall them, let us introduce the following.
 
 \begin{notation*}
-	We will use the traditional notation for face maps, and, for any $n$-simplex $x$ and set $U = \{u_1 < \dots < u_r\} \subseteq \set[big]{0,\dots,n}$, we write $d_U(x)$ for $d_{u_1}\! \dotsm d_{u_r}(x)$ with $d_{\emptyset}(x) = x$.
+	For any $n$-simplex $x$ and set $U = \{u_1 < \dots < u_r\} \subseteq \set[big]{0,\dots,n}$ we write $d_U(x)$ for the composition of face maps $d_{u_1}\! \dotsm d_{u_r}(x)$ with $d_{\emptyset}(x) = x$.
 \end{notation*}
 
-\begin{definition}[\cite{medina2023fast_sq}] \label{d:my cup-i}
+\begin{definition}[\cite{medina2023fast_sq}]\label{d:my cup-i}
 	Let $X$ be a simplicial set, $x \in X_n$ and $\alpha, \beta \in \cochains(X)$.
-	\begin{equation}\label{e:new formulas}
+	\[
 	(\alpha \cup_i \beta)(x) =
 	\begin{cases}
-	(\alpha \ot \beta) \sum d_{U^0}(x) \ot d_{U^1}(x) &
-	\text{if } i \in \{0, \dots, n\}, \\
-	\hfil 0 &
-	\text{otherwise},
+		(\alpha \ot \beta) \sum d_{U^0}(x) \ot d_{U^1}(x) &
+		\text{if } i \in \{0, \dots, n\}, \\
+		\hfil 0 &
+		\text{otherwise},
 	\end{cases}
-	\end{equation}
+	\]
 	where the sum is taken over all $U = \{u_1 < \cdots < u_{n-i}\} \subseteq \{0, \dots, n\}$ and
-	\begin{equation*}
+	\[
 	U^0 = \{u_j \in U \mid u_j + j \equiv 0 \text{ mod } 2\}, \qquad
 	U^1 = \{u_j \in U \mid u_j + j \equiv 1 \text{ mod } 2\}.
-	\end{equation*}
+	\]
 \end{definition}
 
 \begin{example}
-	For $i = 0$, \cref{e:new formulas} gives
+	For $i = 0$, the above gives
 	\begin{equation*}
 	(\alpha \cup_0 \beta)(x) =
 	\sum_{j=0}^n \alpha \big(d_{j+1} \cdots d_{n}(x)\big) \cdot \beta \big(d_{0} \cdots d_{j-1}(x)\big),
@@ -133,6 +128,5 @@ To prove our main result we will use the following formulas defining one such \m
 	the well-known \textbf{Alexander--Whitney product}.
 \end{example}
 
-The verification that the formulas in \cref{e:new formulas} define a \mbox{cup-$i$} construction is given in \cite{medina2023fast_sq}.
-We will refer to it as the \textbf{canonical \mbox{cup-$i$} construction}.
-Furthermore, we will show that it is non-degenerate, irreducible, and free (\cref{t:existence}) and, using our main theorem, that it agrees with Steenrod's original cup-$i$ construction (\cref{t:steenrod cup-i}).
+The verification that \cref{d:my cup-i} define a \mbox{cup-$i$} construction is presented in \cite{medina2023fast_sq}.
+We will refer to it as the \textbf{canonical \mbox{cup-$i$} construction} and show it agrees with Steenrod's original cup-$i$ construction  in \cref{t:steenrod cup-i}.
