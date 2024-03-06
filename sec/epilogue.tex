@@ -4,11 +4,11 @@
 
 %This section is included to provide context to our results and is logically independent of the rest of this paper.
 %
-%By an acyclic carrier argument \cite{eilenberg1953acyclic} all non-degenerate \mbox{cup-$i$} constructions are homotopic to each other.
-%Any of them gives rise to the following celebrated cohomology operations introduced by Steenrod in \cite{steenrod1947products} through an explicit \mbox{cup-$i$} construction reviewed in \cref{ss:original}.
+%By an acyclic carrier argument \cite{eilenberg1953acyclic} all non-zero simplicial \mbox{cup-$i$} constructions are homotopic to each other.
+%Any of them gives rise to the following celebrated cohomology operations introduced by Steenrod in \cite{steenrod1947products} through an explicit simplicial \mbox{cup-$i$} construction reviewed in \cref{ss:original}.
 %
 %\begin{definition*}
-%	For any non-degenerate \mbox{cup-$i$} construction the \textbf{$k^\th$ Steenrod square} is defined on cocycle representatives by
+%	For any non-zero simplicial \mbox{cup-$i$} construction the \textbf{$k^\th$ Steenrod square} is defined on cocycle representatives by
 %	\[
 %	\begin{tikzcd} [column sep=tiny, row sep=0]
 %	\Sq^k \colon &[-10pt] \rH^{-n} \arrow[r] & \rH^{-n-k} \\
@@ -38,7 +38,7 @@
 
 \subsection{Cup-(\textit{p,i}) products}
 
-Steenrod squares are parameterized by classes on the mod $2$ homology of $\sym_2$.
+Steenrod squares are parameterized by classes on the mod $2$ homology of $\Sym_2$.
 Steenrod used this group homology viewpoint to non-constructively define -- for any prime $p$ -- operations on the mod $p$ cohomology of spaces \cite{steenrod1952reduced, steenrod1953cyclic}.
 To define these constructively for odd primes, May's operadic viewpoint \cite{may1970general} was used in \cite{medina2021may_st} to provide explicit \textbf{cup-$(p,i)$ constructions}, which were implemented in the computer algebra system \href{https://github.com/ammedmar/comch}{\texttt{ComCH}} \cite{medina2021comch}.
 A \mbox{cup-$(p,i)$} construction is an $\cyc_p$-equivariant chain map
@@ -49,19 +49,19 @@ inducing an isomorphism in homology where $W(p)$
 %\[
 %\begin{tikzcd}[column sep=20pt]
 %	W(p) = \Big(
-%	\Fp[\sym_p]\{e_0\} &
-%	\Fp[\sym_p]\{e_1\} \arrow[l, "\ \rho - \id"'] &
+%	\Fp[\Sym_p]\{e_0\} &
+%	\Fp[\Sym_p]\{e_1\} \arrow[l, "\ \rho - \id"'] &
 %	\arrow[l, "\ \id+\rho+\dots+\rho^{p-1}"'] \cdots \Big)
 %\end{tikzcd}
 %\]
 %\[
 %W(p) = \Big(
-%\Fp[\sym_p]\{e_0\}
+%\Fp[\Sym_p]\{e_0\}
 %\xla{\rho-\id}
-%\Fp[\sym_p]\{e_1\}
+%\Fp[\Sym_p]\{e_1\}
 %\xla{\id+\rho+\dots+\rho^{p-1}} \cdots \Big)
 %\]
-is the minimal resolution of $\Fp$ as an $\Fp[\sym_p]$-module.
+is the minimal resolution of $\Fp$ as an $\Fp[\Sym_p]$-module.
 Studying the moduli of cup-$(p,i)$ constructions as done here for the $p = 2$ case is left to future work.
 
 \subsection{Relations and secondary operations}

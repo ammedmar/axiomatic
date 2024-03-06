@@ -2,13 +2,13 @@
 
 \section{Other formulas}\label{s:others}
 
-In this section we first show that the canonical \mbox{cup-$i$} construction is equal to Steenrod's original (\cref{ss:original}).
-We then review Real's formulas and show that the resulting \mbox{cup-$i$} construction is also equal to the canonical one (\cref{ss:real}).
+In this section we first show that the canonical simplicial \mbox{cup-$i$} construction is equal to Steenrod's original (\cref{ss:original}).
+We then review Real's formulas and show that the resulting simplicial \mbox{cup-$i$} construction is also equal to the canonical one (\cref{ss:real}).
 The agreement of these three constructions seems to appear in print for the first time here.
 
 \subsection{Original construction}\label{ss:original}
 
-We now review \textbf{Steenrod's \mbox{cup-$i$} construction} \cite[p.293]{steenrod1947products}.
+We now review \textbf{Steenrod's simplicial \mbox{cup-$i$} construction} \cite[p.293]{steenrod1947products}.
 Using \cref{l:coalgebra,l:natural}, we will describe it as a set of elements $\triangle_i^\rS [n] \in \chains(\simplex^n)^{\ot 2}_{i+n}$ with $i,n \in \N$.
 If $i > n$ then $\triangle_i^\rS [n] = 0$, otherwise it is given by the sum over all ordered sequences of integers
 \[
@@ -34,14 +34,14 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 \]
 
 \begin{theorem}\label{t:steenrod cup-i}
-	Steenrod's \mbox{cup-$i$} construction agrees with the canonical one.
+	Steenrod's simplicial \mbox{cup-$i$} construction agrees with the canonical one.
 \end{theorem}
 
 \begin{proof}
 	We will use \cref{t:main} to prove that they are isomorphic.
 	We can then conclude their equality by inspecting that $\triangle^\rS_i [i+1] \neq T \Delta_i [i+1]$.
 
-	Steenrod's \mbox{cup-$i$} construction is \emph{non-degenerate} since $\Delta_0\big([0]\big) = [0] \ot [0] \neq 0$.
+	Steenrod's simplicial \mbox{cup-$i$} construction is \emph{non-zero} since $\Delta_0\big([0]\big) = [0] \ot [0] \neq 0$.
 	It is \emph{irreducible} since for each basis element in $\triangle^\rS_i [n]$ with $i \leq n$, all integers $\{0, \dots, n\}$ appear in at least one of the tensor factors.
 	To prove it is \emph{free} let us assume $i$ is odd with $i < n$.
 	The case where $i$ is even is done analogously.
@@ -95,14 +95,14 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 
 \subsection{AW--EZ contraction}\label{ss:real}
 
-In work by Real \cite{real1996computability}, further developed by Gonz\'alez\-/D\'iaz\--Real \cite{gonzalez-diaz1999steenrod, gonzalez2003computation, gonzalez-diaz2005cocyclic}, alternative formulas defining a \mbox{cup-$i$} construction were introduced using the Alexander--Whitney and Eilenberg--Zilber linear natural transformations
+In work by Real \cite{real1996computability}, further developed by Gonz\'alez\-/D\'iaz\--Real \cite{gonzalez-diaz1999steenrod, gonzalez2003computation, gonzalez-diaz2005cocyclic}, alternative formulas defining a simplicial \mbox{cup-$i$} construction were introduced using the Alexander--Whitney and Eilenberg--Zilber linear natural transformations
 \[
 \AW \colon \chains(\simplex^n \times \simplex^n)
 \rightleftarrows
 \chains(\simplex^n) \ot \chains(\simplex^n) \,: \EZ
 \]
 and an explicit natural chain homotopy $\mathrm{SHI}$ between their non-trivial composition $\EZ \AW$ and the identity.
-The natural linear transformations defining \textbf{Real's \mbox{cup-$i$} construction} are
+The natural linear transformations defining \textbf{Real's simplicial \mbox{cup-$i$} construction} are
 \[
 \triangle^{\mathrm{R}}_i = \AW (T \, \mathrm{SHI})^i.
 \]
@@ -126,7 +126,7 @@ if $n$ is even and by
 if $n$ is odd.\footnote{To compare these formulas to those appearing in \cite[Theorem~3.1]{gonzalez-diaz1999steenrod} replace $i$ and $n$ respectively by $n$ and $m$.}
 
 \begin{theorem}
-	Real's \mbox{cup-$i$} construction agrees with the canonical one.
+	Real's simplicial \mbox{cup-$i$} construction agrees with the canonical one.
 \end{theorem}
 
 \begin{proof}
@@ -139,7 +139,7 @@ if $n$ is odd.\footnote{To compare these formulas to those appearing in \cite[Th
 		i_k \in \set{k,\dots,j_{k+1}-1} \text{ for } k \in \set{0,\dots,i-1}.
 	\end{equation}
 
-	$\triangle^\rR$ is non-degenerate since, if $i=n=0$, the indexing set of the sum consists of a single $i_0 = 0$ and we can see that $\triangle^\rR_0 [0] = \emptyset \ot \emptyset$ using \cref{eq:real left}.
+	$\triangle^\rR$ is non-zero since, if $i=n=0$, the indexing set of the sum consists of a single $i_0 = 0$ and we can see that $\triangle^\rR_0 [0] = \emptyset \ot \emptyset$ using \cref{eq:real left}.
 
 	$\triangle^\rR$ is irreducible since for each summand $V \ot W$, equal to
 	\begin{align*}
@@ -190,7 +190,7 @@ if $n$ is odd.\footnote{To compare these formulas to those appearing in \cite[Th
 	\]
 	implying $n-i \leq 0$, and, since $n-i \geq 0$, we conclude $n=i$.
 
-	It remains to be shown that $\triangle^\rR$ is not only isomorphic to the canonical cup-$i$ construction $\Delta$, but equal.
+	It remains to be shown that $\triangle^\rR$ is not only isomorphic to the canonical simplicial \mbox{cup-$i$} construction $\Delta$, but equal.
 	To do so, notice that for every non-negative integer $i$ the summand in $\triangle_i^\rR[i+1]$ associated the indexing element with $j_k = k+1$ for each $k \in \{0,\dots,i\}$ is $\emptyset \ot \{0\}$ which is not a summand present in $T \Delta_i[i+1]$.
 	Therefore, $\triangle_i^\rR \neq T \Delta_i$ for every $i \geq 0$, so $\triangle^\rR = \Delta$ as claimed.
 \end{proof}

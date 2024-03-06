@@ -11,7 +11,7 @@ Recall that the \textbf{Eilenberg--Zilber operad} is the operad of natural linea
 Recall that an $E_\infty$-operad $\cO$ is an operad with the same homology as $\cZ$ whose symmetric action on each arity is free.
 A natural $E_\infty$-coalgebra on simplicial chains defined using $\cO$ is equivalent to an operad morphism from $\cO$ to $\cZ$ inducing an isomorphism in homology.
 
-%We discuss Steenrod's cup-$i$ construction as generalized by the $E_\infty$-structures of McClure--Smith \cite{mcclure2003multivariable}, Berger--Fresse \cite{berger2004combinatorial}, and the author \cite{medina2020prop1}.
+%We discuss Steenrod's simplicial \mbox{cup-$i$} construction as generalized by the $E_\infty$-structures of McClure--Smith \cite{mcclure2003multivariable}, Berger--Fresse \cite{berger2004combinatorial}, and the author \cite{medina2020prop1}.
 
 \subsection{Diagonal and join}
 
@@ -85,8 +85,8 @@ Passing to $\Ftwo$-coefficients, we can inspect \cref{e:prop cup-i} to conclude 
 \[
 \big\{ (1,2), (1,2,1), (1,2,1,2), \dots \big\}
 \]
-define Steenrod's original \mbox{cup-$i$} construction.
-In fact, $\cX(2)$ is isomorphic to $W$ so its set of bases is in bijection with the set of a \mbox{cup-$i$} constructions satisfying our axioms.
+define Steenrod's original simplicial \mbox{cup-$i$} construction.
+In fact, $\cX(2)$ is isomorphic to $W$ so its set of bases is in bijection with the set of a simplicial \mbox{cup-$i$} constructions satisfying our axioms.
 
 \subsection{Barratt--Eccles}
 
@@ -100,9 +100,9 @@ Let $G$ be a finite group, for us it will be a symmetric group, and consider the
 \]
 The partial composition of permutations
 \[
-\circ_j \colon \sym_p \times \sym_q \to \sym_{p+q-1}
+\circ_j \colon \Sym_p \times \Sym_q \to \Sym_{p+q-1}
 \]
-induces an operad structure on the collection of chain complexes $\cE = \set{\chains(E \sym_r)}_{r\geq1}$.
+induces an operad structure on the collection of chain complexes $\cE = \set{\chains(E \Sym_r)}_{r\geq1}$.
 This $E_\infty$-operad, studied by Berger--Fresse \cite{berger2004combinatorial}, is referred to as the \textbf{Barratt--Eccles operad}.
 %These authors also define a quasi-isomorphism of operads $\mathrm{TR} \colon \cE \to \cX$, where $\cX$ is given a different sign convention, and use it to define a natural .
 These authors also defined a natural $\cE$-coalgebra on simplicial chains $\cE \to \cZ$.
@@ -116,4 +116,4 @@ Furthermore, passing to $\Ftwo$-coefficients, their structure factors through th
 %(1,2,\dots,2,1) & \text{ if } i \text{ is odd}.
 %\end{cases}
 %\]
-This can be used to see that in Berger--Fresse's formalism the set of elements $\big\{ (\id, T, \id, \dots, T^i) \big\}_{i \in \N}$ defines a \mbox{cup-$i$} construction that agrees with Steenrod's, and that the set of bases of $\cE(2)$ is in bijection with the set of a \mbox{cup-$i$} constructions satisfying our axioms.
+This can be used to see that in Berger--Fresse's formalism the set of elements $\big\{ (\id, T, \id, \dots, T^i) \big\}_{i \in \N}$ defines a simplicial \mbox{cup-$i$} construction that agrees with Steenrod's, and that the set of bases of $\cE(2)$ is in bijection with the set of a simplicial \mbox{cup-$i$} constructions satisfying our axioms.

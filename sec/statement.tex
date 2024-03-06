@@ -1,34 +1,40 @@
 % !TEX root = ../axiomatic.tex
 
-\section{Axioms}\label{s:statement}
+\section{Simplicial cup-\textit{i} constructions}\label{s:statement}
 
-In this section, we introduce the concept of a cup-$i$ construction and the axioms that characterize Steenrod's.
-Additionally, we briefly recall from \cite{medina2023fast_sq} a new set of formulas that, after the main result of this paper, define Steenrod's cup-$i$ construction.
+%In this section, we introduce the concept of a simplicial \mbox{cup-$i$} construction and the axioms that characterize Steenrod's.
 
-We denote the (normalized) cochains of a simplicial $X$ with $\Ftwo$ coefficients by $\cochains(X)$, graded homologically and concentrated in non-positive degrees.
+We denote the (normalized) cochains of a simplicial set $X$ with $\Ftwo$ coefficients by $\cochains(X)$, graded homologically and concentrated in non-positive degrees.
 
-\subsection{Cup-\textit{i} constructions}
+\subsection{Cup-\textit{i} products}
 
-Let $\sym_2$ be the group with one non-identity element $T$ and let
+Let $\Sym_2$ be the group with one non-identity element $T$ and
 \[
 \begin{tikzcd}[column sep=20pt]
 W = \Big(
-\Ftwo[\sym_2]\{e_0\} &
-\Ftwo[\sym_2]\{e_1\} \arrow[l, "\ 1+T"'] &
+\Ftwo[\Sym_2]\{e_0\} &
+\Ftwo[\Sym_2]\{e_1\} \arrow[l, "\ 1+T"'] &
 \arrow[l, "\ 1+T"'] \cdots \Big)
 \end{tikzcd}
 \]
-be the minimal free resolution of $\Ftwo$ by $\Ftwo[\sym_2]$-modules.
-We notice that the group of automorphisms of $W$ is isomorphic to $\prod_{\N} \sym_2$ with any such $\phi$ defined by a choice between $\phi(e_i) = e_i$ or $\phi(e_i) = Te_i$ for every $i \in \N$.
+the minimal free resolution of $\Ftwo$ by $\Ftwo[\Sym_2]$-modules.
+We notice that the group of automorphisms of $W$ is isomorphic to $\prod_{\N} \Sym_2$ with any such $\phi$ defined by a choice between $\phi(e_i) = e_i$ or $\phi(e_i) = Te_i$ for every $i \in \N$.
 
-\begin{definition}
-	A \textbf{\mbox{cup-$i$} product structure} on a chain complex $A$ is a chain map
-	\[
-	W \ot_{\F[\sym_2]} A^{\ot 2} \to A
-	\]
-	where $T$ acts by transposition on $A^{\ot 2}$ and by right multiplication on $W$.
-	We denote the image of $[e_i \ot \alpha \ot \beta]$ by $\alpha \cup_i \beta$.
-\end{definition}
+A \textbf{\mbox{cup-$i$} product structure} on a chain complex $A$ is a chain map
+\[
+W \ot_{\F[\Sym_2]} A^{\ot 2} \to A
+\]
+where $T$ acts by transposition on $A^{\ot 2}$ and by right multiplication on $W$.
+We denote the image of $[e_i \ot \alpha \ot \beta]$ by $\alpha \cup_i \beta$.
+
+An \textbf{isomorphism} of \mbox{cup-$i$} product structures on $A$ is an automorphism $\phi$ of $W$ making the following diagram commute:
+\begin{center}
+	\begin{tikzcd}[column sep=5, row sep=15]
+			W \displaytensor_{\F[\Sym_2]} A \arrow[dr, in=180, out=-90] \arrow[rr, "\phi \, \ot \, \id \, "] & &
+			W \displaytensor_{\F[\Sym_2]} A \arrow[dl, in=0, out=-90] \\
+			& A & \qquad.
+	\end{tikzcd}
+\end{center}
 
 Unpacking this structure on $A$ we have the following identity for any $i \in \Z$ and $\alpha, \beta \in A$:
 \[
@@ -39,70 +45,61 @@ with the convention $\alpha \cup_{i} \beta = 0$ for a negative integer $i$.
 Setting $i = 0$ we see that $(A, \cup_0)$ is a differential graded algebra.
 The identity obtained setting $i = 1$ implies that the algebra structure induced in the homology $HA$ of $A$ is commutative, with the product $\cup_1$ enforcing this relation at the chain level.
 This product is itself not commutative, but it is so up to a homotopy defined by $\cup_2$, and so on.
-%The \textit{Steenrod square} operations $\Sq^k \colon HA \to HA$, for $k \in \N$, are defined by the assignment $[\alpha] \mapsto \big[(\alpha \cup_{k-\bars{\alpha}} \alpha)\big]$.
 
-\begin{definition}
-	An \textbf{isomorphism} of \mbox{cup-$i$} product structures on $A$ is an automorphism $\phi$ of $W$ making the diagram
-	\begin{center}
-	\begin{tikzcd}[column sep=5, row sep=15]
-	W \displaytensor_{\F[\sym_2]} A \arrow[dr, in=180, out=-90] \arrow[rr, "\phi \, \ot \, \id \, "] & &
-	W \displaytensor_{\F[\sym_2]} A \arrow[dl, in=0, out=-90] \\
-	& A &
- 	\end{tikzcd}
-	\end{center}
-	commute.
-\end{definition}
+A \textbf{semi-simplicial set}, sometimes referred to as a delta set, is a simplicial set with no degeneracy maps.
+A \textbf{(semi-)simplicial \mbox{cup-$i$} construction} is a \mbox{cup-$i$} product structure on $\cochains(X)$ for every (semi-)simplicial set $X$ that is natural with respect to (semi-)simplicial maps.
+An \textbf{isomorphism} of (semi-)simplicial \mbox{cup-$i$} constructions is a natural family of isomorphisms of cup-$i$ product structures.
+Any simplicial cup-$i$ construction defines a semi-simplicial cup-$i$ construction, but not in the other direction.
 
-\begin{definition}
-	A \textbf{\mbox{cup-$i$} construction} is a \mbox{cup-$i$} product structure on $\cochains(X)$ for every simplicial set $X$ that is natural with respect to simplicial maps.
-	An \textbf{isomorphism} of \mbox{cup-$i$} constructions is defined similarly.
-\end{definition}
+\subsection{Axioms}
 
-\subsection{Uniqueness}
+The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of (semi-)simplicial \mbox{cup-$i$} construction; whereas the second, minimality, is manifested in the use of $W$ instead of an arbitrary free resolution of $\F$.
+The \textbf{zero cup-$i$ construction} assigns the zero map
+\[
+W \ot_{\F[\Sym_2]} \cochains(X)^{\ot 2} \to \cochains(X)
+\]
+to every (semi-)simplicial set $X$, and any other construction is said to be \textbf{non-zero}.
 
-The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of \mbox{cup-$i$} construction; whereas the second, minimality, is manifested in the use of $W$ instead of an arbitrary free resolution of $\F$.
+%We discard the zero simplicial cup-$i$ construction explicitly via the third axiom.
+%We now introduce the last two axioms.
 
-In the following definition we identify a simplex with its dual cochain.
+%A simplicial \mbox{cup-$i$} construction is \textbf{non-zero} if
+%\[
+%\boxed{x \cup_0 x \neq 0}
+%\]
+%for a $0$-simplex $x$.
 
-\begin{definition}\label{d:properties}
-	A \mbox{cup-$i$} construction is \textbf{non-degenerate} if
-	\[
-	\boxed{x \cup_0 x \neq 0}
-	\]
-	for a $0$-simplex $x$.
-	It is \textbf{irreducible} if for any proper face $y$ of $x$
-	\[
-	\boxed{\Big( y^{(1)} \cup_{i} y^{(2)} \Big)(x) = 0}
-	\]
-	for any two faces $y^{(1)}$ and $y^{(2)}$ of $y$.
-	It is \textbf{free} if for any two simplices $x$ and $y$
-	\[
-	\boxed{x \cup_{i} y = y \cup_{i} x} \
-	\Longrightarrow \
-	\boxed{x \cup_{i} y = 0}
-	\]
-	whenever $\bars{x} \neq i$ or $\bars{y} \neq i$.
-\end{definition}
+Let $X$ be an arbitrary simplicial set.
+Below we identify a non-degenerate simplex in $X$ with its associated chain and cochain basis elements.
+A simplicial cup-$i$ construction is said to be \textbf{irreducible} if for any proper face $y$ of $x$, a non-degenerate simplex in $X$, we have
+\[
+\boxed{\Big( y^{(1)} \cup_{i} y^{(2)} \Big)(x) = 0}
+\]
+for any two faces $y^{(1)}$ and $y^{(2)}$ of $y$.
+We say it is \textbf{free} if for any two simplices $x$ and $x'$ in $X$
+\[
+\boxed{x \cup_{i} x' = x' \cup_{i} x} \
+\Longrightarrow \
+\boxed{x \cup_{i} x' = 0}
+\]
+whenever $\bars{x} \neq i$ or $\bars{x'} \neq i$.
 
-We can now state our main result.
+\subsection{Main result}
 
-\begin{theorem}\label{t:main}
-	There is up to isomorphism only one non-degenerate, irreducible and free \mbox{cup-$i$} construction.
+We will use the following, the main theorem of this paper, to prove in \cref{s:others,s:operads} that all simplicial \mbox{cup-$i$} constructions in the literature are isomorphic to Steenrod's original \cite{steenrod1947products}.
+
+\begin{theorem}
+	There is up to isomorphism only one non-zero, irreducible and free semi-simplicial \mbox{cup-$i$} construction.
 \end{theorem}
 
-We will use this result to prove in \cref{s:others,s:operads} that all \mbox{cup-$i$} constructions in the literature are isomorphic to Steenrod's original \cite{steenrod1947products}.
+\subsection{Canonical construction}
 
-\subsection{Existence}
-
-To prove our main result we will use a \mbox{cup-$i$} construction defined using new formulas introduced in \cite{medina2023fast_sq}.
-Before we recall them, let us introduce the following.
-
-\begin{notation*}
-	For any $n$-simplex $x$ and set $U = \{u_1 < \dots < u_r\} \subseteq \set[big]{0,\dots,n}$ we write $d_U(x)$ for the composition of face maps $d_{u_1}\! \dotsm d_{u_r}(x)$ with $d_{\emptyset}(x) = x$.
-\end{notation*}
+To prove our main result we will use the simplicial \mbox{cup-$i$} construction introduced in \cite{medina2023fast_sq}.
+Before we recall its definition, let us introduce the following notation:
+For any $n$-simplex $x$ and set $U = \{u_1 < \dots < u_r\} \subseteq \set[big]{0,\dots,n}$ we write $d_U(x)$ for the composition of face maps $d_{u_1}\! \dotsm d_{u_r}(x)$ with $d_{\emptyset}(x) = x$.
 
 \begin{definition}[\cite{medina2023fast_sq}]\label{d:my cup-i}
-	Let $X$ be a simplicial set, $x \in X_n$ and $\alpha, \beta \in \cochains(X)$.
+	Let $X$ be a simplicial set, $x$ a non-degenerate $n$-simplex of $X$, and $\alpha, \beta$ two cochains in $\cochains(X)$.
 	\[
 	(\alpha \cup_i \beta)(x) =
 	\begin{cases}
@@ -121,12 +118,12 @@ Before we recall them, let us introduce the following.
 
 \begin{example}
 	For $i = 0$, the above gives
-	\begin{equation*}
+	\[
 	(\alpha \cup_0 \beta)(x) =
 	\sum_{j=0}^n \alpha \big(d_{j+1} \cdots d_{n}(x)\big) \cdot \beta \big(d_{0} \cdots d_{j-1}(x)\big),
-	\end{equation*}
+	\]
 	the well-known \textbf{Alexander--Whitney product}.
 \end{example}
 
-The verification that \cref{d:my cup-i} define a \mbox{cup-$i$} construction is presented in \cite{medina2023fast_sq}.
-We will refer to it as the \textbf{canonical \mbox{cup-$i$} construction} and show it agrees with Steenrod's original cup-$i$ construction  in \cref{t:steenrod cup-i}.
+The verification that these formulas define a simplicial \mbox{cup-$i$} construction is presented in \cite{medina2023fast_sq}.
+We will refer to it as the \textbf{canonical \mbox{cup-$i$} construction} and show it agrees with Steenrod's original construction in \cref{t:steenrod cup-i}.

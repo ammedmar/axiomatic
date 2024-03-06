@@ -4,14 +4,14 @@ In this section we construct examples showing the necessity of each of our axiom
 
 \subsection{Non-degeneracy}
 
-The cup-$i$ construction defined by $\triangle_i = 0$ for each positive integer $i$ is both irreducible and free.
+The simplicial \mbox{cup-$i$} construction defined by $\triangle_i = 0$ for each positive integer $i$ is both irreducible and free.
 
 \subsection{Irreducibility}
 
 \subsubsection{A general construction}
 
 \begin{lemma}
-	Let $\triangle$ be a cup-$i$ construction and fix $i_0 > 0$ and $n_0 \geq 0$.
+	Let $\triangle$ be a simplicial \mbox{cup-$i$} construction and fix $i_0 > 0$ and $n_0 \geq 0$.
 	For all non-negative integers $i$ and $n$ define
 	\[
 	\widetilde\triangle_i[n] =
@@ -22,7 +22,7 @@ The cup-$i$ construction defined by $\triangle_i = 0$ for each positive integer 
 		\triangle_{i}[n] & \text{otherwise}.
 	\end{cases}
 	\]
-	Then $\widetilde\triangle = \set[\big]{\widetilde\triangle_i[n]}_{i,n}$ is a cup-$i$ construction.
+	Then $\widetilde\triangle = \set[\big]{\widetilde\triangle_i[n]}_{i,n}$ is a simplicial \mbox{cup-$i$} construction.
 \end{lemma}
 
 \begin{proof}
@@ -94,8 +94,8 @@ The cup-$i$ construction defined by $\triangle_i = 0$ for each positive integer 
 
 \subsubsection{A specific example}
 
-Let us consider the canonical cup-$i$ construction $\Delta$ and the integers $i_0=1$ and $n_0=3$.
-The cup-$i$ construction $\widetilde\triangle$, defined above, is both non-degenerate and free but not irreducible as we will inspect.
+Let us consider the canonical simplicial \mbox{cup-$i$} construction $\Delta$ and the integers $i_0=1$ and $n_0=3$.
+The simplicial \mbox{cup-$i$} construction $\widetilde\triangle$, defined above, is both non-zero and free but not irreducible as we will inspect.
 If $i \neq i_0-1$ or $n \not\in \set{n_0,n_0+1}$ then $\widetilde\triangle_i[n]$ is equal to $\triangle_i[n]$ or $T\triangle_i[n]$.
 With the assistance of \texttt{ComCH} we compute the two cases where the axioms could be broken:
 \[
@@ -118,7 +118,7 @@ With the assistance of \texttt{ComCH} we compute the two cases where the axioms 
 	(13)(34) + (123)(3) + (3)(034) + (23)(03) + (3)(013) + (4)(234) +\\
 	(14)(34) + (124)(4) + (4)(034) + (24)(04) + (4)(014).}
 
-\medskip\noindent and conclude that $\widetilde\triangle$ is free and non-degenerate, but not irreducible.
+\medskip\noindent and conclude that $\widetilde\triangle$ is free and non-zero, but not irreducible.
 
 \subsection{Freeness}
 
@@ -135,7 +135,7 @@ Explicitly,
 \end{cases}
 \]
 A chain $\zeta \in \cP(\simplex^n)^{\ot 2}$ is said to be \textit{irreducible} if $\pired(\zeta) = 0$.
-Notice that, by \cref{l:properties}, a cup-$i$ construction $\triangle$ is irreducible if and only if $\triangle_i[n]$ is irreducible for all $i, n \in \N$.
+Notice that, by \cref{l:properties}, a simplicial \mbox{cup-$i$} construction $\triangle$ is irreducible if and only if $\triangle_i[n]$ is irreducible for all $i, n \in \N$.
 
 \subsubsection{Partition chains}
 
@@ -210,7 +210,7 @@ Additionally, the boundary $\bd \zeta_U$ of any partition chain is also irreduci
 \subsubsection{A general construction}
 
 \begin{lemma}
-	Let $\triangle$ be a cup-$i$ construction.
+	Let $\triangle$ be a simplicial \mbox{cup-$i$} construction.
 	Consider $i_0, n_0 \geq 0$ and a sum of partition chains $\zeta$ in $\cP(\simplex^{n_0})^{\ot 2}$ of degree $n_0+i_0+1$.
 	For all non-negative integers $i$ and $n$ define
 	\[
@@ -220,7 +220,7 @@ Additionally, the boundary $\bd \zeta_U$ of any partition chain is also irreduci
 		\triangle_{i}[n] & \text{otherwise}.
 	\end{cases}
 	\]
-	Then $\widetilde\triangle = \set[\big]{\widetilde\triangle_i[n]}_{i,n}$ is a cup-$i$ construction.
+	Then $\widetilde\triangle = \set[\big]{\widetilde\triangle_i[n]}_{i,n}$ is a simplicial \mbox{cup-$i$} construction.
 \end{lemma}
 
 \begin{proof}
@@ -244,7 +244,7 @@ Additionally, the boundary $\bd \zeta_U$ of any partition chain is also irreduci
 
 \subsubsection{Explicit example}
 
-Let us consider the canonical cup-$i$ construction $\Delta$, the integers $i_0 = 0$ and $n_0 = 2$, and the partition chain $\zeta_{\set{1}}$ of the set $\set{1}$.
+Let us consider the canonical simplicial \mbox{cup-$i$} construction $\Delta$, the integers $i_0 = 0$ and $n_0 = 2$, and the partition chain $\zeta_{\set{1}}$ of the set $\set{1}$.
 Using \texttt{comch} we have
 \[
 \bd \zeta_{\set{1}} = \zeta_{\set{01}} + \zeta_{\set{12}} =
