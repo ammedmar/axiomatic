@@ -48,21 +48,9 @@ These in turn correspond to a collection of natural linear maps $\set[\big]{\tri
 \bd \circ \, \triangle_i + \triangle_i \circ \bd =
 (1+T) \triangle_{i-1}
 \]
-with the convention $\simplex_{-1} = 0$.
+with the convention $\triangle_{-1} = 0$.
 In other words, a collection of linear natural transformations $\set{\triangle_i}_{i\in\N}$ from the functor $\chains \colon \simplex \to \Ch$ to the functor $\chains^{\ot 2}$.
 Each natural transformation $\triangle_i$ is completely determined by the set $\set[\big]{\triangle_i[n] \in \chains(\simplex^n)^{\ot 2}_{n+i}}_{n\in\N}$ where $[n]$ denotes the identity $[n] \to [n]$.
-%
-%This defines a natural linear transformation from
-%
-%
-%Since each of the chain complexes $\chains(\simplex^n)$ is finite dimensional, a (semi-)simplicial cup-$i$ construction is determined by a collection $\triangle$ of natural linear maps $\set[\big]{\triangle_i \colon \chains(\simplex^n) \to \chains(\simplex^n)^{\ot 2}}_{i \in \N}$ satisfying
-%\[
-%\bd \circ \, \triangle_i + \triangle_i \circ \bd =
-%(1+T) \triangle_{i-1}
-%\]
-%for all $i \in \N$ with the convention $\triangle_{-1} = 0$.
-%Let $\triangle_i[n]$ be the image of the top dimensional (non-degenerate) simplex in $\simplex^n$.
-%The data $\set{\triangle_i[n]}_{i,n\in\N}$ completely determines $\triangle$.
 To see this, consider a simplex $\big(x \colon [m] \to [n] \big) \in \simplex^n_m$ and notice that
 \[
 \triangle_i(x) = \triangle_i \big( x \circ [m] \big) =
@@ -114,16 +102,15 @@ For any codegeneracy $\sigma_j \colon [n] \to [n-1]$ the chain map $\cP(\sigma_j
 \end{cases}
 \]
 
-\begin{lemma*}
-	The assignment
+\begin{lemma}
+	The following assignment defines a natural equivalence between the functors $\cP,\chains \colon \simplex \to \Ch$:
 	\[
 	\begin{tikzcd}[column sep=small,row sep=0]
 		\Psi \colon &[-15] \P_{n-m}^n \rar & \simplex^n_m \\
 		& U \rar[mapsto] & d_U [n]
 	\end{tikzcd}
 	\]
-	defines a natural equivalence between the functors $\cP,\chains \colon \simplex \to \Ch$.
-\end{lemma*}
+\end{lemma}
 
 \begin{proof}
 	Since any non-degenerate simplex in $\simplex^n$ is a face of the top dimensional one, $\Psi$ defines a bijection between the basis of $\cP[n]_m$ and $\chains[n]_m$.
@@ -209,19 +196,31 @@ For any $U \in \rP^n_{n-i}$ the \textbf{index function} of $U$ is given by
 \]
 For any $U \in \rP^n_{n-i}$ and $\varepsilon \in \Ftwo \cong \{0,1\}$ we write $U^\varepsilon$ instead of $\ind_U^{-1}(\varepsilon)$.
 
-By inspecting \cref{d:my cup-i} we have the following.
+By inspecting \cref{d:my cup-i} we see that the canonical \mbox{cup-$i$} construction is defined by the elements
+%$\canonical_i[n] \in \cP(\simplex^n)^{\ot 2}_{i+n}$ for $i,n \in \N$ with
+\[
+\canonical_i[n] =
+\sum_{\mathclap{\quad U \in \rP^n_{n-i}}} \ U^0 \ot U^1
+\]
+in $\cP(\simplex^n)^{\ot 2}_{i+n}$ for $i,n \in \N$.
 
-\begin{lemma}\label{l:canonical}
-	The canonical simplicial \mbox{cup-$i$} construction is given by the collection of elements $\Delta_i[n] \in \cP(\simplex^n)^{\ot 2}_{i+n}$ for $i,n \in \N$ with
+\begin{example*}
+	For any $n \in \N$,
 	\[
-	\Delta_i[n] =
-	\sum_{\mathclap{U \in \rP^n_{n-i}}} U^0 \ot U^1
+	\canonical_n[n] = \emptyset \ot \emptyset
 	\]
-	if $0 \leq i \leq n$ and $\Delta_i[n] = 0$ otherwise.
-\end{lemma}
-
-The following is deduced from \cref{l:properties} by inspecting \cref{l:canonical}.
+	and, if $n > 0$,
+	\[
+	\canonical_{n-1} [n] \ = \
+	\sum_{\mathclap{\substack{\quad u \in \{0,\dots,n\} \\ u \ \mathrm{odd}}}} \,\{u\} \ot \emptyset \ + \
+	\sum_{\mathclap{\substack{\quad u \in \{0,\dots,n\} \\ u \ \mathrm{even}}}} \,\emptyset \ot \{u\}.
+	\]
+\end{example*}
 
 \begin{theorem}\label{t:existence}
 	The canonical \mbox{cup-$i$} construction is simplicial, non-zero, irreducible, and free.
 \end{theorem}
+
+\begin{proof}
+	It follows from direct inspection using \cref{l:properties}.
+\end{proof}

@@ -2,7 +2,7 @@
 
 \section{Other formulas}\label{s:others}
 
-In this section we first show that the canonical simplicial \mbox{cup-$i$} construction is equal to Steenrod's original (\cref{ss:original}).
+In this section we first show that the canonical \mbox{cup-$i$} construction is equal to Steenrod's original (\cref{ss:original}).
 We then review Real's formulas and show that the resulting simplicial \mbox{cup-$i$} construction is also equal to the canonical one (\cref{ss:real}).
 The agreement of these three constructions seems to appear in print for the first time here.
 
@@ -39,9 +39,9 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 
 \begin{proof}
 	We will use \cref{t:main} to prove that they are isomorphic.
-	We can then conclude their equality by inspecting that $\triangle^\rS_i [i+1] \neq T \Delta_i [i+1]$.
+	We can then conclude their equality by inspecting that $\triangle^\rS_i [i+1] \neq T \canonical_i [i+1]$.
 
-	Steenrod's simplicial \mbox{cup-$i$} construction is \emph{non-zero} since $\Delta_0\big([0]\big) = [0] \ot [0] \neq 0$.
+	Steenrod's simplicial \mbox{cup-$i$} construction is \emph{non-zero} since $\canonical_0\big([0]\big) = [0] \ot [0] \neq 0$.
 	It is \emph{irreducible} since for each basis element in $\triangle^\rS_i [n]$ with $i \leq n$, all integers $\{0, \dots, n\}$ appear in at least one of the tensor factors.
 	To prove it is \emph{free} let us assume $i$ is odd with $i < n$.
 	The case where $i$ is even is done analogously.
@@ -76,8 +76,8 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 	\end{split}
 	\]
 
-	\cref{t:main} proves that $\triangle^\rS_i = \Delta_i$ or $\triangle^\rS_i = T \Delta_i$ for any $i \in \N$.
-	Consider the element $U = \{0\} \in \rP_{1}^{i+1}$ giving rise to the summand $U^1 \ot U^0 = \{0\} \ot \emptyset$ in $T \Delta_i [i+1]$.
+	\cref{t:main} proves that $\triangle^\rS_i = \canonical_i$ or $\triangle^\rS_i = T \canonical_i$ for any $i \in \N$.
+	Consider the element $U = \{0\} \in \rP_{1}^{i+1}$ giving rise to the summand $U^1 \ot U^0 = \{0\} \ot \emptyset$ in $T \canonical_i [i+1]$.
 	Applying the isomorphism $\Psi^{\ot 2} \colon \cP(\simplex^n)^{\ot 2} \to \chains(\simplex^n)^{\ot 2}$ we obtain the basis element $[1,\dots,i+1] \otimes [0,\dots,i+1]$ which is not a summand of $\triangle^\rS_i [i+1]$.
 	This concludes the proof.
 \end{proof}
@@ -86,9 +86,9 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 	The following recursive description of Steenrod's original construction was introduced in \cite{medina2023dennis}:
 	\begin{equation}\label{e:prop cup-i}
 		\begin{split}
-			& \Delta_0 = \Delta, \\
-			& \Delta_i =
-			(\ast \ot \id) \circ (\id \ot T \Delta_{i-1}) \circ \Delta.
+			& \canonical_0 = \Delta, \\
+			& \canonical_i =
+			(\ast \ot \id) \circ (\id \ot T \canonical_{i-1}) \circ \Delta.
 		\end{split}
 	\end{equation}
 \end{remark*}
@@ -131,7 +131,7 @@ if $n$ is odd.\footnote{To compare these formulas to those appearing in \cite[Th
 
 \begin{proof}
 	We will use \cref{t:main,l:properties} to prove that they are isomorphic.
-	We can then conclude their equality by inspecting that $\triangle^\rR_i [i+1] \neq T \Delta_i [i+1]$.
+	We can then conclude their equality by inspecting that $\triangle^\rR_i [i+1] \neq T \canonical_i [i+1]$.
 	Let us start by describing the indexing set of the sum in recursive terms.
 	It consist of all integers $0 \leq j_0 < \dots < j_i \leq n$ with
 	\begin{equation}\label{eq:indexing set recursively}
@@ -190,7 +190,7 @@ if $n$ is odd.\footnote{To compare these formulas to those appearing in \cite[Th
 	\]
 	implying $n-i \leq 0$, and, since $n-i \geq 0$, we conclude $n=i$.
 
-	It remains to be shown that $\triangle^\rR$ is not only isomorphic to the canonical simplicial \mbox{cup-$i$} construction $\Delta$, but equal.
-	To do so, notice that for every non-negative integer $i$ the summand in $\triangle_i^\rR[i+1]$ associated the indexing element with $j_k = k+1$ for each $k \in \{0,\dots,i\}$ is $\emptyset \ot \{0\}$ which is not a summand present in $T \Delta_i[i+1]$.
-	Therefore, $\triangle_i^\rR \neq T \Delta_i$ for every $i \geq 0$, so $\triangle^\rR = \Delta$ as claimed.
+	It remains to be shown that $\triangle^\rR$ is not only isomorphic to the canonical \mbox{cup-$i$} construction $\Delta$, but equal.
+	To do so, notice that for every non-negative integer $i$ the summand in $\triangle_i^\rR[i+1]$ associated the indexing element with $j_k = k+1$ for each $k \in \{0,\dots,i\}$ is $\emptyset \ot \{0\}$ which is not a summand present in $T \canonical_i[i+1]$.
+	Therefore, $\triangle_i^\rR \neq T \canonical_i$ for every $i \geq 0$, so $\triangle^\rR = \Delta$ as claimed.
 \end{proof}

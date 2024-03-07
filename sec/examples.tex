@@ -4,7 +4,7 @@ In this section we construct examples showing the necessity of each of our axiom
 
 \subsection{Non-degeneracy}
 
-The simplicial \mbox{cup-$i$} construction defined by $\triangle_i = 0$ for each positive integer $i$ is both irreducible and free.
+The zero \mbox{cup-$i$} construction is both irreducible and free.
 
 \subsection{Irreducibility}
 
@@ -94,12 +94,12 @@ The simplicial \mbox{cup-$i$} construction defined by $\triangle_i = 0$ for each
 
 \subsubsection{A specific example}
 
-Let us consider the canonical simplicial \mbox{cup-$i$} construction $\Delta$ and the integers $i_0=1$ and $n_0=3$.
+Let us consider the canonical \mbox{cup-$i$} construction $\Delta$ and the integers $i_0=1$ and $n_0=3$.
 The simplicial \mbox{cup-$i$} construction $\widetilde\triangle$, defined above, is both non-zero and free but not irreducible as we will inspect.
 If $i \neq i_0-1$ or $n \not\in \set{n_0,n_0+1}$ then $\widetilde\triangle_i[n]$ is equal to $\triangle_i[n]$ or $T\triangle_i[n]$.
 With the assistance of \texttt{ComCH} we compute the two cases where the axioms could be broken:
 \[
-\widetilde\triangle_0[4] = (\Delta_0 + \Delta_1\partial)[4] =
+\widetilde\triangle_0[4] = (\canonical_0 + \canonical_1\partial)[4] =
 \]
 \noindent
 {\ttfamily
@@ -107,7 +107,7 @@ With the assistance of \texttt{ComCH} we compute the two cases where the axioms 
 	(1)(13) + (012)() + (12)(1) + (12)(2) + (0)(03) + (3)(03) +\\
 	(02)(0) + (2)(02) + (0)(01) + (1)(01).}
 \[
-\widetilde\triangle_0[3] = (\Delta_0 + \partial\Delta_1)[3] =
+\widetilde\triangle_0[3] = (\canonical_0 + \partial\canonical_1)[3] =
 \]
 \noindent
 {\ttfamily
@@ -244,7 +244,7 @@ Additionally, the boundary $\bd \zeta_U$ of any partition chain is also irreduci
 
 \subsubsection{Explicit example}
 
-Let us consider the canonical simplicial \mbox{cup-$i$} construction $\Delta$, the integers $i_0 = 0$ and $n_0 = 2$, and the partition chain $\zeta_{\set{1}}$ of the set $\set{1}$.
+Let us consider the canonical \mbox{cup-$i$} construction $\Delta$, the integers $i_0 = 0$ and $n_0 = 2$, and the partition chain $\zeta_{\set{1}}$ of the set $\set{1}$.
 Using \texttt{comch} we have
 \[
 \bd \zeta_{\set{1}} = \zeta_{\set{01}} + \zeta_{\set{12}} =
@@ -252,7 +252,7 @@ Using \texttt{comch} we have
 \noindent
 {\ttfamily (01)() + (1)(0) + (0)(1) + ()(01) + (12)() + (2)(1) + (1)(2) + ()(12).}
 \[
-\widetilde\triangle_0[2] = \Delta_0[2] + \bd \zeta_{\set{1}} =
+\widetilde\triangle_0[2] = \canonical_0[2] + \bd \zeta_{\set{1}} =
 \]
 \noindent
 {\ttfamily (2)(0) + (01)() + (1)(0) + (0)(1) + (2)(1) + (1)(2) + ()(12)}.
