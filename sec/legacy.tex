@@ -1,3 +1,282 @@
+\subsection{A fact about our formulas}\label{ss:fact}
+
+We reprint two statement proven in \cite{medina2023fast_sq}.
+For $U \in \P_{n-i}^n$ we write $\bar u \notin U$ if $\bar u \in \{0, \dots, n\} \setminus U$.
+We simplify notation writing $\bar u.U$ instead of $\{\bar u\} \union U$ if $\bar u \notin U$ and $U \setminus u$ instead of $U \setminus \{u\}$ if $u \in U$.
+
+\begin{proposition}\label{p:fact}
+	For $i,n \in \N$ with $i < n$ we have:
+	\[
+	\canonical_i \bd \, [n] =
+	\sum_{\mathclap{U \in \P_{n-i}^n}} \
+	\left(\
+	\sum_{\mathclap{u \in U^1}} u.U^0 \ot U^1 +
+	\sum_{\mathclap{u \in U^0}} U^0 \ot u.U^1
+	\right).
+	\]
+\end{proposition}
+
+\anibal{Missing the other one}
+
+\newpage
+\anibal{Below the old}
+\subsection{Preparing the induction step}\label{ss:preparing}
+
+We will prove two statements that are key to prove the induction step of the argument establishing our main result.
+
+\begin{notation*}
+	Given a function $\xi \colon \P_{n-i}^n \to \F$ we denote by $\barxi \colon \P_{n-i}^n \to \F$ the function defined by the condition $\barxi(U) \neq \xi(U) \text{ for all } U \in \P_{n-i}^n$.
+	We will simplify notation writing $U^\xi$ and $U^{\barxi}$ instead of $U^{\xi(U)}$ and $U^{\barxi(U)}$.
+\end{notation*}
+
+\begin{lemma}\label{l:first nail}
+	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a free and non-zero simplicial \mbox{cup-$i$} construction and $i,n \in \N$ with $i \leq n-2$.
+	If there is a function $\xi \colon \P_{n-i}^n \to \F$ with
+	\begin{equation}\label{e:xi and barxi}
+		\triangle_i [n] =
+		\sum_{\mathclap{U \in \P_{n-i}^n}} U^{\xi} \ot U^{\barxi}
+	\end{equation}
+	and either
+	\[
+	\triangle_i [n-1] = \canonical_i [n-1]
+	\quad \text{or} \quad
+	\triangle_i [n-1] = T\canonical_i [n-1],
+	\]
+	then $\xi$ is constant, i.e.,
+	\[
+	\triangle_i [n] = \canonical_i [n]
+	\quad \text{or} \quad
+	\triangle_i [n] = T \canonical_i [n].
+	\]
+\end{lemma}
+
+\begin{proof}
+	Let us assume $\triangle_i [n-1] = \canonical_i [n-1]$.
+	The other case is proven analogously.
+	Applying the boundary of $\cP(\simplex^n)^{\ot 2}$ -- \cref{e:boundary of P} -- to \cref{e:xi and barxi} gives
+	\begin{align*}
+		\bd \triangle_i [n] & =
+		\sum_{\mathclap{U \in \P_{n-i}^n}} \
+		\left(\
+		\sum_{\mathclap{\bar u \notin U}} \bar u.U^\xi \ot U^\barxi +
+		\sum_{\mathclap{\bar u \notin U}} U^\xi \ot \bar u.U^\barxi
+		\right) \\ & +
+		\sum_{\mathclap{U \in \P_{n-i}^n}} \
+		\left(\
+		\sum_{\mathclap{u \in U^\barxi}} u.U^\xi \ot U^\barxi +
+		\sum_{\mathclap{u \in U^{\xi}}} U^\xi \ot u.U^\barxi
+		\right).
+	\end{align*}
+	Combining our assumption and \cref{p:fact} gives
+	\[
+	\triangle_i \bd \, [n] =
+	\canonical_i \bd \, [n] =
+	\sum_{\mathclap{U \in \P_{n-i}^n}} \
+	\left(\
+	\sum_{\mathclap{u \in U^1}} u.U^0 \ot U^1 +
+	\sum_{\mathclap{u \in U^0}} U^0 \ot u.U^1
+	\right).
+	\]
+	Adding this last two identities together gives
+	\begin{align}
+		(1+T) \triangle_{i-1} [n] &=
+		\bd \triangle_i [n] + \triangle_i \bd \, [n] \\ &=
+		\label{e:top} \sum_{\mathclap{U \in \P_{n-i}^n}} \
+		\left(\
+		\sum_{\mathclap{\bar u \notin U}} \bar u.U^\xi \ot U^\barxi +
+		\sum_{\mathclap{\bar u \notin U}} U^\xi \ot \bar u.U^\barxi
+		\right) \\ &+ \,
+		\label{e:bottom} (1+T) \sum_{\mathclap{\substack{U \in \P_{n-i}^n \\ \xi(U) \neq 0}}} \
+		\left(\
+		\sum_{\mathclap{u \in U^1}} u.U^0 \ot U^1 +
+		\sum_{\mathclap{u \in U^0}} U^0 \ot u.U^1
+		\right).
+	\end{align}
+	We will use \cref{l:kernel of sxs} to show that summand \eqref{e:top} is in $\ker \cP(\sigma_j)^{\ot 2}$ for every codegeneracy $\sigma_j \colon [n] \to [n-1]$.
+	Consider $U \in \P_{n-i}^n$.
+	If $\{j, j+1\} \cap U = \emptyset$ then for every $\bar u \notin U$ we have $\bar u.U^\xi \ot U^\barxi \in \ker \cP(\sigma_j)^{\ot 2}$ and $U^\xi \ot \bar u.U^\barxi \in \ker \cP(\sigma_j)^{\ot 2}$.
+	If $\{j, j+1\} \cap U = \{j, j+1\}$ then the same conclusion follows from the fact that $\ind_U(j) = \ind_U(j+1)$.
+	If $\{j, j+1\} \cap U = \{j\}$ then $\bar u.U^\xi \ot U^\barxi \in \ker \cP(\sigma_j)^{\ot 2}$ and $U^\xi \ot \bar u.U^\barxi \in \ker \cP(\sigma_j)^{\ot 2}$ for every $\bar u \notin U$ with $\bar u \neq j+1$.
+	Furthermore, if $j \in U^\xi$ then $(j+1).U^\xi \ot U^\barxi \in \ker \cP(\sigma_j)^{\ot 2}$ and $U^\xi \ot (j+1).U^\barxi \notin \ker \cP(\sigma_j)^{\ot 2}$.
+	An analogous statement holds if $j \in U^\barxi$ and a similar analysis applies to the case $\{j, j+1\} \cap U = \{j+1\}$.
+	We will show that the basis elements in \eqref{e:top} that are not in $\ker \cP(\sigma_j)^{\ot 2}$ cancel in pairs after the application of $\cP(\sigma_j)^{\ot 2}$.
+	Let $\Gamma_j^\xi \subseteq \P_{n-i}^n$ consists of elements $U$ with $\{j, j+1\} \cap U = \{j\}$ and $j \in U^\xi$.
+	Let $\Gamma_{j+1}^\xi$, $\Gamma_j^\barxi$, and $\Gamma_{j+1}^\barxi$ be defined analogously.
+	The claim follows from the existence of the bijections $\Gamma_{j}^\xi \cong \Gamma_{j+1}^\xi$ and $\Gamma_{j}^\barxi \cong \Gamma_{j+1}^\barxi$ defined by the assignments $U \mapsto (j+1).\big( U \setminus \{j\} \big)$ and $U \mapsto j.\big( U \setminus \{j+1\} \big)$, since two summands related by one of these bijections are sent to the same element by $\cP(\sigma_j)^{\ot 2}$.
+
+	We will impose conditions on summand \eqref{e:bottom} following an analysis similar to the one just given.
+	Notice that $(1+T)$ commutes with $\cP(\sigma_j)^{\ot 2}$ and that the only basis elements in \eqref{e:bottom} not in $\ker \cP(\sigma_j)^{\ot 2}$ are associated to pairs $(U, u)$ with $\xi(U) \neq 0$ and $u = j$ or $ u = j+1$.
+	Let $\Lambda_{j}^0$ be the subset of $\{U \in \P_{n-i}^n \mid \xi(U) \neq 0\}$ consisting of sets $U$ with $j \in U^0$ and $j+1 \notin U$.
+	We define $\Lambda_{j}^1$, $\Lambda_{j+1}^0$, and $\Lambda_{j+1}^1$ analogously.
+	The set $\Lambda_{j \wedge j+1}$ is defined by the conditions $\xi(U) \neq 0$ and $j,j+1 \in U$.
+
+	Observe that the sum
+	\[
+	\sum_{\mathclap{\Lambda_{j \wedge j+1}}}
+	\left(\
+	\sum_{u \in U^1} u.U^0 \ot U^1 +
+	\sum_{u \in U^0} U^0 \ot u.U^1
+	\right)
+	\]
+	is in $\ker \cP(\sigma_j)^{\ot 2}$ since, given that $\ind_U(j) = \ind_U(j+1)$, the only non-zero summands, which are associated to $(U,j)$ and $(U,j+1)$, cancel each other.
+	Therefore, applying $\cP(\sigma_j)^{\ot 2}$ to
+	\[
+	\sum_{\mathclap{\substack{\P_{n-i}^n \\ \xi(U) \neq 0}}}
+	\left(\
+	\sum_{u \in U^1} {u.U^0} \ot U^1 +
+	\sum_{u \in U^0} {U^0} \ot u.U^1
+	\right)
+	\]
+	yields
+	\begin{align*}
+		&\sum_{\mathclap{\Lambda_{j}^0}} U^0 \setminus \{j\} \ot U^1	+
+		\sum_{\mathclap{\Lambda_{j}^1}} U^0 \ot U^1 \setminus \{j\} \\ +
+		&\sum_{\mathclap{\Lambda_{j+1}^0}} U^0 \setminus \{j+1\} \ot U^1 +
+		\sum_{\mathclap{\Lambda_{j+1}^1}} U^0 \ot {U^1} \setminus \{j+1\}.
+	\end{align*}
+	which must be in the kernel of $(1+T)$.
+	This implies the existence of an involution $\phi^{(j)}$ of $\Lambda = \Lambda^0_{j} \sqcup \Lambda^1_{j} \sqcup \Lambda^1_{j+1} \sqcup \Lambda^1_{j+1}$ defined by a choice of canceling pairs.
+	By the freeness of $\canonical$ and since $i \leq n-2$, this involution has no fixed points.
+	It follows that two elements $U$ and $U^\prime$ with $U \cap \{j, j+1\} = U^\prime \cap \{j, j+1\}$ cannot be related by $\phi^{(j)}$ since then $U = U^\prime$.
+	Therefore, $\phi^{(j)}(U) = U^\prime$ if and only if $U^\prime = j.(U \setminus \{j+1\})$ or $U^\prime = (j+1).\big( U \setminus \{j+1\} \big)$.
+	Recall that by definition $\xi(U) = \xi(U^\prime) \neq 0$.
+	This analysis applies to any $j \in \{0, \dots, n\}$ and we introduce a relation in $\P_{n-i}^n$ writing $U \sim U^\prime$ if $U^\prime = j.(U \setminus \{j+1\})$ or $U^\prime = (j+1).\big( U \setminus \{j+1\} \big)$ for some $j$.
+	By the previous analysis, if $U \sim U^\prime$ then $\xi(U) = \xi(U^\prime)$.
+	Any two elements $V$ and $W$ in $\P_{n-i}^n$ are related by a sequence
+	\[
+	V \sim \dots \sim W,
+	\]
+	so $\xi \colon \P_{n-i}^n \to \F$ must be constant as claimed.
+\end{proof}
+
+\begin{lemma}\label{l:second nail}
+	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a non-zero, irreducible, and free simplicial \mbox{cup-$i$} construction and $i,n \in \N$ with $i \leq n-2$.
+	If $\triangle_i [n] = \canonical_i [n]$ or $\triangle_i [n] = T \canonical_i [n]$ then the following implications hold:
+	\begin{alignat*}{2}
+		&\boxed{\triangle_i [n-1] = \canonical_i [n-1] \kern 7.3pt}\ &\Longrightarrow\
+		&\boxed{\triangle_i [n] = \canonical_i [n] \kern 7.3pt} \\
+		&\boxed{\triangle_i [n-1] = T \canonical_i [n-1]}\ &\Longrightarrow\
+		&\boxed{\triangle_i [n] = T \canonical_i [n]} \ .
+	\end{alignat*}
+\end{lemma}
+
+\begin{proof}
+	We use the convention $\triangle_{-1} [n] = \canonical_{-1} [n] = 0$ for all $n \in \N$.
+	We will establish the first of the implications above using a proof by contradiction for which we assume $\triangle_i [n-1] = \canonical_i [n-1]$ and $\triangle_i [n] = T \canonical_i [n]$.
+	The second implication is proven analogously.
+	We have
+	\begin{align*}
+		(1+T) \triangle_{i-1}[n] &=
+		\bd \triangle_i [n] + \triangle_i \bd \, [n] \\ &=
+		\bd T \canonical_i [n] + \canonical_i \bd \, [n] \\ &=
+		T \bd \canonical_i [n] + \bd \canonical_i [n] + \bd \canonical_i [n] + \canonical_i \bd \, [n] \\ &=
+		(1+T) \bd \canonical_i [n] + (1+T) \canonical_{i-1} [n] \\ &=
+		(1+T) \canonical_i \bd \, [n] + (1+T) \canonical_{i-1} [n].
+	\end{align*}
+	Using \cref{p:fact,l:canonical}, i.e.
+	\[
+	\begin{split}
+		\canonical_i \bd \, [n] &=
+		\sum_{\mathclap{U \in \P_{n-i}^n}} \
+		\left(\
+		\sum_{\mathclap{u \in U^1}} u.U^0 \ot U^1 +
+		\sum_{\mathclap{u \in U^0}} U^0 \ot u.U^1
+		\right), \\
+		\canonical_{i-1} [n] &=
+		\sum_{\mathclap{V \in \P_{n-i+1}^n}} V^0 \ot V^1,
+	\end{split}
+	\]
+	we have
+	\begin{align*}
+		(1+T) \triangle_{i-1}[n] &=
+		(1+T) \sum_{\mathclap{U \in \P_{n-i}^n}} \
+		\left(\
+		\sum_{\mathclap{u \in U^1}} u.U^0 \ot U^1 +
+		\sum_{\mathclap{u \in U^0}} U^0 \ot u.U^1
+		\right) \\ &+
+		(1+T) \sum_{\mathclap{V \in \P_{n-i+1}^n}} V^0 \ot V^1.
+	\end{align*}
+	By \cref{l:consequence} there are functions $\eta \colon \P_{n-i}^n \to \F$ and $\zeta \colon \P_{n-i+1}^n \to \F$ such that
+	\begin{align*}
+		\triangle_{i-1}[n] \ &=
+		\sum_{\mathclap{U \in \P_{n-i}^n}} \
+		\left(\
+		\sum_{\mathclap{u \in U^\bareta}} u.U^\eta \ot U^\bareta +
+		\sum_{\mathclap{u \in U^\eta}} U^\eta \ot u.U^\bareta
+		\right) \\ &+
+		\sum_{\mathclap{V \in \P_{n-i+1}^n}} V^\zeta \ot V^\barzeta.
+	\end{align*}
+	This contradicts the irreducibility of $\big\{ \triangle_i [n] \big\}_{i,n \in \N}$ as expressed in \cref{l:properties}.
+\end{proof}
+
+\subsection{Induction step}\label{ss:step}
+
+We prove the induction step of the argument proving our main result.
+
+\begin{figure}
+	\centering
+	\input{aux/step}
+	\caption{Representation of the implication in \cref{l:induction step} serving as the induction step in the proof of \cref{t:main}.}
+	\label{f:induction step}
+\end{figure}
+
+\begin{lemma}\label{l:induction step}
+	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a free non-zero and irreducible simplicial \mbox{cup-$i$} construction.
+	Let $\big\{ \p(i,n) \big\}_{i,n \in \N}$ and $\big\{ \q(i,n) \big\}_{i,n \in \N}$ each be one of the following two families of propositions:
+	\[
+	\big\{ \triangle_i [n] = \canonical_ i [n] \big\}_{i,n \in \N}
+	\quad \text{or} \quad
+	\big\{ \triangle_i [n] = T \canonical_ i [n] \big\}_{i,n \in \N} \ .
+	\]
+	For all $i,n \in \N$ with $i \leq n-2$ the following implication holds:
+	\[
+	\boxed{\p(i+1,n) \wedge \p(i+1,n-1) \wedge \q(i,n-1)}\ \Longrightarrow\ \boxed{\q(i,n)}
+	\]
+\end{lemma}
+
+\begin{proof}
+	Let both $\big\{ \p(i,n) \big\}_{i,n\in\N}$ and $\big\{ \q(i,n) \big\}_{i,n\in\N}$ be the family $\big\{ \triangle_i [n] = \canonical_i [n] \big\}_{i,n \in \N}$.
+	The other three combinations are treated analogously.
+
+	From $\p(i+1,n)$ and $\p(i+1,n-1)$ we have
+	\[
+	\bd \triangle_{i+1} [n] + \triangle_{i+1} \bd \, [n] =
+	\bd \canonical_{i+1} [n] + \canonical_{i+1} \bd \, [n]
+	\]
+	or, equivalently,
+	\begin{align*}
+		(1+T) \triangle_i [n] =
+		(1+T) \canonical_i [n] \defeq
+		(1+T) \sum_{\mathclap{U \in \P_{n-i}^n}} {U^0} \ot {U^1}
+	\end{align*}
+	\cref{l:consequence} implies the existence of a function $\xi \colon \rP_{n-i}^n \to \Ftwo$ such that
+	\[
+	\triangle_i [n] =
+	\sum_{\mathclap{U \in \P_{n-i}^n}} U^\xi \ot U^\barxi.
+	\]
+	\cref{l:first nail} implies, using $\q(i,n-1)$, that
+	\[
+	\triangle_i [n] = \canonical_i [n]
+	\quad \text{or} \quad
+	\triangle_i [n] = T \canonical_i [n].
+	\]
+	Finally, \cref{l:second nail} implies $\triangle_i [n] = \canonical_i [n]$, i.e., $\q(i,n)$.
+\end{proof}
+
+\subsection{Complete proof}\label{ss:proof}
+
+We now present the proof of our main result.
+
+\begin{proof}[Proof of \cref{t:main}]
+	Let $\big\{ \triangle_i [n] \big\}_{i,n\in\N}$ be a non-zero, irreducible, and free simplicial \mbox{cup-$i$} construction.
+	We will use an induction argument over $k = n-i$ to show that for each $i \in \N$ either $\triangle_i [n] = \canonical_i [n]$ or
+	$\triangle_i [n] = T \canonical_i [n]$ for all $n \in \N$.
+	By \cref{l:special case one} $\triangle_i [n] = \canonical_i [n]$ and $\triangle_i [n] = T \canonical_i [n]$ for $k \leq 0$.
+	By \cref{l:special case two} $\triangle_i [n] = \canonical_i [n]$ or $\triangle_i [n] = T \canonical_i [n]$ for $r = 1$.
+	This serves as the base case of the induction and \cref{l:induction step} as the induction step (\cref{f:induction step}).
+\end{proof}
+
+
 \newpage
 ERASERAESAE
 \begin{proposition}
@@ -422,7 +701,7 @@ For the rest of Section \ref{sec: proof} we take $\triangle$ to be a free and no
 %\end{definition}
 
 %\begin{definition}
-%	For $n, i \in \N$ we introduce the following elements of $\cP[n] \ot \cP[n]$:
+%	For $n, i \in \N$ we introduce the following elements of $\cP(\simplex^n) \ot \cP(\simplex^n)$:
 %	\[
 %	\Delta_i [n] \ =
 %	\sum_{U \in \P_{n-i}(n)} {U^0} \ot {U^1}

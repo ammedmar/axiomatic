@@ -1,17 +1,72 @@
 \section{Independence of the axioms}
 
-In this section we construct examples showing the necessity of each of our axioms.
+In this section we describe two ``moves'' on semi-simplicial cup-$i$ constructions producing new ones.
+We then use these moves to produce a non-zero simplicial cup-$i$ construction that is irreducible but not free, as well as one that is free, but not irreducible.
 
-\subsection{Non-degeneracy}
+\subsection{Adding partition boundaries}\label{ss:adding_partition_boundaries}
 
-The zero \mbox{cup-$i$} construction is both irreducible and free.
+\textit{
+	Let $\triangle$ be a semi-simplicial \mbox{cup-$i$} construction.
+	Consider $i_0, n_0 \in \N$ and a sum of partition chains $\zeta$ in $\cP(\simplex^{n_0})^{\ot 2}$ of degree $n_0+i_0+1$.
+	For all non-negative integers $i$ and $n$ define
+	\[
+	\widetilde\triangle_i[n] =
+	\begin{cases}
+		\triangle_{i_0}[n_0] + \bd\zeta & \text{if } i=i_0, n=n_0, \\
+		\triangle_{i}[n] & \text{otherwise}.
+	\end{cases}
+	\]
+	Then $\widetilde\triangle = \set[\big]{\widetilde\triangle_i[n]}_{i,n}$ is a semi-simplicial \mbox{cup-$i$} construction.
+}
 
-\subsection{Irreducibility}
+\anibal{Missing the $i_0$, $n_0+1$ case, for which it fails it seems.}
+\begin{proof}
+	There are two non-trivial cases:
 
-\subsubsection{A general construction}
+	\medskip\noindent(1) Since $(1+T)\bd\zeta = 0$ we have
+	\begin{align*}
+		\bd \widetilde\triangle_{i_0+1}[n_0] + \widetilde\triangle_{i_0+1} \bd \,[n_0] &=
+		\bd \triangle_{i_0+1}[n_0] + \triangle_{i_0+1} \bd \,[n_0] \\ &=
+		(1+T)\triangle_{i_0}[n_0] \\ &=
+		(1+T)\triangle_{i_0}[n_0] + (1+T) \bd \zeta \\ &=
+		(1+T)\widetilde\triangle_{i_0}[n_0] .
+	\end{align*}
+	(2) Since $\bd^2 = 0$ we have
+	\begin{align*}
+		\bd \widetilde\triangle_{i_0}[n_0] + \widetilde\triangle_{i_0} \bd \,[n_0] &=
+		\bd \triangle_{i_0}[n_0] + \bd^2 \zeta + \triangle_{i_0} \bd \,[n_0] \\ &=
+		(1+T)\triangle_{i_0}[n_0] \\ &=
+		(1+T)\widetilde\triangle_{i_0}[n_0]. \qedhere
+	\end{align*}
+\end{proof}
 
-\begin{lemma}
-	Let $\triangle$ be a simplicial \mbox{cup-$i$} construction and fix $i_0 > 0$ and $n_0 \geq 0$.
+\subsection{Non-free example}
+
+Let us consider the construction of the previous section, \cref{ss:adding_partition_boundaries}, using the canonical \mbox{cup-$i$} construction $\canonical$, the integers $i_0 = 0$ and $n_0 = 2$, and the partition chain $\zeta_{\set{1}}$.
+Using \texttt{comch} we have
+\[
+\bd \zeta_{\set{1}} = \zeta_{\set{01}} + \zeta_{\set{12}} =
+\]
+\noindent
+{\ttfamily (01)() + (1)(0) + (0)(1) + ()(01) + (12)() + (2)(1) + (1)(2) + ()(12).}
+\[
+\widetilde\triangle_0[2] = \canonical_0[2] + \bd \zeta_{\set{1}} =
+\]
+\noindent
+{\ttfamily (2)(0) + (01)() + (1)(0) + (0)(1) + (2)(1) + (1)(2) + ()(12)}.
+
+\medskip \noindent This is an irreducible element but is not free.
+Additionally, we can see that
+\[
+(s_0 \ot s_0)\widetilde\triangle_0[2] = (s_1 \ot s_1)\widetilde\triangle_0[2] = 0.
+\]
+This shows that $\widetilde{\triangle}$ is an counterexample in the more restrictive class of simplicial cup-$i$ constructions.
+
+
+\subsection{Transposing one element}
+
+\textit{
+	Let $\triangle$ be a semi-simplicial \mbox{cup-$i$} construction and fix $i_0, n_0 \in \N$ with $i_0 > 0$.
 	For all non-negative integers $i$ and $n$ define
 	\[
 	\widetilde\triangle_i[n] =
@@ -22,8 +77,8 @@ The zero \mbox{cup-$i$} construction is both irreducible and free.
 		\triangle_{i}[n] & \text{otherwise}.
 	\end{cases}
 	\]
-	Then $\widetilde\triangle = \set[\big]{\widetilde\triangle_i[n]}_{i,n}$ is a simplicial \mbox{cup-$i$} construction.
-\end{lemma}
+	Then $\widetilde\triangle = \set[\big]{\widetilde\triangle_i[n]}_{i,n}$ is a semi-simplicial \mbox{cup-$i$} construction.
+}
 
 \begin{proof}
 	We need to verify that for all $i$ and $n$ the identity
@@ -92,9 +147,9 @@ The zero \mbox{cup-$i$} construction is both irreducible and free.
 	If $i<i_0-1$ the identity on $\widetilde\triangle$ reduces to that for $\triangle$ for all values of $n$.
 \end{proof}
 
-\subsubsection{A specific example}
+\subsection{A non-irreducible example}
 
-Let us consider the canonical \mbox{cup-$i$} construction $\Delta$ and the integers $i_0=1$ and $n_0=3$.
+Let us consider the canonical \mbox{cup-$i$} construction $\canonical$ and the integers $i_0=1$ and $n_0=3$.
 The simplicial \mbox{cup-$i$} construction $\widetilde\triangle$, defined above, is both non-zero and free but not irreducible as we will inspect.
 If $i \neq i_0-1$ or $n \not\in \set{n_0,n_0+1}$ then $\widetilde\triangle_i[n]$ is equal to $\triangle_i[n]$ or $T\triangle_i[n]$.
 With the assistance of \texttt{ComCH} we compute the two cases where the axioms could be broken:
@@ -119,64 +174,9 @@ With the assistance of \texttt{ComCH} we compute the two cases where the axioms 
 	(14)(34) + (124)(4) + (4)(034) + (24)(04) + (4)(014).}
 
 \medskip\noindent and conclude that $\widetilde\triangle$ is free and non-zero, but not irreducible.
+It is also clear that this is a simplicial cup-$i$ construction.
 
-\subsection{Freeness}
-
-\subsubsection{Irreducible chains}
-
-A basis element $V \ot W \in \cP(\simplex^n)^{\ot 2}$ is said to be \textit{irreducible} if $V \cap W = \emptyset$ and \textit{reducible} otherwise.
-Let $\pired \colon \cP(\simplex^n)^{\ot 2} \to \cP(\simplex^n)^{\ot 2}$ be the projection to the subspace generated by reducible basis elements.
-Explicitly,
-\[
-\pired(V \ot W) =
-\begin{cases}
-	V \ot W, & \text{if $V \ot W$ is reducible},\\
-	\hfil 0, & \text{if not}.
-\end{cases}
-\]
-A chain $\zeta \in \cP(\simplex^n)^{\ot 2}$ is said to be \textit{irreducible} if $\pired(\zeta) = 0$.
-Notice that, by \cref{l:properties}, a simplicial \mbox{cup-$i$} construction $\triangle$ is irreducible if and only if $\triangle_i[n]$ is irreducible for all $i, n \in \N$.
-
-\subsubsection{Partition chains}
-
-For any $U \subseteq \set{0,\dots,n}$, its \textit{partition chain} $\zeta_U$ is defined as the sum of all basis elements $V \ot W$ in $\cP(\simplex^n)^{\ot 2}$ with $V \union W = U$ and $V \cap W = \emptyset$.
-Partition chains are irreducible by definition.
-Additionally, the boundary $\bd \zeta_U$ of any partition chain is also irreducible as is demonstrated by the following:
-
-\begin{lemma}\label{l:partition chains}
-	If $\zeta_U$ be a partition chain in $\cP(\simplex^n)^{\ot 2}$ then
-	\[
-	\bd \zeta_U = \sum_{\bar u \notin U} \zeta_{\bar u.U}
-	\]
-	where the sum is over all elements $\bar u \in \{0,\dots,n\} \setminus U$ and $\zeta_{\bar u.U}$ is the partition chain of $\set{\bar u} \union U$.
-\end{lemma}
-
-\begin{proof}
-	Let $\Lambda$ be the set of basis elements $V \ot W$ with $\zeta_U = \sum_\Lambda V \ot W$, then
-	\[
-	\bd \zeta_U =
-	\sum_{\Lambda} \!\Big(\sum_{w \in W} w.V \ot W \ + \
-	\sum_{v \in V} V \ot v.W \ + \
-	\sum_{\bar u \notin U} \bar u.V \ot  W + V \ot \bar u.W\Big).
-	\]
-	We then have
-	\begin{align*}
-		\pired(\bd \zeta_U) &=
-		\sum_{\Lambda} \!\Big(\sum_{w \in W} w.V \ot W \ + \
-		\sum_{v \in V} V \ot v.W\Big), \\
-		\pi^\perp_{\text{red}}(\bd \zeta_U) &=
-		\sum_{\Lambda} \sum_{\bar u \notin U} \bar u.V \ot  W + V \ot \bar u.W.
-	\end{align*}
-	It suffices to show that $\pired(\bd \zeta_U) = 0$, since clearly $\pi^\perp_{\text{red}}(\bd \zeta_U) = \sum_{\bar u \notin U} \zeta_{\bar u.U}$.
-	Let us consider two basis elements $V \ot W$ and $V' \ot W'$ in $\Lambda$, and, if possible, elements $v \in V$, $w \in W$, $v' \in V'$, and $w' \in W'$.
-	The following simple implications hold by direct inspection
-	\begin{align*}
-		&(w.V \ot W = w'.V' \ot W') &\implies& &&(w = w') \wedge (V = V') \wedge (W = W'), \\
-		&(V \ot v.W = V' \ot v'.W') &\implies& &&(v = v') \wedge (V = V') \wedge (W = W'), \\
-		&(w.V \ot W = V' \ot v'.W') &\implies& &&(w = v') \wedge (V' = w.V) \wedge (W' = W \setminus v'), \\
-		&(V \ot v.W = w'.V' \ot W') &\implies& &&(v = w') \wedge (V' = V \setminus w) \wedge (W' = v.W).
-	\end{align*}
-\end{proof}
+%\subsection{Freeness}
 
 %\begin{lemma}\label{l:partition chains}
 %	An irreducible chain $\zeta \in \cP(\simplex^n)^{\ot 2}$ satisfies $(\pired \circ \bd)(\zeta) = 0$ iff $\zeta$ is a sum of partition chains.
@@ -187,7 +187,7 @@ Additionally, the boundary $\bd \zeta_U$ of any partition chain is also irreduci
 %	Its boundary can be decomposed as follows
 %	\[
 %	\bd \zeta = \sum_{\Lambda} \Big(\sum_{w \in W} w.V \ot W \ + \ \sum_{v \in V} V \ot v.W \ +
-%	\sum_{\bar u \notin V \union W} \bar u.V \ot  W + V \ot \bar u.W\Big).
+%	\sum_{\bar u \notin V \union W} \bar u.V \ot W + V \ot \bar u.W\Big).
 %	\]
 %	Therefore,
 %	\[
@@ -206,59 +206,3 @@ Additionally, the boundary $\bd \zeta_U$ of any partition chain is also irreduci
 %	Conversely, the above also implies that $(\pired \circ \bd)\zeta_U = 0$ for any partition chain $\zeta_U$.
 %	\anibal{Maybe write more about this direction.}
 %\end{proof}
-
-\subsubsection{A general construction}
-
-\begin{lemma}
-	Let $\triangle$ be a simplicial \mbox{cup-$i$} construction.
-	Consider $i_0, n_0 \geq 0$ and a sum of partition chains $\zeta$ in $\cP(\simplex^{n_0})^{\ot 2}$ of degree $n_0+i_0+1$.
-	For all non-negative integers $i$ and $n$ define
-	\[
-	\widetilde\triangle_i[n] =
-	\begin{cases}
-		\triangle_{i_0}[n_0] + \bd\zeta & \text{if } i=i_0, n=n_0, \\
-		\triangle_{i}[n] & \text{otherwise}.
-	\end{cases}
-	\]
-	Then $\widetilde\triangle = \set[\big]{\widetilde\triangle_i[n]}_{i,n}$ is a simplicial \mbox{cup-$i$} construction.
-\end{lemma}
-
-\begin{proof}
-	There are two non-trivial cases:
-	(1) Since $(1+T) \zeta = 0$ we have
-	\begin{align*}
-		\bd \widetilde\triangle_{i_0+1}[n_0] + \widetilde\triangle_{i_0+1} \bd \,[n_0] &=
-		\bd \triangle_{i_0+1}[n_0] + \triangle_{i_0+1} \bd \,[n_0] \\ &=
-		(1+T)\triangle_{i_0}[n_0] \\ &=
-		(1+T)\triangle_{i_0}[n_0] + (1+T) \bd \zeta \\ &=
-		(1+T)\widetilde\triangle_{i_0}[n_0] .
-	\end{align*}
-	(2) Since $\bd^2 = 0$ we have
-	\begin{align*}
-		\bd \widetilde\triangle_{i_0}[n_0] + \widetilde\triangle_{i_0} \bd \,[n_0] &=
-		\bd \triangle_{i_0}[n_0] + \bd^2 \zeta + \triangle_{i_0} \bd \,[n_0] \\ &=
-		(1+T)\triangle_{i_0}[n_0] \\ &=
-		(1+T)\widetilde\triangle_{i_0}[n_0]. \qedhere
-	\end{align*}
-\end{proof}
-
-\subsubsection{Explicit example}
-
-Let us consider the canonical \mbox{cup-$i$} construction $\Delta$, the integers $i_0 = 0$ and $n_0 = 2$, and the partition chain $\zeta_{\set{1}}$ of the set $\set{1}$.
-Using \texttt{comch} we have
-\[
-\bd \zeta_{\set{1}} = \zeta_{\set{01}} + \zeta_{\set{12}} =
-\]
-\noindent
-{\ttfamily (01)() + (1)(0) + (0)(1) + ()(01) + (12)() + (2)(1) + (1)(2) + ()(12).}
-\[
-\widetilde\triangle_0[2] = \canonical_0[2] + \bd \zeta_{\set{1}} =
-\]
-\noindent
-{\ttfamily (2)(0) + (01)() + (1)(0) + (0)(1) + (2)(1) + (1)(2) + ()(12)}.
-
-\medskip \noindent This is an irreducible element but is not free.
-Additionally, we can see that
-\[
-(s_0 \ot s_0)\widetilde\triangle_0[2] = (s_1 \ot s_1)\widetilde\triangle_0[2] = 0.
-\]

@@ -2,11 +2,12 @@
 
 \section{Reformulation}\label{s:reformulation}
 
-This section provides a category theoretic perspective on the notion of simplicial \mbox{cup-$i$} construction.
+This section provides a category theoretic perspective on \mbox{(semi-)}simplicial \mbox{cup-$i$} constructions.
+We start by presenting a linear dual description.
 
 \subsection{Cup-\textit{i} coproducts}
 
-A \textbf{cup-$i$ coproduct structure} on a chain complex $C$ is a $\Sym_2$-equivariant chain map
+A \textbf{cup-$i$ coproduct structure} on a chain complex $C$ is an $\Sym_2$-equivariant chain map
 \[
 \begin{tikzcd}[column sep=small,row sep=0]
 	\triangle \colon &[-15pt] W \rar & \Hom(C, C^{\ot 2}) \\
@@ -32,25 +33,47 @@ Using the hom-tensor adjunction and the finite dimensionality of $C$ we have
 as chain complexes of $\F$-modules.
 In other words, the linear duality functor induces a bijection between \mbox{cup-$i$} product structures on $C^\vee$ and cup-$i$ coproduct structures on $C$.
 
+%\subsection{(Semi-)simplicial chains}
+%
+%Recall the category of ordinals with strictly order-preserving maps
+%\[
+%\begin{tikzcd}
+%	{[0]} \arrow[r,shift left=3pt, "\delta_0"] \arrow[r,shift right=3pt, "\delta_1"'] &
+%	{[1]} \arrow[r,shift left=6pt, "\delta_0"] \arrow[r, "\delta_1"' description] \arrow[r,shift right=6pt, "\delta_2"'] &
+%	\dotsb
+%	\arrow[r,shift left=5pt, "\delta_0"] \arrow[r,shift right=5pt, "\delta_n"', "\scalebox{0.6}{$\vdots$}"] &
+%	{[n]}
+%	\arrow[r,shift left=5pt, "\delta_0"] \arrow[r,shift right=5pt, "\delta_{n+1}"', "\scalebox{0.6}{$\vdots$}"] &
+%	\dotsb \
+%\end{tikzcd}
+%\]
+
 \subsection{Naturality}\label{ss:naturality}
 
-A semi-simplicial cup-$i$ construction $\triangle$ is completely determined by its restriction to representable semi-simplicial sets
+A (semi-)simplicial \mbox{cup-$i$} construction $\triangle$ is completely determined by its restriction to representable (semi-)simplicial sets
 \[
 W \ot_{\Ftwo[\Sym_2]} \chains(\simplex^n)^{\ot 2} \to \chains(\simplex^n).
 \]
-Since each of the chain complexes $\chains(\simplex^n)$ is finite dimensional, $\triangle$ is determined by the natural collection of $\Sym_2$-equivariant maps
+Given that each of the chain complexes $\chains(\simplex^n)$ is finite dimensional, $\triangle$ is determined by the natural collection of cup-$i$ coproduct structures
 \[
 W \to \Hom(\chains(\simplex^n), \chains(\simplex^n)^{\ot 2})
 \]
-defined by the isomorphisms \eqref{eq:hom-tensor}.
-These in turn correspond to a collection of natural linear maps $\set[\big]{\triangle_i \colon \chains(\simplex^n) \to \chains(\simplex^n)^{\ot 2}}_{i \in \N}$ satisfying
+defined by the hom-tensor adjunction \eqref{eq:hom-tensor}.
+These in turn correspond to a collection, parameterized by $n \in \N$, of natural linear maps
+\begin{equation}\label{eq:natural_linear_maps}
+	\set[\big]{\triangle_i \colon \chains(\simplex^n) \to \chains(\simplex^n)^{\ot 2}}_{i \in \N}
+\end{equation}
+satisfying
 \[
 \bd \circ \, \triangle_i + \triangle_i \circ \bd =
 (1+T) \triangle_{i-1}
 \]
-with the convention $\triangle_{-1} = 0$.
-In other words, a collection of linear natural transformations $\set{\triangle_i}_{i\in\N}$ from the functor $\chains \colon \simplex \to \Ch$ to the functor $\chains^{\ot 2}$.
-Each natural transformation $\triangle_i$ is completely determined by the set $\set[\big]{\triangle_i[n] \in \chains(\simplex^n)^{\ot 2}_{n+i}}_{n\in\N}$ where $[n]$ denotes the identity $[n] \to [n]$.
+with $\triangle_{-1} = 0$.
+Each natural transformation $\triangle_i$ in \eqref{eq:natural_linear_maps} is completely determined by the set
+\[
+\set[\big]{\triangle_i[n] \in \chains(\simplex^n)^{\ot 2}_{n+i}}_{n\in\N}
+\]
+where $[n]$ denotes the identity $[n] \to [n]$.
 To see this, consider a simplex $\big(x \colon [m] \to [n] \big) \in \simplex^n_m$ and notice that
 \[
 \triangle_i(x) = \triangle_i \big( x \circ [m] \big) =
@@ -58,7 +81,7 @@ To see this, consider a simplex $\big(x \colon [m] \to [n] \big) \in \simplex^n_
 \chains(x)^{\ot 2} \triangle_i[m],
 \]
 where $x$ also denotes the map $\simplex^m \to \simplex^n$ defined by $y \mapsto x \circ y$.
-We will often present a semi-simplicial cup-$i$ construction $\triangle$ as the set $\set{\triangle_i[n]}_{i,n\in\N}$
+We will often present a (semi-)simplicial \mbox{cup-$i$} construction $\triangle$ as the set $\set{\triangle_i[n]}_{i,n\in\N}$.
 
 In the simplicial context, the simplex associated to a codegeneracy map $\sigma_j \colon [n] \to [n-1]$ is degenerate in $\simplex^{n-1}$ so it is $0$ in $\chains(\simplex^{n-1})$.
 Therefore,
@@ -68,52 +91,49 @@ Therefore,
 \big( \triangle_i \circ \chains(\sigma_j) \big) [n] =
 \chains(\sigma_j)^{\ot 2} \triangle_i[n],
 \]
-which proves the following.
+which, together with the fact that codegeneracies and coface maps generate the simplex category, proves the following.
 
-\begin{lemma}
-	A semi-simplicial cup-$i$ construction $\triangle$ defines a simplicial one if and only if for each $i,n\in\N$
-	\[
-	\chains(\sigma_j)^{\ot 2}\big(\triangle_i[n]\big) = 0
-	\]
-	for each codegeneracy map $\sigma_j \colon [n] \to [n-1]$.
+\begin{lemma}\label{l:simplicial_from_semisimplicial}
+	A semi-simplicial \mbox{cup-$i$} construction $\triangle$ is simplicial if and only if $\chains(\sigma_j)^{\ot 2}\big(\triangle_i[n]\big) = 0$ for all $i,n\in\N$ and each codegeneracy map $\sigma_j \colon [n] \to [n-1]$.
 \end{lemma}
 
-\subsection{An alternative functor}\label{ss:alternative functor}
+\subsection{An alternative functor}\label{ss:equivalence_of_functors}
 
-It will be convenient to use an alternative to the functor of normalized chains.
-
-Consider $n,m \in \N$ and let $\P_{n-m}^n$ be the set of subsets of $\{0, \dots, n\}$ whose cardinality is $n-m$.
-Let $\cP[n]$ be the chain complex defined by
+For $n,m \in \N$ let $\P_{n-m}^n$ be the set of subsets of $\set{0,\dots,n}$ whose cardinality is $n-m$.
+Let $\cP(\simplex^n)$ be the chain complex defined by
 \[
-\cP[n]_m = \Ftwo\set{\P_{n-m}^n}, \qquad
-\bd U = \sum_{\mathclap{\bar u \in \{0, \dots, n\} \setminus U}} \{\bar u\} \union U.
+\cP(\simplex^n)_m = \Ftwo\set{\P_{n-m}^n}, \qquad
+\bd U = \sum_{\mathclap{\bar{u} \notin U}} \bar{u}.U
 \]
-For any coface $\delta_j \colon [n] \to [n+1]$ the chain map $\cP(\delta_j) \colon \cP[n] \to \cP[n+1]$ is defined by
+where $\bar{u} \notin U$ stands for $\bar{u} \in \set{0,\dots,n} \setminus U$ and $\bar{u}.U$ for $\set{\bar{u}} \union U$.
+For any coface $\delta_j \colon [n] \to [n+1]$ the chain map $\cP(\delta_j) \colon \cP(\simplex^n) \to \cP(\simplex^{n+1})$ is defined by
 \[
-\cP(\delta_j)(U) = \{ u_1 < \dots < u_{k-1} < j < u_k+1 < \dots < u_{n-m}+1 \}
+\cP(\delta_j)(U) = \set{u_1 < \dots < u_{k-1} < j < u_k+1 < \dots < u_{n-m}+1}
 \]
 where $k$ is determined by the inequalities.
-For any codegeneracy $\sigma_j \colon [n] \to [n-1]$ the chain map $\cP(\sigma_j) \colon \cP[n] \to \cP[n-1]$ is defined by
-\[
-\cP(\sigma_j)(U) = \begin{cases}
-	U \setminus \{j+1\}, & j+1 \in U, \\
-	\hfil U \setminus \{j\}, & j+1 \notin U \text{ and } j \in U, \\
-	\hfil 0, & j+1 \notin U \text{ and } j \notin U.
-\end{cases}
-\]
+For any codegeneracy $\sigma_j \colon [n] \to [n-1]$ the chain map $\cP(\sigma_j) \colon \cP(\simplex^n) \to \cP(\simplex^{n+1})$ is defined by
+\begin{equation}\label{eq:codegeneracies}
+	\cP(\sigma_j)(U) =
+	\begin{cases}
+		U \setminus \{j+1\}, & j+1 \in U, \\
+		\hfil U \setminus \{j\}, & j+1 \notin U \text{ and } j \in U, \\
+		\hfil 0, & j+1 \notin U \text{ and } j \notin U.
+	\end{cases}
+\end{equation}
 
 \begin{lemma}
-	The following assignment defines a natural equivalence between the functors $\cP,\chains \colon \simplex \to \Ch$:
+	The function
 	\[
 	\begin{tikzcd}[column sep=small,row sep=0]
-		\Psi \colon &[-15] \P_{n-m}^n \rar & \simplex^n_m \\
+		\Psi \colon &[-19] \P_{n-m}^n \rar & \simplex^n_m \\
 		& U \rar[mapsto] & d_U [n]
 	\end{tikzcd}
 	\]
+	induces a natural equivalence between the functors $\cP$ and $\chains$.
 \end{lemma}
 
 \begin{proof}
-	Since any non-degenerate simplex in $\simplex^n$ is a face of the top dimensional one, $\Psi$ defines a bijection between the basis of $\cP[n]_m$ and $\chains[n]_m$.
+	Since any (non-degenerate) simplex in $\simplex^n$ is a face of the top dimensional one $[n]$, this assignment defines a bijection between the basis of $\cP(\simplex^n)_m$ and $\chains(\simplex^n)_m$.
 	Let $U = \{u_1 < \cdots < u_{n-m}\} \in \rP_{n-m}^n$.
 	Using that for $u \leq j$ we have $d_jd_u = d_ud_{j+1}$ we can show that this bijection induces a chain isomorphism as follows:
 	\begin{align*}
@@ -123,69 +143,38 @@ For any codegeneracy $\sigma_j \colon [n] \to [n-1]$ the chain map $\cP(\sigma_j
 		\sum_{\mathclap{\bar u \in \{0, \dots, n\} \setminus U}}
 		d_{u_1} \cdots\, d_{\bar{u}} \cdots\, d_{u_{n-m}}[n] \\ &=
 		\sum_{\mathclap{\bar u \in \{0, \dots, n\} \setminus U}}
-		d_{\{\bar u\} \union U}[n].
+		d_{\{\bar u\} \union U}[n] \\ &=
+		d_{\bd U}[n].
 	\end{align*}
 	The compatibility with cofaces and codegeneracies is left to the interested reader.
 \end{proof}
 
-%The induced isomorphism of graded vector spaces defines a chain isomorphism
-%\[
-%\begin{tikzcd}[column sep=small,row sep=small]
-%	\F\set{\P_{n}^n} \dar & \lar \F\set{\P_{n-1}^n} \dar & \lar \dotsb & \lar \F\set{\P_{0}^n} \dar \\
-%	\chains(\simplex^n)_0 & \lar \chains(\simplex^n)_1 & \lar \dotsb & \lar \chains(\simplex^n)_n \\
-%\end{tikzcd}
-%\]
+\subsection{Cup-$i$ constructions via $\cP$}\label{ss:axioms_revisited}
 
-%A direct consequence of \cref{e:codegeneracy P} is the following.
-%
-%\begin{lemma}\label{l:kernel of sxs}
-%	For any codegeneracy $\sigma_j \colon [n] \to [n-1]$ a basis element $V \ot W \in \cP(\simplex^n)^{\ot 2}$ is in $\ker \cP(\sigma_j)^{\ot 2}$ if an only if $j$ and $j+1$ are both missing from $V$ or $W$.
-%\end{lemma}
-
-\subsection{Cup-\textit{i} constructions}
-
-By combining \cref{ss:naturality} and \cref{ss:alternative functor}, the data of a semi-simplicial cup-$i$ construction $\triangle$ is a collection, indexed by $i,n \in \N$, of elements
-\[
-\triangle_i [n] =
-\sum_{\mathclap{\quad \lambda \in \Lambda(i,n)}} \, V_\lambda \ot W_\lambda
-\]
+By combining \cref{ss:naturality} and \cref{ss:equivalence_of_functors}, we can see that the data of a semi-simplicial \mbox{cup-$i$} construction $\triangle$ is a collection, indexed by $i,n \in \N$, of elements
+\begin{equation*}\label{eq:cup-i_dually}
+	\triangle_i [n] =
+	\sum_{\mathclap{\quad \lambda \in \Lambda(i,n)}} \, V_\lambda \ot W_\lambda
+\end{equation*}
 in $\cP(\simplex^n)^{\ot 2}_{i+n}$
-%in the kernel of $\cP(\sigma_j)^{\ot 2}$ for every codegeneracy $\sigma_j \colon [n] \to [n-1]$,
 where $\Lambda(i,n)$ is a finite (possibly empty) indexing set, and $V_\lambda \ot W_\lambda$ is a basis element for each $\lambda \in \Lambda(i,n)$.
+Additionally, one such construction is:
+\begin{itemize}
+	\item Irreducible iff\,
+	$V_\lambda \cap W_\lambda = \emptyset$,
+	\item Free iff\,
+	$V_{\lambda} \ot W_{\lambda} \neq W_{\lambda'} \ot V_{\lambda'}$ if $i \neq n$.
+\end{itemize}
+To see this we notice that there is $k \in V_\lambda \cap W_\lambda$ for one of the summands of $\triangle_i [n]$ if an only the image of this summand under $\Psi^{\ot 2}$ is
+\[
+\underbrace{d_{V_\lambda \setminus k} \overbrace{d_k[n]}^{y}}_{y^{(1)}}
+\ot
+\underbrace{d_{W_\lambda \setminus k} \overbrace{d_k[n]}^{y}}_{y^{(2)}}
+\]
+with $(y^{(1)} \smallsmile_i y^{(2)})[n] \neq 0$.
+This proves the claim about irreducibility, the one involving freeness follows from direct inspection.
 
-\anibal{Continue here}
-\begin{lemma}\label{l:properties}
-	The semi-simplicial \mbox{cup-$i$} construction $\triangle$ is:
-	\begin{enumerate}[(i)]
-%		\item Simplicial iff $\forall j \in \set{0,\dots,n-1}$ $\cP(\sigma_j)^{\ot 2} \triangle_i [n]$
-%		\item Non-zero iff
-%		$\exists i,j\in \N$, $\triangle_i [n] \neq 0$.
-		\item Irreducible iff\,
-		$\forall i,n \in \N$, $\forall \lambda \in \Lambda(i,n)$, $V_\lambda \cap W_\lambda = \emptyset$.
-		\item Free iff\,
-		$\forall i,n \in \N$, $\forall \lambda_1, \lambda_2 \in \Lambda(i,n)$, $V_{\lambda_1} \ot W_{\lambda_1} \neq W_{\lambda_2} \ot V_{\lambda_2}$ if $i \neq n$.
-	\end{enumerate}
-\end{lemma}
-
-\begin{proof}
-	By naturality, it suffices to verify these equivalences for the \mbox{cup-$i$} product structure defined on $\cochains(X)$ when $X = \simplex^n$ for every $n \in \N$.
-	We will use the fact that the isomorphism $\Psi_n^{\ot 2} \colon \cP(\gsimplex^n)^{\ot 2} \to \chains(\gsimplex^n)^{\ot 2}$ sends basis elements to basis elements, as does the linear duality isomorphism between chains and cochains.
-
-	\noindent (1) This follows from the fact that $\chains(\gsimplex^0)^{\ot 2}$ is 1-dimensional and generated by $[0] \ot [0] = \Psi_0^{\ot 2} (\emptyset \ot \emptyset)$.
-	Explicitly, if $x$ is a $0$-simplex with dual basis element denoted $x^\vee$, the only two options for $x^\vee \cup_0 x^\vee$ are $x^\vee$ or $0$, with the first holding if and only if $\triangle_0[0] = \emptyset \ot \emptyset$.
-
-	\noindent (2) To prove this equivalence notice that there is $k \in V_\lambda \cap W_\lambda$ for one of the summands of $\triangle_i [n]$ if an only the image of this summand under $\Psi_n^{\ot 2}$ is
-	\[
-	\underbrace{d_{V_\lambda \setminus k} \overbrace{d_k[n]}^{y}}_{y^{(1)}}
-	\ot
-	\underbrace{d_{W_\lambda \setminus k} \overbrace{d_k[n]}^{y}}_{y^{(2)}}
-	\]
-	with $y^{(1)} \smallsmile_i y^{(2)} \neq 0$.
-
-	\noindent (3) This equivalence follows directly from considering the isomorphism $\Psi_n^{\ot 2}$.
-\end{proof}
-
-\subsection{Canonical cup-\textit{i} construction}
+\subsection{Canonical construction}
 
 For any $U \in \rP^n_{n-i}$ the \textbf{index function} of $U$ is given by
 \[
@@ -195,32 +184,40 @@ For any $U \in \rP^n_{n-i}$ the \textbf{index function} of $U$ is given by
 \end{split}
 \]
 For any $U \in \rP^n_{n-i}$ and $\varepsilon \in \Ftwo \cong \{0,1\}$ we write $U^\varepsilon$ instead of $\ind_U^{-1}(\varepsilon)$.
-
-By inspecting \cref{d:my cup-i} we see that the canonical \mbox{cup-$i$} construction is defined by the elements
-%$\canonical_i[n] \in \cP(\simplex^n)^{\ot 2}_{i+n}$ for $i,n \in \N$ with
+Inspecting \cref{ss:canonical} we see that the canonical \mbox{cup-$i$} construction is defined by the elements
 \[
 \canonical_i[n] =
-\sum_{\mathclap{\quad U \in \rP^n_{n-i}}} \ U^0 \ot U^1
+\sum_{\mathclap{\quad U \in \rP^n_{n-i}}} \ U^0 \ot U^1.
 \]
-in $\cP(\simplex^n)^{\ot 2}_{i+n}$ for $i,n \in \N$.
-
-\begin{example*}
-	For any $n \in \N$,
-	\[
-	\canonical_n[n] = \emptyset \ot \emptyset
-	\]
-	and, if $n > 0$,
-	\[
-	\canonical_{n-1} [n] \ = \
-	\sum_{\mathclap{\substack{\quad u \in \{0,\dots,n\} \\ u \ \mathrm{odd}}}} \,\{u\} \ot \emptyset \ + \
-	\sum_{\mathclap{\substack{\quad u \in \{0,\dots,n\} \\ u \ \mathrm{even}}}} \,\emptyset \ot \{u\}.
-	\]
-\end{example*}
 
 \begin{theorem}\label{t:existence}
 	The canonical \mbox{cup-$i$} construction is simplicial, non-zero, irreducible, and free.
 \end{theorem}
 
 \begin{proof}
-	It follows from direct inspection using \cref{l:properties}.
+	It is clearly non-zero and a straightforward application of \cref{ss:axioms_revisited} establishes its irreducibility and freeness.
+	To see it is simplicial, we consider \cref{eq:codegeneracies} and an arbitrary basis element $U^0 \ot U^1$ appearing as a summand in $\canonical_i[n]$.
+	Let $U = U^0 \union U^1$.
+	Based on \cref{l:simplicial_from_semisimplicial}, we need to check that for any $j \in \set{0,\dots,n-1}$ we have
+	\begin{equation}\label{eq:checking_simplicial}
+		\cP(\sigma_j)(U^0) \ot \cP(\sigma_j)(U^1) = 0.
+	\end{equation}
+	If $j \notin U$ or $j+1 \notin U$ either $\cP(\sigma_j)(U^0) = 0$ or $\cP(\sigma_j)(U^1) = 0$, so Identity \eqref{eq:checking_simplicial} holds.
+	Let us assume $j,j+1 \in U$.
+	Since $\ind_U(j) = \ind_U(j+1)$ then either $j,j+1 \in U^0$ or $j,j+1 \in U^1$.
+	In both cases we also have \eqref{eq:checking_simplicial}.
 \end{proof}
+
+\subsection{Canonical special cases}
+
+We close with a couple of special cases of importance.
+For any $n \in \N$,
+\[
+\canonical_n[n] = \emptyset \ot \emptyset
+\]
+and, if $n > 0$,
+\[
+\canonical_{n-1} [n] \ = \
+\sum_{\mathclap{\substack{\quad u \in \{0,\dots,n\} \\ u \ \mathrm{odd}}}} \,\{u\} \ot \emptyset \ + \
+\sum_{\mathclap{\substack{\quad u \in \{0,\dots,n\} \\ u \ \mathrm{even}}}} \,\emptyset \ot \{u\}.
+\]
