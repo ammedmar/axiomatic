@@ -92,7 +92,7 @@ Additionally, as we will see in the next lemma, the boundary of a partition chai
 	An irreducible chain $\zeta$ satisfies $(\pired \circ \bd)\zeta = 0$ if and only if $\zeta$ is a sum of partition chains.
 	Furthermore, if $\zeta_U$ is a partition chain then
 	\begin{equation}\label{eq:boundary_partition_chain}
-		\bd \zeta_U = \sum_{\bar u \notin U} \zeta_{\bar u.U}.
+		\bd \zeta_U = \sum_{\bar u \notin U} \zeta_{\bar u.U} \defeq \zeta_{\bd U}.
 	\end{equation}
 \end{lemma}
 
@@ -266,48 +266,85 @@ Let $\triangle = \set[\big]{\triangle_i [n]}_{i,n\in\N}$ be a semi-simplicial \m
 As usual, we denote the canonical \mbox{cup-$i$} construction by $\canonical$.
 We need to show that:
 \begin{center}
-	($\ast$) For any fixed $i$ either $\triangle_i [n] = \canonical_ i [n]$ or $\triangle_i [n] = T\canonical_ i [n]$ hold for every $n$.
+	($\ast$) For any $i \in \N$ either $\triangle_i [n] = \canonical_ i [n]$ or $\triangle_i [n] = T\canonical_ i [n]$ for every $n \in \N$.
 \end{center}
 We will use an induction argument over $k = n-i$ to show this.
 For $k \leq 0$ both $\triangle_i [n] = \canonical_ i [n]$ or $\triangle_i [n] = T\canonical_ i [n]$ hold for every $n$ by \cref{ss:i_geq_n}.
-The case $k = 1$, treated in \cref{ss:i_equals_n_minus_1}, determines for any $i$ if $\triangle_i$ will be equal to $\canonical_i$ or $T\canonical_i$.
-Let us assume that our claim holds for all $i,n \in \N$ with $n-i < k$ and $k > 1$.
-Therefore, for any $i,n \in \N$ with $n-i = k$, we have
+%The case $k = 1$, treated in \cref{ss:i_equals_n_minus_1}, determines for any $i$ if $\triangle_i$ will be equal to $\canonical_i$ or $T\canonical_i$.
+Let us assume that our claim holds for all values less than $k$.
+Since there is $\varepsilon \in \set{0,1}$ such that
+\[
+\triangle_{i+1}[n] = T^\varepsilon\canonical_{i+1}[n], \quad
+\triangle_{i+1}\bd[n] = T^\varepsilon\canonical_{i+1}\bd[n]
+\]
+we have
 \begin{align*}
 	(1+T)\triangle_i[n] &=
 	\bd\triangle_{i+1}[n] + \triangle_{i+1}\bd[n] \\ &=
+	T^\varepsilon(\bd\canonical_{i+1}[n] + \canonical_{i+1}\bd[n]) \\ &=
 	(1+T)\,\canonical_i[n] \\ &=
 	(1+T)\sum_{\mathclap{\quad U \in \P_{n-i}^n}} \, U^0 \ot U^1.
 \end{align*}
 \cref{ss:freeness_revisited} implies the existence of a function $\xi \colon \P_{n-i}^n \to \set{0,1}$ with
 \begin{equation}\label{eq:triangle_i_n}
-	\triangle_i[n] = \sum_{\mathclap{\quad U \in \P_{n-i}^n}} \, U^{\xi} \ot U^{\barxi}.
+	\triangle_i[n] =
+	\sum_{\mathclap{\quad U \in \P_{n-i}^n}} \, U^{\xi} \ot U^{\barxi} \ +
+	(1+T)\Phi
 \end{equation}
-By the induction hypothesis $\triangle_i[n-1] = T^\varepsilon\canonical_i[n-1]$ for some $\varepsilon \in \set{0,1}$.
-Let us assume $\varepsilon = 0$ and state that we need to show that $\xi \equiv 0$.
-The case $\varepsilon = 1$ is approached similarly.
-Let us rewrite \cref{eq:triangle_i_n} as
+with $\Phi$ an irreducible chain having neither $U^0 \ot U^1$ or $U^1 \ot U^0$ as a basic summand for any $U \in \P_{n-i}^n$.
+By the induction hypothesis $\triangle_i[n-1] = T^\nu\canonical_i[n-1]$ for some $\nu \in \set{0,1}$.
+Let us assume $\nu = 0$.
+The case $\nu = 1$ is approached similarly.
+\cref{eq:triangle_i_n} can be rewritten as
 \[
 \triangle_i[n] = \canonical_i[n] \ +\
-(1+T) \sum_{\quad\mathclap{\substack{U \in \P_{n-i}^n \\ \xi(U) \neq 0}}} U^0 \ot U^1.
+(1+T)\sum_{\quad\mathclap{\substack{U \in \P_{n-i}^n \\ \xi(U) \neq 0}}} U^0 \ot U^1 \ + \
+(1+T)\Phi.
 \]
-%Using the induction hypothesis $\triangle_{i-1}\bd[n] = T^\varepsilon \canonical_{i-1}\bd[n]$ for some $\varepsilon \in \set{0,1}$.
-%Let us assume $\varepsilon = 0$ and remark that the case $\varepsilon = 1$ is approached similarly.
 Then
 \begin{equation}\label{eq:main proof a}
 	\begin{split}
-		(1+T)\triangle_{i-1}[n] &=
-		\bd \triangle_{i}[n] \ +\ \triangle_{i}\bd[n] \\ &=
-		\bd \canonical_{i}[n] \ + \
-		\bd\Big((1+T)\sum_{\quad\mathclap{\substack{U \in \P_{n-i}^n \\ \xi(U) \neq 0}}} U^0 \ot U^1\Big)
-		\ +\ \canonical_{i}\bd[n] \\ &=
+		(1+T)&\triangle_{i-1}[n] =
+		\bd \triangle_{i}[n] + \triangle_{i}\bd[n] \\ &=
+		\bd \canonical_{i}[n] +
+		\bd\Big(
+		(1+T)\sum_{\quad\mathclap{\substack{U \in \P_{n-i}^n \\ \xi(U) \neq 0}}} U^0 \ot U^1 \ +\
+		(1+T)\Phi
+		\Big) +
+		\canonical_{i}\bd[n] \\ &=
 		(1+T)\canonical_{i-1}[n] \ +\
-		\bd\Big((1+T)\sum_{\quad\mathclap{\substack{U \in \P_{n-i}^n \\ \xi(U) \neq 0}}} U^0 \ot U^1\Big).
+		\bd\Big(
+		(1+T)\sum_{\quad\mathclap{\substack{U \in \P_{n-i}^n \\ \xi(U) \neq 0}}} U^0 \ot U^1 \ +\
+		(1+T)\Phi
+		\Big).
 	\end{split}
 \end{equation}
 Since $(1+T)\triangle_{i-1}[n]$ and $(1+T)\canonical_{i-1}[n]$ are in the kernel of $\pired$, we have that the irreducible chain
 \[
-(1+T)\sum_{\quad\mathclap{\substack{U \in \P_{n-i}^n \\ \xi(U) \neq 0}}} U^0 \ot U^1
+(1+T)\sum_{\quad\mathclap{\substack{U \in \P_{n-i}^n \\ \xi(U) \neq 0}}} U^0 \ot U^1 \ +\
+(1+T)\Phi
 \]
-is in the kernel of $(\pired \circ \bd)$ so, by \cref{l:partition chains}, it is a sum of partition chains.
-This is a contradiction unless $\xi \equiv 0$, since the number of partitions of a set $U$ with more than one element is strictly greater than $2$ and $n-i = k > 1$.
+is in the kernel of $(\pired \circ \bd)$ so, by \cref{l:partition chains}, it is a sum of partition chains, say $\zeta$.
+Therefore,
+\[
+\triangle_i[n] = \canonical_i[n] + \zeta
+\]
+and
+\[
+(1+T)\triangle_{i-1}[n] = (1+T)\canonical_{i-1}[n] + \bd\zeta
+\]
+By \cref{l:partition chains}, $\bd \zeta$ is a sum of partition chains.
+By \cref{ss:freeness_revisited},
+\[
+\triangle_{i-1}[n] = \sum_{V \in \P_{i-1}^n} V^\eta \ot V^\bareta \ +\
+(\bd\zeta)^{1/2} +
+(1+T)\Psi
+\]
+where $(\bd\zeta)^{1/2}$ is such that $(1+T)(\bd\zeta)^{1/2} = \bd\zeta$, and $\Psi$ irreducible with no common summands with
+
+
+
+%Let us denote denote $\bd \zeta$
+%Let $\dot \zeta$ denote $\bd \zeta$, which is a sum of partition chains by \cref{l:partition chains}.
+
+%Since $\triangle_i \bd [n] = \canonical_i \bd [n]$, we have
