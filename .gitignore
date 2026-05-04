@@ -11,3 +11,5 @@
 *.txss
 *.bcf
 *.xml
+
+.DS_Store

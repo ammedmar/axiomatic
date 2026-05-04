@@ -3,7 +3,7 @@
 \section{Cup-$i$ constructions}\label{s:statement}
 
 Let $\Ftwo$ be the field with two elements.
-We denote the (normalized) cochains with $\Ftwo$ coefficients of a simplicial or semi-simplicial set $X$ by $\cochains(X)$, graded homologically and concentrated in non-positive degrees.
+We denote by $\cochains(X)$ the (normalized) cochains of a simplicial or semi-simplicial set $X$ with coefficients in $\Ftwo$, graded homologically and concentrated in non-positive degrees.
 
 \subsection{Cup-$i$ products}
 
@@ -25,15 +25,15 @@ A \textbf{\mbox{cup-$i$} product structure} on a chain complex $A$ is a chain ma
 W \ot_{\F[\Sym_2]} A^{\ot 2} \to A
 \]
 where $T$ acts by transposition on $A^{\ot 2}$ and by right multiplication on $W$.
-We denote the image of of the class of $e_i \ot \alpha \ot \beta$ by $\alpha \cup_i \beta$.
-Unpacking this structure we have the following defining identity for any $i \in \N$ and $\alpha, \beta \in A$:
+We denote the image of the class of $e_i \ot \alpha \ot \beta$ by $\alpha \cup_i \beta$.
+Unpacking this definition, we obtain the following identity for any $i \in \N$ and $\alpha, \beta \in A$:
 \[
 \alpha \cup_{i-1} \beta + \beta \cup_{i-1} \alpha =
 \bd (\alpha \cup_{i} \beta) + (\bd\alpha) \cup_{i} \beta + \alpha \cup_{i} (\bd\beta)
 \]
 with the convention $\alpha \cup_{-1} \beta = 0$.
 By setting $i = 0$ we see that $(A, \cup_0)$ is a differential graded algebra.
-The identity obtained setting $i = 1$ implies that the algebra structure induced in the homology $HA$ of $A$ is commutative, with the product $\cup_1$ enforcing this relation at the chain level.
+Setting $i = 1$ implies that the algebra structure induced on the homology $HA$ of $A$ is commutative, with the product $\cup_1$ encoding this relation at the chain level.
 This product is itself not commutative, but it is so up to a homotopy defined by $\cup_2$, and so on.
 
 An \textbf{isomorphism} of \mbox{cup-$i$} product structures on $A$, or simply a \textbf{cup-$i$ isomorphism}, is an automorphism $\phi$ of $W$ making the following diagram commute:
@@ -45,13 +45,13 @@ An \textbf{isomorphism} of \mbox{cup-$i$} product structures on $A$, or simply a
 	\end{tikzcd}
 \end{center}
 
-A \textbf{(semi-)simplicial \mbox{cup-$i$} construction} is a \mbox{cup-$i$} product structure on $\cochains(X)$ for every (semi-)simplicial set $X$ that is natural with respect to (semi-)simplicial maps.
+A \textbf{(semi-)simplicial \mbox{cup-$i$} construction} is a \mbox{cup-$i$} product structure on $\cochains(X)$, assigned to each (semi-)simplicial set $X$, that is natural with respect to (semi-)simplicial maps.
 Similarly, an \textbf{isomorphism} of (semi-)simplicial \mbox{cup-$i$} constructions is a natural family of cup-$i$ isomorphisms for each such $X$.
-Please notice that a simplicial \mbox{cup-$i$} construction is a semi-simplicial one satisfying additional constraints, i.e., compatibility with degeneracy maps.
+Note that a simplicial \mbox{cup-$i$} construction is a semi-simplicial one satisfying additional constraints, namely compatibility with degeneracy maps.
 
 \subsection{Axioms}
 
-The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of (semi-)simplicial \mbox{cup-$i$} construction; whereas the second, minimality, is manifested in the use of $W$ instead of an arbitrary free resolution of $\F$.
+The first axiom mentioned in the introduction, naturality, is explicitly incorporated into our definition of a (semi-)simplicial \mbox{cup-$i$} construction, while the second, minimality, is reflected in the use of $W$ rather than an arbitrary free resolution of $\F$.
 The \textbf{zero \mbox{cup-$i$} construction} assigns the zero map
 \[
 W \ot_{\F[\Sym_2]} \cochains(X)^{\ot 2} \to \cochains(X)
@@ -72,16 +72,16 @@ Let $X$ be a semi-simplicial set.
 Below we identify simplices with their associated chain and cochain basis elements.
 A semi-simplicial \mbox{cup-$i$} construction is said to be:
 \begin{itemize}
-	\item \textbf{Irreducible} if for any simplex $x$ in $X$
+	\item \textbf{Irreducible} if, for any simplex $x$ in $X$,
 	\[
-	\boxed{\Big( y^{(1)} \cup_{i} y^{(2)} \Big)(x) = 0}
+	\boxed{\big( y^{(1)} \cup_{i} y^{(2)} \big)(x) = 0}
 	\]
-	whenever $y$ is a proper face of $x$ and $y^{(1)}$ and $y^{(2)}$ are faces of $y$.
+	whenever $y$ is a proper face of $x$ and $y^{(1)}$, $y^{(2)}$ are faces of $y$.
 
-	\item \textbf{Free} if for any two simplices $x$ and $x'$ in $X$
+	\item \textbf{Free} if, for any two simplices $x, x'$ in $X$,
 	\[
-	\boxed{x \cup_{i} x' = x' \cup_{i} x} \
-	\Longrightarrow \
+	\boxed{x \cup_{i} x' = x' \cup_{i} x}
+	\ \Longrightarrow\
 	\boxed{x \cup_{i} x' = 0}
 	\]
 	whenever $\bars{x} \neq i$ or $\bars{x'} \neq i$.
@@ -91,13 +91,13 @@ A semi-simplicial \mbox{cup-$i$} construction is said to be:
 
 \textit{There is up to isomorphism only one non-zero, irreducible and free semi-simplicial \mbox{cup-$i$} construction.}
 
-In \cref{s:others,s:operads} we will show that all semi-simplicial \mbox{cup-$i$} constructions defined in the literature represent the same isomorphism class, and in fact, they are all simplicial.
+\medskip In \cref{s:others,s:operads} we will show that all semi-simplicial \mbox{cup-$i$} constructions defined in the literature represent the same isomorphism class, and in fact, they are all simplicial.
 
 \subsection{Canonical cup-\textit{i} construction}\label{ss:canonical}
 
 To prove our main result we will use the \mbox{cup-$i$} construction introduced in \cite{medina2023fast_sq}.
 Before we recall its definition, let us introduce the following notation:
-For any $n$-simplex $x$ and set $U = \{u_1 < \dots < u_r\} \subseteq \set[big]{0,\dots,n}$ we write $d_U(x)$ for the composition of face maps $d_{u_1}\!\! \dotsm d_{u_r}(x)$ with $d_{\emptyset}(x) = x$.
+For any $n$-simplex $x$ and subset $U = \{u_1 < \dots < u_r\} \subseteq \{0,\dots,n\}$, we write $d_U(x)$ for the composition of face maps $d_{u_1} \cdots d_{u_r}(x)$, with $d_{\emptyset}(x) = x$.
 
 Let $X$ be a (semi-)simplicial set, $x$ a (non-degenerate) $n$-simplex of $X$, and $\alpha, \beta$ two cochains in $\cochains(X)$, then, by definition,
 \[
