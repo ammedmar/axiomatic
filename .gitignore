@@ -11,3 +11,7 @@
 *.txss
 *.bcf
 *.xml
+
+.DS_Store
+
+claude_analysis.md
