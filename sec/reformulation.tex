@@ -111,15 +111,16 @@ For any coface $\delta_j \colon [n] \to [n+1]$ the chain map $\cP(\delta_j) \col
 \cP(\delta_j)(U) = \set{u_1 < \dots < u_{k-1} < j < u_k+1 < \dots < u_{n-m}+1}
 \]
 where $k$ is determined by the inequalities.
-For any codegeneracy $\sigma_j \colon [n] \to [n-1]$ the chain map $\cP(\sigma_j) \colon \cP(\simplex^n) \to \cP(\simplex^{n+1})$ is defined by
+For any codegeneracy $\sigma_j \colon [n] \to [n-1]$ the chain map $\cP(\sigma_j) \colon \cP(\simplex^n) \to \cP(\simplex^{n-1})$ is defined by
 \begin{equation}\label{eq:codegeneracies}
 	\cP(\sigma_j)(U) =
 	\begin{cases}
-		U \setminus \{j+1\}, & j+1 \in U, \\
-		\hfil U \setminus \{j\}, & j+1 \notin U \text{ and } j \in U, \\
-		\hfil 0, & j+1 \notin U \text{ and } j \notin U.
+		\sigma_j\big(U \setminus \{j+1\}\big), & j+1 \in U, \\
+		\hfil \sigma_j\big(U \setminus \{j\}\big), & j+1 \notin U \text{ and } j \in U, \\
+		\hfil 0, & j+1 \notin U \text{ and } j \notin U,
 	\end{cases}
 \end{equation}
+where $\sigma_j$ also denotes the induced map on subsets, i.e., $\sigma_j(S) = \set{\sigma_j(u) \mid u \in S}$.
 
 \begin{lemma}
 	The function
@@ -208,7 +209,7 @@ Inspecting \cref{ss:canonical} we see that the canonical \mbox{cup-$i$} construc
 	In both cases we also have \eqref{eq:checking_simplicial}.
 \end{proof}
 
-\subsection{Canonical special cases}
+\subsection{Canonical special cases}\label{ss:canonical_special_cases}
 
 We close with a couple of special cases of importance.
 For any $n \in \N$,

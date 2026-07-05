@@ -63,7 +63,7 @@ We divide this proof into several parts.
 	which, by \cref{ss:freeness_revisited}, implies $\triangle_{i-1} [n] = 0$.
 \end{proof}
 
-\subsection{Irreducible and partition chains}
+\subsection{Irreducibility and partition chains}
 
 A basis element $V \ot W \in \cP(\simplex^n)^{\ot 2}$ is said to be \textit{irreducible} if $V \cap W = \emptyset$ and \textit{reducible} otherwise.
 For any $U \subseteq \set{0,\dots,n}$ we define its \textit{partition chain} $\zeta_U$ as the sum of all basis elements $V \ot W$ in $\cP(\simplex^n)^{\ot 2}$ with $V \union W = U$ and $V \cap W = \emptyset$.
@@ -160,7 +160,6 @@ Additionally, as we will see in the next lemma, the boundary of a partition chai
 }
 
 \begin{proof}
-	\anibal{This proof doesn't use freeness}
 	We will proceed by induction on $n$.
 	For $n = 0$, we have that $\triangle_{-1}[0] = 0$ which trivially agrees with both $\canonical_{-1}[0]$ and $T\canonical_{-1}[0]$.
 	Using the $i \geq n$ case (\cref{ss:i_geq_n}) we have
@@ -170,7 +169,7 @@ Additionally, as we will see in the next lemma, the boundary of a partition chai
 		\sum_{u=0}^n \set{u} \ot \emptyset + \emptyset \ot \set{u} \\ &=
 		(1+T)\sum_{U \in \P_1^n} U^0 \ot U^1.
 	\end{align*}
-	By \cref{ss:freeness_revisited}, \anibal{Notice that this doesn't use freeness since there are not many elements in $\ker(1+T)$ in this dimension} there is function $\xi \colon \P_1^n \to \set{0,1}$ such that
+	By \cref{ss:freeness_revisited}, there is a function $\xi \colon \P_1^n \to \set{0,1}$ such that
 	\begin{equation}\label{eq:triangle_n-1_n}
 		\triangle_{n-1}[n] = \sum_{U \in \P_1^n} U^\xi \ot U^\barxi
 	\end{equation}
@@ -254,11 +253,24 @@ Additionally, as we will see in the next lemma, the boundary of a partition chai
 		\bd\sum_{\mathclap{\substack{\set{u} \in \P_1^n \\ \xi \set{u} \neq 0}}} \ \zeta_{\set{u}} = 0
 	\end{equation}
 	implies either $\xi \equiv 0$ or $\xi \equiv 1$.
-	Arguing by contradiction, let us assume the existence of $u$ and $\bar{u}$ with $\xi\set{u} = 1$
-	and $\xi\set{\bar u} = 0$.
-	Then, the basis element $u_0 \ot \bar u_0$ appears as a summand in \cref{eq:bd_triangle}, a contradiction.
+	By \cref{eq:boundary_partition_chain}, the left hand side of \cref{eq:bd_triangle} equals
+	\[
+	\sum_{\mathclap{\substack{\set{u} \in \P_1^n \\ \xi \set{u} \neq 0}}} \
+	\sum_{\ \bar{u} \neq u} \zeta_{\set{u} \union \set{\bar u}},
+	\]
+	in which the partition chain of a two element set $\set{u, \bar u}$ appears twice, and hence cancels, if $\xi\set{u} = \xi\set{\bar u} = 1$, and appears exactly once if $\xi\set{u} \neq \xi\set{\bar u}$.
+	Arguing by contradiction, let us assume the existence of $u$ and $\bar{u}$ with $\xi\set{u} = 1$ and $\xi\set{\bar u} = 0$.
+	Then, the partition chain $\zeta_{\set{u, \bar u}}$ survives in the sum above and, since partition chains of distinct sets share no basis elements, \cref{eq:bd_triangle} is violated, a contradiction.
 	Therefore, either $\triangle_{n-1}[n] = \canonical_{n-1}[n]$ or $\triangle_{n-1}[n] = T\canonical_{n-1}[n]$.
 \end{proof}
+
+\begin{remark}\label{r:freeness_usage}
+	The proof above uses freeness only through its dependence on \cref{ss:i_geq_n}.
+	Indeed, both invocations of \cref{ss:freeness_revisited} can be justified using irreducibility instead.
+	In the first one, the intersection of $\ker(1+T)$ with the subspace of irreducible chains in the relevant degree is spanned by the partition chains $\zeta_{\set{u}}$, and adding these only modifies the function $\xi$.
+	In the second one, every irreducible element of $\ker(1+T)$ is symmetric, so it can be absorbed into the terms $\zeta^{1/2}_{\bar{u}.\set{u}}$ when $\xi \not\equiv 0$, while if $\xi \equiv 0$ there is nothing left to prove.
+	The dependence on \cref{ss:i_geq_n} is, however, essential: the non-free construction $(1+T)\canonical$ of \cref{ss:non_free} is non-zero and irreducible, yet $(1+T)\canonical_n[n] = 0$ for every $n \in \N$.
+\end{remark}
 
 \subsection{Proof of main theorem}\label{ss:proof}
 
@@ -311,3 +323,72 @@ Since $(1+T)\triangle_{i-1}[n]$ and $(1+T)\canonical_{i-1}[n]$ are in the kernel
 \]
 is in the kernel of $(\pired \circ \bd)$ so, by \cref{l:partition chains}, it is a sum of partition chains.
 This is a contradiction unless $\xi \equiv 0$, since the number of partitions of a set $U$ with more than one element is strictly greater than $2$ and $n-i = k > 1$.
+
+\subsection{Irreducibility implies simpliciality}\label{ss:irreducible_implies_simplicial}
+
+We close this section with a result showing that, in the presence of irreducibility, the semi-simplicial and simplicial settings coincide.
+
+\begin{theorem}\label{t:irreducible_implies_simplicial}
+	Every irreducible semi-simplicial \mbox{cup-$i$} construction is simplicial.
+\end{theorem}
+
+\begin{proof}
+	Let $\triangle$ be an irreducible semi-simplicial \mbox{cup-$i$} construction, and fix $i, n \in \N$ with $n > 0$.
+	For a chain $\zeta$ and a basis element $V \ot W$ of $\cP(\simplex^n)^{\ot 2}$ we write $\coeff{\zeta}{V \ot W} \in \F$ for the coefficient of $V \ot W$ in $\zeta$.
+
+	We first claim that
+	\begin{equation}\label{eq:reducible_part}
+		\pired\big(\bd\, \triangle_i[n]\big) = \triangle_i \bd\, [n].
+	\end{equation}
+	Indeed, $\triangle_i \bd\, [n] = \sum_{k=0}^{n} \cP(\delta_k)^{\ot 2}\, \triangle_i[n-1]$ and, since every subset in the image of $\cP(\delta_k)$ contains $k$, every basis element in the image of $\cP(\delta_k)^{\ot 2}$ is reducible.
+	On the other hand, $(1+T)\triangle_{i-1}[n]$ is a sum of irreducible basis elements.
+	Applying $\pired$ to the identity $\bd\triangle_i[n] + \triangle_i\bd\,[n] = (1+T)\triangle_{i-1}[n]$ proves the claim.
+
+	Let us compare coefficients on both sides of \cref{eq:reducible_part}.
+	Writing $\triangle_i[n] = \sum_\Lambda V \ot W$, we have, as in the proof of \cref{l:partition chains},
+	\[
+	\pired\big(\bd\, \triangle_i[n]\big) =
+	\sum_{\Lambda}\Big(\sum_{w \in W} w.V \ot W \ + \ \sum_{v \in V} V \ot v.W\Big),
+	\]
+	so every basis element appearing on either side of \cref{eq:reducible_part} is of the form $X \ot Y$ with $X \cap Y = \set{k}$ for exactly one $k$.
+	Fix such an $X \ot Y$.
+	Its coefficient on the left hand side is
+	\[
+	\coeff{\triangle_i[n]}{X \setminus k \ot Y} + \coeff{\triangle_i[n]}{X \ot Y \setminus k}.
+	\]
+	For the right hand side, notice that $\cP(\delta_m)^{\ot 2}(A \ot B) = X \ot Y$ forces $m = k$, and that $\cP(\delta_k)$ defines a bijection from the subsets of $\set{0, \dots, n-1}$ to the subsets of $\set{0, \dots, n}$ containing $k$, with inverse $S \mapsto \sigma_k(S \setminus k)$.
+	Therefore, \cref{eq:reducible_part} is equivalent to the identity
+	\begin{equation}\label{eq:coefficient_comparison}
+		\coeff{\triangle_i[n]}{X \setminus k \ot Y} + \coeff{\triangle_i[n]}{X \ot Y \setminus k} =
+		\coeff{\triangle_i[n-1]}{\sigma_k(X \setminus k) \ot \sigma_k(Y \setminus k)}
+	\end{equation}
+	holding for every basis element $X \ot Y$ with $X \cap Y = \set{k}$.
+
+	By \cref{l:simplicial_from_semisimplicial}, it suffices to show that $\cP(\sigma_j)^{\ot 2}\, \triangle_i[n] = 0$ for every codegeneracy $\sigma_j \colon [n] \to [n-1]$.
+	Inspecting \cref{eq:codegeneracies}, an irreducible basis element $V \ot W$ satisfies $\cP(\sigma_j)^{\ot 2}(V \ot W) \neq 0$ if and only if one of $j, j+1$ belongs to $V$ and the other to $W$.
+	For such an element, let $V' \ot W'$ be the irreducible basis element obtained by exchanging $j$ and $j+1$; explicitly, if $j \in V$ and $j+1 \in W$, then $V' = (V \setminus j) \union \set{j{+}1}$ and $W' = (W \setminus j{+}1) \union \set{j}$.
+	A direct verification using \cref{eq:codegeneracies} shows that
+	\[
+	\cP(\sigma_j)^{\ot 2}(V \ot W) = \cP(\sigma_j)^{\ot 2}(V' \ot W')
+	\]
+	and that $V \ot W$ and $V' \ot W'$ are the only irreducible basis elements not annihilated by $\cP(\sigma_j)^{\ot 2}$ with this image.
+	Consequently, since $\triangle_i[n]$ is irreducible, $\cP(\sigma_j)^{\ot 2}\, \triangle_i[n] = 0$ if and only if
+	\begin{equation}\label{eq:swap}
+		\coeff{\triangle_i[n]}{V \ot W} = \coeff{\triangle_i[n]}{V' \ot W'}
+	\end{equation}
+	for every such pair.
+
+	To establish \cref{eq:swap}, assume $j \in V$ and $j+1 \in W$, the other case being symmetric.
+	Applying \cref{eq:coefficient_comparison} to the basis element $V \ot \big(W \union \set{j}\big)$, whose factors intersect in $\set{j}$, we obtain
+	\[
+	\coeff{\triangle_i[n]}{V \setminus j \ot W \union \set{j}} + \coeff{\triangle_i[n]}{V \ot W} =
+	\coeff{\triangle_i[n-1]}{\sigma_j(V \setminus j) \ot \sigma_j(W)},
+	\]
+	and applying it to $V' \ot \big(W \union \set{j}\big)$, whose factors intersect in $\set{j+1}$, we obtain
+	\[
+	\coeff{\triangle_i[n]}{V \setminus j \ot W \union \set{j}} + \coeff{\triangle_i[n]}{V' \ot W'} =
+	\coeff{\triangle_i[n-1]}{\sigma_{j+1}(V \setminus j) \ot \sigma_{j+1}\big((W \setminus j{+}1) \union \set{j}\big)}.
+	\]
+	Since $V \setminus j$ contains neither $j$ nor $j+1$, we have $\sigma_j(V \setminus j) = \sigma_{j+1}(V \setminus j)$, and a direct inspection gives $\sigma_j(W) = \sigma_{j+1}\big((W \setminus j{+}1) \union \set{j}\big)$.
+	The right hand sides of the two identities above therefore agree, and adding them yields \cref{eq:swap}.
+\end{proof}
