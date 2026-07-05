@@ -50,11 +50,181 @@ Finally, an isomorphism of \mbox{cup-$i$} constructions replaces each $\triangle
 Since the canonical construction is free and $(1+T)\canonical$ is not, they are not isomorphic.
 Therefore, the freeness axiom cannot be removed from our main theorem.
 
-\begin{remark}
-	Since $(1+T)\canonical_n[n] = (1+T)(\emptyset \ot \emptyset) = 0$, the construction $(1+T)\canonical$ satisfies $x \cup_0 x = 0$ for every $0$-simplex $x$.
-	It is therefore excluded by the strengthening of the non-zero axiom demanding $x \cup_0 x \neq 0$ for $0$-simplices.
-	Whether the freeness axiom becomes redundant under this stronger axiom is an open question.
+\begin{remark}[Non-degeneracy]\label{r:non_degenerate}
+	A natural strengthening of the non-zero axiom is \textbf{non-degeneracy}: $x \cup_0 x \neq 0$ for every $0$-simplex $x$.
+	Since a non-degenerate construction is in particular non-zero, our main theorem holds verbatim with non-degenerate in place of non-zero: there is up to isomorphism only one non-degenerate, irreducible and free semi-simplicial \mbox{cup-$i$} construction.
+	The independence of the axioms, however, does not transfer automatically, since a counterexample must satisfy all the remaining axioms, including the strengthened one.
+	The zero construction is degenerate, and the construction of \cref{ss:transposing} is non-degenerate since it agrees with $\canonical$ on $0$-simplices, so these two examples serve both axiom systems.
+	In contrast, $(1+T)\canonical_n[n] = (1+T)(\emptyset \ot \emptyset) = 0$ shows that $(1+T)\canonical$ satisfies $x \cup_0 x = 0$ for every $0$-simplex $x$, so it is excluded by non-degeneracy.
+	We show in \cref{ss:non_deg_non_free} that freeness remains independent in the non-degenerate axiom system as well.
 \end{remark}
+
+\subsection{Columns}\label{ss:columns}
+
+\textit{
+	Fix $i_0 \in \N$ and let $\Theta = \set[\big]{\Theta[n]}_{n\in\N}$ be a collection of elements $\Theta[n] \in \cP(\simplex^n)^{\ot 2}_{n + i_0}$ satisfying, for every $n \in \N$,
+	\[
+	(1+T)\,\Theta[n] = 0
+	\qquad \text{and} \qquad
+	\bd\, \Theta[n] + \Theta\bd\,[n] = 0,
+	\]
+	where $\Theta\bd\,[n] = \sum_{j=0}^{n} \cP(\delta_j)^{\ot 2}\, \Theta[n-1]$.
+	Then the collection $\triangle$ defined by $\triangle_{i_0}[n] = \Theta[n]$ and $\triangle_{i}[n] = 0$ for $i \neq i_0$ is a semi-simplicial \mbox{cup-$i$} construction, referred to as the \textbf{column} of $\Theta$ at $i_0$.
+}
+
+\begin{proof}
+	The defining identity of \cref{ss:axioms_revisited} at $(i_0, n)$ reduces to the second hypothesis, the one at $(i_0+1, n)$ to the first, and all others hold trivially.
+\end{proof}
+
+For example, for each $i_0 \in \N$ the collection $\set[\big]{(1+T)\canonical_{i_0}[n]}_{n}$ satisfies both hypotheses, and $(1+T)\canonical$ is the sum of the associated columns.
+
+\subsection{A non-degenerate non-free construction}\label{ss:non_deg_non_free}
+
+In this subsection we construct a column $\Theta$ at $0$ such that $\canonical + \Theta$, provided by \cref{ss:linearity,ss:columns}, is non-degenerate, irreducible, and not free.
+We use the coefficient notation $\coeff{\zeta}{V \ot W}$ of \cref{ss:freeness_revisited}.
+
+For functions $b \colon \N^2 \to \F$ define the \textbf{Pascal transform}
+\[
+(\rB b)(w,v) = \sum_{w' \leq w} \sum_{v' \leq v} \binom{w}{w'} \binom{v}{v'}\, b(w',v').
+\]
+The transform $\rB$ is an involution: since $\binom{w}{w'}\binom{w'}{w''} = \binom{w}{w''}\binom{w - w''}{w' - w''}$, summing over $w'$ gives $\sum_{w'} \binom{w}{w'}\binom{w'}{w''} = \binom{w}{w''}\, 2^{w - w''} \equiv \delta_{w w''} \bmod 2$, and similarly in the second variable.
+
+Let $\rho \colon \N^2 \to \F$ be the indicator function of $\set{(1,1),\, (0,2)}$ and define
+\[
+c = \rho + \rB\rho,
+\]
+so that $\rB c = \rB \rho + \rho = c$.
+Explicitly, $(\rB\rho)(w,v) = wv + \binom{v}{2}$, so that
+\[
+c(w,v) =
+\begin{cases}
+	wv + \binom{v}{2} \bmod 2 & \text{if } w + v \geq 3, \\
+	\hfil 0 & \text{if } w + v \leq 2.
+\end{cases}
+\]
+
+For $n \in \N$ and $u \in \set{0, \dots, n}$ write $\hat{u} = \set{0, \dots, n} \setminus \set{u}$ and, for $V \subseteq \hat u$, define
+\[
+\theta_n(u; V) =
+\sum_{A \subseteq V} c\Big(u - \bars[\big]{A \cap \set{0, \dots, u-1}},\ n - u - \bars[\big]{A \cap \set{u+1, \dots, n}}\Big) \in \F.
+\]
+Since every basis element $V \ot W$ of $\cP(\simplex^n)^{\ot 2}_{n}$ with $V \cap W = \emptyset$ satisfies $V \union W = \hat u$ for a unique $u$, the element
+\[
+\Theta[n] =
+\sum_{u = 0}^{n} \ \sum_{\substack{V \union W = \hat{u} \\ V \cap W = \emptyset}} \theta_n(u; V)\ V \ot W \ \in \ \cP(\simplex^n)^{\ot 2}_{n}
+\]
+is a sum of irreducible basis elements.
+
+Let us record the first values of $\Theta$.
+If $n \leq 2$, every summand of $\theta_n(u;V)$ has $c$-arguments $(w,v)$ with $w + v \leq n \leq 2$, so $\Theta[n] = 0$.
+If $n = 3$, the summands with $A \neq \emptyset$ vanish for the same reason and, since $c(0,3) = c(1,2) = 1$ and $c(2,1) = c(3,0) = 0$, we obtain $\theta_3(u;V) = c(u, 3-u) = 1$ exactly when $u \in \set{0,1}$, independently of $V$.
+Therefore
+\begin{equation}\label{eq:theta_3}
+	\Theta[3] = \zeta_{\set{1,2,3}} + \zeta_{\set{0,2,3}}.
+\end{equation}
+
+\begin{lemma}\label{l:theta_derivative}
+	For distinct $u, k \in \set{0, \dots, n}$ and $V \subseteq \hat{u} \setminus \set{k}$,
+	\[
+	\theta_n(u;\, V \union \set{k}) + \theta_n(u;\, V) =
+	\theta_{n-1}\big(\sigma_k(u);\, \sigma_k(V)\big).
+	\]
+\end{lemma}
+
+\begin{proof}
+	In the sum defining $\theta_n(u; V \union \set{k})$, the terms with $k \notin A$ add up to $\theta_n(u; V)$.
+	The remaining terms are indexed by $A = A' \union \set{k}$ with $A' \subseteq V$, and their $c$-arguments are obtained from those of $A'$ by decreasing the first coordinate by one if $k < u$, and the second if $k > u$.
+	On the other hand, $\sigma_k$ restricts to an order-preserving bijection from $\set{0, \dots, n} \setminus \set{k}$ to $\set{0, \dots, n-1}$, so the assignment $A' \mapsto \sigma_k(A')$ is a bijection onto the subsets of $\sigma_k(V)$ satisfying
+	\[
+	\bars[\big]{\sigma_k(A') \cap \set{0, \dots, \sigma_k(u) - 1}} = \bars[\big]{A' \cap \set{0, \dots, u - 1}},
+	\qquad
+	\bars[\big]{\sigma_k(A') \cap \set{\sigma_k(u) + 1, \dots, n-1}} = \bars[\big]{A' \cap \set{u+1, \dots, n}}.
+	\]
+	Since $\sigma_k(u) = u - 1$ if $k < u$ and $\sigma_k(u) = u$ if $k > u$, and consequently $(n-1) - \sigma_k(u)$ equals $n - u$ if $k < u$ and $n - u - 1$ if $k > u$, the $c$-arguments of $\sigma_k(A')$ in $\theta_{n-1}\big(\sigma_k(u); \sigma_k(V)\big)$ coincide with those of $A' \union \set{k}$ above, and the claim follows.
+\end{proof}
+
+\begin{theorem}\label{t:non_deg_non_free}
+	The collection $\Theta$ satisfies the hypotheses of \cref{ss:columns}, and $\canonical + \Theta$, with $\Theta$ regarded as a column at $0$, is a simplicial \mbox{cup-$i$} construction that is non-degenerate, irreducible, and not free.
+	In particular, the freeness axiom cannot be removed from the main theorem after strengthening non-zero to non-degeneracy.
+\end{theorem}
+
+\begin{proof}
+	\textit{Symmetry.}
+	We show by induction on $n$ that $g_n(u; V) := \theta_n(u; V) + \theta_n(u; \hat u \setminus V)$ vanishes identically; this gives $(1+T)\Theta[n] = 0$.
+	For $n \leq 2$ this holds since $\Theta[n] = 0$.
+	Applying \cref{l:theta_derivative} to both summands of $g_n$,
+	\[
+	g_n(u; V \union \set{k}) + g_n(u; V) = g_{n-1}\big(\sigma_k(u); \sigma_k(V)\big),
+	\]
+	which vanishes by the induction hypothesis, so $g_n(u; -)$ is a constant function.
+	Its value at $V = \emptyset$ is
+	\[
+	\theta_n(u; \emptyset) + \theta_n(u; \hat u) =
+	c(u, n-u) + (\rB c)(u, n-u) = 0,
+	\]
+	using $\rB c = c$ for the last equality.
+
+	\medskip
+	\textit{Chain identity, reducible part.}
+	Since the summands of $\Theta[n]$ are irreducible, arguing exactly as in the proof of \cref{t:irreducible_implies_simplicial}, the identity $\pired\big(\bd\, \Theta[n]\big) = \Theta\bd\,[n]$ is equivalent to
+	\[
+	\coeff{\Theta[n]}{X \setminus k \ot Y} + \coeff{\Theta[n]}{X \ot Y \setminus k} =
+	\coeff{\Theta[n-1]}{\sigma_k(X \setminus k) \ot \sigma_k(Y \setminus k)}
+	\]
+	holding for every basis element $X \ot Y$ with $X \cap Y = \set{k}$.
+	Writing $u$ for the unique element of $\set{0,\dots,n} \setminus (X \union Y)$, this identity reads
+	\[
+	\theta_n(u;\, X \setminus k) + \theta_n(u;\, X) =
+	\theta_{n-1}\big(\sigma_k(u);\, \sigma_k(X \setminus k)\big),
+	\]
+	which is \cref{l:theta_derivative} applied to $V = X \setminus \set{k}$.
+
+	\medskip
+	\textit{Chain identity, irreducible part.}
+	Since $\Theta\bd\,[n]$ is a sum of reducible basis elements, it remains to show that $\pi^\perp_{\text{red}}\big(\bd\,\Theta[n]\big) = 0$.
+	The irreducible summands of $\bd\, \Theta[n]$ arise by adjoining the missing vertex $u$ to one of the two factors, so they are supported on basis elements $P \ot Q$ with $P \union Q = \set{0, \dots, n}$ and $P \cap Q = \emptyset$, and the coefficient of such an element is
+	\[
+	\Phi_n(P, Q) :=
+	\sum_{u \in P} \theta_n(u;\, P \setminus u) \ + \
+	\sum_{u \in Q} \theta_n(u;\, P),
+	\]
+	an expression meaningful for every partition $P \sqcup Q = \set{0,\dots,n}$, including the improper ones with $P$ or $Q$ empty.
+	We show by induction on $n$ that $\Phi_n$ vanishes identically; for $n \leq 2$ this holds since $\Theta$ does.
+	For $k \notin P \union Q$ with $P \sqcup Q = \set{0,\dots,n} \setminus \set{k}$, the terms $\theta_n(k; P)$ appearing in both $\Phi_n(P \union \set{k},\, Q)$ and $\Phi_n(P,\, Q \union \set{k})$ cancel, and \cref{l:theta_derivative} applied to the remaining terms gives
+	\[
+	\Phi_n(P \union \set{k},\, Q) + \Phi_n(P,\, Q \union \set{k}) =
+	\Phi_{n-1}\big(\sigma_k(P),\, \sigma_k(Q)\big) = 0,
+	\]
+	so $\Phi_n$ is constant, and it suffices to evaluate it at $(P, Q) = \big(\set{0, \dots, n-1},\, \set{n}\big)$.
+	The term with $u = n$ is $\theta_n(n; P) = \sum_{A \subseteq P} c(n - \bars{A}, 0) = 0$, since $c(w, 0) = 0$ for every $w$.
+	For $u < n$, counting the subsets $A$ by $j = \bars{A \cap \set{0,\dots,u-1}}$ and $l = \bars{A \cap \set{u+1, \dots, n-1}}$,
+	\[
+	\Phi_n(P,Q) = \sum_{u=0}^{n-1} \sum_{j \leq u} \sum_{\ \ \mathclap{l \leq n-1-u}} \binom{u}{j} \binom{n-1-u}{l}\, c(u - j,\ n - u - l).
+	\]
+	We treat the three summands of the decomposition $c(w,v) = \rho(w,v) + wv + \tbinom{v}{2}$ separately, assuming $n \geq 4$; the case $n = 3$ follows directly from $\theta_3(u;V) = c(u, 3-u)$ and $c(0,3) + c(1,2) + c(2,1) + c(3,0) = 0$.
+	The $\rho$-summand contributes only through the arguments $(u-j,\, n-u-l) = (1,1)$, requiring $(j, l) = (u-1,\, n-u-1)$ with coefficient $\binom{u}{u-1} = u$, and $(0,2)$, requiring $(j,l) = (u,\, n-u-2)$ with coefficient $\binom{n-1-u}{n-u-2} = n-1-u$; its total contribution is $\sum_{u=0}^{n-1} \big(u + (n - 1 - u)\big) = n(n-1) \equiv 0$.
+	For the $\tbinom{v}{2}$-summand, the inner sum over $j$ contributes $\sum_j \binom{u}{j} = 2^u$, reducing the total to the single value $u = 0$, where it equals
+	\[
+	\sum_{l} \binom{n-1}{l}\binom{n-l}{2} =
+	\big[z^{n-2}\big]\, (1+z)^{n-1} (1+z)^{-3} =
+	\big[z^{n-2}\big]\, (1+z)^{n-4} = 0 \bmod 2,
+	\]
+	using $\sum_{s} \binom{s+2}{2} z^s = (1+z)^{-3}$ over $\F$ and $n - 2 > n - 4 \geq 0$.
+	For the $wv$-part, the sum factors as
+	\[
+	\sum_{u=0}^{n-1} \Big(\sum_{j} \binom{u}{j}(u-j)\Big) \Big(\sum_{l} \binom{n-1-u}{l}(n-u-l)\Big),
+	\]
+	whose first factor equals $u\, 2^{u-1}$ for $u \geq 1$ and $0$ for $u = 0$, hence is odd only for $u = 1$, and whose second factor, with $M = n - 1 - u$, equals $(M+2)\,2^{M-1}$ for $M \geq 1$ and $1$ for $M = 0$, hence is odd only for $u \in \set{n-2, n-1}$; since $n \geq 4$ no $u$ satisfies both, and the $wv$-summand vanishes.
+	Therefore $\Phi_n \equiv 0$, completing the proof that $\Theta$ is a column at $0$.
+
+	\medskip
+	\textit{Conclusion.}
+	By \cref{ss:linearity,ss:columns}, $\widetilde\triangle := \canonical + \Theta$ is a semi-simplicial \mbox{cup-$i$} construction.
+	It is irreducible since both summands are, and hence simplicial by \cref{t:irreducible_implies_simplicial}.
+	It is non-degenerate since $\Theta[0] = 0$.
+	It is not free: by \cref{eq:theta_3}, both $\set{1} \ot \set{2,3}$ and $\set{2,3} \ot \set{1}$ are summands of $\Theta[3]$, while the only summand of $\canonical_0[3]$ supported on partitions of $\set{1,2,3}$ is $\set{1,2,3} \ot \emptyset$, so both remain summands of $\widetilde\triangle_0[3]$.
+	Finally, since freeness is preserved by isomorphisms of \mbox{cup-$i$} constructions, as noted in \cref{ss:non_free}, $\widetilde\triangle$ is not isomorphic to the canonical construction.
+\end{proof}
 
 \subsection{Transposing one element}\label{ss:transposing}
 
