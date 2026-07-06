@@ -1,0 +1,271 @@
+\documentclass{amsart}
+\input{../aux/style}
+\input{../aux/packages}
+\input{../aux/usualcmds}
+\input{../aux/commands}
+
+\title[Additional material]{THE SPACE OF CUP-$i$ CONSTRUCTIONS \\ \large Additional material for ``An axiomatic characterization of Steenrod's cup-$i$ products''}
+
+\author{Anibal~M.~Medina-Mardones}
+
+\begin{document}
+\begin{abstract}
+	This companion note collects material complementing the main text.
+	We prove that the independence of the freeness axiom persists when the non-zero axiom is strengthened to non-degeneracy, constructing an explicit non-degenerate, irreducible, non-free simplicial \mbox{cup-$i$} construction from a mod~$2$ Pascal transform.
+	We also record first results and computer experiments on the structure of the space of all irreducible semi-simplicial \mbox{cup-$i$} constructions.
+\end{abstract}
+\maketitle
+
+\section{Introduction}\label{s:intro}
+
+Throughout, \emph{the main text} refers to the paper ``An axiomatic characterization of Steenrod's \mbox{cup-$i$} products,'' whose notation, conventions, and results we use freely; \cref{s:recollections} recalls what is needed.
+
+The main text proves that a semi-simplicial \mbox{cup-$i$} construction that is non-zero, irreducible, and free is isomorphic to the canonical one, and that the three axioms are independent.
+This note explores the landscape around that statement in two directions.
+First, we consider the natural strengthening of the non-zero axiom to \emph{non-degeneracy} and show that the freeness axiom remains independent in this more demanding axiom system (\cref{t:non_deg_non_free}); the counterexample witnessing this is built from a mod~$2$ Pascal transform and is, to our knowledge, the first explicit non-degenerate irreducible \mbox{cup-$i$} construction not isomorphic to the canonical one.
+Second, we begin a study of the space of all irreducible semi-simplicial \mbox{cup-$i$} constructions, classifying those supported in a single dimension (\cref{p:level_supported}) and recording computer experiments suggesting a complete description (\cref{s:space}).
+
+\section{Recollections}\label{s:recollections}
+
+As shown in the main text, a semi-simplicial \mbox{cup-$i$} construction $\triangle$ is equivalent to a collection of elements $\triangle_i[n] \in \cP(\simplex^n)^{\ot 2}_{i+n}$, indexed by $i, n \in \N$, satisfying
+\begin{equation}\label{eq:defining}
+	\bd\, \triangle_i[n] + \triangle_i \bd\,[n] = (1+T)\, \triangle_{i-1}[n],
+\end{equation}
+where $\triangle_i\bd\,[n] = \sum_{j=0}^{n} \cP(\delta_j)^{\ot 2}\, \triangle_i[n-1]$ and $\triangle_{-1} = 0$.
+Since these identities are linear, the set of semi-simplicial \mbox{cup-$i$} constructions is an $\F$-vector space, closed under $\triangle \mapsto T\triangle$.
+For a chain $\zeta$ and a basis element $V \ot W$ of $\cP(\simplex^n)^{\ot 2}$ we write $\coeff{\zeta}{V \ot W} \in \F$ for the coefficient of $V \ot W$ in $\zeta$.
+A basis element $V \ot W$ is \emph{irreducible} if $V \cap W = \emptyset$ and \emph{reducible} otherwise, with $\pired$ denoting the projection onto the span of the reducible ones; a construction is \emph{irreducible} if all summands of all $\triangle_i[n]$ are, and \emph{free} if no $\triangle_i[n]$ with $i \neq n$ contains both a basis element and its transposition among its summands.
+The \emph{canonical} construction is $\canonical_i[n] = \sum_{U \in \P^n_{n-i}} U^0 \ot U^1$, where $U = U^0 \sqcup U^1$ is the splitting by the index function.
+
+For $U \subseteq \set{0, \dots, n}$, the \emph{partition chain} $\zeta_U$ is the sum of all basis elements $V \ot W$ with $V \union W = U$ and $V \cap W = \emptyset$.
+We import the following results from the main text.
+
+\begin{lemma}[Partition chains]\label{l:partition_chains}
+	An irreducible chain $\zeta$ satisfies $(\pired \circ \bd)\zeta = 0$ if and only if $\zeta$ is a sum of partition chains.
+	Furthermore, $\bd\, \zeta_U = \sum_{\bar u \notin U} \zeta_{\bar u . U}$.
+\end{lemma}
+
+\begin{theorem}[Simpliciality]\label{t:irreducible_implies_simplicial}
+	Every irreducible semi-simplicial \mbox{cup-$i$} construction is simplicial.
+\end{theorem}
+
+We will also use the coefficient comparison extracted from the proof of the simpliciality theorem:
+for a collection $\set{\zeta[n]}_n$ of chains $\zeta[n] \in \cP(\simplex^n)^{\ot 2}$ supported on irreducible basis elements, the identity $\pired\big(\bd\, \zeta[n]\big) = \sum_j \cP(\delta_j)^{\ot 2}\, \zeta[n-1]$ holds if and only if
+\begin{equation}\label{eq:coefficient_comparison}
+	\coeff{\zeta[n]}{X \setminus k \ot Y} + \coeff{\zeta[n]}{X \ot Y \setminus k} =
+	\coeff{\zeta[n-1]}{\sigma_k(X \setminus k) \ot \sigma_k(Y \setminus k)}
+\end{equation}
+for every basis element $X \ot Y$ with $X \cap Y = \set{k}$:
+indeed, the reducible summands of $\bd\, \zeta[n]$ and all summands of the coface sum are supported on basis elements $X \ot Y$ whose factors intersect in a single element $k$, arising respectively from the two lifts $X {\setminus} k \ot Y$ and $X \ot Y {\setminus} k$, and from the unique preimage under $\cP(\delta_k)^{\ot 2}$.
+
+\section{Non-degeneracy}\label{s:nondeg}
+
+A natural strengthening of the non-zero axiom is \textbf{non-degeneracy}: $x \cup_0 x \neq 0$ for every $0$-simplex $x$.
+Since a non-degenerate construction is in particular non-zero, the main theorem holds verbatim with non-degenerate in place of non-zero: there is up to isomorphism only one non-degenerate, irreducible and free semi-simplicial \mbox{cup-$i$} construction.
+
+The independence of the axioms, however, does not transfer automatically, since a counterexample must satisfy all the remaining axioms, including the strengthened one.
+Two of the three examples of the main text serve both axiom systems: the zero construction is degenerate, and the transposing example is non-degenerate since it agrees with $\canonical$ on $0$-simplices.
+In contrast, $(1+T)\canonical_n[n] = (1+T)(\emptyset \ot \emptyset) = 0$ shows that $(1+T)\canonical$ satisfies $x \cup_0 x = 0$ for every $0$-simplex $x$, so it is excluded by non-degeneracy, and the independence of freeness requires a new example.
+Constructing one is the goal of the next two sections.
+
+\section{Columns}\label{s:columns}
+
+\begin{lemma}\label{l:columns}
+	Fix $i_0 \in \N$ and let $\Theta = \set[\big]{\Theta[n]}_{n\in\N}$ be a collection of elements $\Theta[n] \in \cP(\simplex^n)^{\ot 2}_{n + i_0}$ satisfying, for every $n \in \N$,
+	\[
+	(1+T)\,\Theta[n] = 0
+	\qquad \text{and} \qquad
+	\bd\, \Theta[n] + \Theta\bd\,[n] = 0,
+	\]
+	where $\Theta\bd\,[n] = \sum_{j=0}^{n} \cP(\delta_j)^{\ot 2}\, \Theta[n-1]$.
+	Then the collection $\triangle$ defined by $\triangle_{i_0}[n] = \Theta[n]$ and $\triangle_{i}[n] = 0$ for $i \neq i_0$ is a semi-simplicial \mbox{cup-$i$} construction, referred to as the \textbf{column} of $\Theta$ at $i_0$.
+\end{lemma}
+
+\begin{proof}
+	The defining identity \eqref{eq:defining} at $(i_0, n)$ reduces to the second hypothesis, the one at $(i_0+1, n)$ to the first, and all others hold trivially.
+\end{proof}
+
+For example, for each $i_0 \in \N$ the collection $\set[\big]{(1+T)\canonical_{i_0}[n]}_{n}$ satisfies both hypotheses, and $(1+T)\canonical$ is the sum of the associated columns.
+
+\section{A non-degenerate non-free construction}\label{s:pascal}
+
+In this section we construct a column $\Theta$ at $0$ such that $\canonical + \Theta$, provided by \cref{l:columns} and linearity, is non-degenerate, irreducible, and not free.
+
+For functions $b \colon \N^2 \to \F$ define the \textbf{Pascal transform}
+\[
+(\rB b)(w,v) = \sum_{w' \leq w} \sum_{v' \leq v} \binom{w}{w'} \binom{v}{v'}\, b(w',v').
+\]
+The transform $\rB$ is an involution: since $\binom{w}{w'}\binom{w'}{w''} = \binom{w}{w''}\binom{w - w''}{w' - w''}$, summing over $w'$ gives $\sum_{w'} \binom{w}{w'}\binom{w'}{w''} = \binom{w}{w''}\, 2^{w - w''} \equiv \delta_{w w''} \bmod 2$, and similarly in the second variable.
+
+Let $\rho \colon \N^2 \to \F$ be the indicator function of $\set{(1,1),\, (0,2)}$ and define
+\[
+c = \rho + \rB\rho,
+\]
+so that $\rB c = \rB \rho + \rho = c$.
+Explicitly, $(\rB\rho)(w,v) = wv + \binom{v}{2}$, so that
+\[
+c(w,v) =
+\begin{cases}
+	wv + \binom{v}{2} \bmod 2 & \text{if } w + v \geq 3, \\
+	\hfil 0 & \text{if } w + v \leq 2.
+\end{cases}
+\]
+
+For $n \in \N$ and $u \in \set{0, \dots, n}$ write $\hat{u} = \set{0, \dots, n} \setminus \set{u}$ and, for $V \subseteq \hat u$, define
+\[
+\theta_n(u; V) =
+\sum_{A \subseteq V} c\Big(u - \bars[\big]{A \cap \set{0, \dots, u-1}},\ n - u - \bars[\big]{A \cap \set{u+1, \dots, n}}\Big) \in \F.
+\]
+Since every basis element $V \ot W$ of $\cP(\simplex^n)^{\ot 2}_{n}$ with $V \cap W = \emptyset$ satisfies $V \union W = \hat u$ for a unique $u$, the element
+\[
+\Theta[n] =
+\sum_{u = 0}^{n} \ \sum_{\substack{V \union W = \hat{u} \\ V \cap W = \emptyset}} \theta_n(u; V)\ V \ot W \ \in \ \cP(\simplex^n)^{\ot 2}_{n}
+\]
+is a sum of irreducible basis elements.
+
+Let us record the first values of $\Theta$.
+If $n \leq 2$, every summand of $\theta_n(u;V)$ has $c$-arguments $(w,v)$ with $w + v \leq n \leq 2$, so $\Theta[n] = 0$.
+If $n = 3$, the summands with $A \neq \emptyset$ vanish for the same reason and, since $c(0,3) = c(1,2) = 1$ and $c(2,1) = c(3,0) = 0$, we obtain $\theta_3(u;V) = c(u, 3-u) = 1$ exactly when $u \in \set{0,1}$, independently of $V$.
+Therefore
+\begin{equation}\label{eq:theta_3}
+	\Theta[3] = \zeta_{\set{1,2,3}} + \zeta_{\set{0,2,3}}.
+\end{equation}
+
+\begin{lemma}\label{l:theta_derivative}
+	For distinct $u, k \in \set{0, \dots, n}$ and $V \subseteq \hat{u} \setminus \set{k}$,
+	\[
+	\theta_n(u;\, V \union \set{k}) + \theta_n(u;\, V) =
+	\theta_{n-1}\big(\sigma_k(u);\, \sigma_k(V)\big).
+	\]
+\end{lemma}
+
+\begin{proof}
+	In the sum defining $\theta_n(u; V \union \set{k})$, the terms with $k \notin A$ add up to $\theta_n(u; V)$.
+	The remaining terms are indexed by $A = A' \union \set{k}$ with $A' \subseteq V$, and their $c$-arguments are obtained from those of $A'$ by decreasing the first coordinate by one if $k < u$, and the second if $k > u$.
+	On the other hand, $\sigma_k$ restricts to an order-preserving bijection from $\set{0, \dots, n} \setminus \set{k}$ to $\set{0, \dots, n-1}$, so the assignment $A' \mapsto \sigma_k(A')$ is a bijection onto the subsets of $\sigma_k(V)$ satisfying
+	\[
+	\bars[\big]{\sigma_k(A') \cap \set{0, \dots, \sigma_k(u) - 1}} = \bars[\big]{A' \cap \set{0, \dots, u - 1}},
+	\qquad
+	\bars[\big]{\sigma_k(A') \cap \set{\sigma_k(u) + 1, \dots, n-1}} = \bars[\big]{A' \cap \set{u+1, \dots, n}}.
+	\]
+	Since $\sigma_k(u) = u - 1$ if $k < u$ and $\sigma_k(u) = u$ if $k > u$, and consequently $(n-1) - \sigma_k(u)$ equals $n - u$ if $k < u$ and $n - u - 1$ if $k > u$, the $c$-arguments of $\sigma_k(A')$ in $\theta_{n-1}\big(\sigma_k(u); \sigma_k(V)\big)$ coincide with those of $A' \union \set{k}$ above, and the claim follows.
+\end{proof}
+
+\begin{theorem}\label{t:non_deg_non_free}
+	The collection $\Theta$ satisfies the hypotheses of \cref{l:columns}, and $\canonical + \Theta$, with $\Theta$ regarded as a column at $0$, is a simplicial \mbox{cup-$i$} construction that is non-degenerate, irreducible, and not free.
+	In particular, the freeness axiom cannot be removed from the main theorem after strengthening non-zero to non-degeneracy.
+\end{theorem}
+
+\begin{proof}
+	\textit{Symmetry.}
+	We show by induction on $n$ that $g_n(u; V) := \theta_n(u; V) + \theta_n(u; \hat u \setminus V)$ vanishes identically; this gives $(1+T)\Theta[n] = 0$.
+	For $n \leq 2$ this holds since $\Theta[n] = 0$.
+	Applying \cref{l:theta_derivative} to both summands of $g_n$,
+	\[
+	g_n(u; V \union \set{k}) + g_n(u; V) = g_{n-1}\big(\sigma_k(u); \sigma_k(V)\big),
+	\]
+	which vanishes by the induction hypothesis, so $g_n(u; -)$ is a constant function.
+	Its value at $V = \emptyset$ is
+	\[
+	\theta_n(u; \emptyset) + \theta_n(u; \hat u) =
+	c(u, n-u) + (\rB c)(u, n-u) = 0,
+	\]
+	using $\rB c = c$ for the last equality.
+
+	\medskip
+	\textit{Chain identity, reducible part.}
+	Since the summands of $\Theta[n]$ are irreducible, the identity $\pired\big(\bd\, \Theta[n]\big) = \Theta\bd\,[n]$ is equivalent to \cref{eq:coefficient_comparison} holding for $\set{\Theta[n]}_n$.
+	Writing $u$ for the unique element of $\set{0,\dots,n} \setminus (X \union Y)$, that identity reads
+	\[
+	\theta_n(u;\, X \setminus k) + \theta_n(u;\, X) =
+	\theta_{n-1}\big(\sigma_k(u);\, \sigma_k(X \setminus k)\big),
+	\]
+	which is \cref{l:theta_derivative} applied to $V = X \setminus \set{k}$.
+
+	\medskip
+	\textit{Chain identity, irreducible part.}
+	Since $\Theta\bd\,[n]$ is a sum of reducible basis elements, it remains to show that $\pi^\perp_{\text{red}}\big(\bd\,\Theta[n]\big) = 0$.
+	The irreducible summands of $\bd\, \Theta[n]$ arise by adjoining the missing vertex $u$ to one of the two factors, so they are supported on basis elements $P \ot Q$ with $P \union Q = \set{0, \dots, n}$ and $P \cap Q = \emptyset$, and the coefficient of such an element is
+	\[
+	\Phi_n(P, Q) :=
+	\sum_{u \in P} \theta_n(u;\, P \setminus u) \ + \
+	\sum_{u \in Q} \theta_n(u;\, P),
+	\]
+	an expression meaningful for every partition $P \sqcup Q = \set{0,\dots,n}$, including the improper ones with $P$ or $Q$ empty.
+	We show by induction on $n$ that $\Phi_n$ vanishes identically; for $n \leq 2$ this holds since $\Theta$ does.
+	For $k \notin P \union Q$ with $P \sqcup Q = \set{0,\dots,n} \setminus \set{k}$, the terms $\theta_n(k; P)$ appearing in both $\Phi_n(P \union \set{k},\, Q)$ and $\Phi_n(P,\, Q \union \set{k})$ cancel, and \cref{l:theta_derivative} applied to the remaining terms gives
+	\[
+	\Phi_n(P \union \set{k},\, Q) + \Phi_n(P,\, Q \union \set{k}) =
+	\Phi_{n-1}\big(\sigma_k(P),\, \sigma_k(Q)\big) = 0,
+	\]
+	so $\Phi_n$ is constant, and it suffices to evaluate it at $(P, Q) = \big(\set{0, \dots, n-1},\, \set{n}\big)$.
+	The term with $u = n$ is $\theta_n(n; P) = \sum_{A \subseteq P} c(n - \bars{A}, 0) = 0$, since $c(w, 0) = 0$ for every $w$.
+	For $u < n$, counting the subsets $A$ by $j = \bars{A \cap \set{0,\dots,u-1}}$ and $l = \bars{A \cap \set{u+1, \dots, n-1}}$,
+	\[
+	\Phi_n(P,Q) = \sum_{u=0}^{n-1} \sum_{j \leq u} \sum_{\ \ \mathclap{l \leq n-1-u}} \binom{u}{j} \binom{n-1-u}{l}\, c(u - j,\ n - u - l).
+	\]
+	We treat the three summands of the decomposition $c(w,v) = \rho(w,v) + wv + \tbinom{v}{2}$ separately, assuming $n \geq 4$; the case $n = 3$ follows directly from $\theta_3(u;V) = c(u, 3-u)$ and $c(0,3) + c(1,2) + c(2,1) + c(3,0) = 0$.
+	The $\rho$-summand contributes only through the arguments $(u-j,\, n-u-l) = (1,1)$, requiring $(j, l) = (u-1,\, n-u-1)$ with coefficient $\binom{u}{u-1} = u$, and $(0,2)$, requiring $(j,l) = (u,\, n-u-2)$ with coefficient $\binom{n-1-u}{n-u-2} = n-1-u$; its total contribution is $\sum_{u=0}^{n-1} \big(u + (n - 1 - u)\big) = n(n-1) \equiv 0$.
+	For the $\tbinom{v}{2}$-summand, the inner sum over $j$ contributes $\sum_j \binom{u}{j} = 2^u$, reducing the total to the single value $u = 0$, where it equals
+	\[
+	\sum_{l} \binom{n-1}{l}\binom{n-l}{2} =
+	\big[z^{n-2}\big]\, (1+z)^{n-1} (1+z)^{-3} =
+	\big[z^{n-2}\big]\, (1+z)^{n-4} = 0 \bmod 2,
+	\]
+	using $\sum_{s} \binom{s+2}{2} z^s = (1+z)^{-3}$ over $\F$ and $n - 2 > n - 4 \geq 0$.
+	For the $wv$-summand, the sum factors as
+	\[
+	\sum_{u=0}^{n-1} \Big(\sum_{j} \binom{u}{j}(u-j)\Big) \Big(\sum_{l} \binom{n-1-u}{l}(n-u-l)\Big),
+	\]
+	whose first factor equals $u\, 2^{u-1}$ for $u \geq 1$ and $0$ for $u = 0$, hence is odd only for $u = 1$, and whose second factor, with $M = n - 1 - u$, equals $(M+2)\,2^{M-1}$ for $M \geq 1$ and $1$ for $M = 0$, hence is odd only for $u \in \set{n-2, n-1}$; since $n \geq 4$ no $u$ satisfies both, and the $wv$-summand vanishes.
+	Therefore $\Phi_n \equiv 0$, completing the proof that $\Theta$ is a column at $0$.
+
+	\medskip
+	\textit{Conclusion.}
+	By linearity and \cref{l:columns}, $\widetilde\triangle := \canonical + \Theta$ is a semi-simplicial \mbox{cup-$i$} construction.
+	It is irreducible since both summands are, and hence simplicial by \cref{t:irreducible_implies_simplicial}.
+	It is non-degenerate since $\Theta[0] = 0$.
+	It is not free: by \cref{eq:theta_3}, both $\set{1} \ot \set{2,3}$ and $\set{2,3} \ot \set{1}$ are summands of $\Theta[3]$, while the only summand of $\canonical_0[3]$ supported on partitions of $\set{1,2,3}$ is $\set{1,2,3} \ot \emptyset$, so both remain summands of $\widetilde\triangle_0[3]$.
+	Finally, since freeness is preserved by isomorphisms of \mbox{cup-$i$} constructions -- an isomorphism replaces each $\triangle_i$ by either $\triangle_i$ or $T\triangle_i$ -- the construction $\widetilde\triangle$ is not isomorphic to the canonical one.
+\end{proof}
+
+\section{The space of cup-\textit{i} constructions}\label{s:space}
+
+The examples of the main text and the construction of \cref{s:pascal} indicate that the space of semi-simplicial \mbox{cup-$i$} constructions is large.
+Since the defining identities are linear, the collection of irreducible semi-simplicial \mbox{cup-$i$} constructions with $\triangle_i[n]$ prescribed only for $n \leq N$ -- referred to as \emph{truncated} at $N$ -- forms an $\F$-vector space, and restriction defines linear maps from each truncation level to the previous one.
+The following result classifies the elements supported in a single level, which constitute the kernels of these restriction maps.
+
+\begin{proposition}\label{p:level_supported}
+	Let $\set{X_i}_{0 \leq i \leq n}$, $X_i \in \cP(\simplex^n)^{\ot 2}_{n+i}$, be irreducible chains and consider the truncated construction with $\triangle_i[n] = X_i$ and $\triangle_i[m] = 0$ for $m < n$.
+	It satisfies the defining identities if and only if every $X_i$ is a sum of partition chains and, under the correspondence $\zeta_U \mapsto U$, the resulting collection is a cycle in the augmented chain complex of $\simplex^n$.
+	The space of such collections has dimension $2^n - 1$.
+\end{proposition}
+
+\begin{proof}
+	Since all lower levels vanish, the coface terms of the defining identities vanish, and the identities reduce to $\bd X_i = (1+T) X_{i-1}$ for $0 \leq i \leq n+1$, with $X_{-1} = X_{n+1} = 0$.
+	The right hand sides are sums of irreducible basis elements, so $(\pired \circ \bd) X_i = 0$ and, by \cref{l:partition_chains}, each $X_i$ is a sum of partition chains.
+	Partition chains are fixed by $T$, so $(1+T)X_{i-1} = 0$, and the identities reduce further to $\bd X_i = 0$ for every $i$.
+	Under $\zeta_U \mapsto U$, the boundary formula of \cref{l:partition_chains} identifies the complex of sums of partition chains with the chain complex of $\simplex^n$ augmented by the class of $\zeta_{\set{0, \dots, n}}$ in degree $-1$: for $\bars{U} = n$ the only element not in $U$ produces the partition chain of the full set, so the condition $\bd X_0 = 0$ includes the augmentation.
+	Therefore, the collections in question correspond to the cycles of the augmented chain complex $\widetilde{\chains}(\simplex^n)$.
+	This complex is acyclic, so its cycles agree with its boundaries in every degree, and writing $\widetilde{Z}_i$ for the space of degree-$i$ cycles we obtain $\dim \widetilde{\chains}_i = \dim \widetilde{Z}_i + \dim \widetilde{Z}_{i-1}$ for $0 \leq i \leq n$.
+	Summing over $i$ and using $\sum_{i \geq 0} \dim \widetilde{\chains}_i = 2^{n+1} - 1$, $\dim \widetilde{Z}_{-1} = 1$, and $\dim \widetilde{Z}_n = 0$ gives $\sum_{i \geq 0} \dim \widetilde{Z}_i = 2^n - 1$.
+\end{proof}
+
+Computer experiments complement this result; the scripts, self-contained and independent of any library, are available in the repository of this project.
+The dimension of the space of irreducible constructions truncated at $N$ equals
+\[
+2^{N+1} - N - 1
+\qquad \text{for } N \leq 6,
+\]
+that is, $5, 12, 27, 58, 121$ for $N = 2, \dots, 6$, and every restriction map in this range is surjective: every truncated irreducible construction extends to the next level.
+Note that these dimensions are consistent with \cref{p:level_supported}: the increment from $N-1$ to $N$ equals $2^N - 1$.
+Moreover, imposing the codegeneracy conditions changes none of these dimensions, in agreement with \cref{t:irreducible_implies_simplicial}.
+
+These observations suggest the following problems, which we leave open:
+\begin{enumerate}
+	\item Prove that every truncated irreducible construction extends to the next level; together with \cref{p:level_supported}, this would establish the dimension formula for all $N$ and show that the space of irreducible semi-simplicial \mbox{cup-$i$} constructions is infinite dimensional.
+	\item Classify the columns at a fixed index $i_0$, that is, the natural symmetric irreducible cycle families of \cref{l:columns}.
+	Computer experiments indicate that, at $i_0 = 0$, beyond the twist family $(1+T)\canonical_0$ there is a space of solutions whose first non-vanishing components are sums $\zeta_{\hat{u}} + \zeta_{\hat{v}}$ of partition chains of co-vertex sets, of which the construction of \cref{s:pascal} is one member; a closed-form description of all of them is unknown.
+	\item Describe the quotient of the space of irreducible constructions by the isomorphism relation, that is, by the twist action of $\prod_{\N} \Sym_2$.
+\end{enumerate}
+\end{document}
