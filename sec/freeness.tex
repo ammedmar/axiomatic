@@ -1,28 +1,52 @@
-\section{Freeness}
+% !TEX root = ../axiomatic.tex
 
-For a chain $\zeta$ and a basis element $V \ot W$ of $\cP(\simplex^n)^{\ot 2}$ we write $\coeff{\zeta}{V \ot W} \in \F$ for the coefficient of $V \ot W$ in $\zeta$.
+\section{Freeness}\label{s:freeness}
 
-\anibal{This lemma is not elegant. Both statements are instances of a more general statement. You can put these as two corollaries without proof and refer to those in the paper. The proof is repeating itself. Also, don't use \(\triangle\) for shortening \(\triangle_i[n]\) as \(\triangle\) refers to the whole constr.}
+In this section we record the way the freeness axiom will be used: for a free construction, the element $\triangle_i[n]$ is determined by $(1+T)\triangle_i[n]$ up to the transposition of its summands.
 
-\begin{lemma}[Freeness] \label{ss:freeness_revisited}
+\begin{lemma}\label{l:freeness}
 	Let $\triangle$ be a free semi-simplicial \mbox{cup-$i$} construction and let $i, n \in \N$ with $i \neq n$.
-	\begin{enumerate}
-		\item If $(1+T)\triangle_i[n] = 0$, then $\triangle_i[n] = 0$.
-		\item If $(1+T)\triangle_i[n] = (1+T)\sum_{U \in \P^n_{n-i}} U^0 \ot U^1$, then there is a function $\xi \colon \P^n_{n-i} \to \set{0,1}$ such that
-		\[
-		\triangle_i[n] = \sum_{\mathclap{\quad U \in \P^n_{n-i}}} \, U^\xi \ot U^\barxi,
-		\]
-		where \(\barxi\) is the complement of \(\xi\) as a function.
-	\end{enumerate}
+	Consider a set $\set{b_\mu}_{\mu \in M}$ of basis elements of $\cP(\simplex^n)^{\ot 2}_{i+n}$, none of which is symmetric and no two of which are related by transposition.
+	If
+	\[
+	(1+T)\, \triangle_i[n] = (1+T) \sum_{\mu \in M} b_\mu,
+	\]
+	then there is a unique function $\xi \colon M \to \set{0,1}$ such that
+	\[
+	\triangle_i[n] = \sum_{\mu \in M} T^{\xi(\mu)}\, b_\mu.
+	\]
 \end{lemma}
 
 \begin{proof}
-	\noindent (1) If \(\coeff{\triangle_i[n]}{b} \neq 0\) for some basis element \(b\) we have \(\coeff{(1+T)\triangle}{b} = \coeff{\triangle_i[n]}{b} + \coeff{\triangle_i[n]}{Tb} \neq 0\) unless \(Tb = b\) or \(\coeff{\triangle_i[n]}{Tb} \neq 0\), both options ruled out by the freeness, as expressed in \cref{ss:axioms_revisited}.
-
-	\medskip\noindent (2) Notice that the basis elements $U^0 \ot U^1$ with $U \in \P^n_{n-i}$ are parameterized by $U = U^0 \union U^1$; that none of them is symmetric, since $U^0 = U^1$ forces $U = \emptyset$, which is excluded by $i \neq n$; and that no two of them are related by transposition.
-	Therefore, $\coeff{(1+T)\triangle}{b} = 1$ if and only if $b \in \set{U^0 \ot U^1,\, U^1 \ot U^0}$ for some $U \in \P^n_{n-i}$.
-	By the implications above, for each $U \in \P^n_{n-i}$ exactly one of $U^0 \ot U^1$ and $U^1 \ot U^0$ is a summand of $\triangle$, and $\triangle$ has no other summands.
-	Defining $\xi(U) \in \set{0,1}$ accordingly proves the second claim.
+	Freeness, as expressed in \cref{l:dual_axioms}, states that $\triangle_i[n]$ does not contain both $b$ and $Tb$ as summands for any basis element $b$; in particular, no symmetric basis element is a summand of $\triangle_i[n]$.
+	Hence, for any basis element $b$ with $b \neq Tb$, the identity
+	\[
+	\coeff{(1+T)\,\triangle_i[n]}{b} = \coeff{\triangle_i[n]}{b} + \coeff{\triangle_i[n]}{Tb}
+	\]
+	gives the following two implications:
+	if $\coeff{(1+T)\,\triangle_i[n]}{b} = 0$ then neither $b$ nor $Tb$ is a summand of $\triangle_i[n]$, whereas if $\coeff{(1+T)\,\triangle_i[n]}{b} = 1$ then exactly one of them is.
+	By hypothesis, $\coeff{(1+T)\,\triangle_i[n]}{b} = 1$ if and only if $b \in \set{b_\mu,\, T b_\mu}$ for a necessarily unique $\mu \in M$.
+	Therefore, for each $\mu \in M$ exactly one of $b_\mu$ and $T b_\mu$ is a summand of $\triangle_i[n]$, and $\triangle_i[n]$ has no other summands.
+	Defining $\xi(\mu) \in \set{0,1}$ accordingly establishes the claim.
 \end{proof}
 
-\anibal{Any issues creating this section here?}
+Taking $M = \emptyset$ gives the first corollary below.
+For the second, notice that the basis elements $U^0 \ot U^1$ with $U \in \P^n_{n-i}$ satisfy the hypotheses of \cref{l:freeness}: they are parameterized by $U = U^0 \union U^1$; none is symmetric, since $U^0 = U^1$ forces $U = \emptyset$, which is excluded by $i \neq n$; and no two of them are related by transposition.
+
+\begin{corollary}\label{c:free_zero}
+	Let $\triangle$ be a free semi-simplicial \mbox{cup-$i$} construction and let $i, n \in \N$ with $i \neq n$.
+	If $(1+T)\,\triangle_i[n] = 0$, then $\triangle_i[n] = 0$.
+\end{corollary}
+
+\begin{corollary}\label{c:free_xi}
+	Let $\triangle$ be a free semi-simplicial \mbox{cup-$i$} construction and let $i, n \in \N$ with $i \neq n$.
+	If
+	\[
+	(1+T)\,\triangle_i[n] = (1+T)\sum_{\mathclap{\quad U \in \P^n_{n-i}}} \, U^0 \ot U^1,
+	\]
+	then there is a function $\xi \colon \P^n_{n-i} \to \set{0,1}$ such that
+	\[
+	\triangle_i[n] = \sum_{\mathclap{\quad U \in \P^n_{n-i}}} \, U^\xi \ot U^\barxi,
+	\]
+	where $\barxi$ denotes the complement of $\xi$.
+\end{corollary}

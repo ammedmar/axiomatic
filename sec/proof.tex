@@ -22,7 +22,7 @@ We divide this proof into several parts.
 	(1+T) \triangle_{n-1} [n] =
 	\bd \triangle_{n} [n] + \triangle_{n} \bd \, [n] = 0,
 	\end{align*}
-	which, by \cref{ss:freeness_revisited}, implies $\triangle_{n-1}[n] = 0$.
+	which, by \cref{c:free_zero}, implies $\triangle_{n-1}[n] = 0$.
 	From this and $\triangle_{n-1}[n-1] = \emptyset \ot \emptyset$ we obtain
 	\[
 	(1+T)\triangle_{n-2}[n] =
@@ -38,7 +38,7 @@ We divide this proof into several parts.
 		\sum_{u=0}^n \set{u} \ot \emptyset + \emptyset \ot \set{u} =
 		(1+T)\sum_{U \in \P_1^n} U^0 \ot U^1,
 	\end{align*}
-	so, by \cref{ss:freeness_revisited}, there is $\xi \colon \P_1^n \to \set{0,1}$ with $\triangle_{n-1}[n] = \sum_{U \in \P_1^n} U^\xi \ot U^\barxi$.
+	so, by \cref{c:free_xi}, there is $\xi \colon \P_1^n \to \set{0,1}$ with $\triangle_{n-1}[n] = \sum_{U \in \P_1^n} U^\xi \ot U^\barxi$.
 	Since $\triangle_{n-1}[n-1] = 0$ we have $\triangle_{n-1}\bd\,[n] = 0$ and therefore
 	\[
 	(1+T)\triangle_{n-2}[n] = \bd \triangle_{n-1}[n].
@@ -53,7 +53,7 @@ We divide this proof into several parts.
 	(1+T) \triangle_{i-1} [n] =
 	\bd \triangle_{i} [n] + \triangle_{i} \bd\, [n] = 0,
 	\end{align*}
-	which, by \cref{ss:freeness_revisited}, implies $\triangle_{i-1} [n] = 0$.
+	which, by \cref{c:free_zero}, implies $\triangle_{i-1} [n] = 0$.
 \end{proof}
 
 \subsection{The $i = n-1$ case}\label{ss:i_equals_n_minus_1}
@@ -74,7 +74,7 @@ We divide this proof into several parts.
 		\sum_{u=0}^n \set{u} \ot \emptyset + \emptyset \ot \set{u} \\ &=
 		(1+T)\sum_{U \in \P_1^n} U^0 \ot U^1.
 	\end{align*}
-	By \cref{ss:freeness_revisited}, there is a function $\xi \colon \P_1^n \to \set{0,1}$ such that
+	By \cref{c:free_xi}, there is a function $\xi \colon \P_1^n \to \set{0,1}$ such that
 	\begin{equation}\label{eq:triangle_n-1_n}
 		\triangle_{n-1}[n] = \sum_{U \in \P_1^n} U^\xi \ot U^\barxi
 	\end{equation}
@@ -131,7 +131,7 @@ We divide this proof into several parts.
 \end{proof}
 
 \begin{remark}\label{r:freeness_usage}
-	The proof above uses freeness only through its dependence on \cref{ss:i_geq_n} and a single application of \cref{ss:freeness_revisited}, and the latter can be justified using irreducibility instead:
+	The proof above uses freeness only through its dependence on \cref{ss:i_geq_n} and a single application of \cref{c:free_xi}, and the latter can be justified using irreducibility instead:
 	in the relevant degree, the intersection of $\ker(1+T)$ with the subspace of irreducible chains is spanned by the partition chains $\zeta_{\set{u}}$, and adding these to $\triangle_{n-1}[n]$ only modifies the function $\xi$.
 	The dependence on \cref{ss:i_geq_n} is, however, essential: the non-free construction $(1+T)\canonical$ of \cref{ss:non_free} is non-zero and irreducible, yet $(1+T)\canonical_n[n] = 0$ for every $n \in \N$.
 \end{remark}
@@ -156,7 +156,7 @@ Applying the induction hypothesis to $\triangle_{i+1}[n]$ and $\triangle_{i+1}[n
 	T^{\varepsilon_{i+1}} (1+T)\,\canonical_i[n] \\ &=
 	(1+T)\sum_{\mathclap{\quad U \in \P_{n-i}^n}} \, U^0 \ot U^1.
 \end{align*}
-\cref{ss:freeness_revisited} implies the existence of a function $\xi \colon \P_{n-i}^n \to \set{0,1}$ with
+\cref{c:free_xi} implies the existence of a function $\xi \colon \P_{n-i}^n \to \set{0,1}$ with
 \begin{equation}\label{eq:triangle_i_n}
 	\triangle_i[n] = \sum_{\mathclap{\quad U \in \P_{n-i}^n}} \, U^{\xi} \ot U^{\barxi}.
 \end{equation}

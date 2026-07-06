@@ -42,9 +42,9 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 
 	Steenrod's simplicial \mbox{cup-$i$} construction is \emph{non-zero} since $\triangle^\rS_0\big([0]\big) = [0] \ot [0] \neq 0$.
 	It is \emph{irreducible} since for each basis element in $\triangle^\rS_i [n]$ with $i \leq n$, all integers $\{0, \dots, n\}$ appear in at least one of the tensor factors.
-	To prove it is \emph{free} let us assume $i$ is odd with $i < n$.
-	The case where $i$ is even is done analogously.
-	If it is not free, then there exist two distinct sequences
+	To prove it is \emph{free} let us assume $i$ is even with $i < n$.
+	The case where $i$ is odd is done analogously.
+	If it is not free, then there exist two, not necessarily distinct, sequences
 	\begin{align*}
 	\begin{split}
 	0 &= p_0 \leq p_1 < \cdots < p_{i+1} \leq p_{i+2} = n \\
@@ -65,15 +65,13 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 	&[ {p_1}, \dots, {p_2} ] \ast [ {p_3}, \dots, {p_4} ] \ast \cdots \ast [ {p_{i+1}}, \dots, {p_{i+2}} ].
 	\end{split}
 	\]
-	We will prove that $p_{r+1} = q_{r+1} = r$ for $0 \leq r \leq i$, in particular, this will imply the contradiction $i = n$.
-	We have the base case of an induction argument since $q_1 = p_0 = 0$ and $p_1 = q_0 = 0$.
-	The induction step follows from the identities
-	\[
-	\begin{split}
-	[p_r] &\ast [p_{r+1}] = [q_r, q_{r}+1], \\
-	[q_r] &\ast [q_{r+1}] = [p_r, p_{r}+1].
-	\end{split}
-	\]
+	We will prove that $p_{r+1} = q_{r+1} = r$ for $0 \leq r \leq i$.
+	Granting this, the largest vertices appearing in the two sides of the second identity are $q_{i+1} = i$ and $p_{i+2} = n$, respectively, giving the contradiction $i = n$.
+	The base case $r = 0$ holds since the smallest vertices of the two sides of the first identity are $p_0 = 0$ and $q_1$, and those of the second are $q_0 = 0$ and $p_1$.
+	For the induction step, assume $p_s = q_s = s - 1$ for $1 \leq s \leq r$ with $r \leq i$, and let $r$ be even.
+	The vertices of the right hand side of the first identity smaller than $q_{r+1}$ are those of $[q_1, \dots, q_2] \ast \cdots \ast [q_{r-1}, \dots, q_r]$, namely $0, \dots, r-1$.
+	Since the left hand side contains the interval $[p_r, \dots, p_{r+1}]$ and $p_{r+1} > p_r = r - 1$, the vertex $r$ belongs to it, forcing $q_{r+1} = r$.
+	The second identity gives $p_{r+1} = r$ in the same way, and for $r$ odd the same argument applies with the roles of the two identities exchanged.
 
 	Our main theorem then shows that for each $i \in \N$ either $\triangle^\rS_i = \canonical_i$ or $\triangle^\rS_i = T \canonical_i$.
 	Consider the element $U = \{0\} \in \rP_{1}^{i+1}$ giving rise to the summand $U^1 \ot U^0 = \set{0} \ot \emptyset$ in $T \canonical_i [i+1]$.
@@ -115,14 +113,14 @@ If $i > n$ then $\triangle_i^{\mathrm{R}} [n] = 0$, otherwise it is given by
 	\{j_0+1,\dots,j_1-1\} \union \{j_2+1,\dots,j_3-1\} \union \dots \union \{j_i+1,\dots,n\} \\ \ot \,
 	\{0,\dots,j_0-1\} \union \{j_1+1,\dots,j_2-1\} \union \dots \union \{j_{i-1}+1,\dots,j_i-1\}
 \end{multline}
-if $n$ is even and by
+if $i$ is even and by
 \begin{multline}\label{eq:real right}
 	\triangle^\rR_i [n] = \!
 	\sum_{j_i=i}^{n} \ \sum_{j_{i-1}=i-1}^{j_i-1} \dots \sum_{j_0=0}^{j_1-1} \\
 	\{j_0+1,\dots,j_1-1\} \union \{j_2+1,\dots,j_3-1\} \union \dots \union \{j_{i-1}+1,\dots,j_i-1\} \\ \ot \,
 	\{0,\dots,j_0-1\} \union \{j_1+1,\dots,j_2-1\} \union \dots \union \{j_i+1,\dots,n\}
 \end{multline}
-if $n$ is odd.\footnote{To compare these formulas to those appearing in \cite[Theorem~3.1]{gonzalez-diaz1999steenrod} replace $i$ and $n$ respectively by $n$ and $m$.}
+if $i$ is odd.\footnote{To compare these formulas to those appearing in \cite[Theorem~3.1]{gonzalez-diaz1999steenrod} replace $i$ and $n$ respectively by $n$ and $m$.}
 
 \begin{theorem}
 	Real's \mbox{cup-$i$} construction agrees with the canonical one.
@@ -132,7 +130,7 @@ if $n$ is odd.\footnote{To compare these formulas to those appearing in \cite[Th
 	We will use our main theorem to prove that they are isomorphic.
 	We can then conclude their equality by inspecting that $\triangle^\rR_i [i+1] \neq T \canonical_i [i+1]$.
 	Let us start by describing the indexing set of the sum in recursive terms.
-	It consist of all integers $0 \leq j_0 < \dots < j_i \leq n$ with
+	It consists of all integers $0 \leq j_0 < \dots < j_i \leq n$ with
 	\begin{equation}\label{eq:indexing set recursively}
 		j_i \in \set{i,\dots,n} \text{ and }
 		j_k \in \set{k,\dots,j_{k+1}-1} \text{ for } k \in \set{0,\dots,i-1}.
@@ -145,14 +143,14 @@ if $n$ is odd.\footnote{To compare these formulas to those appearing in \cite[Th
 		&\{j_0+1,\dots,j_1-1\} \union \{j_2+1,\dots,j_3-1\} \union \dots \union \{j_i+1,\dots,n\} \\ \ot \,
 		&\{0,\dots,j_0-1\} \union \{j_1+1,\dots,j_2-1\} \union \dots \union \{j_{i-1}+1,\dots,j_i-1\}
 	\end{align*}
-	in the even case, or
+	when $i$ is even, or
 	\begin{align*}
 		&\{j_0+1,\dots,j_1-1\} \union \{j_2+1,\dots,j_3-1\} \union \dots \union \{j_{i-1}+1,\dots,j_i-1\} \\ \ot \,
 		&\{0,\dots,j_0-1\} \union \{j_1+1,\dots,j_2-1\} \union \dots \union \{j_i+1,\dots,n\}
 	\end{align*}
-	in the odd one, we have $V \cap W = \emptyset$ given that $0 \leq j_0 < \dots < j_i \leq n$.
+	when $i$ is odd, we have $V \cap W = \emptyset$ given that $0 \leq j_0 < \dots < j_i \leq n$.
 
-	To prove that $\triangle^\rR$ is free, let us focus on the case when $n$ is an even number, the odd case is analyzed similarly.
+	To prove that $\triangle^\rR$ is free, let us focus on the case when $i$ is an even number, the odd case being analyzed similarly.
 	Fix integers $0 \leq i \leq n$ and let us assume that $V \ot W = W' \ot V'$ for some pair of summands.
 	After suppressing the union symbol and the commas this identity is explicitly given by
 	\begin{align*}

@@ -7,29 +7,6 @@ We also prove that this independence persists when the non-zero axiom is strengt
 All examples are in fact simplicial.
 Throughout this section we use the description of semi-simplicial \mbox{cup-$i$} constructions given in \cref{ss:axioms_revisited}.
 
-\subsection{Linearity}\label{ss:linearity}
-\anibal{This statement is too obvious to be highlited. Maybe mention it early if you want.}
-
-\textit{
-	The set of semi-simplicial \mbox{cup-$i$} constructions is an $\F$-vector space.
-	Moreover, if $\triangle = \set[\big]{\triangle_i[n]}_{i,n}$ is a semi-simplicial \mbox{cup-$i$} construction, then so is $T\triangle = \set[\big]{T\triangle_i[n]}_{i,n}$, and if $\triangle$ is simplicial then so is $T\triangle$.
-}
-
-\begin{proof}
-	The first claim holds because the defining identities
-	\[
-	\bd \triangle_i[n] + \triangle_i \bd\, [n] = (1+T)\triangle_{i-1}[n]
-	\]
-	are linear in the collection $\set{\triangle_i[n]}_{i,n}$.
-	For the second, notice that $T$ commutes with $\bd$ and with $\cP(x)^{\ot 2}$ for any semi-simplicial map $x$, so applying $T$ to the identity above and using $(1+T)T = (1+T)$ gives
-	\[
-	\bd\, T\triangle_i[n] + T\triangle_i \bd\, [n] =
-	T(1+T)\triangle_{i-1}[n] =
-	(1+T)\, T\triangle_{i-1}[n].
-	\]
-	The claim about simpliciality follows from \cref{l:simplicial_from_semisimplicial} since $\cP(\sigma_j)^{\ot 2}$ commutes with $T$.
-\end{proof}
-
 \subsection{Removing non-zero}
 
 The zero \mbox{cup-$i$} construction satisfies the irreducibility and freeness axioms vacuously, and it is not isomorphic to the canonical construction since an isomorphism of \mbox{cup-$i$} constructions preserves the property of being zero.
@@ -41,7 +18,7 @@ Consider the simplicial \mbox{cup-$i$} construction
 \[
 (1+T)\canonical = \set[\big]{\canonical_i[n] + T\canonical_i[n]}_{i,n}
 \]
-provided by \cref{ss:linearity}.
+provided by the linearity observations closing \cref{ss:axioms_revisited}.
 It is non-zero; indeed, by \cref{ss:canonical_special_cases}, for any $n > 0$
 \[
 (1+T)\canonical_{n-1}[n] = \sum_{u=0}^{n} \set{u} \ot \emptyset \ + \ \emptyset \ot \set{u}.
@@ -75,15 +52,15 @@ Therefore, the freeness axiom cannot be removed from our main theorem.
 }
 
 \begin{proof}
-	The defining identity of \cref{ss:axioms_revisited} at $(i_0, n)$ reduces to the second hypothesis, the one at $(i_0+1, n)$ to the first, and all others hold trivially.
+	The defining identity of \cref{ss:naturality} at $(i_0, n)$ reduces to the second hypothesis, the one at $(i_0+1, n)$ to the first, and all others hold trivially.
 \end{proof}
 
 For example, for each $i_0 \in \N$ the collection $\set[\big]{(1+T)\canonical_{i_0}[n]}_{n}$ satisfies both hypotheses, and $(1+T)\canonical$ is the sum of the associated columns.
 
 \subsection{A non-degenerate non-free construction}\label{ss:non_deg_non_free}
 
-In this subsection we construct a column $\Theta$ at $0$ such that $\canonical + \Theta$, provided by \cref{ss:linearity,ss:columns}, is non-degenerate, irreducible, and not free.
-We use the coefficient notation $\coeff{\zeta}{V \ot W}$ of \cref{ss:freeness_revisited}.
+In this subsection we construct a column $\Theta$ at $0$ such that $\canonical + \Theta$, provided by \cref{ss:axioms_revisited,ss:columns}, is non-degenerate, irreducible, and not free.
+We use the coefficient notation $\coeff{\zeta}{V \ot W}$ of \cref{ss:axioms_revisited}.
 
 For functions $b \colon \N^2 \to \F$ define the \textbf{Pascal transform}
 \[
@@ -221,7 +198,7 @@ Therefore
 
 	\medskip
 	\textit{Conclusion.}
-	By \cref{ss:linearity,ss:columns}, $\widetilde\triangle := \canonical + \Theta$ is a semi-simplicial \mbox{cup-$i$} construction.
+	By \cref{ss:axioms_revisited,ss:columns}, $\widetilde\triangle := \canonical + \Theta$ is a semi-simplicial \mbox{cup-$i$} construction.
 	It is irreducible since both summands are, and hence simplicial by \cref{t:irreducible_implies_simplicial}.
 	It is non-degenerate since $\Theta[0] = 0$.
 	It is not free: by \cref{eq:theta_3}, both $\set{1} \ot \set{2,3}$ and $\set{2,3} \ot \set{1}$ are summands of $\Theta[3]$, while the only summand of $\canonical_0[3]$ supported on partitions of $\set{1,2,3}$ is $\set{1,2,3} \ot \emptyset$, so both remain summands of $\widetilde\triangle_0[3]$.

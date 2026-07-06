@@ -2,9 +2,8 @@
 
 \section{Reformulation}\label{s:reformulation}
 
-This section provides a category theoretic perspective on \mbox{semi-}simplicial \mbox{cup-$i$} constructions.
-We start by presenting a linear dual description of cup-\(i\) products.
-\anibal{It is more categorical, but also dual in two ways: linear pre-dual to cochains and using Alexander duality/Poincar'e duality in the n-simplex}
+This section provides a more categorical perspective on semi-simplicial \mbox{cup-$i$} constructions, one that is also dual in two complementary senses:
+linearly, we pass from cochains to chains, their pre-dual; and combinatorially, we index the faces of a simplex by their complementary vertex sets, as in Alexander duality.
 
 \subsection{Cup-\textit{i} coproducts}
 
@@ -160,24 +159,35 @@ By combining \cref{ss:naturality} and \cref{ss:equivalence_of_functors}, we can 
 \end{equation*}
 in $\cP(\simplex^n)^{\ot 2}_{i+n}$
 where $\Lambda(i,n)$ is a finite (possibly empty) indexing set, and $V_\lambda \ot W_\lambda$ is a basis element for each $\lambda \in \Lambda(i,n)$.
+For a chain $\zeta$ and a basis element $V \ot W$ of $\cP(\simplex^n)^{\ot 2}$ we write $\coeff{\zeta}{V \ot W} \in \F$ for the coefficient of $V \ot W$ in $\zeta$.
 
-\anibal{Make the statement below into a Lemma and fix the hyperlinks in the text as this will introduce two targets for the old ss:axiomsrevisited}
+\begin{lemma}\label{l:dual_axioms}
+	A semi-simplicial \mbox{cup-$i$} construction $\triangle$ is:
+	\begin{enumerate}
+		\item Irreducible if and only if
+		$V_\lambda \cap W_\lambda = \emptyset$
+		for every $i, n \in \N$ and $\lambda \in \Lambda(i,n)$.
+		\item Free if and only if
+		$V_{\lambda} \ot W_{\lambda} \neq W_{\lambda'} \ot V_{\lambda'}$
+		for every $i, n \in \N$ with $i \neq n$ and $\lambda, \lambda' \in \Lambda(i,n)$.
+	\end{enumerate}
+\end{lemma}
 
-Additionally, one such construction is:
-\begin{itemize}
-	\item Irreducible iff\,
-	$V_\lambda \cap W_\lambda = \emptyset$,
-	\item Free iff\,
-	$V_{\lambda} \ot W_{\lambda} \neq W_{\lambda'} \ot V_{\lambda'}$ if $i \neq n$.
-\end{itemize}
-To see this we notice that there is $k \in V_\lambda \cap W_\lambda$ for one of the summands of $\triangle_i [n]$ if an only the image of this summand under $\Psi^{\ot 2}$ is
-\[
-\underbrace{d_{V_\lambda \setminus k} \overbrace{d_k[n]}^{y}}_{y^{(1)}}
-\ot
-\underbrace{d_{W_\lambda \setminus k} \overbrace{d_k[n]}^{y}}_{y^{(2)}}
-\]
-with $(y^{(1)} \smallsmile_i y^{(2)})[n] \neq 0$.
-This proves the claim about irreducibility, the one involving freeness follows from direct inspection.
+\begin{proof}
+	There is $k \in V_\lambda \cap W_\lambda$ for one of the summands of $\triangle_i [n]$ if and only if the image of this summand under $\Psi^{\ot 2}$ is
+	\[
+	\underbrace{d_{V_\lambda \setminus k} \overbrace{d_k[n]}^{y}}_{y^{(1)}}
+	\ot
+	\underbrace{d_{W_\lambda \setminus k} \overbrace{d_k[n]}^{y}}_{y^{(2)}}
+	\]
+	with $(y^{(1)} \smallsmile_i y^{(2)})[n] \neq 0$.
+	This proves the claim about irreducibility; the one involving freeness follows from direct inspection.
+\end{proof}
+
+We close this subsection with an elementary observation used repeatedly in \cref{s:examples}:
+since the defining identities of \cref{ss:naturality} are linear, the set of semi-simplicial \mbox{cup-$i$} constructions is an $\F$-vector space.
+Moreover, if $\triangle$ is a semi-simplicial \mbox{cup-$i$} construction, then so is $T\triangle = \set[\big]{T\triangle_i[n]}_{i,n}$, since $T$ commutes with $\bd$ and with $\cP(x)^{\ot 2}$ for every semi-simplicial map $x$, and $(1+T)\,T = (1+T)$.
+Additionally, by \cref{l:simplicial_from_semisimplicial}, if $\triangle$ is simplicial then so is $T\triangle$, since $\cP(\sigma_j)^{\ot 2}$ also commutes with $T$.
 
 \subsection{Canonical construction}
 
@@ -200,8 +210,9 @@ Inspecting \cref{ss:canonical} we see that the canonical \mbox{cup-$i$} construc
 \end{theorem}
 
 \begin{proof}
-	It is clearly non-zero and a straightforward application of \cref{ss:axioms_revisited} establishes its irreducibility and freeness.
-	To see it is simplicial, \anibal{Here we could say that this follows from the irred + semi-simp implies simp but we also give a direct proof.} we consider \cref{eq:codegeneracies} and an arbitrary basis element $U^0 \ot U^1$ appearing as a summand in $\canonical_i[n]$.
+	It is clearly non-zero and a straightforward application of \cref{l:dual_axioms} establishes its irreducibility and freeness.
+	Its simpliciality follows from its irreducibility and \cref{t:irreducible_implies_simplicial} below, whose proof is independent of the present considerations; we nevertheless include the following direct verification.
+	We consider \cref{eq:codegeneracies} and an arbitrary basis element $U^0 \ot U^1$ appearing as a summand in $\canonical_i[n]$.
 	Let $U = U^0 \union U^1$.
 	Based on \cref{l:simplicial_from_semisimplicial}, we need to check that for any $j \in \set{0,\dots,n-1}$ we have
 	\begin{equation}\label{eq:checking_simplicial}
