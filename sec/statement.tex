@@ -34,7 +34,7 @@ Unpacking this structure we have the following defining identity for any $i \in 
 with the convention $\alpha \cup_{-1} \beta = 0$.
 By setting $i = 0$ we see that $(A, \cup_0)$ is a differential graded algebra.
 The identity obtained setting $i = 1$ implies that the algebra structure induced in the homology $HA$ of $A$ is commutative, with the product $\cup_1$ enforcing this relation at the chain level.
-This product is itself not commutative, but it is so up to a homotopy defined by $\cup_2$, and so on.
+This degree 1 product is itself not commutative, but it is so up to a homotopy defined by $\cup_2$, and so on.
 
 An \textbf{isomorphism} of \mbox{cup-$i$} product structures on $A$, or simply a \textbf{cup-$i$ isomorphism}, is an automorphism $\phi$ of $W$ making the following diagram commute:
 \begin{center}
@@ -47,11 +47,12 @@ An \textbf{isomorphism} of \mbox{cup-$i$} product structures on $A$, or simply a
 
 A \textbf{(semi-)simplicial \mbox{cup-$i$} construction} is a \mbox{cup-$i$} product structure on $\cochains(X)$ for every (semi-)simplicial set $X$ that is natural with respect to (semi-)simplicial maps.
 Similarly, an \textbf{isomorphism} of (semi-)simplicial \mbox{cup-$i$} constructions is a natural family of cup-$i$ isomorphisms for each such $X$.
-Please notice that a simplicial \mbox{cup-$i$} construction is a semi-simplicial one satisfying additional constraints, i.e., compatibility with degeneracy maps.
+Notice that a simplicial \mbox{cup-$i$} construction is a semi-simplicial one satisfying additional constraints, i.e., compatibility with degeneracy maps.
 
 \subsection{Axioms}
 
-The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of (semi-)simplicial \mbox{cup-$i$} construction; whereas the second, minimality, is manifested in the use of $W$ instead of an arbitrary free resolution of $\F$.
+The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of (semi-)simplicial \mbox{cup-$i$} construction; whereas the second, minimality, is manifested in the use of $W$ instead of an arbitrary resolution of $\F$ as \(\F[\Sym_2]\)-module.
+
 The \textbf{zero \mbox{cup-$i$} construction} assigns the zero map
 \[
 W \ot_{\F[\Sym_2]} \cochains(X)^{\ot 2} \to \cochains(X)
@@ -89,10 +90,12 @@ A semi-simplicial \mbox{cup-$i$} construction is said to be:
 
 \subsection{Main Theorem}\label{ss:main_theorem}
 
-\textit{There is up to isomorphism only one non-zero, irreducible and free semi-simplicial \mbox{cup-$i$} construction.}
+\textit{There is up to isomorphism only one non-zero, irreducible and free semi-simplicial \mbox{cup-$i$} construction.
+Furthermore, it is simplicial.}
 
-In \cref{s:others,s:operads} we will show that all semi-simplicial \mbox{cup-$i$} constructions defined in the literature represent the same isomorphism class, and in fact, they are all simplicial.
-This last fact is not accidental: we prove in \cref{t:irreducible_implies_simplicial} that every irreducible semi-simplicial \mbox{cup-$i$} construction is simplicial.
+\medskip
+In \cref{s:others,s:operads} we will show that all semi-simplicial \mbox{cup-$i$} constructions defined in the literature represent the same isomorphism class.
+We prove in \cref{t:irreducible_implies_simplicial} that every irreducible semi-simplicial \mbox{cup-$i$} construction is simplicial.
 Additionally, in \cref{s:examples} we show that the axioms of the main theorem are independent.
 
 \subsection{Canonical cup-\textit{i} construction}\label{ss:canonical}

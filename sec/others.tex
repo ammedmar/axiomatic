@@ -40,7 +40,7 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 	We will first use our main result to prove that they are isomorphic.
 	We can then conclude their equality by inspecting that $\triangle^\rS_i [i+1] \neq T \canonical_i [i+1]$.
 
-	Steenrod's simplicial \mbox{cup-$i$} construction is \emph{non-zero} since $\canonical_0\big([0]\big) = [0] \ot [0] \neq 0$.
+	Steenrod's simplicial \mbox{cup-$i$} construction is \emph{non-zero} since $\triangle^\rS_0\big([0]\big) = [0] \ot [0] \neq 0$.
 	It is \emph{irreducible} since for each basis element in $\triangle^\rS_i [n]$ with $i \leq n$, all integers $\{0, \dots, n\}$ appear in at least one of the tensor factors.
 	To prove it is \emph{free} let us assume $i$ is odd with $i < n$.
 	The case where $i$ is even is done analogously.
@@ -66,7 +66,7 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 	\end{split}
 	\]
 	We will prove that $p_{r+1} = q_{r+1} = r$ for $0 \leq r \leq i$, in particular, this will imply the contradiction $i = n$.
-	We have the base case of an induction argument since $p_0 = q_1 = p_0 = q_1 = 0$.
+	We have the base case of an induction argument since $q_1 = p_0 = 0$ and $p_1 = q_0 = 0$.
 	The induction step follows from the identities
 	\[
 	\begin{split}
@@ -111,14 +111,14 @@ In \cite[Theorem~3.1]{gonzalez-diaz1999steenrod} these authors unravelled the ab
 If $i > n$ then $\triangle_i^{\mathrm{R}} [n] = 0$, otherwise it is given by
 \begin{multline}\label{eq:real left}
 	\triangle^{\mathrm{R}}_i [n] = \!
-	\sum_{j_i=i}^{m} \ \sum_{j_{i-1}=i-1}^{j_i-1} \dots \sum_{j_0=0}^{j_1-1} \\
+	\sum_{j_i=i}^{n} \ \sum_{j_{i-1}=i-1}^{j_i-1} \dots \sum_{j_0=0}^{j_1-1} \\
 	\{j_0+1,\dots,j_1-1\} \union \{j_2+1,\dots,j_3-1\} \union \dots \union \{j_i+1,\dots,n\} \\ \ot \,
 	\{0,\dots,j_0-1\} \union \{j_1+1,\dots,j_2-1\} \union \dots \union \{j_{i-1}+1,\dots,j_i-1\}
 \end{multline}
 if $n$ is even and by
 \begin{multline}\label{eq:real right}
 	\triangle^\rR_i [n] = \!
-	\sum_{j_i=i}^{m} \ \sum_{j_{i-1}=i-1}^{j_i-1} \dots \sum_{j_0=0}^{j_1-1} \\
+	\sum_{j_i=i}^{n} \ \sum_{j_{i-1}=i-1}^{j_i-1} \dots \sum_{j_0=0}^{j_1-1} \\
 	\{j_0+1,\dots,j_1-1\} \union \{j_2+1,\dots,j_3-1\} \union \dots \union \{j_{i-1}+1,\dots,j_i-1\} \\ \ot \,
 	\{0,\dots,j_0-1\} \union \{j_1+1,\dots,j_2-1\} \union \dots \union \{j_i+1,\dots,n\}
 \end{multline}
@@ -135,10 +135,10 @@ if $n$ is odd.\footnote{To compare these formulas to those appearing in \cite[Th
 	It consist of all integers $0 \leq j_0 < \dots < j_i \leq n$ with
 	\begin{equation}\label{eq:indexing set recursively}
 		j_i \in \set{i,\dots,n} \text{ and }
-		i_k \in \set{k,\dots,j_{k+1}-1} \text{ for } k \in \set{0,\dots,i-1}.
+		j_k \in \set{k,\dots,j_{k+1}-1} \text{ for } k \in \set{0,\dots,i-1}.
 	\end{equation}
 
-	We can see that $\triangle^\rR$ is non-zero since, if $i=n=0$, the indexing set of the sum consists of a single $i_0 = 0$ and $\triangle^\rR_0 [0] = \emptyset \ot \emptyset$, using \cref{eq:real left}.
+	We can see that $\triangle^\rR$ is non-zero since, if $i=n=0$, the indexing set of the sum consists of a single $j_0 = 0$ and $\triangle^\rR_0 [0] = \emptyset \ot \emptyset$, using \cref{eq:real left}.
 
 	We can see that $\triangle^\rR$ is irreducible since for each summand $V \ot W$, equal to
 	\begin{align*}
@@ -190,6 +190,6 @@ if $n$ is odd.\footnote{To compare these formulas to those appearing in \cite[Th
 	implying $n-i \leq 0$, and, since $n-i \geq 0$, we conclude $n=i$.
 
 	It remains to be shown that $\triangle^\rR$ is not only isomorphic to the canonical \mbox{cup-$i$} construction $\canonical$, but equal.
-	To do so, notice that for every non-negative integer $i$ the summand in $\triangle_i^\rR[i+1]$ associated the indexing element with $j_k = k+1$ for each $k \in \{0,\dots,i\}$ is $\emptyset \ot \{0\}$ which is not a summand present in $T \canonical_i[i+1]$.
+	To do so, notice that for every non-negative integer $i$ the summand in $\triangle_i^\rR[i+1]$ associated to the indexing element with $j_k = k+1$ for each $k \in \{0,\dots,i\}$ is $\emptyset \ot \{0\}$ which is not a summand present in $T \canonical_i[i+1]$.
 	Therefore, $\triangle_i^\rR \neq T \canonical_i$ for every $i \geq 0$, so $\triangle^\rR = \canonical$ as claimed.
 \end{proof}

@@ -36,6 +36,13 @@
 %	Based on \cite{medina2022per_st}, the project \href{https://github.com/Steenroder/steenroder}{\texttt{steenroder}} incorporates into the persistent homology pipeline the additional information Steenrod squares provide using the formulas presented in \cref{d:my cup-i}.
 %\end{remark*}
 
+\subsection{The space of cup-\textit{i} constructions}
+
+The examples of \cref{s:examples} indicate that the space of semi-simplicial \mbox{cup-$i$} constructions is large.
+Since the defining identities are linear (\cref{ss:linearity}), the collection of irreducible semi-simplicial \mbox{cup-$i$} constructions defined on simplices of dimension at most $N$ forms an $\F$-vector space.
+The machinery of partition chains shows that its elements supported in a single top dimension $n$ correspond, via $\zeta_U \mapsto U$, to cycles in the augmented chain complex of $\simplex^n$, a space of dimension $2^n - 1$, and computer experiments indicate that the dimension of the whole truncated space equals $2^{N+1} - N - 1$ for $N \leq 6$, with every truncated construction extending to the next dimension.
+A complete description of this space -- for example, one organizing all the columns generalizing that of \cref{ss:non_deg_non_free} -- appears to be an interesting problem, which we leave for future work.
+
 \subsection{Cup-(\textit{p,i}) products}
 
 Steenrod squares are parameterized by classes on the mod $2$ homology of $\Sym_2$.
