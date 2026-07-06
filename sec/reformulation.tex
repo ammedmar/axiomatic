@@ -2,8 +2,9 @@
 
 \section{Reformulation}\label{s:reformulation}
 
-This section provides a category theoretic perspective on \mbox{(semi-)}simplicial \mbox{cup-$i$} constructions.
-We start by presenting a linear dual description.
+This section provides a category theoretic perspective on \mbox{semi-}simplicial \mbox{cup-$i$} constructions.
+We start by presenting a linear dual description of cup-\(i\) products.
+\anibal{It is more categorical, but also dual in two ways: linear pre-dual to cochains and using Alexander duality/Poincar'e duality in the n-simplex}
 
 \subsection{Cup-\textit{i} coproducts}
 
@@ -21,7 +22,7 @@ Such a map $\triangle$ is equivalent to a collection of linear maps $\set{\trian
 \]
 for all $i \in \N$ with the convention $\triangle_{-1} = 0$.
 
-Let us denote $\Hom(C, \F)$ by $C^\vee$ and assume $C$ is finite dimensional.
+Let us denote $\Hom(C, \F)$ by $C^\vee$ and assume $C$ is finite-dimensional.
 Using the hom-tensor adjunction and the finite dimensionality of $C$ we have
 \begin{equation}\label{eq:hom-tensor}
 	\begin{split}
@@ -48,13 +49,13 @@ In other words, the linear duality functor induces a bijection between \mbox{cup
 %\end{tikzcd}
 %\]
 
-\subsection{Naturality}\label{ss:naturality}
+\subsection{Representables}\label{ss:naturality}
 
-A (semi-)simplicial \mbox{cup-$i$} construction $\triangle$ is completely determined by its restriction to representable (semi-)simplicial sets
+A semi-simplicial \mbox{cup-$i$} construction $\triangle$ is completely determined by its restriction to representable semi-simplicial sets
 \[
 W \ot_{\Ftwo[\Sym_2]} \chains(\simplex^n)^{\ot 2} \to \chains(\simplex^n).
 \]
-Given that each of the chain complexes $\chains(\simplex^n)$ is finite dimensional, $\triangle$ is determined by the natural collection of cup-$i$ coproduct structures
+Given that each of the chain complexes $\chains(\simplex^n)$ is finite-dimensional, $\triangle$ is determined by the natural collection of cup-$i$ coproduct structures
 \[
 W \to \Hom(\chains(\simplex^n), \chains(\simplex^n)^{\ot 2})
 \]
@@ -81,9 +82,9 @@ To see this, consider a simplex $\big(x \colon [m] \to [n] \big) \in \simplex^n_
 \chains(x)^{\ot 2} \triangle_i[m],
 \]
 where $x$ also denotes the map $\simplex^m \to \simplex^n$ defined by $y \mapsto x \circ y$.
-We will often present a (semi-)simplicial \mbox{cup-$i$} construction $\triangle$ as the set $\set{\triangle_i[n]}_{i,n\in\N}$.
+We will often present a semi-simplicial \mbox{cup-$i$} construction $\triangle$ as the set $\set{\triangle_i[n]}_{i,n\in\N}$.
 
-In the simplicial context, the simplex associated to a codegeneracy map $\sigma_j \colon [n] \to [n-1]$ is degenerate in $\simplex^{n-1}$ so it is $0$ in $\chains(\simplex^{n-1})$.
+\medskip In the simplicial context, the simplex associated to a codegeneracy map $\sigma_j \colon [n] \to [n-1]$ is degenerate in $\simplex^{n-1}$ so it is $0$ in $\chains(\simplex^{n-1})$.
 Therefore,
 \[
 0 = \triangle_i(0) = \triangle_i(\sigma_j) =
@@ -97,7 +98,7 @@ which, together with the fact that codegeneracies and coface maps generate the s
 	A semi-simplicial \mbox{cup-$i$} construction $\triangle$ is simplicial if and only if $\chains(\sigma_j)^{\ot 2}\big(\triangle_i[n]\big) = 0$ for all $i,n\in\N$ and each codegeneracy map $\sigma_j \colon [n] \to [n-1]$.
 \end{lemma}
 
-\subsection{An alternative functor}\label{ss:equivalence_of_functors}
+\subsection{A dual description}\label{ss:equivalence_of_functors}
 
 For $n,m \in \N$ let $\P_{n-m}^n$ be the set of subsets of $\set{0,\dots,n}$ whose cardinality is $n-m$.
 Let $\cP(\simplex^n)$ be the chain complex defined by
@@ -130,11 +131,11 @@ where $\sigma_j$ also denotes the induced map on subsets, i.e., $\sigma_j(S) = \
 		& U \rar[mapsto] & d_U [n]
 	\end{tikzcd}
 	\]
-	induces a natural equivalence between the functors $\cP$ and $\chains$.
+	induces a natural equivalence between the functors $\cP$ and $\chains$ with both domains: semi-simplicial and simplicial sets.
 \end{lemma}
 
 \begin{proof}
-	Since any (non-degenerate) simplex in $\simplex^n$ is a face of the top dimensional one $[n]$, this assignment defines a bijection between the basis of $\cP(\simplex^n)_m$ and $\chains(\simplex^n)_m$.
+	Since any non-degenerate simplex in $\simplex^n$ is a face of the top dimensional one $[n]$, this assignment defines a bijection between the basis of $\cP(\simplex^n)_m$ and $\chains(\simplex^n)_m$.
 	Let $U = \{u_1 < \cdots < u_{n-m}\} \in \rP_{n-m}^n$.
 	Using that for $u \leq j$ we have $d_jd_u = d_ud_{j+1}$ we can show that this bijection induces a chain isomorphism as follows:
 	\begin{align*}
@@ -150,7 +151,7 @@ where $\sigma_j$ also denotes the induced map on subsets, i.e., $\sigma_j(S) = \
 	The compatibility with cofaces and codegeneracies is left to the interested reader.
 \end{proof}
 
-\subsection{Cup-$i$ constructions via $\cP$}\label{ss:axioms_revisited}
+\subsection{Cup-$i$ constructions, dually}\label{ss:axioms_revisited}
 
 By combining \cref{ss:naturality} and \cref{ss:equivalence_of_functors}, we can see that the data of a semi-simplicial \mbox{cup-$i$} construction $\triangle$ is a collection, indexed by $i,n \in \N$, of elements
 \begin{equation*}\label{eq:cup-i_dually}
@@ -159,6 +160,9 @@ By combining \cref{ss:naturality} and \cref{ss:equivalence_of_functors}, we can 
 \end{equation*}
 in $\cP(\simplex^n)^{\ot 2}_{i+n}$
 where $\Lambda(i,n)$ is a finite (possibly empty) indexing set, and $V_\lambda \ot W_\lambda$ is a basis element for each $\lambda \in \Lambda(i,n)$.
+
+\anibal{Make the statement below into a Lemma and fix the hyperlinks in the text as this will introduce two targets for the old ss:axiomsrevisited}
+
 Additionally, one such construction is:
 \begin{itemize}
 	\item Irreducible iff\,
@@ -197,7 +201,7 @@ Inspecting \cref{ss:canonical} we see that the canonical \mbox{cup-$i$} construc
 
 \begin{proof}
 	It is clearly non-zero and a straightforward application of \cref{ss:axioms_revisited} establishes its irreducibility and freeness.
-	To see it is simplicial, we consider \cref{eq:codegeneracies} and an arbitrary basis element $U^0 \ot U^1$ appearing as a summand in $\canonical_i[n]$.
+	To see it is simplicial, \anibal{Here we could say that this follows from the irred + semi-simp implies simp but we also give a direct proof.} we consider \cref{eq:codegeneracies} and an arbitrary basis element $U^0 \ot U^1$ appearing as a summand in $\canonical_i[n]$.
 	Let $U = U^0 \union U^1$.
 	Based on \cref{l:simplicial_from_semisimplicial}, we need to check that for any $j \in \set{0,\dots,n-1}$ we have
 	\begin{equation}\label{eq:checking_simplicial}
@@ -211,12 +215,12 @@ Inspecting \cref{ss:canonical} we see that the canonical \mbox{cup-$i$} construc
 
 \subsection{Canonical special cases}\label{ss:canonical_special_cases}
 
-We close with a couple of special cases of importance.
+We close by recording some important instances of the canonical construction.
 For any $n \in \N$,
 \[
-\canonical_n[n] = \emptyset \ot \emptyset
+\canonical_n[n] = \emptyset \ot \emptyset,
 \]
-and, if $n > 0$,
+and, for $n > 0$,
 \[
 \canonical_{n-1} [n] \ = \
 \sum_{\mathclap{\substack{\quad u \in \{0,\dots,n\} \\ u \ \mathrm{odd}}}} \,\{u\} \ot \emptyset \ + \

@@ -1,0 +1,28 @@
+\section{Freeness}
+
+For a chain $\zeta$ and a basis element $V \ot W$ of $\cP(\simplex^n)^{\ot 2}$ we write $\coeff{\zeta}{V \ot W} \in \F$ for the coefficient of $V \ot W$ in $\zeta$.
+
+\anibal{This lemma is not elegant. Both statements are instances of a more general statement. You can put these as two corollaries without proof and refer to those in the paper. The proof is repeating itself. Also, don't use \(\triangle\) for shortening \(\triangle_i[n]\) as \(\triangle\) refers to the whole constr.}
+
+\begin{lemma}[Freeness] \label{ss:freeness_revisited}
+	Let $\triangle$ be a free semi-simplicial \mbox{cup-$i$} construction and let $i, n \in \N$ with $i \neq n$.
+	\begin{enumerate}
+		\item If $(1+T)\triangle_i[n] = 0$, then $\triangle_i[n] = 0$.
+		\item If $(1+T)\triangle_i[n] = (1+T)\sum_{U \in \P^n_{n-i}} U^0 \ot U^1$, then there is a function $\xi \colon \P^n_{n-i} \to \set{0,1}$ such that
+		\[
+		\triangle_i[n] = \sum_{\mathclap{\quad U \in \P^n_{n-i}}} \, U^\xi \ot U^\barxi,
+		\]
+		where \(\barxi\) is the complement of \(\xi\) as a function.
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	\noindent (1) If \(\coeff{\triangle_i[n]}{b} \neq 0\) for some basis element \(b\) we have \(\coeff{(1+T)\triangle}{b} = \coeff{\triangle_i[n]}{b} + \coeff{\triangle_i[n]}{Tb} \neq 0\) unless \(Tb = b\) or \(\coeff{\triangle_i[n]}{Tb} \neq 0\), both options ruled out by the freeness, as expressed in \cref{ss:axioms_revisited}.
+
+	\medskip\noindent (2) Notice that the basis elements $U^0 \ot U^1$ with $U \in \P^n_{n-i}$ are parameterized by $U = U^0 \union U^1$; that none of them is symmetric, since $U^0 = U^1$ forces $U = \emptyset$, which is excluded by $i \neq n$; and that no two of them are related by transposition.
+	Therefore, $\coeff{(1+T)\triangle}{b} = 1$ if and only if $b \in \set{U^0 \ot U^1,\, U^1 \ot U^0}$ for some $U \in \P^n_{n-i}$.
+	By the implications above, for each $U \in \P^n_{n-i}$ exactly one of $U^0 \ot U^1$ and $U^1 \ot U^0$ is a summand of $\triangle$, and $\triangle$ has no other summands.
+	Defining $\xi(U) \in \set{0,1}$ accordingly proves the second claim.
+\end{proof}
+
+\anibal{Any issues creating this section here?}
