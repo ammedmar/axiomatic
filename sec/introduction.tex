@@ -10,7 +10,7 @@ These bilinear maps give rise to the celebrated \textit{Steenrod squares}
 \[
 \begin{tikzcd}[column sep=0, row sep=0]
 	\Sq^k \colon &[-5pt] \rH^\vee(X; \F) \rar & \rH^\vee(X; \F) \\
-	& {[\alpha]} \rar[maps to] & \big[(\alpha \cup_{k-\bars{\alpha}} \alpha)\big]
+	& {[\alpha]} \rar[maps to] & \big[(\alpha \cup_{-\bars{\alpha}-k} \alpha)\big]
 \end{tikzcd}
 \]
 laying at the heart of stable homotopy theory.
@@ -27,8 +27,8 @@ These applications require not only cochain representatives of Steenrod operatio
 Such constructions are used for explicit approximations to the Postnikov towers associated with generalized cohomology theories, particularly spin bordism \cite{brumfiel2016pontrjagin, brumfiel2018pontrjagin}.
 
 In this work, we give an axiomatic characterization of Steenrod's original cup-$i$ construction up to isomorphism, rather than merely up to homotopy.
-Informally, our axioms require naturality, a minimal parameter complex, nontriviality, irreducibility with respect to subsimplices, and maximal freeness under transposition.
-We prove that these axioms are independent and that the cup-$i$ formulas appearing in \cite{steenrod1947products, real1996computability, gonzalez-diaz1999steenrod, mcclure2003multivariable, berger2004combinatorial, medina2020prop1, medina2023fast_sq} all represent the same isomorphism class.
+We work with natural constructions parameterized by the minimal free resolution and impose three additional conditions: nontriviality, irreducibility with respect to subsimplices, and maximal freeness under transposition.
+We prove that these three conditions are independent and that the cup-$i$ formulas appearing in \cite{steenrod1947products, real1996computability, gonzalez-diaz1999steenrod, mcclure2003multivariable, berger2004combinatorial, medina2020prop1, medina2023fast_sq} all represent the same isomorphism class.
 Thus, the classical uniqueness of the induced cohomology operations is strengthened to a uniqueness statement at the level of explicit cochain constructions.
 
 \subsection*{Related work}

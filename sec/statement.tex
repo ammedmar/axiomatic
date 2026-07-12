@@ -32,15 +32,15 @@ Unpacking this structure we have the following defining identity for any $i \in 
 \bd (\alpha \cup_{i} \beta) + (\bd\alpha) \cup_{i} \beta + \alpha \cup_{i} (\bd\beta)
 \]
 with the convention $\alpha \cup_{-1} \beta = 0$.
-By setting $i = 0$ we see that $(A, \cup_0)$ is a differential graded algebra.
-The identity obtained setting $i = 1$ implies that the algebra structure induced in the homology $HA$ of $A$ is commutative, with the product $\cup_1$ enforcing this relation at the chain level.
-This degree 1 product is itself not commutative, but it is so up to a homotopy defined by $\cup_2$, and so on.
+By setting $i = 0$ we see that $\cup_0$ is compatible with the differential.
+The identity obtained by setting $i = 1$ implies that the product induced by $\cup_0$ in the homology $HA$ of $A$ is commutative, with $\cup_1$ enforcing this relation at the chain level.
+The degree 1 product need not itself be commutative, but its failure to be so is controlled by a homotopy defined by $\cup_2$, and so on.
 
 An \textbf{isomorphism} of \mbox{cup-$i$} product structures on $A$, or simply a \textbf{cup-$i$ isomorphism}, is an automorphism $\phi$ of $W$ making the following diagram commute:
 \begin{center}
 	\begin{tikzcd}[column sep=5, row sep=15]
-		W \displaytensor_{\F[\Sym_2]} A \arrow[dr, in=180, out=-90] \arrow[rr, "\phi \, \ot \, \id \, "] & &
-		W \displaytensor_{\F[\Sym_2]} A. \arrow[dl, in=0, out=-90] \\
+		W \displaytensor_{\F[\Sym_2]} A^{\ot 2} \arrow[dr, in=180, out=-90] \arrow[rr, "\phi \, \ot \, \id \, "] & &
+		W \displaytensor_{\F[\Sym_2]} A^{\ot 2}. \arrow[dl, in=0, out=-90] \\
 		& A &
 	\end{tikzcd}
 \end{center}

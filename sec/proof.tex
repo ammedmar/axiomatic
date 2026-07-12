@@ -5,8 +5,11 @@
 In this section we present the proof of our main theorem: any semi-simplicial \mbox{cup-$i$} construction that is non-zero, irreducible and free is isomorphic to the canonical one.
 For the rest of this section we let $\triangle$ be one such construction.
 
-Our goals is to prove that:
-\noindent\textit{For every $i, n \in \N$ with $i \geq n$ and $\varepsilon \in \set{0,1}$, we have $\triangle_i[n] = T^\varepsilon\canonical_i[n]$}.
+Our goal is to prove that for every $i\in\N$ there is $\varepsilon_i\in\set{0,1}$ such that
+\[
+\triangle_i[n]=T^{\varepsilon_i}\canonical_i[n]
+\]
+for every $n\in\N$.
 We will do so in three stages \(i \geq n\), \(i = n - 1\), and \(i \leq n-2\).
 
 \subsection{($i \geq n$)}\label{ss:i_geq_n}
@@ -115,7 +118,8 @@ We will do so in three stages \(i \geq n\), \(i = n - 1\), and \(i \leq n-2\).
 		(1+T)\canonical_{n-3}[n] + \bd\delta.
 	\end{align*}
 	Since $(1+T)\triangle_{n-3}[n]$ and $(1+T)\canonical_{n-3}[n]$ are in the kernel of $\pired$, so is $\bd\delta$; that is, the irreducible chain $\delta$ is in the kernel of $(\pired \circ \bd)$.
-	By \cref{l:partition chains}, $\delta$ is a sum of partition chains and, since partition chains are fixed by $T$, we conclude that $(1+T)\delta = 0$, proving \cref{eq:bd_triangle}.
+	The chain $\delta$ has degree $2n-2\geq n$, so \cref{l:partition chains} applies.
+	It follows that $\delta$ is a sum of partition chains and, since partition chains are fixed by $T$, we conclude that $(1+T)\delta = 0$, proving \cref{eq:bd_triangle}.
 
 	We now show that \cref{eq:bd_triangle} implies either $\xi \equiv 0$ or $\xi \equiv 1$.
 	By \cref{eq:boundary_partition_chain}, the left hand side of \cref{eq:bd_triangle} equals
@@ -172,7 +176,8 @@ We will do so in three stages \(i \geq n\), \(i = n - 1\), and \(i \leq n-2\).
 			(1+T)\canonical_{i-1}[n] \ +\ \bd\delta.
 		\end{split}
 	\end{equation}
-	Since $(1+T)\triangle_{i-1}[n]$ and $(1+T)\canonical_{i-1}[n]$ are in the kernel of $\pired$, the irreducible chain $\delta$ is in the kernel of $(\pired \circ \bd)$ so, by \cref{l:partition chains}, it is a sum of partition chains.
+	Since $(1+T)\triangle_{i-1}[n]$ and $(1+T)\canonical_{i-1}[n]$ are in the kernel of $\pired$, the irreducible chain $\delta$ is in the kernel of $(\pired \circ \bd)$.
+	The chain $\delta$ has degree $n+i\geq n$, so \cref{l:partition chains} applies and shows that it is a sum of partition chains.
 	If the partition chain of some $U \in \P^n_{n-i}$ appeared in this sum then, since partition chains of distinct sets share no basis elements, $\delta$ would contain all $2^{n-i}$ basis elements $V \ot W$ with $V \union W = U$ and $V \cap W = \emptyset$; but by its explicit form above, $\delta$ contains at most two of them, and $2^{n-i} > 2$ since $n - i = k > 1$.
 	Therefore $\delta = 0$, that is, $\triangle_i[n] = T^{\varepsilon_i}\canonical_i[n]$, completing the induction.
 

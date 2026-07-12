@@ -179,9 +179,11 @@ if $i$ is odd.\footnote{To compare these formulas to those appearing in \cite[Th
 		&\{j_0+1 \dots j_1-1\} \{j_2+1 \dots j_3-1\} \dots \{j_{k-2}+1 \dots j_{k-1}-1\} \\=
 		&\{0 \dots j'_0-1\} \{j'_1+1 \dots j'_2-1\} \dots \{j'_{k-1}+1 \dots j'_k-1\}.
 	\end{align*}
-	If $j'_{k-1}+1 \leq j'_k-1$ then $j'_k - 1 = (n-i+k) - 1 \in \{j'_{k-1}+1 \dots j'_k-1\}$ so $(n-i+k)-1 = j_k - 1 \geq j_{k-1}-1$, which is impossible by \cref{eq:indexing set recursively}, so $j'_{k-1} = n-i+k-1$ by the same equation.
+	If $j'_{k-1}+1 \leq j'_k-1$, then $j'_k - 1 = (n-i+k) - 1$ belongs to the right hand side and hence to the left hand side.
+	The largest possible element of the left hand side is $j_{k-1}-1$, so this would imply $j_{k-1}-1\geq j'_k-1=j_k-1$, contradicting $j_{k-1}<j_k$.
+	Therefore the last interval on the right is empty, and \cref{eq:indexing set recursively} gives $j'_{k-1}=j'_k-1=n-i+k-1$.
 	A similar argument using the other identity shows that $j_{k-1} = n-i+k-1$.
-	If $k$ is odd a variation of this argument completes the induction step.
+	If $k$ is odd, the same argument applies with the two identities interchanged.
 	Finally, using that $j_0 = j'_0 = n-i$, the first identity reduces to
 	\[
 	\emptyset = \set{0,\dots, n-i-1}
@@ -189,6 +191,7 @@ if $i$ is odd.\footnote{To compare these formulas to those appearing in \cite[Th
 	implying $n-i \leq 0$, and, since $n-i \geq 0$, we conclude $n=i$.
 
 	It remains to be shown that $\triangle^\rR$ is not only isomorphic to the canonical \mbox{cup-$i$} construction $\canonical$, but equal.
-	To do so, notice that for every non-negative integer $i$ the summand in $\triangle_i^\rR[i+1]$ associated to the indexing element with $j_k = k+1$ for each $k \in \{0,\dots,i\}$ is $\emptyset \ot \{0\}$ which is not a summand present in $T \canonical_i[i+1]$.
+	To do so, notice that for every non-negative integer $i$ the indexing element with $j_k = k+1$ for each $k \in \{0,\dots,i\}$ is the unique one producing the summand $\emptyset \ot \{0\}$ in $\triangle_i^\rR[i+1]$.
+	This is not a summand of $T \canonical_i[i+1]$.
 	Therefore, $\triangle_i^\rR \neq T \canonical_i$ for every $i \geq 0$, so $\triangle^\rR = \canonical$ as claimed.
 \end{proof}
