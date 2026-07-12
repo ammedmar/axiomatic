@@ -28,9 +28,9 @@ Finally, an isomorphism of \mbox{cup-$i$} constructions replaces each $\triangle
 Since the canonical construction is free and $(1+T)\canonical$ is not, they are not isomorphic.
 Therefore, the freeness axiom cannot be removed from our main theorem.
 
-\subsection{Transposing one element}\label{ss:transposing}
+\subsection{Removing irreducible}
 
-\textit{
+\begin{lemma}\label{st:transposing}
 	Let $\triangle$ be a semi-simplicial \mbox{cup-$i$} construction and fix $i_0, n_0 \in \N$ with $i_0 > 0$.
 	For all non-negative integers $i$ and $n$ define
 	\[
@@ -43,7 +43,7 @@ Therefore, the freeness axiom cannot be removed from our main theorem.
 	\end{cases}
 	\]
 	Then $\widetilde\triangle = \set[\big]{\widetilde\triangle_i[n]}_{i,n}$ is a semi-simplicial \mbox{cup-$i$} construction.
-}
+\end{lemma}
 
 \begin{proof}
 	We need to verify that for all $i$ and $n$ the identity
@@ -112,10 +112,8 @@ Therefore, the freeness axiom cannot be removed from our main theorem.
 	If $i<i_0-1$ the identity on $\widetilde\triangle$ reduces to that for $\triangle$ for all values of $n$.
 \end{proof}
 
-\subsection{Removing irreducible}
-
 Let us consider the canonical \mbox{cup-$i$} construction $\canonical$ and the integers $i_0=1$ and $n_0=3$.
-The \mbox{cup-$i$} construction $\widetilde\triangle$ defined in \cref{ss:transposing} is both non-zero and free but not irreducible as we will inspect.
+The \mbox{cup-$i$} construction $\widetilde\triangle$ defined in \cref{st:transposing} is both non-zero and free but not irreducible as we will inspect.
 If $i \neq i_0-1$ or $n \not\in \set{n_0,n_0+1}$ then $\widetilde\triangle_i[n]$ is equal to $\triangle_i[n]$ or $T\triangle_i[n]$.
 With the assistance of \texttt{ComCH} we compute the two cases where the axioms could be broken:
 \[

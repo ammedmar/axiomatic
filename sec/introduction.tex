@@ -23,7 +23,7 @@ This approach became standard since any set of choices for the cup-$i$ products 
 Consequently, the interest in specific formulas for the cup-$i$ products diminished in the second half of the century.
 
 In recent years, there has been renewed interest in the use of cochain representatives, driven in part by their application to the study of topological phases of matter.
-A small sample of the physics literature considering this approach includes \cite{gaiotto2016spin, kapustin2017fermionic, meng2018classification, wang2020construction, barkeshli2021classification, tata2021anomalies, tata2021cubical}, and some of the mathematical articles motivated by this viewpoint are \cite{brumfiel2016pontrjagin, brumfiel2018pontrjagin, medina2020cartan, medina2021adem}. \anibal{Update physics list.}
+A small sample of the physics literature considering this approach includes \cite{gaiotto2016spin, kapustin2017fermionic, meng2018classification, wang2020construction, barkeshli2022classification, tata2021anomalies, tata2021cubical}, and some of the mathematical articles motivated by this viewpoint are \cite{brumfiel2016pontrjagin, brumfiel2018pontrjagin, medina2020cartan, medina2021adem}. \anibal{Update physics list.}
 The application of effective constructions is further underscored by their use in topological data analysis, as demonstrated by the use of cup-$i$ products in \cite{medina2022per_st} for extracting features from real-world data through the open-source project \href{https://github.com/Steenroder/steenroder}{\texttt{steenroder}}.
 
 In the present work we introduce an axiomatic characterization of Steenrod's original \mbox{cup-$i$} construction up to isomorphism -- not just homotopy.
@@ -31,13 +31,12 @@ Loosely expressed, our axioms demand the construction to be natural, parameteriz
 
 We complement this characterization with two further results.
 First, we prove that its axioms are independent: for each of them we construct a \mbox{cup-$i$} construction satisfying the remaining ones that is not isomorphic to Steenrod's.
-Second, we prove that irreducibility alone forces compatibility with degeneracy maps: every irreducible semi-simplicial \mbox{cup-$i$} construction is simplicial, so the semi-simplicial and simplicial classification problems coincide.
+Second, we prove that irreducibility and compatibility with face maps forces compatibility with degeneracy maps.
 
 %We now turn to the significance of this result.
-In addition to extending the axiomatic framework for cohomology operations \cite{serre1053eilenberg_maclane, cartan1955iteration, steenrod1962cohomology} to the cochain level, we demonstrate that all cup-$i$ formulas in the literature \cite{steenrod1947products, real1996computability, mcclure2003multivariable, berger2004combinatorial, medina2020prop1, medina2023fast_sq} represent the same isomorphism class \cite{medina2024polycat}.
+In addition to extending the axiomatic framework for cohomology operations \cite{serre1053eilenberg_maclane, cartan1955iteration, steenrod1962cohomology} to the cochain level, we demonstrate that all cup-$i$ formulas in the literature \cite{steenrod1947products, real1996computability, mcclure2003multivariable, berger2004combinatorial, medina2020prop1, medina2023fast_sq} represent the same isomorphism class.
 
-This universality highlights the fundamental nature of Steenrod's \mbox{cup-$i$} construction and provides additional context for its connections to physics, as discussed earlier, as well as to higher category theory, where the nerve construction can be derived from Steenrod's construction \cite{street1987orientals, medina2020globular}.
-We note that this universality is grounded in convex geometry, since the cup-$i$ products can be canonically constructed from the orthonormal basis of $\R^\infty$ using the realization of standard simplices as cyclic polytopes.
+This universality highlights the fundamental nature of Steenrod's \mbox{cup-$i$} construction and provides additional context for its connections to physics, as discussed earlier, as well as to higher category theory, where the nerve construction can be derived from Steenrod's construction \cite{street1987orientals, medina2020globular, medina2025framed}.
 
 The cup-$i$ products are part of a larger algebraic structure on cochains that encodes the entire homotopy type of spaces with certain finiteness assumptions \cite{mandell2006homotopy_type}.
 Several explicit constructions of these so-called $E_\infty$-algebra structures on simplicial cochains have been developed \cite{mcclure2003multivariable, berger2004combinatorial, medina2020prop1}.

@@ -1,14 +1,15 @@
 % !TEX root = ../axiomatic.tex
 
-\section{Proof}\label{s:proof}
+\section{Main proof}\label{s:proof}
 
 In this section we present the proof of our main theorem: any semi-simplicial \mbox{cup-$i$} construction that is non-zero, irreducible and free is isomorphic to the canonical one.
-We divide this proof into several parts.
+For the rest of this section we let $\triangle$ be one such construction.
 
-\subsection{The $i \geq n$ case}\label{ss:i_geq_n}
+Our goals is to prove that:
+\noindent\textit{For every $i, n \in \N$ with $i \geq n$ and $\varepsilon \in \set{0,1}$, we have $\triangle_i[n] = T^\varepsilon\canonical_i[n]$}.
+We will do so in three stages \(i \geq n\), \(i = n - 1\), and \(i \leq n-2\).
 
-\textit{Let $\triangle$ be a free non-zero semi-simplicial \mbox{cup-$i$} construction.
-	Then, for every $i, n \in \N$ with $i \geq n$ and $\varepsilon \in \set{0,1}$, we have $\triangle_i[n] = T^\varepsilon\canonical_i[n]$.}
+\subsection{($i \geq n$)}\label{ss:i_geq_n}
 
 \begin{proof}
 	For $i > n$ the vector space $\cP(\simplex^n)^{\ot 2}_{n+i}$ is zero, which proves the claim.
@@ -56,13 +57,11 @@ We divide this proof into several parts.
 	which, by \cref{c:free_zero}, implies $\triangle_{i-1} [n] = 0$.
 \end{proof}
 
-\subsection{The $i = n-1$ case}\label{ss:i_equals_n_minus_1}
+\begin{remark*}
+	We mention that irreducibility was not used in this proof.
+\end{remark*}
 
-\textit{Let $\triangle$ be a semi-simplicial cup-$i$ construction which is non-zero, irreducible, and free.
-	Then, for each $n \in \N$, there is $\varepsilon_n \in \set{0,1}$ such that
-	\[
-	\triangle_{n-1} [n] = T^{\varepsilon_n} \canonical_{n-1} [n].
-	\]}
+\subsection{($i = n-1$)}\label{ss:i_equals_n_minus_1}
 
 \begin{proof}
 	We will proceed by induction on $n$.
@@ -130,57 +129,53 @@ We divide this proof into several parts.
 	Therefore, either $\triangle_{n-1}[n] = \canonical_{n-1}[n]$ or $\triangle_{n-1}[n] = T\canonical_{n-1}[n]$.
 \end{proof}
 
-\begin{remark}\label{r:freeness_usage}
+\begin{remark*}\label{r:freeness_usage}
 	The proof above uses freeness only through its dependence on \cref{ss:i_geq_n} and a single application of \cref{c:free_xi}, and the latter can be justified using irreducibility instead:
 	in the relevant degree, the intersection of $\ker(1+T)$ with the subspace of irreducible chains is spanned by the partition chains $\zeta_{\set{u}}$, and adding these to $\triangle_{n-1}[n]$ only modifies the function $\xi$.
 	The dependence on \cref{ss:i_geq_n} is, however, essential: the non-free construction $(1+T)\canonical$ of \cref{ss:non_free} is non-zero and irreducible, yet $(1+T)\canonical_n[n] = 0$ for every $n \in \N$.
-\end{remark}
+\end{remark*}
 
-\subsection{Proof of main theorem}\label{ss:proof}
+\subsection{($i \leq n-2$)}\label{ss:proof}
 
-Let $\triangle = \set[\big]{\triangle_i [n]}_{i,n\in\N}$ be a semi-simplicial \mbox{cup-$i$} construction which is non-zero, irreducible, and free.
-As usual, we denote the canonical \mbox{cup-$i$} construction by $\canonical$.
-We need to show that:
-\begin{center}
-	($\ast$) For every $i \in \N$ there is $\varepsilon_i \in \set{0,1}$ such that $\triangle_i [n] = T^{\varepsilon_i}\canonical_ i [n]$ for every $n \in \N$.
-\end{center}
-For each $i \in \N$, let $\varepsilon_i \in \set{0,1}$ be provided by \cref{ss:i_equals_n_minus_1} applied to $n = i+1$, so that $\triangle_i[i+1] = T^{\varepsilon_i}\canonical_i[i+1]$.
-We prove ($\ast$) with this choice of $\varepsilon_i$ using an induction argument over $k = n-i$.
-For $k \leq 0$ we have $\triangle_i [n] = \canonical_ i [n] = T^{\varepsilon_i}\canonical_ i [n]$ by \cref{ss:i_geq_n}, since these elements are fixed by $T$, and for $k = 1$ the claim holds by the choice of $\varepsilon_i$.
-Let $k > 1$, assume that the claim holds for all $i,n \in \N$ with $n-i < k$, and fix $i,n \in \N$ with $n-i = k$.
-Applying the induction hypothesis to $\triangle_{i+1}[n]$ and $\triangle_{i+1}[n-1]$ we have
-\begin{align*}
-	(1+T)\triangle_i[n] &=
-	\bd\triangle_{i+1}[n] + \triangle_{i+1}\bd[n] \\ &=
-	T^{\varepsilon_{i+1}} \big( \bd\canonical_{i+1}[n] + \canonical_{i+1}\bd[n] \big) \\ &=
-	T^{\varepsilon_{i+1}} (1+T)\,\canonical_i[n] \\ &=
-	(1+T)\sum_{\mathclap{\quad U \in \P_{n-i}^n}} \, U^0 \ot U^1.
-\end{align*}
-\cref{c:free_xi} implies the existence of a function $\xi \colon \P_{n-i}^n \to \set{0,1}$ with
-\begin{equation}\label{eq:triangle_i_n}
-	\triangle_i[n] = \sum_{\mathclap{\quad U \in \P_{n-i}^n}} \, U^{\xi} \ot U^{\barxi}.
-\end{equation}
-Consider the irreducible chain
-\[
-\delta = \triangle_i[n] + T^{\varepsilon_i}\canonical_i[n] =
-(1+T) \sum_{\quad\mathclap{\substack{U \in \P_{n-i}^n \\ \xi(U) \neq \varepsilon_i}}} U^0 \ot U^1,
-\]
-where the second identity follows from \cref{eq:triangle_i_n}: the summands with $\xi(U) = \varepsilon_i$ cancel, and the remaining ones contribute both $U^0 \ot U^1$ and $U^1 \ot U^0$.
-By the induction hypothesis $\triangle_i[n-1] = T^{\varepsilon_i}\canonical_i[n-1]$ and, since $T$ commutes with the maps induced by coface maps, $\triangle_{i}\bd[n] = T^{\varepsilon_i}\canonical_{i}\bd[n]$.
-Then
-\begin{equation}\label{eq:main proof a}
-	\begin{split}
-		(1+T)\triangle_{i-1}[n] &=
-		\bd \triangle_{i}[n] \ +\ \triangle_{i}\bd[n] \\ &=
-		\bd \big( T^{\varepsilon_i}\canonical_{i}[n] + \delta \big)
-		\ +\ T^{\varepsilon_i}\canonical_{i}\bd[n] \\ &=
-		T^{\varepsilon_i}(1+T)\canonical_{i-1}[n] \ +\ \bd\delta \\ &=
-		(1+T)\canonical_{i-1}[n] \ +\ \bd\delta.
-	\end{split}
-\end{equation}
-Since $(1+T)\triangle_{i-1}[n]$ and $(1+T)\canonical_{i-1}[n]$ are in the kernel of $\pired$, the irreducible chain $\delta$ is in the kernel of $(\pired \circ \bd)$ so, by \cref{l:partition chains}, it is a sum of partition chains.
-If the partition chain of some $U \in \P^n_{n-i}$ appeared in this sum then, since partition chains of distinct sets share no basis elements, $\delta$ would contain all $2^{n-i}$ basis elements $V \ot W$ with $V \union W = U$ and $V \cap W = \emptyset$; but by its explicit form above, $\delta$ contains at most two of them, and $2^{n-i} > 2$ since $n - i = k > 1$.
-Therefore $\delta = 0$, that is, $\triangle_i[n] = T^{\varepsilon_i}\canonical_i[n]$, completing the induction.
+\begin{proof}
+	For each $i \in \N$, let $\varepsilon_i \in \set{0,1}$ be provided by \cref{ss:i_equals_n_minus_1} applied to $n = i+1$, so that $\triangle_i[i+1] = T^{\varepsilon_i}\canonical_i[i+1]$.
+	We prove the statement with this choice of $\varepsilon_i$ using an induction argument over $k = n-i$.
+	For $k \leq 0$ we have $\triangle_i [n] = \canonical_ i [n] = T^{\varepsilon_i}\canonical_ i [n]$ by \cref{ss:i_geq_n}, since these elements are fixed by $T$, and for $k = 1$ the claim holds by the choice of $\varepsilon_i$.
+	Let $k > 1$, assume that the claim holds for all $i,n \in \N$ with $n-i < k$, and fix $i,n \in \N$ with $n-i = k$.
+	Applying the induction hypothesis to $\triangle_{i+1}[n]$ and $\triangle_{i+1}[n-1]$ we have
+	\begin{align*}
+		(1+T)\triangle_i[n] &=
+		\bd\triangle_{i+1}[n] + \triangle_{i+1}\bd[n] \\ &=
+		T^{\varepsilon_{i+1}} \big( \bd\canonical_{i+1}[n] + \canonical_{i+1}\bd[n] \big) \\ &=
+		T^{\varepsilon_{i+1}} (1+T)\,\canonical_i[n] \\ &=
+		(1+T)\sum_{\mathclap{\quad U \in \P_{n-i}^n}} \, U^0 \ot U^1.
+	\end{align*}
+	\cref{c:free_xi} implies the existence of a function $\xi \colon \P_{n-i}^n \to \set{0,1}$ with
+	\begin{equation}\label{eq:triangle_i_n}
+		\triangle_i[n] = \sum_{\mathclap{\quad U \in \P_{n-i}^n}} \, U^{\xi} \ot U^{\barxi}.
+	\end{equation}
+	Consider the irreducible chain
+	\[
+	\delta = \triangle_i[n] + T^{\varepsilon_i}\canonical_i[n] =
+	(1+T) \sum_{\quad\mathclap{\substack{U \in \P_{n-i}^n \\ \xi(U) \neq \varepsilon_i}}} U^0 \ot U^1,
+	\]
+	where the second identity follows from \cref{eq:triangle_i_n}: the summands with $\xi(U) = \varepsilon_i$ cancel, and the remaining ones contribute both $U^0 \ot U^1$ and $U^1 \ot U^0$.
+	By the induction hypothesis $\triangle_i[n-1] = T^{\varepsilon_i}\canonical_i[n-1]$ and, since $T$ commutes with the maps induced by coface maps, $\triangle_{i}\bd[n] = T^{\varepsilon_i}\canonical_{i}\bd[n]$.
+	Then
+	\begin{equation}\label{eq:main proof a}
+		\begin{split}
+			(1+T)\triangle_{i-1}[n] &=
+			\bd \triangle_{i}[n] \ +\ \triangle_{i}\bd[n] \\ &=
+			\bd \big( T^{\varepsilon_i}\canonical_{i}[n] + \delta \big)
+			\ +\ T^{\varepsilon_i}\canonical_{i}\bd[n] \\ &=
+			T^{\varepsilon_i}(1+T)\canonical_{i-1}[n] \ +\ \bd\delta \\ &=
+			(1+T)\canonical_{i-1}[n] \ +\ \bd\delta.
+		\end{split}
+	\end{equation}
+	Since $(1+T)\triangle_{i-1}[n]$ and $(1+T)\canonical_{i-1}[n]$ are in the kernel of $\pired$, the irreducible chain $\delta$ is in the kernel of $(\pired \circ \bd)$ so, by \cref{l:partition chains}, it is a sum of partition chains.
+	If the partition chain of some $U \in \P^n_{n-i}$ appeared in this sum then, since partition chains of distinct sets share no basis elements, $\delta$ would contain all $2^{n-i}$ basis elements $V \ot W$ with $V \union W = U$ and $V \cap W = \emptyset$; but by its explicit form above, $\delta$ contains at most two of them, and $2^{n-i} > 2$ since $n - i = k > 1$.
+	Therefore $\delta = 0$, that is, $\triangle_i[n] = T^{\varepsilon_i}\canonical_i[n]$, completing the induction.
 
-Finally, by the description of the automorphisms of $W$ given in \cref{s:statement}, the assignment $e_i \mapsto T^{\varepsilon_i} e_i$ defines an automorphism $\phi$ of $W$, and ($\ast$) states precisely that $\phi$ is an isomorphism between the \mbox{cup-$i$} constructions $\triangle$ and $\canonical$.
-This completes the proof of the main theorem.
+	Finally, by the description of the automorphisms of $W$ given in \cref{s:statement}, the assignment $e_i \mapsto T^{\varepsilon_i} e_i$ defines an automorphism $\phi$ of $W$, inducing an isomorphism between the \mbox{cup-$i$} constructions $\triangle$ and $\canonical$.
+	This completes the proof of the main theorem.
+\end{proof}
