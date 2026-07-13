@@ -17,3 +17,7 @@
 claude_analysis.md
 
 latexdiff/
+
+axiomatic.fdb_latexmk
+
+*.fls

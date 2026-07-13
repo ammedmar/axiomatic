@@ -52,7 +52,7 @@ In other words, the linear duality functor induces a bijection between \mbox{cup
 
 A semi-simplicial \mbox{cup-$i$} construction $\triangle$ is completely determined by its restriction to representable semi-simplicial sets
 \[
-W \ot_{\Ftwo[\Sym_2]} \chains(\simplex^n)^{\ot 2} \to \chains(\simplex^n).
+W \ot_{\Ftwo[\Sym_2]} \cochains(\simplex^n)^{\ot 2} \to \cochains(\simplex^n).
 \]
 Given that each of the chain complexes $\chains(\simplex^n)$ is finite-dimensional, $\triangle$ is determined by the natural collection of cup-$i$ coproduct structures
 \[
@@ -69,7 +69,7 @@ satisfying
 (1+T) \triangle_{i-1}
 \]
 with $\triangle_{-1} = 0$.
-Each natural transformation $\triangle_i$ in \eqref{eq:natural_linear_maps} is completely determined by the set
+Each natural transformation $\triangle_i$ in \eqref{eq:natural_linear_maps} is completely determined by the set of tensor chains
 \[
 \set[\big]{\triangle_i[n] \in \chains(\simplex^n)^{\ot 2}_{n+i}}_{n\in\N}
 \]
@@ -104,7 +104,11 @@ For $n,m \in \N$ let $\P_{n-m}^n$ be the set of subsets of $\set{0,\dots,n}$ who
 Let $\cP(\simplex^n)$ be the chain complex defined by
 \[
 \cP(\simplex^n)_m = \Ftwo\set{\P_{n-m}^n}, \qquad
-\bd U = \sum_{\mathclap{\bar{u} \notin U}} \bar{u}.U
+\bd U =
+\begin{cases}
+	\displaystyle\sum_{\mathclap{\bar{u} \notin U}} \bar{u}.U, & m>0, \\
+	0, & m=0,
+\end{cases}
 \]
 where $\bar{u} \notin U$ stands for $\bar{u} \in \set{0,\dots,n} \setminus U$ and $\bar{u}.U$ for $\set{\bar{u}} \union U$.
 For any coface $\delta_j \colon [n] \to [n+1]$ the chain map $\cP(\delta_j) \colon \cP(\simplex^n) \to \cP(\simplex^{n+1})$ is defined by
@@ -123,7 +127,7 @@ For any codegeneracy $\sigma_j \colon [n] \to [n-1]$ the chain map $\cP(\sigma_j
 \end{equation}
 where $\sigma_j$ also denotes the induced map on subsets, i.e., $\sigma_j(S) = \set{\sigma_j(u) \mid u \in S}$.
 
-\begin{lemma}
+\begin{lemma}\label{st:chains_functor_equivalence}
 	The function
 	\[
 	\begin{tikzcd}[column sep=small,row sep=0]
@@ -137,7 +141,8 @@ where $\sigma_j$ also denotes the induced map on subsets, i.e., $\sigma_j(S) = \
 \begin{proof}
 	Since any non-degenerate simplex in $\simplex^n$ is a face of the top dimensional one $[n]$, this assignment defines a bijection between the basis of $\cP(\simplex^n)_m$ and $\chains(\simplex^n)_m$.
 	Let $U = \{u_1 < \cdots < u_{n-m}\} \in \rP_{n-m}^n$.
-	Using that for $u \leq j$ we have $d_jd_u = d_ud_{j+1}$ we can show that this bijection induces a chain isomorphism as follows:
+	For $m=0$, both sides have zero boundary.
+	For $m>0$, using that for $u \leq j$ we have $d_jd_u = d_ud_{j+1}$, we have
 	\begin{align*}
 		\bd d_U[n] &=
 		\sum_{\mathclap{j \in \{0, \dots, m\}}}
@@ -148,7 +153,7 @@ where $\sigma_j$ also denotes the induced map on subsets, i.e., $\sigma_j(S) = \
 		d_{\{\bar u\} \union U}[n] \\ &=
 		d_{\bd U}[n].
 	\end{align*}
-	The compatibility with cofaces and codegeneracies is left to the interested reader.
+	The compatibility with cofaces and codegeneracies follows directly from their definitions.
 \end{proof}
 
 \subsection{Cup-$i$ constructions, dually}\label{ss:axioms_revisited}
@@ -212,8 +217,7 @@ Inspecting \cref{ss:canonical} we see that the canonical \mbox{cup-$i$} construc
 
 \begin{proof}
 	It is clearly non-zero and a straightforward application of \cref{l:dual_axioms} establishes its irreducibility and freeness.
-	Its simpliciality follows from its irreducibility and \cref{t:irreducible_implies_simplicial} below, whose proof is independent of the present considerations; we nevertheless include the following direct verification.
-	We consider \cref{eq:codegeneracies} and an arbitrary basis element $U^0 \ot U^1$ appearing as a summand in $\canonical_i[n]$.
+	To see it is simplicial we consider \cref{eq:codegeneracies} and an arbitrary basis element $U^0 \ot U^1$ appearing as a summand in $\canonical_i[n]$.
 	Let $U = U^0 \union U^1$.
 	Based on \cref{l:simplicial_from_semisimplicial}, we need to check that for any $j \in \set{0,\dots,n-1}$ we have
 	\begin{equation}\label{eq:checking_simplicial}
