@@ -33,7 +33,7 @@ Unpacking this structure we have the following defining identity for any $i \in 
 \]
 with the convention $\alpha \cup_{-1} \beta = 0$.
 By setting $i = 0$ we see that $\cup_0$ is compatible with the differential.
-The identity obtained by setting $i = 1$ implies that the product induced by $\cup_0$ in the homology $HA$ of $A$ is commutative, with $\cup_1$ enforcing this relation at the chain level.
+The identity obtained by setting $i = 1$ implies that the product induced by $\cup_0$ in the homology of $A$ is commutative, with $\cup_1$ enforcing this relation at the chain level.
 The degree 1 product need not itself be commutative, but its failure to be so is controlled by a homotopy defined by $\cup_2$, and so on.
 
 An \textbf{isomorphism} of \mbox{cup-$i$} product structures on $A$, or simply a \textbf{cup-$i$ isomorphism}, is an automorphism $\phi$ of $W$ making the following diagram commute:
@@ -51,7 +51,7 @@ Notice that a simplicial \mbox{cup-$i$} construction is a semi-simplicial one sa
 
 \subsection{Axioms}
 
-The first axiom alluded to in the introduction, naturality, has been explicitly included in our definition of (semi-)simplicial \mbox{cup-$i$} construction; whereas the second, minimality, is manifested in the use of $W$ instead of an arbitrary resolution of $\F$ as \(\F[\Sym_2]\)-module.
+The first axiom alluded to in the abstract, naturality, has been explicitly included in our definition of (semi-)simplicial \mbox{cup-$i$} construction; whereas the second, minimality, is manifested in the use of $W$ instead of an arbitrary resolution of $\F$ as \(\F[\Sym_2]\)-module.
 
 The \textbf{zero \mbox{cup-$i$} construction} assigns the zero map
 \[
@@ -71,22 +71,18 @@ Any other construction is said to be \textbf{non-zero}.
 
 Let $X$ be a semi-simplicial set.
 Below we identify simplices with their associated chain and cochain basis elements.
-A semi-simplicial \mbox{cup-$i$} construction is said to be:
-\begin{itemize}
-	\item \textbf{Irreducible} if for any simplex $x$ in $X$
-	\[
-	\boxed{\Big( y^{(1)} \cup_{i} y^{(2)} \Big)(x) = 0}
-	\]
-	whenever $y$ is a proper face of $x$ and $y^{(1)}$ and $y^{(2)}$ are faces of $y$.
-
-	\item \textbf{Free} if for any two simplices $x$ and $x'$ in $X$
-	\[
-	\boxed{x \cup_{i} x' = x' \cup_{i} x} \
-	\Longrightarrow \
-	\boxed{x \cup_{i} x' = 0}
-	\]
-	whenever $\bars{x} \neq i$ or $\bars{x'} \neq i$.
-\end{itemize}
+A semi-simplicial \mbox{cup-$i$} construction is said to be \textbf{irreducible} if for any simplex $x$ in $X$
+\[
+\boxed{\Big( y^{(1)} \cup_{i} y^{(2)} \Big)(x) = 0}
+\]
+whenever $y$ is a proper face of $x$ and $y^{(1)}$ and $y^{(2)}$ are faces of $y$.
+It is \textbf{free} if for any two simplices $x$ and $x'$ in $X$
+\[
+\boxed{x \cup_{i} x' = x' \cup_{i} x} \
+\Longrightarrow \
+\boxed{x \cup_{i} x' = 0}
+\]
+whenever $\bars{x} \neq i$ or $\bars{x'} \neq i$.
 
 \subsection{Main Theorem}\label{ss:main_theorem}
 
@@ -98,35 +94,35 @@ Furthermore, it is simplicial.}
 %In \cref{s:others,s:operads} we will show that all semi-simplicial \mbox{cup-$i$} constructions defined in the literature represent the same isomorphism class.
 %Additionally, in \cref{s:examples} we show that the axioms of the main theorem are independent.
 
-\subsection{Canonical cup-\textit{i} construction}\label{ss:canonical}
-
-To prove our main result we will use the \mbox{cup-$i$} construction introduced in \cite{medina2023fast_sq}.
-Before we recall its definition, let us introduce the following notation:
-For any $n$-simplex $x$ and set $U = \{u_1 < \dots < u_r\} \subseteq \set[big]{0,\dots,n}$ we write $d_U(x)$ for the composition of face maps $d_{u_1}\!\! \dotsm d_{u_r}(x)$ with $d_{\emptyset}(x) = x$.
-
-Let $X$ be a semi-simplicial set, $x$ an $n$-simplex of $X$, and $\alpha, \beta$ two cochains in $\cochains(X)$, then, by definition,
-\[
-(\alpha \cup_i \beta)(x) =
-\begin{cases}
-	(\alpha \ot \beta) \sum d_{U^0}(x) \ot d_{U^1}(x) &
-	\text{if } i \in \{0, \dots, n\}, \\
-	\hfil 0 &
-	\text{otherwise},
-\end{cases}
-\]
-where the sum is taken over all $U = \{u_1 < \cdots < u_{n-i}\} \subseteq \{0, \dots, n\}$ and
-\[
-U^0 = \{u_j \in U \mid u_j + j \equiv 0 \text{ mod } 2\}, \qquad
-U^1 = \{u_j \in U \mid u_j + j \equiv 1 \text{ mod } 2\}.
-\]
-As an example we mention that, if $i = 0$, the above formula gives
-\[
-(\alpha \cup_0 \beta)(x) =
-\sum_{j=0}^n \alpha \big(d_{j+1} \cdots d_{n}(x)\big) \cdot \beta \big(d_{0} \cdots d_{j-1}(x)\big),
-\]
-the well-known Alexander--Whitney product.
-
-The fact that these formulas define a semi-simplicial \mbox{cup-$i$} construction is proved in \cite{medina2023fast_sq}.
-They also underlie the algorithm for persistent Steenrod invariants introduced in \cite{medina2022per_st} and implemented in \texttt{steenroder}.
-We call this the \textbf{canonical \mbox{cup-$i$} construction}.
-% and prove in \cref{t:steenrod cup-i} that it agrees with Steenrod's original construction.
+%\subsection{Canonical cup-\textit{i} construction}\label{ss:canonical}
+%
+%To prove our main result we will use the \mbox{cup-$i$} construction introduced in \cite{medina2023fast_sq}.
+%Before we recall its definition, let us introduce the following notation:
+%For any $n$-simplex $x$ and set $U = \{u_1 < \dots < u_r\} \subseteq \set[big]{0,\dots,n}$ we write $d_U(x)$ for the composition of face maps $d_{u_1}\!\! \dotsm d_{u_r}(x)$ with $d_{\emptyset}(x) = x$.
+%
+%Let $X$ be a semi-simplicial set, $x$ an $n$-simplex of $X$, and $\alpha, \beta$ two cochains in $\cochains(X)$, then, by definition,
+%\[
+%(\alpha \cup_i \beta)(x) =
+%\begin{cases}
+%	(\alpha \ot \beta) \sum d_{U^0}(x) \ot d_{U^1}(x) &
+%	\text{if } i \in \{0, \dots, n\}, \\
+%	\hfil 0 &
+%	\text{otherwise},
+%\end{cases}
+%\]
+%where the sum is taken over all $U = \{u_1 < \cdots < u_{n-i}\} \subseteq \{0, \dots, n\}$ and
+%\[
+%U^0 = \{u_j \in U \mid u_j + j \equiv 0 \text{ mod } 2\}, \qquad
+%U^1 = \{u_j \in U \mid u_j + j \equiv 1 \text{ mod } 2\}.
+%\]
+%As an example we mention that, if $i = 0$, the above formula gives
+%\[
+%(\alpha \cup_0 \beta)(x) =
+%\sum_{j=0}^n \alpha \big(d_{j+1} \cdots d_{n}(x)\big) \cdot \beta \big(d_{0} \cdots d_{j-1}(x)\big),
+%\]
+%the well-known Alexander--Whitney product.
+%
+%The fact that these formulas define a semi-simplicial \mbox{cup-$i$} construction is proved in \cite{medina2023fast_sq}.
+%They also underlie the algorithm for persistent Steenrod invariants introduced in \cite{medina2022per_st} and implemented in \texttt{steenroder}.
+%We call this the \textbf{canonical \mbox{cup-$i$} construction}.
+%% and prove in \cref{t:steenrod cup-i} that it agrees with Steenrod's original construction.
