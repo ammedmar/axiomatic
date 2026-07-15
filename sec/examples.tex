@@ -15,9 +15,14 @@ Therefore, the non-zero axiom cannot be removed from our main theorem.
 
 Consider the simplicial \mbox{cup-$i$} construction
 \[
-(1+T)\canonical = \set[\big]{\canonical_i[n] + T\canonical_i[n]}_{i,n}
+(1+T)\canonical = \set[\big]{\canonical_i[n] + T\canonical_i[n]}_{i,n}.
 \]
-provided by the linearity observations closing \cref{ss:axioms_revisited}.
+It is a simplicial \mbox{cup-$i$} construction: naturality and simpliciality are preserved by $1+T$, while
+\[
+	\bd(1+T)\canonical_i + (1+T)\canonical_i\bd
+	= (1+T)^2\canonical_{i-1}
+	= (1+T)\big((1+T)\canonical_{i-1}\big) = 0.
+\]
 It is non-zero; indeed, by \cref{ss:canonical_special_cases}, for any $n > 0$
 \[
 (1+T)\canonical_{n-1}[n] = \sum_{u=0}^{n} \set{u} \ot \emptyset \ + \ \emptyset \ot \set{u}.

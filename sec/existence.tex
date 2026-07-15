@@ -2,7 +2,7 @@
 
 Using the reformulation established in the previous section, we present a simplicial cup-\(i\) construction satisfying all the axioms.
 It plays a central role in the proof of our main theorem in \cref{s:proof}, and in \cref{ss:original} we prove that it coincides with Steenrod's original construction.
-This contruction appeared first in \cite{medina2023fast_sq} and was used in \cite{medina2022per_st} to compute persistent Steenrod squares of real-world data.
+This construction appeared first in \cite{medina2025fast_sq} and was used in \cite{medina2022per_st} to compute persistent Steenrod squares of real-world data.
 
 \subsection{Canonical construction}
 
@@ -14,11 +14,13 @@ For any $U \in \rP^n_{n-i}$ the \textbf{index function} of $U$ is given by
 \end{split}
 \]
 For any $U \in \rP^n_{n-i}$ and $\varepsilon \in \Ftwo \cong \{0,1\}$ we write $U^\varepsilon$ instead of $\ind_U^{-1}(\varepsilon)$.
-Inspecting \cref{ss:canonical} we see that the canonical \mbox{cup-$i$} construction is defined by the elements
+For $0 \leq i \leq n$, define
 \[
 \canonical_i[n] =
 \sum_{\mathclap{\quad U \in \rP^n_{n-i}}} \ U^0 \ot U^1.
 \]
+For $i>n$, set $\canonical_i[n]=0$.
+By \cite[Theorem~10]{medina2025fast_sq}, these elements define a semi-simplicial \mbox{cup-$i$} construction.
 
 \begin{theorem}\label{t:existence}
 	The canonical \mbox{cup-$i$} construction is simplicial, non-zero, irreducible, and free.
@@ -54,7 +56,7 @@ and, for $n > 0$,
 
 %\subsection{Canonical cup-\textit{i} construction}\label{ss:canonical}
 %
-%To prove our main result we will use the \mbox{cup-$i$} construction introduced in \cite{medina2023fast_sq}.
+%To prove our main result we will use the \mbox{cup-$i$} construction introduced in \cite{medina2025fast_sq}.
 %Before we recall its definition, let us introduce the following notation:
 %For any $n$-simplex $x$ and set $U = \{u_1 < \dots < u_r\} \subseteq \set[big]{0,\dots,n}$ we write $d_U(x)$ for the composition of face maps $d_{u_1}\!\! \dotsm d_{u_r}(x)$ with $d_{\emptyset}(x) = x$.
 %
@@ -80,6 +82,6 @@ and, for $n > 0$,
 %\]
 %the well-known Alexander--Whitney product.
 %
-%The fact that these formulas define a semi-simplicial \mbox{cup-$i$} construction is proved in \cite{medina2023fast_sq}.
+%The fact that these formulas define a semi-simplicial \mbox{cup-$i$} construction is proved in \cite{medina2025fast_sq}.
 %They also underlie the algorithm for persistent Steenrod invariants introduced in \cite{medina2022per_st} and implemented in \texttt{steenroder}.
 %We call this the \textbf{canonical \mbox{cup-$i$} construction}.

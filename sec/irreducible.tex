@@ -4,13 +4,7 @@ In this section, we study the irreducibility condition.
 It will be convenient to work in the \textbf{augmented simplex category}, which contains an additional object \([-1] = \emptyset\) and a unique morphism from it to every \([n]\).
 The natural equivalence between $\cP$ and $\chains$ of \cref{st:chains_functor_equivalence} extends to this category; we denote the extended functors by $\widehat{\cP}$ and $\widehat\chains$, respectively.
 For every $n$, the only additional basis element of $\widehat{\cP}(\simplex^n)$ is the full subset $\set{0,\dots,n}$ in degree $-1$.
-We denote by
-\[
-	q\colon \widehat{\cP}(\simplex^n)\longrightarrow \cP(\simplex^n)
-\]
-the quotient chain map that kills this degree $-1$ element and identify the underlying graded vector spaces of $\widehat{\cP}(\simplex^n)$ and $\cP(\simplex^n)$ in non-negative degrees.
-%Their differentials agree in positive degrees; in degree zero, the augmented differential takes values in degree $-1$, whereas the ordinary differential is zero.
-%Unless explicitly stated otherwise, partition chains and their boundaries in this section are understood in the augmented complex.
+We identify the underlying graded vector spaces of $\widehat{\cP}(\simplex^n)$ and $\cP(\simplex^n)$ in non-negative degrees.
 
 The main results of this section are an explicit description of the largest subcomplex of irreducible augmented chains and a proof that irreducibility together with semi-simpliciality implies simpliciality.
 
@@ -29,13 +23,13 @@ For any $U \subseteq \set{0,\dots,n}$, its \textbf{partition chain} is the eleme
 in \(\widehat{\cP}(\simplex^n)^{\ot 2}\), where the sum is taken over all basis elements \(V \ot W\) satisfying \(V \union W = U\) and \(V \cap W = \emptyset\).
 Partition chains are irreducible.
 If $U\subsetneq\set{0,\dots,n}$, then $\zeta_U$ is concentrated in non-negative bidegrees and agrees with its image in the ordinary complex \(\cP(\simplex^n)^{\ot 2}\).
-For $U=\set{0,\dots,n}$, its image under $q^{\ot 2}$ is obtained by deleting the two summands
-\[
-	\set{0,\dots,n}\ot\emptyset
-	\quad\text{and}\quad
-	\emptyset\ot\set{0,\dots,n}.
-\]
-We use the same notation $\zeta_U$ for this image when working in the ordinary complex.
+%For $U=\set{0,\dots,n}$, its image under $q^{\ot 2}$ is obtained by deleting the two summands
+%\[
+%\set{0,\dots,n}\ot\emptyset
+%\quad\text{and}\quad
+%\emptyset\ot\set{0,\dots,n}.
+%\]
+%We use the same notation $\zeta_U$ for this image when working in the ordinary complex.
 
 \begin{theorem}\label{t:augmented_partition_subcomplex}
 	Partition chains span the largest subcomplex contained in the irreducible subspace of $\widehat{\cP}(\simplex^n)^{\ot 2}$.
@@ -50,11 +44,9 @@ We use the same notation $\zeta_U$ for this image when working in the ordinary c
 	Let $\zeta = \sum_\Lambda V \ot W$ be an irreducible chain, where $\Lambda$ is a set of distinct irreducible basis elements.
 	The reducible part of its boundary is
 	\begin{equation}\label{eq:reducible_augmented_boundary}
-		\pired(\bd\zeta)
-		=
+		\pired(\bd\zeta) =
 		\sum_\Lambda\left(
-		\sum_{w \in W} w.V \ot W
-		+
+		\sum_{w \in W} w.V \ot W +
 		\sum_{v \in V} V \ot v.W
 		\right).
 	\end{equation}
@@ -74,7 +66,7 @@ We use the same notation $\zeta_U$ for this image when working in the ordinary c
 \end{proof}
 
 \begin{corollary}\label{c:boundary_partition_chain}
-	For every $U \subseteq \set{0,\dots,n}$,
+	For ever $U \subseteq \set{0,\dots,n}$ in \(\widehat{\cP}(\simplex^n)^{\ot 2}\) we have
 	\begin{equation}\label{eq:boundary_partition_chain}
 		\bd\zeta_U = \sum_{\bar u \notin U}\zeta_{\bar u.U}.
 	\end{equation}
@@ -85,7 +77,6 @@ We use the same notation $\zeta_U$ for this image when working in the ordinary c
 	The remaining terms add an element $\bar u \notin U$ to one of the two factors.
 	For each such $\bar u$, every partition of $\bar u.U$ occurs exactly once, according to the factor containing $\bar u$.
 	This proves \cref{eq:boundary_partition_chain} in the augmented complex.
-	Applying $q^{\ot 2}$ gives the identically written formula in the ordinary complex.
 \end{proof}
 
 The following comparison with the ordinary complex is the form needed later.
