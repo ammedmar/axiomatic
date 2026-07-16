@@ -1,5 +1,4 @@
-% environments
-% environments
+% theorem environments
 \newtheorem{theorem}[subsection]{Theorem}
 \newtheorem*{theorem*}{Theorem}
 \newtheorem{proposition}[subsection]{Proposition}
@@ -118,11 +117,13 @@
 \newcommand{\coEnd}{\mathrm{coEnd}}
 \newcommand{\xla}[1]{\xleftarrow{#1}}
 \newcommand{\xra}[1]{\xrightarrow{#1}}
-\newcommand{\defeq}{\stackrel{\mathrm{def}}{=}}
+\newcommand{\defeq}{\coloneqq}
+\newcommand{\defn}[1]{{\color{ForestGreen}\emph{#1}}}
 
 % comments
-\newcommand{\anibal}[1]{\noindent\textcolor{red}{\underline{Anibal}: #1}}
-\newcommand{\codex}[1]{\noindent\textcolor{blue}{\underline{Codex}: #1}}
+\newcommand{\anibal}[1]{\todo[Anibal\!]{#1}}
+\newcommand{\codex}[1]{\todo[Codex\!]{#1}}
+\newcommand{\TBW}{\noindent TBW\todo{TBW}}
 
 % pdf
 \newcommand{\pdfEinfty}{\texorpdfstring{${E_\infty}$}{E-infty}}

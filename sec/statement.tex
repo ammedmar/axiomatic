@@ -15,13 +15,13 @@ Let
 W = \Big(
 \Ftwo[\Sym_2]\{e_0\} &
 \Ftwo[\Sym_2]\{e_1\} \arrow[l, "\ 1+T"'] &
-\arrow[l, "\ 1+T"'] \cdots \Big)
+\arrow[l, "\ 1+T"'] \dots \Big)
 \end{tikzcd}
 \]
 be the minimal free resolution of $\Ftwo$ by $\Ftwo[\Sym_2]$-modules.
 We notice that the group of automorphisms of $W$ is isomorphic to $\prod_{\N} \Sym_2$ with any such $\phi$ determined by a choice, for every $i \in \N$, between $\phi(e_i) = e_i$ or $\phi(e_i) = Te_i$.
 
-A \textbf{\mbox{cup-$i$} product structure} on a chain complex $A$ is a chain map
+A \defn{\mbox{cup-$i$} product structure} on a chain complex $A$ is a chain map
 \[
 W \ot_{\F[\Sym_2]} A^{\ot 2} \to A
 \]
@@ -37,7 +37,7 @@ By setting $i = 0$ we see that $\cup_0$ is compatible with the differential.
 The identity obtained by setting $i = 1$ implies that the product induced by $\cup_0$ in the homology of $A$ is commutative, with $\cup_1$ enforcing this relation at the chain level.
 The degree 1 product need not itself be commutative, but its failure to be so is controlled by a homotopy defined by $\cup_2$, and so on.
 
-An \textbf{isomorphism} of \mbox{cup-$i$} product structures on $A$, or simply a \textbf{cup-$i$ isomorphism}, is an automorphism $\phi$ of $W$ making the following diagram commute:
+An \defn{isomorphism} of \mbox{cup-$i$} product structures on $A$, or simply a \defn{cup-$i$ isomorphism}, is an automorphism $\phi$ of $W$ making the following diagram commute:
 \begin{center}
 	\begin{tikzcd}[column sep=5, row sep=15]
 		W \displaytensor_{\F[\Sym_2]} A^{\ot 2} \arrow[dr, in=180, out=-90] \arrow[rr, "\phi \, \ot \, \id \, "] & &
@@ -46,25 +46,25 @@ An \textbf{isomorphism} of \mbox{cup-$i$} product structures on $A$, or simply a
 	\end{tikzcd}
 \end{center}
 
-A \textbf{(semi-)simplicial \mbox{cup-$i$} construction} is a \mbox{cup-$i$} product structure on $\cochains(X)$ for every (semi-)simplicial set $X$ that is natural with respect to (semi-)simplicial maps.
-Similarly, an \textbf{isomorphism} of (semi-)simplicial \mbox{cup-$i$} constructions is a natural family of cup-$i$ isomorphisms for each such $X$.
+A \defn{(semi-)simplicial \mbox{cup-$i$} construction} is a \mbox{cup-$i$} product structure on $\cochains(X)$ for every (semi-)simplicial set $X$ that is natural with respect to (semi-)simplicial maps.
+Similarly, an \defn{isomorphism} of (semi-)simplicial \mbox{cup-$i$} constructions is a natural family of cup-$i$ isomorphisms for each such $X$.
 Notice that a simplicial \mbox{cup-$i$} construction is a semi-simplicial one satisfying additional constraints, i.e., compatibility with degeneracy maps.
 
 \subsection{Axioms}
 
 The first axiom alluded to in the abstract, naturality, has been explicitly included in our definition of (semi-)simplicial \mbox{cup-$i$} construction; whereas the second, minimality, is manifested in the use of $W$ instead of an arbitrary resolution of $\F$ as \(\F[\Sym_2]\)-module.
 
-The \textbf{zero \mbox{cup-$i$} construction} assigns the zero map
+The \defn{zero \mbox{cup-$i$} construction} assigns the zero map
 \[
 W \ot_{\F[\Sym_2]} \cochains(X)^{\ot 2} \to \cochains(X)
 \]
 to every (semi-)simplicial set $X$.
-Any other construction is said to be \textbf{non-zero}.
+Any other construction is said to be \defn{non-zero}.
 
 %We discard the zero simplicial \mbox{cup-$i$} construction explicitly via the third axiom.
 %We now introduce the last two axioms.
 
-%A simplicial \mbox{cup-$i$} construction is \textbf{non-zero} if
+%A simplicial \mbox{cup-$i$} construction is \defn{non-zero} if
 %\[
 %\boxed{x \cup_0 x \neq 0}
 %\]
@@ -72,12 +72,12 @@ Any other construction is said to be \textbf{non-zero}.
 
 Let $X$ be a semi-simplicial set.
 Below we identify simplices with their associated chain and cochain basis elements.
-A semi-simplicial \mbox{cup-$i$} construction is said to be \textbf{irreducible} if for any simplex $x$ in $X$
+A semi-simplicial \mbox{cup-$i$} construction is said to be \defn{irreducible} if for any simplex $x$ in $X$
 \[
 \boxed{\Big( y^{(1)} \cup_{i} y^{(2)} \Big)(x) = 0}
 \]
 whenever $y$ is a proper face of $x$ and $y^{(1)}$ and $y^{(2)}$ are faces of $y$.
-It is \textbf{free} if for any two simplices $x$ and $x'$ in $X$
+It is \defn{free} if for any two simplices $x$ and $x'$ in $X$
 \[
 \boxed{x \cup_{i} x' = x' \cup_{i} x} \
 \Longrightarrow \
@@ -111,7 +111,7 @@ Furthermore, it is simplicial.}
 %	\text{otherwise},
 %\end{cases}
 %\]
-%where the sum is taken over all $U = \{u_1 < \cdots < u_{n-i}\} \subseteq \{0, \dots, n\}$ and
+%where the sum is taken over all $U = \{u_1 < \dots < u_{n-i}\} \subseteq \{0, \dots, n\}$ and
 %\[
 %U^0 = \{u_j \in U \mid u_j + j \equiv 0 \text{ mod } 2\}, \qquad
 %U^1 = \{u_j \in U \mid u_j + j \equiv 1 \text{ mod } 2\}.
@@ -119,11 +119,11 @@ Furthermore, it is simplicial.}
 %As an example we mention that, if $i = 0$, the above formula gives
 %\[
 %(\alpha \cup_0 \beta)(x) =
-%\sum_{j=0}^n \alpha \big(d_{j+1} \cdots d_{n}(x)\big) \cdot \beta \big(d_{0} \cdots d_{j-1}(x)\big),
+%\sum_{j=0}^n \alpha \big(d_{j+1} \dots d_{n}(x)\big) \cdot \beta \big(d_{0} \dots d_{j-1}(x)\big),
 %\]
 %the well-known Alexander--Whitney product.
 %
 %The fact that these formulas define a semi-simplicial \mbox{cup-$i$} construction is proved in \cite{medina2025fast_sq}.
 %They also underlie the algorithm for persistent Steenrod invariants introduced in \cite{medina2022per_st} and implemented in \texttt{steenroder}.
-%We call this the \textbf{canonical \mbox{cup-$i$} construction}.
+%We call this the \defn{canonical \mbox{cup-$i$} construction}.
 %% and prove in \cref{t:steenrod cup-i} that it agrees with Steenrod's original construction.

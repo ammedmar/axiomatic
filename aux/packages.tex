@@ -1,14 +1,29 @@
 % !TEX root = ../axiomatic.tex
 
-% New
-
-% Usual
+% Font encoding and typography
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{microtype}
-\usepackage{amssymb}
+
+% Mathematics
 \usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{mathbbol} % Extended \mathbb{} support
+
+% Colors
+\usepackage[dvipsnames]{xcolor}
+
+% Diagrams
 \usepackage{tikz-cd}
-\usepackage{mathbbol} % changes \mathbb{} and adds more support
-\usepackage[shortcuts]{extdash} % hyphenation, e.g. non\-/constructively
+
+% Text and quoting
 \usepackage{csquotes}
-\usepackage{bm}
+\usepackage[shortcuts]{extdash} % Hyphenation, e.g. non\-/constructively
+
+% Lists
 \usepackage{enumerate}
+\usepackage{enumitem}
+
+% Comments and to-do's
+\usepackage{todo}
+\def\todoname{Comments, remarks and to-do's}

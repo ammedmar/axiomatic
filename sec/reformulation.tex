@@ -7,7 +7,7 @@ linearly, we pass from cochains to chains, their pre-dual; and combinatorially, 
 
 \subsection{Cup-\textit{i} coproducts}
 
-A \textbf{cup-$i$ coproduct structure} on a chain complex $C$ is an $\Sym_2$-equivariant chain map
+A \defn{cup-$i$ coproduct structure} on a chain complex $C$ is an $\Sym_2$-equivariant chain map
 \[
 \begin{tikzcd}[column sep=small,row sep=0]
 	\triangle \colon &[-15pt] W \rar & \Hom(C, C^{\ot 2}) \\
@@ -140,15 +140,15 @@ where $\sigma_j$ also denotes the induced map on subsets, i.e., $\sigma_j(S) = \
 
 \begin{proof}
 	Since any non-degenerate simplex in $\simplex^n$ is a face of the top dimensional one $[n]$, this assignment defines a bijection between the basis of $\cP(\simplex^n)_m$ and $\chains(\simplex^n)_m$.
-	Let $U = \{u_1 < \cdots < u_{n-m}\} \in \rP_{n-m}^n$.
+	Let $U = \{u_1 < \dots < u_{n-m}\} \in \rP_{n-m}^n$.
 	For $m=0$, both sides have zero boundary.
 	For $m>0$, using that for $u \leq j$ we have $d_jd_u = d_ud_{j+1}$, we have
 	\begin{align*}
 		\bd d_U[n] &=
 		\sum_{\mathclap{j \in \{0, \dots, m\}}}
-		d_j\, d_{u_1} \cdots\, d_{u_{n-m}}[n] \\ &=
+		d_j\, d_{u_1} \dots\, d_{u_{n-m}}[n] \\ &=
 		\sum_{\mathclap{\bar u \in \{0, \dots, n\} \setminus U}}
-		d_{u_1} \cdots\, d_{\bar{u}} \cdots\, d_{u_{n-m}}[n] \\ &=
+		d_{u_1} \dots\, d_{\bar{u}} \dots\, d_{u_{n-m}}[n] \\ &=
 		\sum_{\mathclap{\bar u \in \{0, \dots, n\} \setminus U}}
 		d_{\{\bar u\} \union U}[n] \\ &=
 		d_{\bd U}[n].

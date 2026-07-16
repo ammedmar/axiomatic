@@ -9,23 +9,23 @@ We also show that the three \(E_\infty\)-coalgebra structures on simplicial chai
 
 \subsection{Original construction}\label{ss:original}
 
-We now review, using the perspective developed in \cref{s:reformulation}, \textbf{Steenrod's \mbox{cup-$i$} construction} \cite[p.293]{steenrod1947products}.
+We now review, using the perspective developed in \cref{s:reformulation}, \defn{Steenrod's \mbox{cup-$i$} construction} \cite[p.293]{steenrod1947products}.
 If $i > n$ then $\triangle_i^\rS [n] = 0$, otherwise it is given by the sum over all ordered sequences of integers
 \[
-0 \leq p_1 < \cdots < p_{i+1} \leq n
+0 \leq p_1 < \dots < p_{i+1} \leq n
 \]
 of the basis element
 \begin{equation}\label{e:original i odd}
 \begin{split}
-[ 0, \dots, &{p_1} ] \ast [ {p_2}, \dots, {p_3} ] \ast \cdots \ast [ {p_{i+1}}, \dots, n ] \\
-\ot \ [ &{p_1}, \dots, {p_2} ] \ast \cdots \ast [ {p_{i}}, \dots, {p_{i+1}} ]
+[ 0, \dots, &{p_1} ] \ast [ {p_2}, \dots, {p_3} ] \ast \dots \ast [ {p_{i+1}}, \dots, n ] \\
+\ot \ [ &{p_1}, \dots, {p_2} ] \ast \dots \ast [ {p_{i}}, \dots, {p_{i+1}} ]
 \end{split}
 \end{equation}
 if $i$ is odd, and of
 \begin{equation}\label{e:original i even}
 \begin{split}
-[ 0, \dots, &{p_1} ] \ast [ {p_2}, \dots, {p_3} ] \ast \cdots \ast [ {p_{i}}, \dots, {p_{i+1}} ] \\
-\ot \ [ &{p_1}, \dots, {p_2} ] \ast [ {p_3}, \dots, {p_4} ] \ast \cdots \ast [ {p_{i+1}}, \dots, n ]
+[ 0, \dots, &{p_1} ] \ast [ {p_2}, \dots, {p_3} ] \ast \dots \ast [ {p_{i}}, \dots, {p_{i+1}} ] \\
+\ot \ [ &{p_1}, \dots, {p_2} ] \ast [ {p_3}, \dots, {p_4} ] \ast \dots \ast [ {p_{i+1}}, \dots, n ]
 \end{split}
 \end{equation}
 if $i$ is even, where $\ast$ denotes the join of simplices:
@@ -48,29 +48,29 @@ if $i$ is even, where $\ast$ denotes the join of simplices:
 	If it is not free, then there exist two, not necessarily distinct, sequences
 	\begin{align*}
 	\begin{split}
-	0 &= p_0 \leq p_1 < \cdots < p_{i+1} \leq p_{i+2} = n \\
-	0 &= q_0 \leq q_1 \,< \cdots < q_{i+1} \leq q_{i+2} = n
+	0 &= p_0 \leq p_1 < \dots < p_{i+1} \leq p_{i+2} = n \\
+	0 &= q_0 \leq q_1 \,< \dots < q_{i+1} \leq q_{i+2} = n
 	\end{split}
 	\end{align*}
 	such that
 	\[
 	\begin{split}
-	&[ {p_0}, \dots, {p_1} ] \ast [ {p_2}, \dots, {p_3} ] \ast \cdots \ast [ {p_{i}}, \dots, {p_{i+1}} ]\ = \\
-	&[ {q_1}, \dots, {q_2} ] \ast [ {q_3}, \dots, {q_4} ] \ast \cdots \ast [ {q_{i+1}}, \dots, {q_{i+2}} ]
+	&[ {p_0}, \dots, {p_1} ] \ast [ {p_2}, \dots, {p_3} ] \ast \dots \ast [ {p_{i}}, \dots, {p_{i+1}} ]\ = \\
+	&[ {q_1}, \dots, {q_2} ] \ast [ {q_3}, \dots, {q_4} ] \ast \dots \ast [ {q_{i+1}}, \dots, {q_{i+2}} ]
 	\end{split}
 	\]
 	and
 	\[
 	\begin{split}
-	&[ {q_0}, \dots, {q_1} ] \ast [ {q_2}, \dots, {q_3} ] \ast \cdots \ast [ {q_{i}}, \dots, {q_{i+1}} ]\ = \\
-	&[ {p_1}, \dots, {p_2} ] \ast [ {p_3}, \dots, {p_4} ] \ast \cdots \ast [ {p_{i+1}}, \dots, {p_{i+2}} ].
+	&[ {q_0}, \dots, {q_1} ] \ast [ {q_2}, \dots, {q_3} ] \ast \dots \ast [ {q_{i}}, \dots, {q_{i+1}} ]\ = \\
+	&[ {p_1}, \dots, {p_2} ] \ast [ {p_3}, \dots, {p_4} ] \ast \dots \ast [ {p_{i+1}}, \dots, {p_{i+2}} ].
 	\end{split}
 	\]
 	We will prove that $p_{r+1} = q_{r+1} = r$ for $0 \leq r \leq i$.
 	Granting this, the largest vertices appearing in the two sides of the second identity are $q_{i+1} = i$ and $p_{i+2} = n$, respectively, giving the contradiction $i = n$.
 	The base case $r = 0$ holds since the smallest vertices of the two sides of the first identity are $p_0 = 0$ and $q_1$, and those of the second are $q_0 = 0$ and $p_1$.
 	For the induction step, assume $p_s = q_s = s - 1$ for $1 \leq s \leq r$ with $r \leq i$, and let $r$ be even.
-	The vertices of the right hand side of the first identity smaller than $q_{r+1}$ are those of $[q_1, \dots, q_2] \ast \cdots \ast [q_{r-1}, \dots, q_r]$, namely $0, \dots, r-1$.
+	The vertices of the right hand side of the first identity smaller than $q_{r+1}$ are those of $[q_1, \dots, q_2] \ast \dots \ast [q_{r-1}, \dots, q_r]$, namely $0, \dots, r-1$.
 	Since the left hand side contains the interval $[p_r, \dots, p_{r+1}]$ and $p_{r+1} > p_r = r - 1$, the vertex $r$ belongs to it, forcing $q_{r+1} = r$.
 	The second identity gives $p_{r+1} = r$ in the same way, and for $r$ odd the same argument applies with the roles of the two identities exchanged.
 
@@ -101,7 +101,7 @@ In work by Real \cite{real1996computability}, further developed by Gonz\'alez\-/
 \chains(\simplex^n) \ot \chains(\simplex^n) \,: \EZ
 \]
 and an explicit natural chain homotopy $\mathrm{SHI}$ between their non-trivial composition $\EZ \AW$ and the identity.
-The natural linear transformations defining \textbf{Real's simplicial \mbox{cup-$i$} construction} are
+The natural linear transformations defining \defn{Real's simplicial \mbox{cup-$i$} construction} are
 \[
 \triangle^{\mathrm{R}}_i = \AW (T \, \mathrm{SHI})^i.
 \]
