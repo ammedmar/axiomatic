@@ -118,7 +118,8 @@ We will do so in three stages \(i \geq n\), \(i = n - 1\), and \(i \leq n-2\).
 		(1+T)\canonical_{n-3}[n] + \bd\delta.
 	\end{align*}
 	Since $(1+T)\triangle_{n-3}[n]$ and $(1+T)\canonical_{n-3}[n]$ are in the kernel of $\pired$, so is $\bd\delta$; that is, the irreducible chain $\delta$ is in the kernel of $(\pired \circ \bd)$.
-	The chain $\delta$ has degree $2n-2 \geq n$ so, by \cref{t:augmented_partition_subcomplex}, it is a sum of partition chains and, since partition chains are fixed by $T$, we conclude that $(1+T)\delta = 0$, proving \cref{eq:bd_triangle}.
+	The chain $\delta$ has degree $2n-2\geq n$, so \cref{st:augmented_partition_subcomplex} applies.
+	It follows that $\delta$ is a sum of partition chains and, since partition chains are fixed by $T$, we conclude that $(1+T)\delta = 0$, proving \cref{eq:bd_triangle}.
 
 	We now show that \cref{eq:bd_triangle} implies either $\xi \equiv 0$ or $\xi \equiv 1$.
 	By \cref{eq:boundary_partition_chain}, the left hand side of \cref{eq:bd_triangle} equals
@@ -176,7 +177,7 @@ We will do so in three stages \(i \geq n\), \(i = n - 1\), and \(i \leq n-2\).
 		\end{split}
 	\end{equation}
 	Since $(1+T)\triangle_{i-1}[n]$ and $(1+T)\canonical_{i-1}[n]$ are in the kernel of $\pired$, the irreducible chain $\delta$ is in the kernel of $(\pired \circ \bd)$.
-	The chain $\delta$ has degree $n+i \geq n$ so, by \cref{t:augmented_partition_subcomplex}, it is a sum of partition chains.
+	The chain $\delta$ has degree $n+i\geq n$, so \cref{st:augmented_partition_subcomplex} applies and shows that it is a sum of partition chains.
 	If the partition chain of some $U \in \P^n_{n-i}$ appeared in this sum then, since partition chains of distinct sets share no basis elements, $\delta$ would contain all $2^{n-i}$ basis elements $V \ot W$ with $V \union W = U$ and $V \cap W = \emptyset$; but by its explicit form above, $\delta$ contains at most two of them, and $2^{n-i} > 2$ since $n - i = k > 1$.
 	Therefore $\delta = 0$, that is, $\triangle_i[n] = T^{\varepsilon_i}\canonical_i[n]$, completing the induction.
 
