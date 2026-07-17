@@ -1,6 +1,6 @@
-\section{Existence: the canonical construction}
+\section{Existence}
 
-Using the reformulation established in the previous section, we present a simplicial cup-\(i\) construction satisfying all the axioms.
+Using the reformulation established in the previous section, we present a simplicial cup-\(i\) construction satisfying all our axioms.
 It plays a central role in the proof of our main theorem in \cref{s:proof}, and in \cref{ss:original} we prove that it coincides with Steenrod's original construction.
 This construction appeared first in \cite{medina2025fast_sq} and was used in \cite{medina2022per_st} to compute persistent Steenrod squares of real-world data.
 
@@ -53,35 +53,3 @@ and, for $n > 0$,
 \sum_{\mathclap{\substack{\quad u \in \{0,\dots,n\} \\ u \ \mathrm{odd}}}} \,\{u\} \ot \emptyset \ + \
 \sum_{\mathclap{\substack{\quad u \in \{0,\dots,n\} \\ u \ \mathrm{even}}}} \,\emptyset \ot \{u\}.
 \]
-
-%\subsection{Canonical cup-\textit{i} construction}\label{ss:canonical}
-%
-%To prove our main result we will use the \mbox{cup-$i$} construction introduced in \cite{medina2025fast_sq}.
-%Before we recall its definition, let us introduce the following notation:
-%For any $n$-simplex $x$ and set $U = \{u_1 < \dots < u_r\} \subseteq \set[big]{0,\dots,n}$ we write $d_U(x)$ for the composition of face maps $d_{u_1}\!\! \dotsm d_{u_r}(x)$ with $d_{\emptyset}(x) = x$.
-%
-%Let $X$ be a semi-simplicial set, $x$ an $n$-simplex of $X$, and $\alpha, \beta$ two cochains in $\cochains(X)$, then, by definition,
-%\[
-%(\alpha \cup_i \beta)(x) =
-%\begin{cases}
-%	(\alpha \ot \beta) \sum d_{U^0}(x) \ot d_{U^1}(x) &
-%	\text{if } i \in \{0, \dots, n\}, \\
-%	\hfil 0 &
-%	\text{otherwise},
-%\end{cases}
-%\]
-%where the sum is taken over all $U = \{u_1 < \dots < u_{n-i}\} \subseteq \{0, \dots, n\}$ and
-%\[
-%U^0 = \{u_j \in U \mid u_j + j \equiv 0 \text{ mod } 2\}, \qquad
-%U^1 = \{u_j \in U \mid u_j + j \equiv 1 \text{ mod } 2\}.
-%\]
-%As an example we mention that, if $i = 0$, the above formula gives
-%\[
-%(\alpha \cup_0 \beta)(x) =
-%\sum_{j=0}^n \alpha \big(d_{j+1} \dots d_{n}(x)\big) \cdot \beta \big(d_{0} \dots d_{j-1}(x)\big),
-%\]
-%the well-known Alexander--Whitney product.
-%
-%The fact that these formulas define a semi-simplicial \mbox{cup-$i$} construction is proved in \cite{medina2025fast_sq}.
-%They also underlie the algorithm for persistent Steenrod invariants introduced in \cite{medina2022per_st} and implemented in \texttt{steenroder}.
-%We call this the \defn{canonical \mbox{cup-$i$} construction}.
