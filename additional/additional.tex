@@ -3,6 +3,8 @@
 \input{../aux/packages}
 \input{../aux/usualcmds}
 \input{../aux/commands}
+\addbibresource{../aux/usualpapers.bib}
+\addbibresource{../aux/bibliography.bib}
 
 \title[Additional material]{THE SPACE OF CUP-$i$ CONSTRUCTIONS \\ \large Additional material for ``An axiomatic characterization of Steenrod's cup-$i$ products''}
 
@@ -254,6 +256,19 @@ Under the equivalence with chains, the reducible subcomplex corresponds to $\sum
 Moreover, reading the removed sets as vertex sets, the irreducible basis elements are exactly the cells of the simplicial \emph{deleted product} of $\simplex^n$ -- the pairs of vertex-disjoint faces -- a classical object of embedding theory carrying a free $\Sym_2$-action away from the diagonal, where equivariant cohomology and the resolution $W$ are the standard tools.
 In this light, an irreducible \mbox{cup-$i$} construction is an equivariant chain-level representative of the generator of $\rH_n\big(\rQ(\simplex^n)\big)$, and the main theorem describes the rigidity of such representatives in the presence of the freeness axiom.
 
+\subsection*{A Hopf-algebraic program}
+
+As recalled in the main text, the algebra $\Lambda_n$ is the group ring $\F[C_2^{\, n+1}]$ under $t_u = 1 + x_u$, but the partition coproduct is the primitively generated structure, the Cartier dual of the group-ring one.
+Several threads deserve a fuller treatment, which we leave for future work.
+\begin{enumerate}
+	\item The primitively generated exterior Hopf algebra is self-dual: the top class $x_{\set{0,\dots,n}}$ furnishes a Poincar\'e duality pairing $\coeff{x_U \cdot x_{U'}}{x_{\set{0,\dots,n}}}$ under which the multiplication $\mu$ and the partition coproduct $\Delta$ are adjoint.
+	The duality between the reducible subcomplex $\ker\mu$ and the partition subcomplex $\operatorname{im}\Delta$, and hence between the description of the partition chains in \cref{l:partition_chains} and the reducible quotient, is the algebraic form of the Poincar\'e--Lefschetz duality of the deleted product sketched above.
+	\item The complex $W$ is the minimal free resolution of $\F$ over $\F[C_2]$, and $\widehat{\cP}(\simplex^n)$ is the Koszul complex of the augmentation element over $\F[C_2^{\, n+1}] = \F[C_2]^{\ot(n+1)}$.
+	Both sides of the defining identity are thus multiplication by an augmentation element in the group ring of an elementary abelian $2$-group, and a \mbox{cup-$i$} construction is an equivariant map between such complexes.
+	We caution that $\widehat{\cP}(\simplex^n)$ is the \emph{finite} Koszul complex, not the infinite periodic resolution $W^{\ot(n+1)}$ of $\F$ over the same ring, nor is the relevant coproduct the group-ring one; conflating these would misidentify the structure.
+	\item The odd-primary theory would replace $C_2$ by $C_p$ and the exterior algebra by a truncated polynomial algebra, connecting the present picture to the cup-$(p,i)$ constructions of \cite{medina2021may_st}.
+\end{enumerate}
+
 \section{The space of cup-\textit{i} constructions}\label{s:space}
 
 The examples of the main text and the construction of \cref{s:pascal} indicate that the space of semi-simplicial \mbox{cup-$i$} constructions is large.
@@ -293,4 +308,6 @@ These observations suggest the following problems, which we leave open:
 	Computer experiments indicate that, at $i_0 = 0$, beyond the twist family $(1+T)\canonical_0$ there is a space of solutions whose first non-vanishing components are sums $\zeta_{\hat{u}} + \zeta_{\hat{v}}$ of partition chains of co-vertex sets, of which the construction of \cref{s:pascal} is one member; a closed-form description of all of them is unknown.
 	\item Describe the quotient of the space of irreducible constructions by the isomorphism relation, that is, by the twist action of $\prod_{\N} \Sym_2$.
 \end{enumerate}
+
+\printbibliography
 \end{document}
