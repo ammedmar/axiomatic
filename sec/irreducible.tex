@@ -124,7 +124,14 @@ Consequently, by \cref{eq:augmented_irreducible_kernel}, if $\pired(\bd\zeta) = 
 \end{theorem}
 
 \begin{proof}
-	Let $\triangle$ be an irreducible semi-simplicial \mbox{cup-$i$} construction, and fix $i,n \in \N$ with $n > 0$.
+	Let $\triangle$ be an irreducible semi-simplicial \mbox{cup-$i$} construction.
+	By \cref{l:simplicial_from_semisimplicial}, it suffices to show that
+	\[
+		\cP(\sigma_j)^{\ot 2}\triangle_i[n] = 0
+	\]
+	for every codegeneracy $\sigma_j \colon [n] \to [n-1]$.
+	We derive this from the reducible part of the cup-$i$ identity.
+	Fix $i,n \in \N$ with $n > 0$.
 	We use the coefficient notation $\coeff{\zeta}{V \ot W}$ introduced in \cref{ss:axioms_revisited}.
 	Each $\triangle_i[n]$ has degree $n+i\geq n$, so the preceding comparison allows us to compute the reducible part of its boundary in the augmented complex while retaining the ordinary cup-$i$ identities.
 
@@ -152,7 +159,6 @@ Consequently, by \cref{eq:augmented_irreducible_kernel}, if $\pired(\bd\zeta) = 
 	\end{equation}
 	holding for every basis element $X \ot Y$ with $X \cap Y = \set{k}$.
 
-	By \cref{l:simplicial_from_semisimplicial}, it suffices to show that $\cP(\sigma_j)^{\ot 2}\triangle_i[n] = 0$ for every codegeneracy $\sigma_j \colon [n] \to [n-1]$.
 	Inspecting \cref{eq:codegeneracies}, an irreducible basis element $V \ot W$ satisfies $\cP(\sigma_j)^{\ot 2}(V \ot W) \neq 0$ if and only if one of $j,j+1$ belongs to $V$ and the other belongs to $W$.
 	For such an element, let $V' \ot W'$ be the irreducible basis element obtained by exchanging $j$ and $j+1$; explicitly, if $j \in V$ and $j+1 \in W$, then $V' = (V \setminus j) \union \set{j{+}1}$ and $W' = (W \setminus j{+}1) \union \set{j}$.
 	A direct verification using \cref{eq:codegeneracies} shows that
