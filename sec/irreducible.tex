@@ -20,8 +20,7 @@ Grading $\Lambda_n$ so that $x_U$ has degree $n - \bars{U}$, the assignment $U \
 \]
 since $\omega\, x_U = \sum_{\bar u \notin U} x_{\bar u . U}$, the terms with $\bar u \in U$ vanishing because $x_{\bar u}^2 = 0$.
 In what follows we use $U$ and $x_U$ interchangeably.
-This Koszul complex factors as the tensor product of the complexes $\big(\Lambda(x_u),\, x_u \cdot -\big)$, each of them exact, so $\widehat{\cP}(\simplex^n)$ is acyclic as expected.
-%Under this identification, the chain map induced by a coface $\delta_j$ corresponds to the relabeling of generators along $\delta_j$ followed by multiplication by $x_j$.
+This Koszul complex factors as the tensor product of the complexes $\big(\Lambda(x_u),\, x_u \cdot -\big)$, each of them acyclic.
 
 \begin{remark*}\label{r:group_ring}
 	Writing $t_u = 1 + x_u$ identifies $\Lambda_n$ with the group ring $\F[C_2^{\, n+1}]$ of an elementary abelian $2$-group, under which the Koszul element $\omega = \sum_u (1 + t_u)$ is the sum of the augmentation elements of its factors.
@@ -62,8 +61,9 @@ It is, however, not a derivation of the product: $\bd(x_V\, x_W) = \omega\, x_V\
 Thus, $\widehat{\cP}(\simplex^n)$ is a differential graded coalgebra but not a differential graded Hopf algebra.
 
 \begin{remark*}
-	The partition coproduct does \emph{not} correspond to the group-ring coproduct $\F[C_2^{\, n+1}]$: it makes each $x_u$ primitive rather than each $t_u$ grouplike, and the two are non-isomorphic as Hopf algebras -- the group ring has $2^{n+1}$ grouplike elements, whereas the partition coproduct has only one.
-	The primitively generated structure is the Cartier dual of the group ring, and also the mod~$2$ homology of the $(n+1)$-torus; we develop this perspective in the companion note.
+	The partition coproduct does \emph{not} correspond to the group-ring coproduct $\F[C_2^{\, n+1}]$ as it makes each $x_u$ primitive rather than each $t_u$ grouplike.
+	The two are non-isomorphic as Hopf algebras since the group ring has $2^{n+1}$ grouplike elements, whereas the partition coproduct has only one.
+	The primitively generated structure is the Cartier dual of the group ring, and also the mod~$2$ homology of the $(n+1)$-torus.
 \end{remark*}
 
 
