@@ -7,10 +7,10 @@ The following recursive definition, introduced in \cite{medina2023dennis}, recov
 	\begin{split}
 		& \triangle^\rS_0 = \triangle_{\text{AW}}, \\
 		& \triangle^\rS_i =
-		(\ast \ot \id) \circ (\id \ot T \canonical_{i-1}) \circ \triangle_{\text{AW}}.
+		(\ast \ot \id) \circ (\id \ot T \triangle^\rS_{i-1}) \circ \triangle_{\text{AW}}.
 	\end{split}
 \end{equation}
-It does so with integer coefficients with the \defn{algebraic join} defined by
+These formulas hold with integer coefficients, using the \defn{algebraic join} defined by
 \begin{multline}
 	\ast \big(\left[v_0, \dots, v_p \right] \ot \left[v_{p+1}, \dots, v_q\right]\big) =\\
 	\begin{cases}
@@ -45,7 +45,7 @@ Its action on simplicial chains is the natural transformation
 	\circ \pi_s \circ \Delta^{[\ell]},
 \end{equation}
 where $\pi_s$ is the Koszul-signed permutation that groups the tensor factors according to the fibers of $s$, preserving their order within each fiber.
-These operations define the standard action of the McClure--Smith surjection operad $\cX$ \cite{mcclure2003multivariable, medina2020prop1}.
+These operations define the standard action of the McClure--Smith surjection operad $\cX$ \cite{mcclure2003multivariable}; its realization within the prop-generated structure above is proved in \cite[Appendix~1]{medina2020prop1}.
 
 With $\Ftwo$-coefficients, the alternating surjections
 \[

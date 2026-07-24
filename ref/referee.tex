@@ -11,7 +11,7 @@
 \setlist{label=\arabic{enumi}.,itemsep=\medskipamount, left=0pt}
 
 %%%%%%%%%%%%%%%%%%%%%%
-\title[Referee reply]{REFEREE REPLY \\ An axiomatic characterization of Steenrod cup-$i$ products}
+\title[Referee reply]{REFEREE REPLY \\ An axiomatic characterization of Steenrod's cup-$i$ products}
 
 \newcommand{\ar}{\medskip\noindent\textit{Reply}:\ }
 \renewcommand{\thesection}{\arabic{section}}
@@ -39,15 +39,12 @@
 		\item The main theorem is now stated and proved for \emph{semi-simplicial} \mbox{cup-$i$} constructions, with the simplicial case as a consequence, and the third axiom was weakened from non-degenerate ($x \cup_0 x \neq 0$ for $0$-simplices) to non-zero (not identically zero).
 		Both changes strengthen the characterization.
 
-		\item The proof was restructured around a new device, the \emph{partition chains} of Section~4, which we believe yields a shorter and more transparent argument.
-		The consequences of the irreducibility and freeness axioms are now developed in dedicated sections (Sections~4 and~5) before the proof of the main theorem (Section~6).
+		\item The proof was restructured around a new device, the \emph{partition chains} of Section~5, which we believe yields a shorter and more transparent argument.
+		The consequences of the irreducibility and freeness axioms are now developed in dedicated sections (Sections~5 and~6) before the proof of the main theorem (Section~7).
 
-		\item The revision contains a new theorem (Theorem~4.4): every irreducible semi-simplicial \mbox{cup-$i$} construction is automatically simplicial, so the semi-simplicial and simplicial classification problems coincide.
+		\item The revision contains a new theorem (Theorem~5.8): every irreducible semi-simplicial \mbox{cup-$i$} construction is automatically simplicial, so the semi-simplicial and simplicial classification problems coincide.
 
-		\item Following the referee's suggestion (item~14 below), the revision contains a new section (Section~7) proving that the axioms of the main theorem are independent.
-
-		\item The entire manuscript underwent a complete verification pass; all explicit formulas, examples, and agreement statements were additionally checked by computer.
-		The corrections this produced are listed in \cref{s:additional}.
+		\item Following the referee's suggestion (item~14 below), the revision contains a new section (Section~8) proving that the axioms of the main theorem are independent.
 	\end{enumerate}
 
 	\section{Reviewer's individual items}
@@ -55,7 +52,7 @@
 	\begin{enumerate}
 		\item Definition 4: the operation \(\cup_i\) is defined on cochains, but in the definition it is applied to chains.
 
-		\ar The required identification is now stated before the axioms and the definition: ``Below we identify simplices with their associated chain and cochain basis elements'' (Section~2.2), and the definition of the canonical construction (Section~2.4) relies on it.
+		\ar The required identification is now stated immediately before it is used in the axioms: ``Below we identify simplices with their associated chain and cochain basis elements'' (Section~2.2).
 
 		\item Section 3.1, first paragraph: that is natural \(\rightarrow\) that are natural.
 
@@ -63,12 +60,12 @@
 
 		\item Lemma 14: ``from either V or W'': it is not enough clear that either they are missing from V or they are missing from W.
 
-		\ar The passage was reworked during the restructuring: the action of the codegeneracy maps is now given by the explicit formula~(3), which includes the induced map on subsets, and the relevant condition appears unambiguously in the proofs of Theorem~3.9 and Theorem~4.4.
+		\ar The passage was reworked during the restructuring: the action of the codegeneracy maps is now given by the explicit formula~(3), which includes the induced map on subsets, and the relevant condition appears unambiguously in the proofs of Theorem~4.2 and Theorem~5.8.
 
 		\item Lemma 17: ``an element'': an element of which set precisely?
 
 		\ar The lemma was restated with all objects explicitly typed.
-		It is now Lemma~5.1, whose hypotheses declare the basis elements involved and the space they belong to.
+		It is now Lemma~6.1, whose hypotheses declare the basis elements involved and the space they belong to.
 
 		\item Lemma 17: the sudden appearance of \(\Lambda(i, n)\) is slightly disturbing for the reader, who has not seen it defined before.
 
@@ -77,15 +74,15 @@
 		\item Lemma 17, proof of (1): how is naturality used to prove the statement?
 
 		\ar The argument was replaced.
-		The corresponding statement is now part of the case $i \geq n$ of the main proof (Section~6.1), whose self-contained argument makes no implicit appeal to naturality.
+		The corresponding statement is now part of the case $i \geq n$ of the main proof (Section~7.1), whose self-contained argument makes no implicit appeal to naturality.
 
 		\item Lemma 19: is the partition unique?
 
-		\ar In the current formulation the choice is parameterized by a function $\xi$ whose uniqueness is part of the statement (Lemma~5.1).
+		\ar In the current formulation the choice is parameterized by a function $\xi$ whose uniqueness is part of the statement (Lemma~6.1).
 
 		\item Lemma 20: at this point the reader might not remember that \(\Delta\) is the canonical cup product, while \(\triangle\) is the one being inspected. In fact, he might not have noticed that a new symbol was introduced in Lemma 16.
 
-		\ar The notation was changed to prevent this confusion: the canonical construction is now denoted $\canonical$ throughout, and the statements of Section~6 display it explicitly.
+		\ar The notation was changed to prevent this confusion: the canonical construction is now denoted $\canonical$ throughout, and the statements of Section~7 display it explicitly.
 
 		\item Section 4.7: there is an \(r\) that has not been declared before.
 
@@ -98,39 +95,37 @@
 		\item Theorem 28 is not a side theorem of the paper: it is mentioned in the abstract. Therefore, it deserves a proper proof: part of the justification of the main theorem of the article is that it allows a simpler proof of the equivalence of Steenrod's and Real's constructions than a direct comparison. But that is not apparent with the current writing.
 
 		\ar A complete proof is now given.
-		Theorem~8.2 verifies the axioms for Steenrod's construction -- non-vanishing, irreducibility, and freeness, the latter through an induction on the cut points of the summands -- and concludes with a tie-breaking comparison on $\simplex^{i+1}$.
-		The same treatment is given to Real's construction (Theorem~8.4).
+		The theorem in Section~9.1 verifies the axioms for Steenrod's construction -- non-vanishing, irreducibility, and freeness, the latter through an induction on the cut points of the summands -- and concludes with a tie-breaking comparison on $\simplex^{i+1}$.
+		The same treatment is given to Real's construction in Section~9.2.
 		Both agreements were additionally verified by computer for all $i \leq n \leq 8$.
 
 		\item Section 6: Recall that an \(E_\infty\)-operad is an operad with the same homology as \(Z\) whose symmetric action on each arity is free. I think an \(E_\infty\)-operad needs to be projective or free as well.
 
-		\ar We kept the standard definition, found for example in May: an $E_\infty$-operad is required to be free as a symmetric module, and not necessarily free as an operad or cofibrant in a model category of operads.
+		\ar The passage containing this definition was removed when the final section was restructured, so the revised manuscript no longer makes the disputed assertion.
 
 		\item Page 18, first paragraph: you say that the surjection operad is the image of \(U(M)\) in \(Z\).
 		Isn't that the point of Appendix 1 in ``A finitely presented \(E_\infty\)-prop I: algebraic context''. If so, it would be good to quote that appendix.
 
-		\ar The citation was added (Section~9).
+		\ar The requested pinpoint citation to Appendix~1 was added in Section~9.4.
 
 		\item Apart from these comments, here is a suggestion: it would be interesting to give examples of cup-\(i\) product constructions that fail to satisfy any of the three axioms (free, non-degenerate, and irreducible).
 
 		\ar This suggestion is now fully implemented, and became one of the contributions of the revised article.
-		Section~7 proves that the three axioms are independent by exhibiting, for each of them, a simplicial \mbox{cup-$i$} construction satisfying the other two that is not isomorphic to the canonical one: the zero construction for the non-zero axiom, the construction $(1+T)\canonical$ for freeness, and an explicit modification of the canonical construction for irreducibility.
-		We remark that in the current version the third axiom is the weaker non-zero (see \cref{s:overview}); for the stronger non-degeneracy axiom used in the version the referee reviewed, establishing the independence of freeness requires a considerably more elaborate construction, which we chose not to include in the article.
+		Section~8 proves that the three axioms are independent by exhibiting, for each of them, a simplicial \mbox{cup-$i$} construction satisfying the other two that is not isomorphic to the canonical one: the zero construction for the non-zero axiom, the construction $(1+T)\canonical$ for freeness, and an explicit modification of the canonical construction for irreducibility.
+		We remark that the non-degeneracy axiom in the version reviewed by the referee has been replaced by the weaker non-zero axiom (see \cref{s:overview}); establishing the independence of freeness under the stronger non-degeneracy axiom requires a considerably more elaborate construction, which we chose not to include in the article.
 	\end{enumerate}
 
 	\section{Additional corrections}\label{s:additional}
 
-	The verification pass mentioned in \cref{s:overview} produced the following corrections, which we record for completeness.
-
 	\begin{enumerate}
 		\item In the action of codegeneracies on the functor $\cP$, formula~(3), the induced relabeling of subsets was previously implicit and is now explicit.
 
-		\item In the unravelled formulas for Real's construction (Section~8.3), the two displayed cases are distinguished by the parity of $i$; they were previously mislabeled by the parity of $n$.
+		\item In the unravelled formulas for Real's construction (Section~9.2), the two displayed cases are distinguished by the parity of $i$; they were previously mislabeled by the parity of $n$.
 		With this correction the case split matches, under the change of notation recorded in the accompanying footnote, the one of Gonz\'alez\-/D\'iaz\--Real.
 
-		\item In the freeness verification for Steenrod's construction (Theorem~8.2), the parity assumption was aligned with the displayed identities, and the induction argument was written out in full.
+		\item In the freeness verification for Steenrod's construction (Section~9.1), the parity assumption was aligned with the displayed identities, and the induction argument was written out in full.
 
-		\item The case analysis of Section~6.1 was completed to exclude both types of transitions between consecutive values of $\triangle_n[n]$.
+		\item The case analysis of Section~7.1 was completed to exclude both types of transitions between consecutive values of $\triangle_n[n]$.
 
 		\item The author's affiliation was updated.
 	\end{enumerate}
