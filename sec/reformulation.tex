@@ -158,30 +158,28 @@ where $\sigma_j$ also denotes the induced map on subsets, i.e., $\sigma_j(S) = \
 By combining \cref{ss:naturality} and \cref{ss:equivalence_of_functors}, we can see that the data of a semi-simplicial \mbox{cup-$i$} construction $\triangle$ is a collection, indexed by $i,n \in \N$, of elements
 \begin{equation*}\label{eq:cup-i_dually}
 	\triangle_i [n] =
-	\sum_{\mathclap{\quad \lambda \in \Lambda(i,n)}} \, V_\lambda \ot W_\lambda
+	\sum_{\mathclap{\quad V \ot W \in \Lambda(i,n)}} \, V \ot W
 \end{equation*}
 in $\cP(\simplex^n)^{\ot 2}_{i+n}$
-where $\Lambda(i,n)$ is a finite (possibly empty) indexing set, and $V_\lambda \ot W_\lambda$ is a basis element for each $\lambda \in \Lambda(i,n)$.
+where $\Lambda(i,n)$ denotes the (possibly empty) set of basis elements occurring as summands of $\triangle_i[n]$.
 For a chain $\zeta$ and a basis element $V \ot W$ of $\cP(\simplex^n)^{\ot 2}$ we write $\coeff{\zeta}{V \ot W} \in \F$ for the coefficient of $V \ot W$ in $\zeta$.
 
 \begin{lemma}\label{l:dual_axioms}
 	A semi-simplicial \mbox{cup-$i$} construction $\triangle$ is:
 	\begin{enumerate}
-		\item Irreducible if and only if
-		$V_\lambda \cap W_\lambda = \emptyset$
-		for every $i, n \in \N$ and $\lambda \in \Lambda(i,n)$.
-		\item Free if and only if
-		$V_{\lambda} \ot W_{\lambda} \neq W_{\lambda'} \ot V_{\lambda'}$
-		for every $i, n \in \N$ with $i \neq n$ and $\lambda, \lambda' \in \Lambda(i,n)$.
+		\item Irreducible if and only if $V \cap W = \emptyset$
+		for every $i, n \in \N$ and $V \ot W \in \Lambda(i,n)$.
+		\item Free if and only if $V \ot W \in \Lambda(i,n)$ implies $W \ot V \notin \Lambda(i,n)$,
+		for every $i, n \in \N$ with $i \neq n$.
 	\end{enumerate}
 \end{lemma}
 
 \begin{proof}
-	There is $k \in V_\lambda \cap W_\lambda$ for one of the summands of $\triangle_i [n]$ if and only if the image of this summand under $\Psi^{\ot 2}$ is
+	There is $k \in V \cap W$ for one of the summands $V \ot W$ of $\triangle_i [n]$ if and only if the image of this summand under $\Psi^{\ot 2}$ is
 	\[
-	\underbrace{d_{V_\lambda \setminus k} \overbrace{d_k[n]}^{y}}_{y^{(1)}}
+	\underbrace{d_{V \setminus k} \overbrace{d_k[n]}^{y}}_{y^{(1)}}
 	\ot
-	\underbrace{d_{W_\lambda \setminus k} \overbrace{d_k[n]}^{y}}_{y^{(2)}}
+	\underbrace{d_{W \setminus k} \overbrace{d_k[n]}^{y}}_{y^{(2)}}
 	\]
 	with $(y^{(1)} \smallsmile_i y^{(2)})[n] \neq 0$.
 	This proves the claim about irreducibility; the one involving freeness follows from direct inspection.
