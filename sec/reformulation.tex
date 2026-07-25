@@ -2,7 +2,7 @@
 
 \section{Reformulation}\label{s:reformulation}
 
-This section provides a more categorical perspective on semi-simplicial \mbox{cup-$i$} constructions, one that is also dual in two complementary senses:
+This section provides a more categorical perspective on \mbox{cup-$i$} constructions, one that is also dual in two complementary senses:
 linearly, we pass from cochains to chains, their pre-dual; and combinatorially, we index the faces of a simplex by their complementary vertex sets, as in Alexander duality.
 
 \subsection{Cup-\textit{i} coproducts}
@@ -73,7 +73,7 @@ Each natural transformation $\triangle_i$ in \eqref{eq:natural_linear_maps} is c
 \[
 \set[\big]{\triangle_i[n] \in \chains(\simplex^n)^{\ot 2}_{n+i}}_{n\in\N}
 \]
-where $[n]$ also denotes the identity $[n] \to [n]$.
+where $[n]$ also denotes the identity $[n] \to [n]$, the top degree basis element.
 %To introduce notation we prove this fact.
 %Consider a simplex $\big(x \colon [m] \to [n] \big) \in \simplex^n_m$ and notice that
 %\[
@@ -87,10 +87,7 @@ We will often present a semi-simplicial \mbox{cup-$i$} construction $\triangle$ 
 \medskip In the simplicial context, the simplex associated to a codegeneracy map $\sigma_j \colon [n] \to [n-1]$ is degenerate in $\simplex^{n-1}$ so it is $0$ in $\chains(\simplex^{n-1})$.
 Therefore,
 \[
-0 = \triangle_i(0) = \triangle_i(\sigma_j) =
-\triangle_i \big( \sigma_j \circ [n] \big) =
-\big( \triangle_i \circ \chains(\sigma_j) \big) [n] =
-\chains(\sigma_j)^{\ot 2} \triangle_i[n],
+\chains(\sigma_j)^{\ot 2} \triangle_i[n] = \big( \triangle_i \circ \chains(\sigma_j) \big)[n] = \triangle_i \big( \sigma_j \circ [n] \big) = \triangle_i(\sigma_j) = \triangle_i(0) = 0.
 \]
 which, together with the fact that codegeneracies and coface maps generate the simplex category, proves the following.
 
