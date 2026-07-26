@@ -119,7 +119,7 @@ Therefore, the freeness axiom cannot be removed from our main theorem.
 
 Let us consider the canonical \mbox{cup-$i$} construction $\canonical$ and the integers $i_0=1$ and $n_0=3$.
 The \mbox{cup-$i$} construction $\widetilde\triangle$ defined in \cref{st:transposing} is both non-zero and free but not irreducible as we will inspect.
-If $i \neq i_0-1$ or $n \not\in \set{n_0,n_0+1}$ then $\widetilde\triangle_i[n]$ is equal to $\triangle_i[n]$ or $T\triangle_i[n]$.
+If $i \neq i_0-1$ or $n \not\in \set{n_0,n_0+1}$ then $\widetilde\triangle_i[n]$ is equal to $\canonical_i[n]$ or $T\canonical_i[n]$.
 With the assistance of \href{https://comch.readthedocs.io/en/latest/}{\texttt{ComCH}} we compute the two cases where the axioms could be broken:
 \[
 \widetilde\triangle_0[3] = (\canonical_0 + \partial\canonical_1)[3] =
@@ -141,7 +141,9 @@ With the assistance of \href{https://comch.readthedocs.io/en/latest/}{\texttt{Co
 	(13)(34) + (123)(3) + (3)(034) + (23)(03) + (3)(013) + (4)(234) +\\
 	(14)(34) + (124)(4) + (4)(034) + (24)(04) + (4)(014).}
 
-\medskip\noindent and conclude that $\widetilde\triangle$ is free and non-zero, but not irreducible.
+\medskip\noindent
+The construction is non-zero because $\widetilde\triangle_0[0]=\canonical_0[0]\neq0$, and it is not irreducible since, for example, $(2)(23)$ is a summand of $\widetilde\triangle_0[3]$.
+It is free because neither exceptional chain displayed above contains a summand together with its transposition, while every other component is canonical or its transposition.
 It is also a simplicial \mbox{cup-$i$} construction.
 By \cref{l:simplicial_from_semisimplicial}, we need each modified component to be annihilated by $\cP(\sigma_j)^{\ot 2}$ for every codegeneracy $\sigma_j$.
 For $T\canonical_{i_0}[n_0]$ and $\bd\canonical_{i_0}[n_0]$ this holds because $\canonical$ is simplicial and $\cP(\sigma_j)^{\ot 2}$ commutes with $T$ and $\bd$.
